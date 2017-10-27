@@ -1,0 +1,37 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="author" content="AceJ"><title>ROC curve,AUC&Recall · Ace</title><meta name="description" content="ROC curve , AUC &amp;amp; Recall 
+ROC（Receiver Operating Characteristic）curve ：
+
+In signal detection theory, a receiver operating characteristic (ROC), or"><meta name="keywords"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="short icon" href="/images/favicon.png" type="image/x-icon"><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/blog_basic.css"><link rel="stylesheet" href="/css/font-awesome.min.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"></head><body><div class="sidebar animated fadeInDown"><div class="logo-title"><div class="title"><img src="/images/logo@2x.png" style="width:127px;"><h3 title=""><a href="/">Ace</a></h3><div class="description"><p>boom pow</p></div></div></div><ul class="social-links"></ul><div class="footer"><a target="_blank" href="/"><span>Theme by </span></a><a href="https://www.caicai.me"> CaiCai </a><span>&</span><a href="https://github.com/Ben02/hexo-theme-Anatole"> Ben</a><div class="by_farbox"><a href="https://hexo.io/zh-cn/" target="_blank">Proudly published with Hexo&#65281;</a></div></div></div><div class="main"><div class="page-top animated fadeInDown"><div class="nav"><li><a href="/">首页</a></li><li><a href="/about">关于</a></li><li><a href="/archives">归档</a></li><li><a href="/links">友链</a></li></div><div class="information"><div class="back_btn"><li><a onclick="window.history.go(-1)" class="fa fa-chevron-left"> </a></li></div><div class="avatar"><img></div></div></div><div class="autopagerize_page_element"><div class="content"><div class="post-page"><div class="post animated fadeInDown"><div class="post-title"><h3><a>ROC curve,AUC&amp;Recall</a></h3></div><div class="post-content"><p><strong>ROC curve , AUC &amp; Recall</strong> </p>
+<p><strong>ROC（Receiver Operating Characteristic）curve</strong> ：</p>
+<blockquote>
+<p>In signal detection theory, a receiver operating characteristic (ROC), or simply ROC curve, is a graphical plot which illustrates the performance of a binary classifier system as its discrimination threshold is varied.</p>
+</blockquote>
+<p>ROC curve 和 AUC curve常用来被评价一个<strong>二值分类器（binary classifier）</strong> ，输出结果只有两种类别的模型，当讯号侦测（或变数测量）的结果是一个连续值，类与类的边界必须用<strong>一个阈值（threshold）</strong> 来界定</p>
+<p>横轴：伪阳率（FPR）False Positive Rate，在所有实际为阳性的样本中，被正确地判断为阳性的比率</p>
+<p>纵轴：真阳率（TPR）True Positive Rate，在所有实际为阴性的样本中，被错误地判断为阳性的比率</p>
+<p><img src="D:\pro\lung\tutorial3\ROC.png" alt="ROC"></p>
+<p>consider 4个点和一条线：</p>
+<p>（0，1），即FPR=0，TPR=1，FN=0，FP=0，完美的分类器</p>
+<p>（1，0），即FPR=1，TPR=0，最糟糕的分类器</p>
+<p>（0，0），FPR＝TPR＝０，FP=TP=0，该分类器预测所有样本为负样本</p>
+<p>（1，1），预测所有的样本为正样本</p>
+<p>ROC曲线越接近左上角，该分类器的性能越好</p>
+<p><strong>AUC（Area Under Curve）</strong> ，被定义为ROC curve下的面积，显然这个面积的数值不大于1，由于ROC curve一般都位于y=x的上方，所以AUC的取值范围一般在0.5和1之间</p>
+<p>AUC=1，完美的分类器，</p>
+<p>0.5&lt;AUC&lt;1，优于随机猜测</p>
+<p>AUC=0.5，随机猜测，模型没有预测价值</p>
+<p>AUC&lt;0.5，比随机猜测还差</p>
+<p>meaning：</p>
+<blockquote>
+<p>The AUC value is equivalent to the probability that a randomly chosen positive example is ranked higher than a randomly chosen negative example.</p>
+</blockquote>
+<p>当测试集的正负样本的分布变化的时候，ROC curve能够保持不变，在实际的数据集中常会出现类平衡（class imbalance）现象，且测试数据样本的分布也可能会随着时间变化，ROC curve基本保持原貌，而Precision-Recall则会变化很大</p>
+<p><strong>精确率 precision</strong> ：预测为真的样本中有多少是真正的正样本 “预测为正的样本有多少是真正的真样本”</p>
+<p>P=TP/（TP+FP）</p>
+<p><strong>召回率 recall</strong> ：样本中的正例有多少被预测正确 </p>
+<p>R=TP/（TP+FN）</p>
+<p><strong>准确率 accuracy</strong> ：</p>
+<p>（TP+TN）/（TP＋FP＋TN＋FN）</p>
+<p><strong>F1 Score</strong> ：</p>
+<p>P * R /2（P+R）</p>
+</div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2017-10-27</span><i class="fa fa-tag"></i><a href="/categories/Machine-Learning/" title="Machine Learning" class="tag">Machine Learning </a></div></div></div></div><div class="share"><div class="evernote"><a href="javascript:(function(){EN_CLIP_HOST='http://www.evernote.com';try{var%20x=document.createElement('SCRIPT');x.type='text/javascript';x.src=EN_CLIP_HOST+'/public/bookmarkClipper.js?'+(new%20Date().getTime()/100000);document.getElementsByTagName('head')[0].appendChild(x);}catch(e){location.href=EN_CLIP_HOST+'/clip.action?url='+encodeURIComponent(location.href)+'&amp;title='+encodeURIComponent(document.title);}})();" ref="nofollow" target="_blank" class="fa fa-bookmark"></a></div><div class="weibo"><a href="javascript:void((function(s,d,e){try{}catch(e){}var f='http://service.weibo.com/share/share.php?',u=d.location.href,p=['url=',e(u),'&amp;title=',e(d.title),'&amp;appkey=2924220432'].join('');function a(){if(!window.open([f,p].join(''),'mb',['toolbar=0,status=0,resizable=1,width=620,height=450,left=',(s.width-620)/2,',top=',(s.height-450)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})(screen,document,encodeURIComponent));" class="fa fa-weibo"></a></div><div class="twitter"><a href="http://twitter.com/home?status=,http://yoursite.com/2017/10/27/ROC-curve-AUC-Recall/,Ace,ROC curve,AUC&amp;Recall,;" class="fa fa-twitter"></a></div></div><div class="pagination"><ul class="clearfix"><li class="next pagbuttons"><a role="navigation" href="/2017/10/25/class-imbalance-problem-in-CNN/" title="class imbalance problem in CNN" class="btn">下一篇</a></li></ul></div></div></div></div></div><script src="/js/jquery.js"></script><script src="/js/jquery-migrate-1.2.1.min.js"></script><script src="/js/jquery.appear.js"></script></body></html>
