@@ -1,0 +1,69 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="author" content="AceJ"><title>U-net:Convolutional Networks for Biomedical Image Segmentation · Ace</title><meta name="description" content="U-Net：Convolutional Networks for Biomedical Image SegmentationAbstract ：
+The architecture consists of a contracting path to capture context and a symm"><meta name="keywords"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="short icon" href="/images/favicon.png" type="image/x-icon"><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/blog_basic.css"><link rel="stylesheet" href="/css/font-awesome.min.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"></head><body><div class="sidebar animated fadeInDown"><div class="logo-title"><div class="title"><img src="/images/logo@2x.png" style="width:127px;"><h3 title=""><a href="/">Ace</a></h3><div class="description"><p>boom pow</p></div></div></div><ul class="social-links"></ul><div class="footer"><a target="_blank" href="/"><span>Theme by </span></a><a href="https://www.caicai.me"> CaiCai </a><span>&</span><a href="https://github.com/Ben02/hexo-theme-Anatole"> Ben</a><div class="by_farbox"><a href="https://hexo.io/zh-cn/" target="_blank">Proudly published with Hexo&#65281;</a></div></div></div><div class="main"><div class="page-top animated fadeInDown"><div class="nav"><li><a href="/">首页</a></li><li><a href="/about">关于</a></li><li><a href="/archives">归档</a></li><li><a href="/links">友链</a></li></div><div class="information"><div class="back_btn"><li><a onclick="window.history.go(-1)" class="fa fa-chevron-left"> </a></li></div><div class="avatar"><img></div></div></div><div class="autopagerize_page_element"><div class="content"><div class="post-page"><div class="post animated fadeInDown"><div class="post-title"><h3><a>U-net:Convolutional Networks for Biomedical Image Segmentation</a></h3></div><div class="post-content"><h4 id="U-Net：Convolutional-Networks-for-Biomedical-Image-Segmentation"><a href="#U-Net：Convolutional-Networks-for-Biomedical-Image-Segmentation" class="headerlink" title="U-Net：Convolutional Networks for Biomedical Image Segmentation"></a>U-Net：Convolutional Networks for Biomedical Image Segmentation</h4><p><em>Abstract</em> ：</p>
+<p>The architecture consists of <strong>a contracting path to capture context and a symmetric expanding path</strong>  that enables precise localization</p>
+<p><em>Introduction</em> ：</p>
+<ul>
+<li><p>The convolutional network，their success was limited due to the size of the available training sets and the size of the considered networks. </p>
+</li>
+<li><p>In many visual tasks，especially in biomedical image processing，the desired output should include localization，i.e.，<strong>a class label is supposed to be assigned to each pixel</strong> . </p>
+</li>
+<li><p>Ciresan et al：trained a network in a sliding-window setup to predict the class label of each pixel by providing a local region (patch) around that pixel as input .</p>
+<ul>
+<li>advantages：<ul>
+<li>this network can localize </li>
+<li>the training data in terms of patches is much larger than the number of training images</li>
+</ul>
+</li>
+<li>disadvantages：<ul>
+<li>it is quite slow because the network must be run separately for each patch , and there is a lot of redundancy due to <strong>overlapping patches</strong>.</li>
+<li>there is a trade-off between localization accuracy and the use of context.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>More recent approaches proposed a classifier output that takes into account the features from multiple layers.</p>
+<p>多尺度融合的深度网络，把某一个像素为中心的不同大小的patch作为多个通道输入到深度网络中学习</p>
+</li>
+<li><p>In this paper , “fully convolutional network” , the main idea is  to supplement a usual contracting network by successive layers , where pooling operators are replaced by upsampling operators .</p>
+</li>
+<li><p>In the <strong>upsampling part</strong> we have alse a large number of feature channels , which allow the network to <strong>propagate context information to higher resolution layers</strong>  . The segmentation map only contains the pixels , for which the full context is available in the input image . To predict the pixels in the border region of the image , the missing context is extrapolated by mirroring the input image . </p>
+</li>
+</ul>
+<ul>
+<li>There is very little training data available , we use <strong>excessive data augmentation by applying elastic deformations</strong> to the available training  images . </li>
+<li>Another challenge is <strong>the separation of touching objects of the same class</strong>  . We propose the use of a weighted loss , where the separating background labels between touching cells <strong>obtain a larger weight in the loss function</strong></li>
+</ul>
+<p><em>Network Architecture</em></p>
+<p><img src="D:\pro\Acedorkz.github.io\blog\source\img\u-net.png" alt="u-net"></p>
+<p><em>Training</em></p>
+<ul>
+<li><p>SGD</p>
+</li>
+<li><p>unpadded</p>
+</li>
+<li><p>larger input tiles over a large batch size </p>
+</li>
+<li><p>softmax</p>
+</li>
+<li><p>The separation border computed using morphological operations </p>
+<p>中间项链的部分像素，认为的提高权重，让network可以重点学习这些特征，以便于分割</p>
+</li>
+<li><p>draw the initial weights from a Gaussian distribution</p>
+</li>
+</ul>
+<p><em>Data Augmentation</em></p>
+<p>Data Augmentation is essential to teach the network the desired invariance and robustness properties , when only few training samples are available .</p>
+<ul>
+<li>Need shift and rotation invariance as well as robustness to deformations and gray value variations</li>
+<li>Generate smooth deformations using random displacement vectors on a coarse 3 by 3 grid .</li>
+</ul>
+<p><em>Experiments</em></p>
+<ul>
+<li>30 images(512*512 pixels)</li>
+<li>ground truth</li>
+<li>membranes</li>
+<li>The u-net (averaged over 7 rotated version of the input data)</li>
+</ul>
+<p><em>Conclusion</em></p>
+<p>The u-net architecture achieves very good performance on very different biomedical segmentation applications . Thanks to data augmentation with elastic deformations , it only needs very few annotated images and has a very reasonable training time . </p>
+</div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2017-10-30</span><i class="fa fa-tag"></i><a href="/categories/project/" title="project" class="tag">project </a></div></div></div></div><div class="share"><div class="evernote"><a href="javascript:(function(){EN_CLIP_HOST='http://www.evernote.com';try{var%20x=document.createElement('SCRIPT');x.type='text/javascript';x.src=EN_CLIP_HOST+'/public/bookmarkClipper.js?'+(new%20Date().getTime()/100000);document.getElementsByTagName('head')[0].appendChild(x);}catch(e){location.href=EN_CLIP_HOST+'/clip.action?url='+encodeURIComponent(location.href)+'&amp;title='+encodeURIComponent(document.title);}})();" ref="nofollow" target="_blank" class="fa fa-bookmark"></a></div><div class="weibo"><a href="javascript:void((function(s,d,e){try{}catch(e){}var f='http://service.weibo.com/share/share.php?',u=d.location.href,p=['url=',e(u),'&amp;title=',e(d.title),'&amp;appkey=2924220432'].join('');function a(){if(!window.open([f,p].join(''),'mb',['toolbar=0,status=0,resizable=1,width=620,height=450,left=',(s.width-620)/2,',top=',(s.height-450)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})(screen,document,encodeURIComponent));" class="fa fa-weibo"></a></div><div class="twitter"><a href="http://twitter.com/home?status=,http://yoursite.com/2017/10/30/U-net-Convolutional-Networks-for-Biomedical-Image-Segmentation/,Ace,U-net:Convolutional Networks for Biomedical Image Segmentation,;" class="fa fa-twitter"></a></div></div><div class="pagination"><ul class="clearfix"><li class="next pagbuttons"><a role="navigation" href="/2017/10/27/ROC-curve-AUC-Recall/" title="ROC curve,AUC&amp;Recall" class="btn">下一篇</a></li></ul></div></div></div></div></div><script src="/js/jquery.js"></script><script src="/js/jquery-migrate-1.2.1.min.js"></script><script src="/js/jquery.appear.js"></script></body></html>
