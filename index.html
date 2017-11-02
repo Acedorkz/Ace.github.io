@@ -184,7 +184,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Home
+            Startseite
           </a>
         </li>
       
@@ -194,7 +194,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
-            About
+            Über
           </a>
         </li>
       
@@ -214,7 +214,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
             
-            Categories
+            Kategorien
           </a>
         </li>
       
@@ -224,7 +224,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archives
+            Archiv
           </a>
         </li>
       
@@ -290,9 +290,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-02T16:24:01+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-02T00:00:00+08:00">
                 2017-11-02
               </time>
             
@@ -311,7 +311,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -354,18 +354,11 @@
       
         
           
-          Deep Residual Learning for Image RecognitionQ：Is learning better networks as simple as stacking more layers？
-A：Noooo
-
+            <h3 id="Deep-Residual-Learning-for-Image-Recognition"><a href="#Deep-Residual-Learning-for-Image-Recognition" class="headerlink" title="Deep Residual Learning for Image Recognition"></a>Deep Residual Learning for Image Recognition</h3><p>Q：Is learning better networks as simple as stacking more layers？</p>
+<p>A：Noooo</p>
+<p><img src="/img/Resnet_1.png" alt="Resnet_1"></p>
 
           
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/11/02/Deep-Residual-Learning-for-Image-Recognition/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
         
       
     </div>
@@ -441,7 +434,7 @@ A：Noooo
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-30T00:00:00+08:00">
                 2017-10-30
@@ -462,7 +455,7 @@ A：Noooo
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -505,82 +498,75 @@ A：Noooo
       
         
           
-          U-Net：Convolutional Networks for Biomedical Image SegmentationAbstract ：
-The architecture consists of a contracting path to capture context and a symmetric expanding path  that enables precise localization
-Introduction ：
-
-The convolutional network，their success was limited due to the size of the available training sets and the size of the considered networks. 
-
-In many visual tasks，especially in biomedical image processing，the desired output should include localization，i.e.，a class label is supposed to be assigned to each pixel . 
-
-Ciresan et al：trained a network in a sliding-window setup to predict the class label of each pixel by providing a local region (patch) around that pixel as input .
-
-advantages：
-this network can localize 
-the training data in terms of patches is much larger than the number of training images
-
-
-disadvantages：
-it is quite slow because the network must be run separately for each patch , and there is a lot of redundancy due to overlapping patches.
-there is a trade-off between localization accuracy and the use of context.
-
-
-
-
-More recent approaches proposed a classifier output that takes into account the features from multiple layers.
-多尺度融合的深度网络，把某一个像素为中心的不同大小的patch作为多个通道输入到深度网络中学习
-
-In this paper , “fully convolutional network” , the main idea is  to supplement a usual contracting network by successive layers , where pooling operators are replaced by upsampling operators .
-
-In the upsampling part we have alse a large number of feature channels , which allow the network to propagate context information to higher resolution layers  . The segmentation map only contains the pixels , for which the full context is available in the input image . To predict the pixels in the border region of the image , the missing context is extrapolated by mirroring the input image . 
-
-
-
-There is very little training data available , we use excessive data augmentation by applying elastic deformations to the available training  images . 
-Another challenge is the separation of touching objects of the same class  . We propose the use of a weighted loss , where the separating background labels between touching cells obtain a larger weight in the loss function
-
-Network Architecture
-
-Training
-
-SGD
-
-unpadded
-
-larger input tiles over a large batch size 
-
-softmax
-
-The separation border computed using morphological operations 
-中间项链的部分像素，认为的提高权重，让network可以重点学习这些特征，以便于分割
-
-draw the initial weights from a Gaussian distribution
-
-
-Data Augmentation
-Data Augmentation is essential to teach the network the desired invariance and robustness properties , when only few training samples are available .
-
-Need shift and rotation invariance as well as robustness to deformations and gray value variations
-Generate smooth deformations using random displacement vectors on a coarse 3 by 3 grid .
-
-Experiments
-
-30 images(512*512 pixels)
-ground truth
-membranes
-The u-net (averaged over 7 rotated version of the input data)
-
-Conclusion
-​    The u-net architecture achieves very good performance on very different biomedical segmentation applications . Thanks to data augmentation with elastic deformations , it only needs very few annotated images and has a very reasonable training time . 
+            <h4 id="U-Net：Convolutional-Networks-for-Biomedical-Image-Segmentation"><a href="#U-Net：Convolutional-Networks-for-Biomedical-Image-Segmentation" class="headerlink" title="U-Net：Convolutional Networks for Biomedical Image Segmentation"></a>U-Net：Convolutional Networks for Biomedical Image Segmentation</h4><p><em>Abstract</em> ：</p>
+<p>The architecture consists of <strong>a contracting path to capture context and a symmetric expanding path</strong>  that enables precise localization</p>
+<p><em>Introduction</em> ：</p>
+<ul>
+<li><p>The convolutional network，their success was limited due to the size of the available training sets and the size of the considered networks. </p>
+</li>
+<li><p>In many visual tasks，especially in biomedical image processing，the desired output should include localization，i.e.，<strong>a class label is supposed to be assigned to each pixel</strong> . </p>
+</li>
+<li><p>Ciresan et al：trained a network in a sliding-window setup to predict the class label of each pixel by providing a local region (patch) around that pixel as input .</p>
+<ul>
+<li>advantages：<ul>
+<li>this network can localize </li>
+<li>the training data in terms of patches is much larger than the number of training images</li>
+</ul>
+</li>
+<li>disadvantages：<ul>
+<li>it is quite slow because the network must be run separately for each patch , and there is a lot of redundancy due to <strong>overlapping patches</strong>.</li>
+<li>there is a trade-off between localization accuracy and the use of context.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>More recent approaches proposed a classifier output that takes into account the features from multiple layers.</p>
+<p>多尺度融合的深度网络，把某一个像素为中心的不同大小的patch作为多个通道输入到深度网络中学习</p>
+</li>
+<li><p>In this paper , “fully convolutional network” , the main idea is  to supplement a usual contracting network by successive layers , where pooling operators are replaced by upsampling operators .</p>
+</li>
+<li><p>In the <strong>upsampling part</strong> we have alse a large number of feature channels , which allow the network to <strong>propagate context information to higher resolution layers</strong>  . The segmentation map only contains the pixels , for which the full context is available in the input image . To predict the pixels in the border region of the image , the missing context is extrapolated by mirroring the input image . </p>
+</li>
+</ul>
+<ul>
+<li>There is very little training data available , we use <strong>excessive data augmentation by applying elastic deformations</strong> to the available training  images . </li>
+<li>Another challenge is <strong>the separation of touching objects of the same class</strong>  . We propose the use of a weighted loss , where the separating background labels between touching cells <strong>obtain a larger weight in the loss function</strong></li>
+</ul>
+<p><em>Network Architecture</em></p>
+<p><img src="/img/u-net.png" alt="u-net"></p>
+<p><em>Training</em></p>
+<ul>
+<li><p>SGD</p>
+</li>
+<li><p>unpadded</p>
+</li>
+<li><p>larger input tiles over a large batch size </p>
+</li>
+<li><p>softmax</p>
+</li>
+<li><p>The separation border computed using morphological operations </p>
+<p>中间项链的部分像素，认为的提高权重，让network可以重点学习这些特征，以便于分割</p>
+</li>
+<li><p>draw the initial weights from a Gaussian distribution</p>
+</li>
+</ul>
+<p><em>Data Augmentation</em></p>
+<p>Data Augmentation is essential to teach the network the desired invariance and robustness properties , when only few training samples are available .</p>
+<ul>
+<li>Need shift and rotation invariance as well as robustness to deformations and gray value variations</li>
+<li>Generate smooth deformations using random displacement vectors on a coarse 3 by 3 grid .</li>
+</ul>
+<p><em>Experiments</em></p>
+<ul>
+<li>30 images(512*512 pixels)</li>
+<li>ground truth</li>
+<li>membranes</li>
+<li>The u-net (averaged over 7 rotated version of the input data)</li>
+</ul>
+<p><em>Conclusion</em></p>
+<p>​    The u-net architecture achieves very good performance on very different biomedical segmentation applications . Thanks to data augmentation with elastic deformations , it only needs very few annotated images and has a very reasonable training time . </p>
 
           
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/10/30/U-net-Convolutional-Networks-for-Biomedical-Image-Segmentation/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
         
       
     </div>
@@ -656,7 +642,7 @@ Conclusion
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-27T20:55:19+08:00">
                 2017-10-27
@@ -677,7 +663,7 @@ Conclusion
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -720,48 +706,41 @@ Conclusion
       
         
           
-          ROC curve , AUC &amp; Recall 
-ROC（Receiver Operating Characteristic）curve ：
-
-In signal detection theory, a receiver operating characteristic (ROC), or simply ROC curve, is a graphical plot which illustrates the performance of a binary classifier system as its discrimination threshold is varied.
-
-ROC curve 和 AUC curve常用来被评价一个二值分类器（binary classifier） ，输出结果只有两种类别的模型，当讯号侦测（或变数测量）的结果是一个连续值，类与类的边界必须用一个阈值（threshold） 来界定
-横轴：伪阳率（FPR）False Positive Rate，在所有实际为阳性的样本中，被正确地判断为阳性的比率
-纵轴：真阳率（TPR）True Positive Rate，在所有实际为阴性的样本中，被错误地判断为阳性的比率
-
-consider 4个点和一条线：
-（0，1），即FPR=0，TPR=1，FN=0，FP=0，完美的分类器
-（1，0），即FPR=1，TPR=0，最糟糕的分类器
-（0，0），FPR＝TPR＝０，FP=TP=0，该分类器预测所有样本为负样本
-（1，1），预测所有的样本为正样本
-ROC曲线越接近左上角，该分类器的性能越好
-AUC（Area Under Curve） ，被定义为ROC curve下的面积，显然这个面积的数值不大于1，由于ROC curve一般都位于y=x的上方，所以AUC的取值范围一般在0.5和1之间
-AUC=1，完美的分类器，
-0.5&lt;AUC&lt;1，优于随机猜测
-AUC=0.5，随机猜测，模型没有预测价值
-AUC&lt;0.5，比随机猜测还差
-meaning：
-
-The AUC value is equivalent to the probability that a randomly chosen positive example is ranked higher than a randomly chosen negative example.
-
-当测试集的正负样本的分布变化的时候，ROC curve能够保持不变，在实际的数据集中常会出现类平衡（class imbalance）现象，且测试数据样本的分布也可能会随着时间变化，ROC curve基本保持原貌，而Precision-Recall则会变化很大
-精确率 precision ：预测为真的样本中有多少是真正的正样本 “预测为正的样本有多少是真正的真样本”
-P=TP/（TP+FP）
-召回率 recall ：样本中的正例有多少被预测正确 
-R=TP/（TP+FN）
-准确率 accuracy ：
-（TP+TN）/（TP＋FP＋TN＋FN）
-F1 Score ：
-P * R /2（P+R）
+            <p><strong>ROC curve , AUC &amp; Recall</strong> </p>
+<p><strong>ROC（Receiver Operating Characteristic）curve</strong> ：</p>
+<blockquote>
+<p>In signal detection theory, a receiver operating characteristic (ROC), or simply ROC curve, is a graphical plot which illustrates the performance of a binary classifier system as its discrimination threshold is varied.</p>
+</blockquote>
+<p>ROC curve 和 AUC curve常用来被评价一个<strong>二值分类器（binary classifier）</strong> ，输出结果只有两种类别的模型，当讯号侦测（或变数测量）的结果是一个连续值，类与类的边界必须用<strong>一个阈值（threshold）</strong> 来界定</p>
+<p>横轴：伪阳率（FPR）False Positive Rate，在所有实际为阳性的样本中，被正确地判断为阳性的比率</p>
+<p>纵轴：真阳率（TPR）True Positive Rate，在所有实际为阴性的样本中，被错误地判断为阳性的比率</p>
+<p><img src="/img/ROC.png" alt="ROC"></p>
+<p>consider 4个点和一条线：</p>
+<p>（0，1），即FPR=0，TPR=1，FN=0，FP=0，完美的分类器</p>
+<p>（1，0），即FPR=1，TPR=0，最糟糕的分类器</p>
+<p>（0，0），FPR＝TPR＝０，FP=TP=0，该分类器预测所有样本为负样本</p>
+<p>（1，1），预测所有的样本为正样本</p>
+<p>ROC曲线越接近左上角，该分类器的性能越好</p>
+<p><strong>AUC（Area Under Curve）</strong> ，被定义为ROC curve下的面积，显然这个面积的数值不大于1，由于ROC curve一般都位于y=x的上方，所以AUC的取值范围一般在0.5和1之间</p>
+<p>AUC=1，完美的分类器，</p>
+<p>0.5&lt;AUC&lt;1，优于随机猜测</p>
+<p>AUC=0.5，随机猜测，模型没有预测价值</p>
+<p>AUC&lt;0.5，比随机猜测还差</p>
+<p>meaning：</p>
+<blockquote>
+<p>The AUC value is equivalent to the probability that a randomly chosen positive example is ranked higher than a randomly chosen negative example.</p>
+</blockquote>
+<p>当测试集的正负样本的分布变化的时候，ROC curve能够保持不变，在实际的数据集中常会出现类平衡（class imbalance）现象，且测试数据样本的分布也可能会随着时间变化，ROC curve基本保持原貌，而Precision-Recall则会变化很大</p>
+<p><strong>精确率 precision</strong> ：预测为真的样本中有多少是真正的正样本 “预测为正的样本有多少是真正的真样本”</p>
+<p>P=TP/（TP+FP）</p>
+<p><strong>召回率 recall</strong> ：样本中的正例有多少被预测正确 </p>
+<p>R=TP/（TP+FN）</p>
+<p><strong>准确率 accuracy</strong> ：</p>
+<p>（TP+TN）/（TP＋FP＋TN＋FN）</p>
+<p><strong>F1 Score</strong> ：</p>
+<p>P * R /2（P+R）</p>
 
           
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/10/27/ROC-curve-AUC-Recall/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
         
       
     </div>
@@ -837,7 +816,7 @@ P * R /2（P+R）
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-25T17:16:22+08:00">
                 2017-10-25
@@ -858,7 +837,7 @@ P * R /2（P+R）
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -901,105 +880,98 @@ P * R /2（P+R）
       
         
           
-          A systematic study of the class imbalance problem in convolutional neural networks
-several methods：oversampling，undersampling，two-phase training，thresholding
-problem：some classes have a significantly higher number of examples in the training set than other classes –class imbalance ，Eg：computer vision，medical diagnosis，fraud detection，the frequency of one class can be 1000 times less than another class
-A new method for CNNs was introduced that trains the network in two-phases in which the network is trained on the balanced data first and then the output layers are fine-tuned
-
-
-Methods for addressing imbalance
-
-Data level methods：
-
-Oversampling：random minority oversampling，which simply replicates randomly selected samples from minority classes
-
-Undersampling：
-examples are removed randomly from majority classes until all classes have the same number of examples；
-disadvantage：discard a portion of available data
-
-
-
-Classifier level methods：
-
-Threshold：
-adjust the decision threshold of a classifier
-There are estimated for each class by its frequency in the imbalanced dataset before sampling is applied
-Bayesian a posteriori probabilities
-a given datapoint x，their output for class i，y(x)=p(i | x)=p(i)*p(x | i)/p(x)
-
-Cost sensitive learning：
-different cost to misclassification of examples from different classes
-One approach is threshold moving or post scaling 
-Another adaptation of neural work is modify the learning rate such that higher cost examples contribute more to the update of weights
-Finally we can train the network by minimizing the misclassification cost instead of standard loss function
-
-One-class classification：
-recognizes positive instances
-identity function：a reconstruction error between the input and output patterns Eg：absolute error，square sum of errors，Euclidean or Mahalanobis distance
-prove to work well for extremely high imbalance when classification problems turns info anomaly detection
-
-Hybrid of problems：
-Two-phase training，approached as pixel level classification
-involve network pre-training on balanced dataset and then fine-tuning the last output layer before softmax on the original , imbalance data
-
-
-
-
-
-
-
-Experiments
-
-Forms of imbalance：
-
-step imbalance：the number of examples is equal within minority classes and equal within majority classes but differs between the majority and minority classes
-linear imbalance：the difference between consecutive pairs of classes is constant
-
-
-Evaluation metrics and testing
-
-The metric：overall accuracy
-
-the area under the receiver operating characteristic curve(ROC AUC) 
-ROC has also been used to compare performance of classifiers trained on imbalance datasets
-
-
-
-
-
-
-
-Conclusions ：
-
-The effect of class imbalance on classification performance is detrimental
-
-The influence of imbalance on classification performance increases with the scale of a task
-
-The impact of imbalance cannot be explained by the lower total number of training cases and depends on the distribution of examples among classes
-​
-
-The method that in most of the cases outperforms all others with respect to multiclass ROC AUC was oversampling 
-
-For extreme ratio of imbalance and large portion of classes being minority , undersampling performs on a par with oversampling 
-
-To achieve the best accuracy , one should apply thresholding to compensate for prior class probabilities . A combination of thresholding with baseline and oversampling is the most preferable , whereas it should not be combined with undersampling 
-
-Oversampling should be applied to the level that totally eliminates the imbalance , whereas undersampling can perform better when the imbalance is only removed to some extent
-
-As supposed to some classical machine learning models , oversampling does not necessarily cause overfitting of convolutional neural networks 
-
-
-
-
+            <h4 id="A-systematic-study-of-the-class-imbalance-problem-in-convolutional-neural-networks"><a href="#A-systematic-study-of-the-class-imbalance-problem-in-convolutional-neural-networks" class="headerlink" title="A systematic study of the class imbalance problem in convolutional neural networks"></a>A systematic study of the class imbalance problem in convolutional neural networks</h4><ul>
+<li>several methods：oversampling，undersampling，two-phase training，thresholding</li>
+<li>problem：some classes have a significantly higher number of examples in the training set than other classes –<strong>class imbalance</strong> ，Eg：computer vision，medical diagnosis，fraud detection，the frequency of one class can be 1000 times less than another class</li>
+<li>A new method for CNNs was introduced that trains the network in two-phases in which the network is trained on the balanced data first and then the output layers are fine-tuned</li>
+</ul>
+<ul>
+<li><p>Methods for addressing imbalance</p>
+<ul>
+<li><p>Data level methods：</p>
+<ul>
+<li><p>Oversampling：random minority oversampling，which simply replicates randomly selected samples from minority classes</p>
+</li>
+<li><p>Undersampling：</p>
+<p>examples are removed randomly from majority classes until all classes have the same number of examples；</p>
+<p>disadvantage：discard a portion of available data</p>
+</li>
+</ul>
+</li>
+<li><p>Classifier level methods：</p>
+<ul>
+<li><p>Threshold：</p>
+<p>adjust the decision threshold of a classifier</p>
+<p>There are estimated for each class by its frequency in the imbalanced dataset before sampling is applied</p>
+<p>Bayesian a posteriori probabilities</p>
+<p>a given datapoint x，their output for class i，y(x)=p(i | x)=p(i)*p(x | i)/p(x)</p>
+</li>
+<li><p>Cost sensitive learning：</p>
+<p>different cost to misclassification of examples from different classes</p>
+<p>One approach is threshold moving or post scaling </p>
+<p>Another adaptation of neural work is modify the learning rate such that higher cost examples contribute more to the update of weights</p>
+<p>Finally we can train the network by minimizing the misclassification cost instead of standard loss function</p>
+</li>
+<li><p>One-class classification：</p>
+<p>recognizes positive instances</p>
+<p>identity function：a reconstruction error between the input and output patterns Eg：absolute error，square sum of errors，Euclidean or Mahalanobis distance</p>
+<p>prove to work well for extremely high imbalance when classification problems turns info anomaly detection</p>
+</li>
+<li><p>Hybrid of problems：</p>
+<p>Two-phase training，approached as pixel level classification</p>
+<p>involve network pre-training on balanced dataset and then fine-tuning the last output layer before softmax on the original , imbalance data</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>Experiments</p>
+<ul>
+<li><p>Forms of imbalance：</p>
+<ul>
+<li>step imbalance：the number of examples is equal within minority classes and equal within majority classes but differs between the majority and minority classes</li>
+<li>linear imbalance：the difference between consecutive pairs of classes is constant</li>
+</ul>
+</li>
+<li><p>Evaluation metrics and testing</p>
+<ul>
+<li><p>The metric：overall accuracy</p>
+</li>
+<li><p>the area under the receiver operating characteristic curve(ROC AUC) </p>
+<p>ROC has also been used to compare performance of classifiers trained on imbalance datasets</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p><strong>Conclusions</strong> ：</p>
+<ul>
+<li><p>The effect of class imbalance on classification performance is detrimental</p>
+</li>
+<li><p>The influence of imbalance on classification performance increases with the scale of a task</p>
+</li>
+<li><p>The impact of imbalance cannot be explained by the lower total number of training cases and depends on the distribution of examples among classes</p>
+<p>​</p>
+</li>
+<li><p>The method that <strong>in most of the cases outperforms all others with respect to multiclass ROC AUC was oversampling</strong> </p>
+</li>
+<li><p>For extreme ratio of imbalance and large portion of classes being minority , undersampling performs on a par with oversampling </p>
+</li>
+<li><p>To achieve the best accuracy , <strong>one should apply thresholding to compensate for prior class probabilities</strong> . A <strong>combination of thresholding with baseline and oversampling is the most preferable</strong> , whereas it should not be combined with undersampling </p>
+</li>
+<li><p>Oversampling should be applied to the level that totally eliminates the imbalance , whereas undersampling can perform better when the imbalance is only removed to some extent</p>
+</li>
+<li><p>As supposed to some classical machine learning models , <strong>oversampling does not necessarily cause overfitting of convolutional neural networks</strong> </p>
+</li>
+</ul>
+</li>
+</ul>
 
           
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/10/25/class-imbalance-problem-in-CNN/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
         
       
     </div>
@@ -1075,7 +1047,7 @@ As supposed to some classical machine learning models , oversampling does not ne
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-05T11:01:23+08:00">
                 2017-10-05
@@ -1096,7 +1068,7 @@ As supposed to some classical machine learning models , oversampling does not ne
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -1139,33 +1111,26 @@ As supposed to some classical machine learning models , oversampling does not ne
       
         
           
-          Question： 
-Determine whether an integer is a palindrome . Do this without extra space.
-Example：
-12321
-Some hints：
-Could negative integers be palindromes? (ie, -1)
-If you are thinking of converting the integer to string, note the restriction of using extra space.
-You could also try reversing an integer. However, if you have solved the problem “Reverse Integer”, you know that the reversed integer might overflow. How would you handle such case?
-There is a more generic way of solving this problem.
-My answer： 
-12345678910111213class Solution &#123;    public boolean isPalindrome(int x) &#123;        int rev=0;        int ori=x;        if (x&lt;0 || (x!=0 &amp;&amp; x%10==0))             return false;        while(x!=0)&#123;            rev=rev*10+x%10;            x=x/10;        &#125;        return ori==rev;    &#125;&#125;
-Better answer：
-123456789public boolean isPalindrome(int x) &#123;    if (x&lt;0 || (x!=0 &amp;&amp; x%10==0)) return false;    int rev = 0;    while (x&gt;rev)&#123;    	rev = rev*10 + x%10;    	x = x/10;    &#125;    return (x==rev || x==rev/10);&#125;
-Algorithm：
-First of all we should take care of some edge cases. All negative numbers are not palindrome, for example: -123 is not a palindrome since the ‘-‘ does not equal to ‘3’. So we can return false for all negative numbers.
-Now let’s think about how to revert the last half of the number. For number 1221, if we do 1221 % 10, we get the last digit 1, to get the second to the last digit, we need to remove the last digit from 1221, we could do so by dividing it by 10, 1221 / 10 = 122. Then we can get the last digit again by doing a modulus by 10, 122 % 10 = 2, and if we multiply the last digit by 10 and add the second last digit, 1 * 10 + 2 = 12, it gives us the reverted number we want. Continuing this process would give us the reverted number with more digits.
-Now the question is, how do we know that we’ve reached the half of the number?
-Since we divided the number by 10, and multiplied the reversed number by 10, when the original number is less than the reversed number, it means we’ve processed half of the number digits.
+            <p><strong>Question：</strong> </p>
+<p>Determine whether an integer is a <strong>palindrome</strong> . Do this without extra space.</p>
+<p><strong>Example：</strong></p>
+<p>12321</p>
+<p><strong>Some hints：</strong></p>
+<p>Could negative integers be palindromes? (ie, -1)</p>
+<p>If you are thinking of converting the integer to string, note the restriction of using extra space.</p>
+<p>You could also try reversing an integer. However, if you have solved the problem “Reverse Integer”, you know that the reversed integer might overflow. How would you handle such case?</p>
+<p>There is a more generic way of solving this problem.</p>
+<p><strong>My answer：</strong> </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isPalindrome</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> rev=<span class="number">0</span>;</div><div class="line">        <span class="keyword">int</span> ori=x;</div><div class="line">        <span class="keyword">if</span> (x&lt;<span class="number">0</span> || (x!=<span class="number">0</span> &amp;&amp; x%<span class="number">10</span>==<span class="number">0</span>)) </div><div class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">        <span class="keyword">while</span>(x!=<span class="number">0</span>)&#123;</div><div class="line">            rev=rev*<span class="number">10</span>+x%<span class="number">10</span>;</div><div class="line">            x=x/<span class="number">10</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> ori==rev;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>Better answer：</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isPalindrome</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (x&lt;<span class="number">0</span> || (x!=<span class="number">0</span> &amp;&amp; x%<span class="number">10</span>==<span class="number">0</span>)) <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">    <span class="keyword">int</span> rev = <span class="number">0</span>;</div><div class="line">    <span class="keyword">while</span> (x&gt;rev)&#123;</div><div class="line">    	rev = rev*<span class="number">10</span> + x%<span class="number">10</span>;</div><div class="line">    	x = x/<span class="number">10</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> (x==rev || x==rev/<span class="number">10</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>Algorithm：</strong></p>
+<p>First of all we should take care of <strong>some edge cases</strong>. All negative numbers are not palindrome, for example: -123 is not a palindrome since the ‘-‘ does not equal to ‘3’. So we can return false for all negative numbers.</p>
+<p>Now let’s think about how to revert the last half of the number. For number <code>1221</code>, if we do <code>1221 % 10</code>, we get the last digit <code>1</code>, to get the second to the last digit, we need to remove the last digit from <code>1221</code>, we could do so by dividing it by 10, <code>1221 / 10 = 122</code>. Then we can get the last digit again by doing a modulus by 10, <code>122 % 10 = 2</code>, and if we multiply the last digit by 10 and add the second last digit, <code>1 * 10 + 2 = 12</code>, it gives us the reverted number we want. Continuing this process would give us the reverted number with more digits.</p>
+<p>Now the question is, how do we know that we’ve <strong>reached the half of the number</strong>?</p>
+<p>Since we divided the number by 10, and multiplied the reversed number by 10, <strong>when the original number is less than the reversed number, it means we’ve processed half of the number digits</strong>.</p>
 
           
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/10/05/9-Palindrome-Number/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
         
       
     </div>
@@ -1241,7 +1206,7 @@ Since we divided the number by 10, and multiplied the reversed number by 10, whe
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-04T09:31:22+08:00">
                 2017-10-04
@@ -1262,7 +1227,7 @@ Since we divided the number by 10, and multiplied the reversed number by 10, whe
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -1305,24 +1270,17 @@ Since we divided the number by 10, and multiplied the reversed number by 10, whe
       
         
           
-          Question：
-Reverse digits of an integer.
-Example1: x = 123, return 321Example2: x = -123, return -321
-Note：The input is assumed to be a 32-bit signed integer. Your function should return 0 when the reversed integer overflows.
-My answer：
-123456789101112class Solution &#123;    public int reverse(int x) &#123;        int res=0;        if(x==0)            return x;        while(x!=0)&#123;            res=res*10+x%10;            x=x/10;        &#125;        return res;    &#125;&#125;
-Better answer：
-1234567891011class Solution &#123;public:    int reverse(int x) &#123;        long long res = 0;        while (x != 0) &#123;            res = 10 * res + x % 10;            x /= 10;        &#125;        return (res &gt; INT_MAX || res &lt; INT_MIN) ? 0 : res;    &#125;&#125;;
-之前未考虑溢出问题 ，为什么会存在溢出问题呢，我们知道int型的数值范围是 -2147483648～2147483647， 那么如果我们要翻转 1000000009 这个在范围内的数得到 9000000001，而翻转后的数就超过了范围，所以要进行溢出判断。
+            <p><strong>Question：</strong></p>
+<p>Reverse digits of an integer.</p>
+<p>Example1: x = 123, return 321<br>Example2: x = -123, return -321</p>
+<p><strong>Note：</strong>The input is assumed to be a 32-bit signed integer. Your function should <strong>return 0 when the reversed integer overflows</strong>.</p>
+<p><strong>My answer：</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">reverse</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> res=<span class="number">0</span>;</div><div class="line">        <span class="keyword">if</span>(x==<span class="number">0</span>)</div><div class="line">            <span class="keyword">return</span> x;</div><div class="line">        <span class="keyword">while</span>(x!=<span class="number">0</span>)&#123;</div><div class="line">            res=res*<span class="number">10</span>+x%<span class="number">10</span>;</div><div class="line">            x=x/<span class="number">10</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> res;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>Better answer：</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="function"><span class="keyword">int</span> <span class="title">reverse</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</div><div class="line">        <span class="keyword">long</span> <span class="keyword">long</span> res = <span class="number">0</span>;</div><div class="line">        <span class="keyword">while</span> (x != <span class="number">0</span>) &#123;</div><div class="line">            res = <span class="number">10</span> * res + x % <span class="number">10</span>;</div><div class="line">            x /= <span class="number">10</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> (res &gt; INT_MAX || res &lt; INT_MIN) ? <span class="number">0</span> : res;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>之前未考虑<strong>溢出问题</strong> ，为什么会存在溢出问题呢，我们知道int型的数值范围是 -2147483648～2147483647， 那么如果我们要翻转 1000000009 这个在范围内的数得到 9000000001，而翻转后的数就超过了范围，所以要进行溢出判断。</p>
 
           
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/10/04/7-Reverse-Integer/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
         
       
     </div>
@@ -1398,7 +1356,7 @@ Better answer：
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-02T11:06:33+08:00">
                 2017-10-02
@@ -1419,7 +1377,7 @@ Better answer：
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -1462,43 +1420,36 @@ Better answer：
       
         
           
-          Question：
-Given an array of integers, return indices of the two numbers such that they add up to a specific target.
-You may assume that each input would have exactly one solution, and you may not use the same element twice.
-Example：
-1234Given nums = [2, 7, 11, 15], target = 9,Because nums[0] + nums[1] = 2 + 7 = 9,return [0, 1].
-My answer：
-123456789101112131415class Solution &#123;    public int[] twoSum(int[] nums, int target) &#123;        int[] res=new int[2];        int i,j;        for(i=0;i&lt;nums.length;i++)&#123;            for(j=i+1;j&lt;nums.length;j++)&#123;                if(nums[i]+nums[j]==target)&#123;                    res[0]=i;                    res[1]=j;                &#125;            &#125;        &#125;                    return res;    &#125;&#125;
-Complexity Analysis：
-
-Time complexity：O ($n^2$)，for each element , we try to find its complement by looping through the rest of array which takes O ($n^2$) time
-Space complexity：O (1)
-
-
-Better Answer：
-Approach #2：Two-pass Hash Table 
-123456789101112public int[] twoSum(int[] nums,int target)&#123;  Map&lt;Integer,Integer&gt; map=new HashMap&lt;&gt;();  for(int i=0;i&lt;nums.length;i++)&#123;      map.put(num[i],i);  &#125;  for(int i=0;i&lt;nums.length;i++)&#123;      int complement=target-nums[i];      if(map.containsKey(complement)&amp;&amp;map.get(complement)!=i)        return new int[]&#123;i,get(complement)&#125;;  &#125;  throw new IllegalArgumentException("No two sum solution");&#125;
-Complexity Analysis：
-
-Time complexity：O($n$)，we traverse the list containing n elements exactly twice. Since the hash table reduces the look up time to O(1)，the time complexity is O($n$)
-Space complexity：O($n$)，the extra space required depends on the number of items stored in the hash table , which stores exactly n elements
-
-Approach #3：One-pass Hash Table 
-1234567891011public int[] twoSum(int[] nums,int target)&#123;  Map&lt;Integer,Integer&gt; map=new HashMap();  for(int i=0;i&lt;nums.length;i++)&#123;    int complement=target-nums[i];    if(map.containKey(complement))&#123;      return new int[]&#123;map.get(complement),i&#125;;    &#125;    map.put(nums[i],i);  &#125;  throw new IllegalArgumentException("No two sum solution");&#125;
-Complexity Analysis：
-
-Time complexity：O$(n)$，we traverse the list containing n elements exactly twice. Since the hash table reduces the look up time to O(1)，the time complexity is O($n$)
-Space complexity：O($n$)，the extra space required depends on the number of items stored in the hash table , which stores exactly n elements
-
+            <p><strong>Question：</strong></p>
+<p>Given an array of integers, return <strong>indices</strong> of the two numbers such that they add up to a specific target.</p>
+<p>You may assume that each input would have <strong>exactly</strong> one solution, and you may not use the same element twice.</p>
+<p><strong>Example：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Given nums = [2, 7, 11, 15], target = 9,</div><div class="line"></div><div class="line">Because nums[0] + nums[1] = 2 + 7 = 9,</div><div class="line">return [0, 1].</div></pre></td></tr></table></figure>
+<p><strong>My answer：</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] twoSum(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target) &#123;</div><div class="line">        <span class="keyword">int</span>[] res=<span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">2</span>];</div><div class="line">        <span class="keyword">int</span> i,j;</div><div class="line">        <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;nums.length;i++)&#123;</div><div class="line">            <span class="keyword">for</span>(j=i+<span class="number">1</span>;j&lt;nums.length;j++)&#123;</div><div class="line">                <span class="keyword">if</span>(nums[i]+nums[j]==target)&#123;</div><div class="line">                    res[<span class="number">0</span>]=i;</div><div class="line">                    res[<span class="number">1</span>]=j;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;            </div><div class="line">        <span class="keyword">return</span> res;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>Complexity Analysis：</strong></p>
+<ul>
+<li>Time complexity：<em>O</em> ($n^2$)，for each element , we try to find its complement by looping through the rest of array which takes <em>O</em> ($n^2$) time</li>
+<li>Space complexity：<em>O</em> (1)</li>
+</ul>
+<hr>
+<p><strong>Better Answer：</strong></p>
+<p>Approach #2：Two-pass <strong>Hash Table</strong> </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">int</span>[] twoSum(<span class="keyword">int</span>[] nums,<span class="keyword">int</span> target)&#123;</div><div class="line">  Map&lt;Integer,Integer&gt; map=<span class="keyword">new</span> HashMap&lt;&gt;();</div><div class="line">  <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;nums.length;i++)&#123;</div><div class="line">      map.put(num[i],i);</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;nums.length;i++)&#123;</div><div class="line">      <span class="keyword">int</span> complement=target-nums[i];</div><div class="line">      <span class="keyword">if</span>(map.containsKey(complement)&amp;&amp;map.get(complement)!=i)</div><div class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[]&#123;i,get(complement)&#125;;</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">throw</span> <span class="keyword">new</span> IllegalArgumentException(<span class="string">"No two sum solution"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>Complexity Analysis：</strong></p>
+<ul>
+<li>Time complexity：<em>O</em>($n$)，we traverse the list containing n elements exactly twice. Since the hash table reduces the look up time to <em>O(1)</em>，the time complexity is <em>O</em>($n$)</li>
+<li>Space complexity：<em>O</em>($n$)，the extra space required depends on the number of items stored in the hash table , which stores exactly n elements</li>
+</ul>
+<p>Approach #3：One-pass <strong>Hash Table</strong> </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">int</span>[] twoSum(<span class="keyword">int</span>[] nums,<span class="keyword">int</span> target)&#123;</div><div class="line">  Map&lt;Integer,Integer&gt; map=<span class="keyword">new</span> HashMap();</div><div class="line">  <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;nums.length;i++)&#123;</div><div class="line">    <span class="keyword">int</span> complement=target-nums[i];</div><div class="line">    <span class="keyword">if</span>(map.containKey(complement))&#123;</div><div class="line">      <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[]&#123;map.get(complement),i&#125;;</div><div class="line">    &#125;</div><div class="line">    map.put(nums[i],i);</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">throw</span> <span class="keyword">new</span> IllegalArgumentException(<span class="string">"No two sum solution"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>Complexity Analysis：</strong></p>
+<ul>
+<li>Time complexity：<em>O</em>$(n)$，we traverse the list containing n elements exactly twice. Since the hash table reduces the look up time to <em>O(1)</em>，the time complexity is <em>O</em>($n$)</li>
+<li>Space complexity：<em>O</em>($n$)，the extra space required depends on the number of items stored in the hash table , which stores exactly n elements</li>
+</ul>
 
           
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/10/02/1-Two-Sum/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
         
       
     </div>
@@ -1574,7 +1525,7 @@ Space complexity：O($n$)，the extra space required depends on the number of it
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-24T20:08:16+08:00">
                 2017-09-24
@@ -1595,7 +1546,7 @@ Space complexity：O($n$)，the extra space required depends on the number of it
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -1638,21 +1589,14 @@ Space complexity：O($n$)，the extra space required depends on the number of it
       
         
           
-          支持向量机分类器（Support Vector Classifier）
-根据训练样本的分布，搜索所有可能的线性分类器中最佳的那一个 ，决定其直线位置的样本并不是所有训练数据，而是其中的两个空间间隔最小的两个不同类的数据点 ，把这种可以用来真正帮助决策最优线性分类模型的数据点叫做“支持向量”。
-1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859# -*- coding: utf-8 -*-"""Created on Tue Sep 19 11:25:09 2017@author: aa"""from sklearn.datasets import load_digits# 从sklearn.datasets导入手写体数字加载器digits=load_digits()# 从通过数据加载器获得手写数字的数码图像数据并储存在digits变量中print digits.data.shape# (1797L, 64L)  有1797张图片 由8*8=64的像素矩阵表示from sklearn.cross_validation import train_test_splitX_train,X_test,y_train,y_test=train_test_split(digits.data,digits.target,test_size=0.25,random_state=33)# 随机选取75%的数据最为训练样本，25%作为测试样本print y_train.shape # (1347L,)print y_test.shape# (450L,)from sklearn.preprocessing import StandardScalerfrom sklearn.svm import LinearSVCss=StandardScaler()X_train=ss.fit_transform(X_train)X_test=ss.transform(X_test)# 对训练和测试的特征数据进行标准化lsvc=LinearSVC()# 初始化线性假设的支持向量机分类器lsvc.fit(X_train,y_train)# 进行模型训练y_predict=lsvc.predict(X_test)print 'The Accuracy of Linear SVC is',lsvc.score(X_test,y_test)# The Accuracy of Linear SVC is 0.953333333333from sklearn.metrics import classification_reportprint classification_report(y_test,y_predict,target_names=digits.target_names.astype(str))#             precision    recall  f1-score   support##          0       0.92      1.00      0.96        35#          1       0.96      0.98      0.97        54#          2       0.98      1.00      0.99        44#          3       0.93      0.93      0.93        46#          4       0.97      1.00      0.99        35#          5       0.94      0.94      0.94        48#          6       0.96      0.98      0.97        51#          7       0.92      1.00      0.96        35#          8       0.98      0.84      0.91        58#          9       0.95      0.91      0.93        44##avg / total       0.95      0.95      0.95       450
-0到9的数字，一共10类，无法直接计算上述3个指标，通常的做法是，逐一评估某个类别的这三个性能指标，我们把所有其他的类别看作负样本，这样一来，创造了10个二分类的任务。
-特点分析：
-SVM可以帮助我们在海量甚至高纬度的数据 中，筛选对预测任务最为有效的少量训练样本，这样做不仅节省了模型学习所需要的数据内存，同时也提高了模型的预测性能 ，然而，获得如此优势就必然要付出更多的计算代价（CPU资源和计算时间） 。
+            <p>支持向量机分类器（Support Vector Classifier）</p>
+<p>根据训练样本的分布，<strong>搜索所有可能的线性分类器中最佳的那一个</strong> ，决定其直线位置的样本并不是所有训练数据，而是其中的<strong>两个空间间隔最小的两个不同类的数据点</strong> ，把这种可以用来真正帮助决策最优线性分类模型的数据点叫做“支持向量”。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># -*- coding: utf-8 -*-</span></div><div class="line"><span class="string">"""</span></div><div class="line">Created on Tue Sep 19 11:25:09 2017</div><div class="line"></div><div class="line">@author: aa</div><div class="line">"""</div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">from</span> sklearn.datasets <span class="keyword">import</span> load_digits</div><div class="line"><span class="comment"># 从sklearn.datasets导入手写体数字加载器</span></div><div class="line">digits=load_digits()</div><div class="line"><span class="comment"># 从通过数据加载器获得手写数字的数码图像数据并储存在digits变量中</span></div><div class="line"><span class="keyword">print</span> digits.data.shape</div><div class="line"><span class="comment"># (1797L, 64L)  有1797张图片 由8*8=64的像素矩阵表示</span></div><div class="line"></div><div class="line"><span class="keyword">from</span> sklearn.cross_validation <span class="keyword">import</span> train_test_split</div><div class="line">X_train,X_test,y_train,y_test=train_test_split(digits.data,digits.target,test_size=<span class="number">0.25</span>,random_state=<span class="number">33</span>)</div><div class="line"><span class="comment"># 随机选取75%的数据最为训练样本，25%作为测试样本</span></div><div class="line"></div><div class="line"><span class="keyword">print</span> y_train.shape </div><div class="line"><span class="comment"># (1347L,)</span></div><div class="line"><span class="keyword">print</span> y_test.shape</div><div class="line"><span class="comment"># (450L,)</span></div><div class="line"></div><div class="line"><span class="keyword">from</span> sklearn.preprocessing <span class="keyword">import</span> StandardScaler</div><div class="line"><span class="keyword">from</span> sklearn.svm <span class="keyword">import</span> LinearSVC</div><div class="line"></div><div class="line">ss=StandardScaler()</div><div class="line">X_train=ss.fit_transform(X_train)</div><div class="line">X_test=ss.transform(X_test)</div><div class="line"><span class="comment"># 对训练和测试的特征数据进行标准化</span></div><div class="line"></div><div class="line">lsvc=LinearSVC()</div><div class="line"><span class="comment"># 初始化线性假设的支持向量机分类器</span></div><div class="line">lsvc.fit(X_train,y_train)</div><div class="line"><span class="comment"># 进行模型训练</span></div><div class="line"></div><div class="line">y_predict=lsvc.predict(X_test)</div><div class="line"></div><div class="line"><span class="keyword">print</span> <span class="string">'The Accuracy of Linear SVC is'</span>,lsvc.score(X_test,y_test)</div><div class="line"><span class="comment"># The Accuracy of Linear SVC is 0.953333333333</span></div><div class="line"></div><div class="line"><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> classification_report</div><div class="line"><span class="keyword">print</span> classification_report(y_test,y_predict,target_names=digits.target_names.astype(str))</div><div class="line"></div><div class="line"><span class="comment">#             precision    recall  f1-score   support</span></div><div class="line"><span class="comment">#</span></div><div class="line"><span class="comment">#          0       0.92      1.00      0.96        35</span></div><div class="line"><span class="comment">#          1       0.96      0.98      0.97        54</span></div><div class="line"><span class="comment">#          2       0.98      1.00      0.99        44</span></div><div class="line"><span class="comment">#          3       0.93      0.93      0.93        46</span></div><div class="line"><span class="comment">#          4       0.97      1.00      0.99        35</span></div><div class="line"><span class="comment">#          5       0.94      0.94      0.94        48</span></div><div class="line"><span class="comment">#          6       0.96      0.98      0.97        51</span></div><div class="line"><span class="comment">#          7       0.92      1.00      0.96        35</span></div><div class="line"><span class="comment">#          8       0.98      0.84      0.91        58</span></div><div class="line"><span class="comment">#          9       0.95      0.91      0.93        44</span></div><div class="line"><span class="comment">#</span></div><div class="line"><span class="comment">#avg / total       0.95      0.95      0.95       450</span></div></pre></td></tr></table></figure>
+<p>0到9的数字，一共10类，无法直接计算上述3个指标，通常的做法是，逐一评估某个类别的这三个性能指标，我们把所有其他的类别看作负样本，这样一来，创造了10个二分类的任务。</p>
+<p>特点分析：</p>
+<p>SVM可以帮助我们在<strong>海量甚至高纬度的数据</strong> 中，筛选对预测任务最为有效的少量训练样本，这样做<strong>不仅节省了模型学习所需要的数据内存，同时也提高了模型的预测性能</strong> ，然而，获得如此优势就必然要付出<strong>更多的计算代价（CPU资源和计算时间）</strong> 。</p>
 
           
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/09/24/svm/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
         
       
     </div>
@@ -1728,7 +1672,7 @@ SVM可以帮助我们在海量甚至高纬度的数据 中，筛选对预测任�
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-24T19:54:50+08:00">
                 2017-09-24
@@ -1749,7 +1693,7 @@ SVM可以帮助我们在海量甚至高纬度的数据 中，筛选对预测任�
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -1792,18 +1736,11 @@ SVM可以帮助我们在海量甚至高纬度的数据 中，筛选对预测任�
       
         
           
-          寻找与这个待分类的样本在特征空间中距离最近的K个已标记的样本作为参考，来帮助我们做出分类决策
-12345678910111213141516171819202122232425262728293031323334353637383940414243444546# -*- coding: utf-8 -*-"""Created on Sun Sep 17 21:27:03 2017@author: aa"""from sklearn.datasets import load_irisiris=load_iris()print(iris.data.shape)  #(150L, 4L)#print iris.DESCRfrom sklearn.cross_validation import train_test_split# train_test_split 用于数据分割X_train,X_test,y_train,y_test=train_test_split(iris.data,iris.target,test_size=0.25,random_state=33)# 采样25%作为测试集from sklearn.preprocessing import StandardScaler # 导入数据标准化模块from sklearn.neighbors import KNeighborsClassifierss=StandardScaler()X_train=ss.fit_transform(X_train)X_test=ss.fit_transform(X_test)# 标准化 训练和测试数据knc=KNeighborsClassifier()knc.fit(X_train,y_train)y_predict=knc.predict(X_test)print 'The accuracy of K-Nearest Neighor Classifier is',knc.score(X_test,y_test)# 模型自带的评估函数进行准确率测评# 0.710526315789from sklearn.metrics import classification_reportprint classification_report(y_test,y_predict,target_names=iris.target_names)# classification_report对预测结果进行更详细的分析#             precision    recall  f1-score   support##     setosa       1.00      1.00      1.00         8# versicolor       0.50      1.00      0.67        11#  virginica       1.00      0.42      0.59        19#avg / total       0.86      0.71      0.70        38
-该模型没有参数训练的过程，只是根据测试样本在训练数据的分布直接做出分类决策，因此KNN属于无参数模型，正是这样的决策算法，导致了其非常高的计算复杂度和内存消耗 。因为该模型每处理一个测试样本，都需要对所有预先加载在内存的训练样本进行遍历，逐一计算相似度、排序并且选取K个最近邻训练样本的标记，进而做出分类决策。这是平方级别的算法复杂度 ，一旦数据规模稍大，使用者便需要权衡更多计算时间的代价。
+            <p>寻找与这个待分类的样本在特征空间中距离最近的K个已标记的样本作为参考，来帮助我们做出分类决策</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># -*- coding: utf-8 -*-</span></div><div class="line"><span class="string">"""</span></div><div class="line">Created on Sun Sep 17 21:27:03 2017</div><div class="line"></div><div class="line">@author: aa</div><div class="line">"""</div><div class="line"></div><div class="line"><span class="keyword">from</span> sklearn.datasets <span class="keyword">import</span> load_iris</div><div class="line">iris=load_iris()</div><div class="line">print(iris.data.shape)  </div><div class="line"><span class="comment">#(150L, 4L)</span></div><div class="line"></div><div class="line"><span class="comment">#print iris.DESCR</span></div><div class="line"></div><div class="line"><span class="keyword">from</span> sklearn.cross_validation <span class="keyword">import</span> train_test_split</div><div class="line"><span class="comment"># train_test_split 用于数据分割</span></div><div class="line">X_train,X_test,y_train,y_test=train_test_split(iris.data,iris.target,test_size=<span class="number">0.25</span>,random_state=<span class="number">33</span>)</div><div class="line"><span class="comment"># 采样25%作为测试集</span></div><div class="line"></div><div class="line"><span class="keyword">from</span> sklearn.preprocessing <span class="keyword">import</span> StandardScaler </div><div class="line"><span class="comment"># 导入数据标准化模块</span></div><div class="line"><span class="keyword">from</span> sklearn.neighbors <span class="keyword">import</span> KNeighborsClassifier</div><div class="line"></div><div class="line">ss=StandardScaler()</div><div class="line">X_train=ss.fit_transform(X_train)</div><div class="line">X_test=ss.fit_transform(X_test)</div><div class="line"><span class="comment"># 标准化 训练和测试数据</span></div><div class="line"></div><div class="line">knc=KNeighborsClassifier()</div><div class="line">knc.fit(X_train,y_train)</div><div class="line">y_predict=knc.predict(X_test)</div><div class="line"></div><div class="line"><span class="keyword">print</span> <span class="string">'The accuracy of K-Nearest Neighor Classifier is'</span>,knc.score(X_test,y_test)</div><div class="line"><span class="comment"># 模型自带的评估函数进行准确率测评</span></div><div class="line"><span class="comment"># 0.710526315789</span></div><div class="line"></div><div class="line"><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> classification_report</div><div class="line"><span class="keyword">print</span> classification_report(y_test,y_predict,target_names=iris.target_names)</div><div class="line"><span class="comment"># classification_report对预测结果进行更详细的分析</span></div><div class="line"><span class="comment">#             precision    recall  f1-score   support</span></div><div class="line"><span class="comment">#</span></div><div class="line"><span class="comment">#     setosa       1.00      1.00      1.00         8</span></div><div class="line"><span class="comment"># versicolor       0.50      1.00      0.67        11</span></div><div class="line"><span class="comment">#  virginica       1.00      0.42      0.59        19</span></div><div class="line"></div><div class="line"><span class="comment">#avg / total       0.86      0.71      0.70        38</span></div></pre></td></tr></table></figure>
+<p>该模型<strong>没有参数训练</strong>的过程，只是根据测试样本在训练数据的分布直接做出分类决策，因此KNN属于无参数模型，正是这样的决策算法，导致了其<strong>非常高的计算复杂度和内存消耗</strong> 。因为该模型每处理一个测试样本，都需要对所有预先加载在内存的训练样本进行遍历，逐一计算相似度、排序并且选取K个最近邻训练样本的标记，进而做出分类决策。<strong>这是平方级别的算法复杂度</strong> ，一旦数据规模稍大，使用者便需要权衡更多计算时间的代价。</p>
 
           
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/09/24/knn/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
         
       
     </div>
@@ -1879,7 +1816,7 @@ SVM可以帮助我们在海量甚至高纬度的数据 中，筛选对预测任�
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-24T18:25:01+08:00">
                 2017-09-24
@@ -1900,7 +1837,7 @@ SVM可以帮助我们在海量甚至高纬度的数据 中，筛选对预测任�
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -1943,21 +1880,14 @@ SVM可以帮助我们在海量甚至高纬度的数据 中，筛选对预测任�
       
         
           
-          这个世界从来都是有经纬度的，不会因为你的忍让而缩水，也不会因为你的强悍而膨胀，你要懂得游刃有余，最好的方式是，内心柔软而有原则，身披铠甲而有温度
-在这个时代，文化成了一个看似非常喧嚣但其实非常沉默的事情    
-当一个人把他的精力和时间从关注外界转向关注自身的成长时，才能拥有更高的境界
-工欲善其事，必先利其器
-只有将时间花在磨练自己，从身体，精神，心智到待人处世四个层面，才能增进个人产能，累积其他修养的本钱
-^*^
+            <p>这个世界从来都是有经纬度的，不会因为你的忍让而缩水，也不会因为你的强悍而膨胀，你要懂得游刃有余，最好的方式是，内心柔软而有原则，身披铠甲而有温度</p>
+<p>在这个时代，文化成了一个看似非常喧嚣但其实非常沉默的事情    </p>
+<p>当一个人把他的精力和时间从关注外界转向关注自身的成长时，才能拥有更高的境界</p>
+<p>工欲善其事，必先利其器</p>
+<p>只有将时间花在磨练自己，从身体，精神，心智到待人处世四个层面，才能增进个人产能，累积其他修养的本钱</p>
+<p>^*^</p>
 
           
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/09/24/希望的天空/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
         
       
     </div>
@@ -2046,7 +1976,7 @@ SVM可以帮助我们在海量甚至高纬度的数据 中，筛选对预测任�
                 <a href="/archives/">
               
                   <span class="site-state-item-count">12</span>
-                  <span class="site-state-item-name">posts</span>
+                  <span class="site-state-item-name">Artikel</span>
                 </a>
               </div>
             
@@ -2057,7 +1987,7 @@ SVM可以帮助我们在海量甚至高纬度的数据 中，筛选对预测任�
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
                   <span class="site-state-item-count">5</span>
-                  <span class="site-state-item-name">categories</span>
+                  <span class="site-state-item-name">Kategorien</span>
                 </a>
               </div>
             
@@ -2107,7 +2037,7 @@ SVM可以帮助我们在海量甚至高纬度的数据 中，筛选对预测任�
 </div>
 
 
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
 
@@ -2166,10 +2096,10 @@ SVM可以帮助我们在海量甚至高纬度的数据 中，筛选对预测任�
 
 
 
-  
-  
 
 
+  
+  
 
 
 
@@ -2212,7 +2142,7 @@ SVM可以帮助我们在海量甚至高纬度的数据 中，筛选对预测任�
 
   
   
-    <script type="text/javascript" src="/lib/three/canvas_lines.min.js"></script>
+    <script type="text/javascript" src="/lib/three/canvas_sphere.min.js"></script>
   
 
 
