@@ -506,7 +506,14 @@ A：Noooo
         
           
           U-Net：Convolutional Networks for Biomedical Image SegmentationAbstract ：
-The architecture consists of a contracting path to capture context and a symm
+The architecture consists of a contracting path to capture context and a symmetric expanding path  that enables precise localization
+Introduction ：
+
+The convolutional network，their success was limited due to the size of the available training sets and the size of the considered networks. 
+
+In many visual tasks，especially in biomedical image processing，the desired output should include localization，i.e.，a class label is supposed to be assigned to each pixel . 
+
+Ciresan et al：trained a network in a sliding-window setup to predict the class label of each pixel by providing a local region (patch) around that pixel as input 
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -657,7 +664,19 @@ The architecture consists of a contracting path to capture context and a symm
           ROC curve , AUC &amp; Recall 
 ROC（Receiver Operating Characteristic）curve ：
 
-In signal detection theory, a receiver operating characteristic (ROC), or
+In signal detection theory, a receiver operating characteristic (ROC), or simply ROC curve, is a graphical plot which illustrates the performance of a binary classifier system as its discrimination threshold is varied.
+
+ROC curve 和 AUC curve常用来被评价一个二值分类器（binary classifier） ，输出结果只有两种类别的模型，当讯号侦测（或变数测量）的结果是一个连续值，类与类的边界必须用一个阈值（threshold） 来界定
+横轴：伪阳率（FPR）False Positive Rate，在所有实际为阳性的样本中，被正确地判断为阳性的比率
+纵轴：真阳率（TPR）True Positive Rate，在所有实际为阴性的样本中，被错误地判断为阳性的比率
+
+consider 4个点和一条线：
+（0，1），即FPR=0，TPR=1，FN=0，FP=0，完美的分类器
+（1，0），即FPR=1，TPR=0，最糟糕的分类器
+（0，0），FPR＝TPR＝０，FP=TP=0，该分类器预测所有样本为负样本
+（1，1），预测所有的样本为正样本
+ROC曲线越接近左上角，该分类器的性能越好
+AUC（Area 
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -806,7 +825,16 @@ In signal detection theory, a receiver operating characteristic (ROC), or
         
           
           A systematic study of the class imbalance problem in convolutional neural networks
-several methods：oversampling，undersampling，two-phase training，thres
+several methods：oversampling，undersampling，two-phase training，thresholding
+problem：some classes have a significantly higher number of examples in the training set than other classes –class imbalance ，Eg：computer vision，medical diagnosis，fraud detection，the frequency of one class can be 1000 times less than another class
+A new method for CNNs was introduced that trains the network in two-phases in which the network is trained on the balanced data first and then the output layers are fine-tuned
+
+
+Methods for addressing imbalance
+
+Data level methods：
+
+Oversampling：random minority oversampling，which simply replica
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -959,7 +987,12 @@ Determine whether an integer is a palindrome . Do this without extra space.
 Example：
 12321
 Some hints：
-Could negative integers be palindrom
+Could negative integers be palindromes? (ie, -1)
+If you are thinking of converting the integer to string, note the restriction of using extra space.
+You could also try reversing an integer. However, if you have solved the problem “Reverse Integer”, you know that the reversed integer might overflow. How would you handle such case?
+There is a more generic way of solving this problem.
+My answer： 
+12345678910111213class Solution &#123;    public boolean isPalindrome(int x) &#123;        int rev=0;        int ori=x;        if (x&lt;0 || (x!=0 &amp;&amp; x%10==0))             return fa
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1110,7 +1143,11 @@ Could negative integers be palindrom
           Question：
 Reverse digits of an integer.
 Example1: x = 123, return 321Example2: x = -123, return -321
-Note：The input is assumed to be a 32-bit signed i
+Note：The input is assumed to be a 32-bit signed integer. Your function should return 0 when the reversed integer overflows.
+My answer：
+123456789101112class Solution &#123;    public int reverse(int x) &#123;        int res=0;        if(x==0)            return x;        while(x!=0)&#123;            res=res*10+x%10;            x=x/10;        &#125;        return res;    &#125;&#125;
+Better answer：
+1234567891011class Solution &#123;public:    int reverse(int x) &#123;        long long res = 0;        while (x != 0) &#123;            res = 10 * res + x % 10;            x /= 10;        &#125;     
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1260,7 +1297,11 @@ Note：The input is assumed to be a 32-bit signed i
           
           Question：
 Given an array of integers, return indices of the two numbers such that they add up to a specific target.
-You may assume that each input wou
+You may assume that each input would have exactly one solution, and you may not use the same element twice.
+Example：
+1234Given nums = [2, 7, 11, 15], target = 9,Because nums[0] + nums[1] = 2 + 7 = 9,return [0, 1].
+My answer：
+123456789101112131415class Solution &#123;    public int[] twoSum(int[] nums, int target) &#123;        int[] res=new int[2];        int i,j;        for(i=0;i&lt;nums.length;i++)&#123;            for(j=i+1;j&lt;nums.length;j++)&#123;                if(nums[i]+nums[j]==target)&#123;                    res[0]=i;                    res[1]=j;                &#1
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1410,7 +1451,7 @@ You may assume that each input wou
           
           支持向量机分类器（Support Vector Classifier）
 根据训练样本的分布，搜索所有可能的线性分类器中最佳的那一个 ，决定其直线位置的样本并不是所有训练数据，而是其中的两个空间间隔最小的两个不同类的数据点 ，把这种可以用来真正帮助决策最优线性分类模型的数据点叫做“支持向量”。
-123
+1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859# -*- coding: utf-8 -*-"""Created on Tue Sep 19 11:25:09 2017@author: aa"""from sklearn.datasets import load_digits# 从sklearn.datasets导入手写体数字加载器digits=load_digits()# 从通过数据加载器获得手写数字的数码图像数据并储存在digits变量中print digits.data.shape# (1797L, 64L)  有1797张图片 由8*8=64的像素矩阵表示from sklearn.cross_validation import train_test_splitX_train,X_test,y_train,y_test=train_test_split(digits.data,digits.target,test_size=0.25,random_state=33)# 随机选取75%的数据最为训练样本，25%作为测
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1559,7 +1600,7 @@ You may assume that each input wou
         
           
           寻找与这个待分类的样本在特征空间中距离最近的K个已标记的样本作为参考，来帮助我们做出分类决策
-12345678910111213141516171819202122232425262728293031323334353637383940414243444546# -*- coding: utf-8 
+12345678910111213141516171819202122232425262728293031323334353637383940414243444546# -*- coding: utf-8 -*-"""Created on Sun Sep 17 21:27:03 2017@author: aa"""from sklearn.datasets import load_irisiris=load_iris()print(iris.data.shape)  #(150L, 4L)#print iris.DESCRfrom sklearn.cross_validation import train_test_split# train_test_split 用于数据分割X_train,X_test,y_train,y_test=train_test_split(iris.data,iris.target,test_size=0.25,random_state=33)# 采样25%作为测试集from sklearn.preprocessing import StandardScaler # 导入数据标准化模块from sklearn.neighbors import KNeighborsClassifierss=StandardScaler()X_train=ss.fit_transform(X_train)X_test=ss.fit_transform(X_test)# 标准化 
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1710,8 +1751,11 @@ You may assume that each input wou
           这个世界从来都是有经纬度的，不会因为你的忍让而缩水，也不会因为你的强悍而膨胀，你要懂得游刃有余，最好的方式是，内心柔软而有原则，身披铠甲而有温度
 在这个时代，文化成了一个看似非常喧嚣但其实非常沉默的事情    
 当一个人把他的精力和时间从关注外界转向关注自身的成长时，才能拥有更高的境界
-工欲善其事，
-          ...
+工欲善其事，必先利其器
+只有将时间花在磨练自己，从身体，精神，心智到待人处世四个层面，才能增进个人产能，累积其他修养的本钱
+^*^
+
+          
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/09/24/希望的天空/#more" rel="contents">
@@ -1923,10 +1967,9 @@ You may assume that each input wou
   
 
 
+  
 
 
-  
-  
 
 
 
@@ -1968,12 +2011,7 @@ You may assume that each input wou
 
   
   
-    <script type="text/javascript" src="/lib/three/three.min.js"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/three/three-waves.min.js"></script>
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
   
 
 
