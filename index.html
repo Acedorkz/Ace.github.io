@@ -360,10 +360,13 @@
 <p>常规的网络的堆叠（plain network）在网络很深的时候，效果却却越来越差，train set和test set都变差。</p>
 <p>产生这一问题的原因之一即 deeper network，gradients vanish越明显，network的训练效果也不是很好。</p>
 <p>Resnet network的目标是在网络加深的情况下解决gradients vanish的问题。</p>
-<p><em>method：</em></p>
-<p>Plain_net：</p>
+<hr>
+<blockquote>
+<p>method：</p>
+</blockquote>
+<p><em>Plain_net</em>：</p>
 <p><img src="/img/Resnet_plain net.png" alt="Resnet_plain net"></p>
-<p>Resnet network：</p>
+<p><em>Resnet network</em>：</p>
 <p><strong>Identity mapping</strong> ：X*I=X</p>
 <p>20 layers -&gt; 20 layers + 36 identity layers</p>
 <p>There existence of this constructed solution indicates that a deeper model should produce no higher training error than its shallower counterpart .</p>
