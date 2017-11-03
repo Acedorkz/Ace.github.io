@@ -521,7 +521,7 @@
 </li>
 <li><p>In many visual tasks，especially in biomedical image processing，the desired output should include localization，i.e.，<strong>a class label is supposed to be assigned to each pixel</strong> . </p>
 </li>
-<li><p>Ciresan et al：trained a network in a sliding-window setup to predict the class label of each pixel by providing a local region (patch) around that pixel as input .</p>
+<li><p>Ciresan et al：trained a network in a <strong>sliding-window</strong> setup to predict the class label of each pixel by providing a local region (patch) around that pixel as input .</p>
 <ul>
 <li>advantages：<ul>
 <li>this network can localize </li>
@@ -543,6 +543,9 @@
 <li><p>In the <strong>upsampling part</strong> we have alse a large number of feature channels , which allow the network to <strong>propagate context information to higher resolution layers</strong>  . The segmentation map only contains the pixels , for which the full context is available in the input image . To predict the pixels in the border region of the image , the missing context is extrapolated by mirroring the input image . </p>
 </li>
 </ul>
+<p>  This strategy allows the seamless segmentation of arbitrarily        large images by an overlap-tile strategy.</p>
+<p><img src="/img/u_net_overlap.png" alt="u_net_overlap"></p>
+<p>​    </p>
 <ul>
 <li>There is very little training data available , we use <strong>excessive data augmentation by applying elastic deformations</strong> to the available training  images . </li>
 <li>Another challenge is <strong>the separation of touching objects of the same class</strong>  . We propose the use of a weighted loss , where the separating background labels between touching cells <strong>obtain a larger weight in the loss function</strong></li>
@@ -560,7 +563,7 @@
 <li><p>softmax</p>
 </li>
 <li><p>The separation border computed using morphological operations </p>
-<p>中间项链的部分像素，认为的提高权重，让network可以重点学习这些特征，以便于分割</p>
+<p>中间项链的部分像素，人为的提高权重，让network可以重点学习这些特征，以便于分割</p>
 </li>
 <li><p>draw the initial weights from a Gaussian distribution</p>
 </li>
