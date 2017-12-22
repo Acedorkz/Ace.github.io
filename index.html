@@ -184,7 +184,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Accueil
+            Startseite
           </a>
         </li>
       
@@ -194,7 +194,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
-            A propos
+            Über
           </a>
         </li>
       
@@ -214,7 +214,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
             
-            Categories
+            Kategorien
           </a>
         </li>
       
@@ -224,7 +224,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archives
+            Archiv
           </a>
         </li>
       
@@ -247,6 +247,192 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/22/Multi-scale-context-aggregation-by-dilated-convolutions/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ace_ZAJ">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/me.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ace">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/12/22/Multi-scale-context-aggregation-by-dilated-convolutions/" itemprop="url">Multi-scale context aggregation by dilated convolutions</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-22T17:02:36+08:00">
+                2017-12-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/paper/" itemprop="url" rel="index">
+                    <span itemprop="name">paper</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>MULTI-SCALE CONTEXT AGGREGATION BY DILATED CONVOLUTIONS</p>
+</blockquote>
+<h4 id="空洞卷积"><a href="#空洞卷积" class="headerlink" title="空洞卷积"></a>空洞卷积</h4><h5 id="1-Introduction"><a href="#1-Introduction" class="headerlink" title="1. Introduction"></a>1. Introduction</h5><p>Dense prediction</p>
+<p>The goal is to compute a discrete or continuous label for each pixel in the image. A prominent example is to semantic segmentation , which calls for classifying each pixel into one of a given set of categories.</p>
+<p>Semantic segmentation is challenging because it requires combining <strong>pixel-level accuracy with multi-scale contextual reasoning.</strong> </p>
+<p>像素精度与上下文推理相结合</p>
+<p>Modern image classification networks integrate multi-scale contextual information via successive pooling and subsampling layers that reduce resolution until a global prediction is obtained.</p>
+<p>Dense prediction calls for multi-scale contextual reasoning in combination with full-resolution output.</p>
+<p>A network module that aggregates multi-scale contextual information without losing resolution or analyzing rescaled image.The module can be plugged into existing architectures at any resolution.</p>
+<p>is designed specifically for dense prediction</p>
+<p>It is a rectangular prism of convolution layers, with no pooling or subsampling.</p>
+<p>The module is based on dilated convolutions, which support exponential expansion of the receptive field without loss of resolution or coverage.</p>
+<h5 id="2-Dilated-Convolution"><a href="#2-Dilated-Convolution" class="headerlink" title="2.Dilated Convolution"></a>2.Dilated Convolution</h5><h5 id="3-Multi-scale-context-aggregation"><a href="#3-Multi-scale-context-aggregation" class="headerlink" title="3.Multi-scale context aggregation"></a>3.Multi-scale context aggregation</h5><p>The module takes C features maps as input and produces C feature maps as output. The input and output have the same form, thus the module can be plugged into existing dense prediction architecture.</p>
+<p>Found that random initalization schemes were not effective for the context module. Found an alternative initialization with clear semantics to be much more effective.</p>
+<p>This initialization sets all filters such that each layer simply passes the input directly to the next.</p>
+<hr>
+<p>FCN fully convolution network 全卷积</p>
+<p>预测一副图像中的所有像素点的类别</p>
+<p>将全连接层都改成卷积层</p>
+<ul>
+<li><p>卷积化convolutionalization：全卷积会不断降低分辨率，需要反卷积来提高分辨率</p>
+</li>
+<li><p>反卷积deconvolution</p>
+<ul>
+<li>外围全补0：在低分辨率的图片外围插0，与卷积核卷积输出高分辨率图片</li>
+<li>内部插0</li>
+</ul>
+<p>得到的分割结果比较粗糙，所以要使用跳层结构结合前两个卷积层的输出做融合</p>
+</li>
+<li><p>跳层结构skip-layer ?</p>
+</li>
+</ul>
+<hr>
+<h4 id="语义分割-Semantic-segmentation"><a href="#语义分割-Semantic-segmentation" class="headerlink" title="语义分割  Semantic segmentation"></a>语义分割  Semantic segmentation</h4><p><strong>像素级</strong> 地识别图像，标注图像中每个像素所属的对象类别</p>
+<ul>
+<li>patch classification图像块分类，即利用像素周围的图像块对每一个像素进行独立的分类，使用图像块分类的主要原因是分类网络通常是全连接层full connection layer，且要求固定尺寸</li>
+<li>FCN全卷积网络</li>
+</ul>
+<p>除了全连接层，使用卷积神经网络进行语义分割存在的一大问题是池化层，池化层不仅扩大感受野、聚会语境从而造成了位置信息的丢失</p>
+<p>问题的解决：</p>
+<ul>
+<li>U-Net 编码器与解码器结构：编码器逐步减少池化层的空间维度，解码器逐步修复物体的细节和空间维度，编码器与解码器之间通常存在快捷连接，因此能帮助解码器更好地修复目标的细节</li>
+<li>dilated convolution 空洞/带孔卷积</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
     
       
 
@@ -290,7 +476,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posté le</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-02T00:00:00+08:00">
                 2017-11-02
@@ -311,7 +497,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -466,7 +652,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posté le</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-30T00:00:00+08:00">
                 2017-10-30
@@ -487,7 +673,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -677,7 +863,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posté le</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-27T20:55:19+08:00">
                 2017-10-27
@@ -698,7 +884,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -851,7 +1037,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posté le</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-25T17:16:22+08:00">
                 2017-10-25
@@ -872,7 +1058,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -1082,7 +1268,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posté le</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-05T11:01:23+08:00">
                 2017-10-05
@@ -1103,7 +1289,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -1241,7 +1427,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posté le</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-04T09:31:22+08:00">
                 2017-10-04
@@ -1262,7 +1448,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -1391,7 +1577,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posté le</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-02T11:06:33+08:00">
                 2017-10-02
@@ -1412,7 +1598,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -1560,7 +1746,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posté le</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-24T20:08:16+08:00">
                 2017-09-24
@@ -1581,7 +1767,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -1707,7 +1893,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posté le</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-24T19:54:50+08:00">
                 2017-09-24
@@ -1728,7 +1914,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -1774,153 +1960,6 @@
             <p>寻找与这个待分类的样本在特征空间中距离最近的K个已标记的样本作为参考，来帮助我们做出分类决策</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># -*- coding: utf-8 -*-</span></div><div class="line"><span class="string">"""</span></div><div class="line">Created on Sun Sep 17 21:27:03 2017</div><div class="line"></div><div class="line">@author: aa</div><div class="line">"""</div><div class="line"></div><div class="line"><span class="keyword">from</span> sklearn.datasets <span class="keyword">import</span> load_iris</div><div class="line">iris=load_iris()</div><div class="line">print(iris.data.shape)  </div><div class="line"><span class="comment">#(150L, 4L)</span></div><div class="line"></div><div class="line"><span class="comment">#print iris.DESCR</span></div><div class="line"></div><div class="line"><span class="keyword">from</span> sklearn.cross_validation <span class="keyword">import</span> train_test_split</div><div class="line"><span class="comment"># train_test_split 用于数据分割</span></div><div class="line">X_train,X_test,y_train,y_test=train_test_split(iris.data,iris.target,test_size=<span class="number">0.25</span>,random_state=<span class="number">33</span>)</div><div class="line"><span class="comment"># 采样25%作为测试集</span></div><div class="line"></div><div class="line"><span class="keyword">from</span> sklearn.preprocessing <span class="keyword">import</span> StandardScaler </div><div class="line"><span class="comment"># 导入数据标准化模块</span></div><div class="line"><span class="keyword">from</span> sklearn.neighbors <span class="keyword">import</span> KNeighborsClassifier</div><div class="line"></div><div class="line">ss=StandardScaler()</div><div class="line">X_train=ss.fit_transform(X_train)</div><div class="line">X_test=ss.fit_transform(X_test)</div><div class="line"><span class="comment"># 标准化 训练和测试数据</span></div><div class="line"></div><div class="line">knc=KNeighborsClassifier()</div><div class="line">knc.fit(X_train,y_train)</div><div class="line">y_predict=knc.predict(X_test)</div><div class="line"></div><div class="line"><span class="keyword">print</span> <span class="string">'The accuracy of K-Nearest Neighor Classifier is'</span>,knc.score(X_test,y_test)</div><div class="line"><span class="comment"># 模型自带的评估函数进行准确率测评</span></div><div class="line"><span class="comment"># 0.710526315789</span></div><div class="line"></div><div class="line"><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> classification_report</div><div class="line"><span class="keyword">print</span> classification_report(y_test,y_predict,target_names=iris.target_names)</div><div class="line"><span class="comment"># classification_report对预测结果进行更详细的分析</span></div><div class="line"><span class="comment">#             precision    recall  f1-score   support</span></div><div class="line"><span class="comment">#</span></div><div class="line"><span class="comment">#     setosa       1.00      1.00      1.00         8</span></div><div class="line"><span class="comment"># versicolor       0.50      1.00      0.67        11</span></div><div class="line"><span class="comment">#  virginica       1.00      0.42      0.59        19</span></div><div class="line"></div><div class="line"><span class="comment">#avg / total       0.86      0.71      0.70        38</span></div></pre></td></tr></table></figure>
 <p>该模型<strong>没有参数训练</strong>的过程，只是根据测试样本在训练数据的分布直接做出分类决策，因此KNN属于无参数模型，正是这样的决策算法，导致了其<strong>非常高的计算复杂度和内存消耗</strong> 。因为该模型每处理一个测试样本，都需要对所有预先加载在内存的训练样本进行遍历，逐一计算相似度、排序并且选取K个最近邻训练样本的标记，进而做出分类决策。<strong>这是平方级别的算法复杂度</strong> ，一旦数据规模稍大，使用者便需要权衡更多计算时间的代价。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/24/希望的天空/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Ace_ZAJ">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/me.JPG">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ace">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/09/24/希望的天空/" itemprop="url">希望的天空</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posté le</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-24T18:25:01+08:00">
-                2017-09-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/BOOM/" itemprop="url" rel="index">
-                    <span itemprop="name">BOOM</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>这个世界从来都是有经纬度的，不会因为你的忍让而缩水，也不会因为你的强悍而膨胀，你要懂得游刃有余，最好的方式是，内心柔软而有原则，身披铠甲而有温度</p>
-<p>在这个时代，文化成了一个看似非常喧嚣但其实非常沉默的事情    </p>
-<p>当一个人把他的精力和时间从关注外界转向关注自身的成长时，才能拥有更高的境界</p>
-<p>工欲善其事，必先利其器</p>
-<p>只有将时间花在磨练自己，从身体，精神，心智到待人处世四个层面，才能增进个人产能，累积其他修养的本钱</p>
-<p>^*^</p>
 
           
         
@@ -2010,8 +2049,8 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">12</span>
-                  <span class="site-state-item-name">articles</span>
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">Artikel</span>
                 </a>
               </div>
             
@@ -2022,7 +2061,7 @@
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
                   <span class="site-state-item-count">5</span>
-                  <span class="site-state-item-name">categories</span>
+                  <span class="site-state-item-name">Kategorien</span>
                 </a>
               </div>
             
@@ -2072,7 +2111,7 @@
 </div>
 
 
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
 
@@ -2080,7 +2119,7 @@
 
 
 
-  <div class="theme-info">Thème &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.3</div>
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.3</div>
 
 
 
