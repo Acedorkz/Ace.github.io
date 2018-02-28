@@ -89,7 +89,7 @@ You may assume that each input would have exactly one solution, and you may not 
 <meta property="og:description" content="Question：
 Given an array of integers, return indices of the two numbers such that they add up to a specific target.
 You may assume that each input would have exactly one solution, and you may not use">
-<meta property="og:updated_time" content="2017-10-05T03:20:41.363Z">
+<meta property="og:updated_time" content="2018-02-28T15:46:05.842Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="1.Two Sum">
 <meta name="twitter:description" content="Question：
@@ -190,7 +190,7 @@ You may assume that each input would have exactly one solution, and you may not 
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            Accueil
           </a>
         </li>
       
@@ -200,7 +200,7 @@ You may assume that each input would have exactly one solution, and you may not 
             
               <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
-            Über
+            A propos
           </a>
         </li>
       
@@ -220,7 +220,7 @@ You may assume that each input would have exactly one solution, and you may not 
             
               <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
             
-            Kategorien
+            Categories
           </a>
         </li>
       
@@ -230,7 +230,7 @@ You may assume that each input would have exactly one solution, and you may not 
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archiv
+            Archives
           </a>
         </li>
       
@@ -294,7 +294,7 @@ You may assume that each input would have exactly one solution, and you may not 
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posté le</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-02T11:06:33+08:00">
                 2017-10-02
@@ -315,7 +315,7 @@ You may assume that each input would have exactly one solution, and you may not 
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -361,30 +361,43 @@ You may assume that each input would have exactly one solution, and you may not 
 <p>You may assume that each input would have <strong>exactly</strong> one solution, and you may not use the same element twice.</p>
 <p><strong>Example：</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Given nums = [2, 7, 11, 15], target = 9,</div><div class="line"></div><div class="line">Because nums[0] + nums[1] = 2 + 7 = 9,</div><div class="line">return [0, 1].</div></pre></td></tr></table></figure>
-<p><strong>My answer：</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] twoSum(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target) &#123;</div><div class="line">        <span class="keyword">int</span>[] res=<span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">2</span>];</div><div class="line">        <span class="keyword">int</span> i,j;</div><div class="line">        <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;nums.length;i++)&#123;</div><div class="line">            <span class="keyword">for</span>(j=i+<span class="number">1</span>;j&lt;nums.length;j++)&#123;</div><div class="line">                <span class="keyword">if</span>(nums[i]+nums[j]==target)&#123;</div><div class="line">                    res[<span class="number">0</span>]=i;</div><div class="line">                    res[<span class="number">1</span>]=j;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;            </div><div class="line">        <span class="keyword">return</span> res;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>My First answer: (wrong)</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">twoSum</span><span class="params">(self, nums, target)</span>:</span></div><div class="line">        <span class="string">"""</span></div><div class="line">        :type nums: List[int]</div><div class="line">        :type target: int</div><div class="line">        :rtype: List[int]</div><div class="line">        """</div><div class="line">        j=<span class="number">0</span></div><div class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> nums:</div><div class="line">            j+=<span class="number">1</span></div><div class="line">            tmp=nums[j:]</div><div class="line">            <span class="keyword">if</span> target-i <span class="keyword">in</span> tmp:</div><div class="line">                <span class="keyword">return</span> [nums.index(i),nums.index(target-i)]</div><div class="line">        <span class="keyword">return</span> [<span class="number">0</span>,<span class="number">0</span>]</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">input:(3,3)</div><div class="line">output(0,0)</div><div class="line">should be(0,1)</div></pre></td></tr></table></figure>
+<p>so we need to clear the index and value, exchange their position to make them uniqueness</p>
+<p><strong>Modified Answer:</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">twoSum</span><span class="params">(self, nums, target)</span>:</span></div><div class="line">        <span class="string">"""</span></div><div class="line">        :type nums: List[int]</div><div class="line">        :type target: int</div><div class="line">        :rtype: List[int]</div><div class="line">        """</div><div class="line">        d=&#123;&#125;</div><div class="line">        <span class="keyword">for</span> i,value <span class="keyword">in</span> enumerate(nums):</div><div class="line">            <span class="keyword">if</span> target-value <span class="keyword">in</span> d:</div><div class="line">                <span class="keyword">return</span> [d[target-value],i]</div><div class="line">            d[value]=i</div></pre></td></tr></table></figure>
+<p>Traverse the list, and put every item into the <code>list d</code>, and the order of <code>return list</code> is also important, first is index in <code>list d</code>, because the item in <code>list d</code> is earilier put from the origin list i.e. <code>list nums</code>. Second is current index in <code>list nums</code>.</p>
 <p><strong>Complexity Analysis：</strong></p>
 <ul>
-<li>Time complexity：<em>O</em> ($n^2$)，for each element , we try to find its complement by looping through the rest of array which takes <em>O</em> ($n^2$) time</li>
+<li>Time complexity：<em>O</em> (n)，for each element , we try to find its complement by looping through the rest of array which takes <em>O</em> (n) time</li>
 <li>Space complexity：<em>O</em> (1)</li>
 </ul>
+<p><strong>Supplement:</strong></p>
+<p><strong>List</strong></p>
+<p><code>list1 = [&#39;physics&#39;, &#39;chemistry&#39;, 1997, 2000]</code></p>
+<p><code>list.append(x)</code> : Add an <strong>item</strong> x to the end of the list</p>
+<p><code>list.extend(list)</code> : Extend the <strong>list</strong> by appending all the items in the given list</p>
+<p><code>list.insert(i,x)</code> </p>
+<p><code>list.remove(x)</code> : the first item from the first</p>
+<p><code>list.pop([i])</code> : Remove the item at the given position in the list, and return it</p>
+<p><code>list.index(x)</code></p>
+<p><code>list.count(x)</code></p>
+<p><code>list.sort()</code></p>
+<p><code>list.reverse()</code></p>
+<p><code>del(list[2])</code></p>
+<p><code>len(list)</code></p>
+<p><code>cmp(list1,list2)</code></p>
+<p><code>max(list),min(list)</code></p>
+<p><code>[&#39;Hi&#39;]*4</code></p>
+<p><code>3 in [1,2,3]</code></p>
+<p><code>for x in [1,2,3]</code></p>
+<p><code>list[2]</code> : the third item in the list</p>
+<p><code>list[-2]</code> : the second last item in the list</p>
+<p><code>list[1:]</code> : read the list beginning from the second item</p>
 <hr>
-<p><strong>Better Answer：</strong></p>
-<p>Approach #2：Two-pass <strong>Hash Table</strong> </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">int</span>[] twoSum(<span class="keyword">int</span>[] nums,<span class="keyword">int</span> target)&#123;</div><div class="line">  Map&lt;Integer,Integer&gt; map=<span class="keyword">new</span> HashMap&lt;&gt;();</div><div class="line">  <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;nums.length;i++)&#123;</div><div class="line">      map.put(num[i],i);</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;nums.length;i++)&#123;</div><div class="line">      <span class="keyword">int</span> complement=target-nums[i];</div><div class="line">      <span class="keyword">if</span>(map.containsKey(complement)&amp;&amp;map.get(complement)!=i)</div><div class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[]&#123;i,get(complement)&#125;;</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">throw</span> <span class="keyword">new</span> IllegalArgumentException(<span class="string">"No two sum solution"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p><strong>Complexity Analysis：</strong></p>
-<ul>
-<li>Time complexity：<em>O</em>($n$)，we traverse the list containing n elements exactly twice. Since the hash table reduces the look up time to <em>O(1)</em>，the time complexity is <em>O</em>($n$)</li>
-<li>Space complexity：<em>O</em>($n$)，the extra space required depends on the number of items stored in the hash table , which stores exactly n elements</li>
-</ul>
-<p>Approach #3：One-pass <strong>Hash Table</strong> </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">int</span>[] twoSum(<span class="keyword">int</span>[] nums,<span class="keyword">int</span> target)&#123;</div><div class="line">  Map&lt;Integer,Integer&gt; map=<span class="keyword">new</span> HashMap();</div><div class="line">  <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;nums.length;i++)&#123;</div><div class="line">    <span class="keyword">int</span> complement=target-nums[i];</div><div class="line">    <span class="keyword">if</span>(map.containKey(complement))&#123;</div><div class="line">      <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[]&#123;map.get(complement),i&#125;;</div><div class="line">    &#125;</div><div class="line">    map.put(nums[i],i);</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">throw</span> <span class="keyword">new</span> IllegalArgumentException(<span class="string">"No two sum solution"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p><strong>Complexity Analysis：</strong></p>
-<ul>
-<li>Time complexity：<em>O</em>$(n)$，we traverse the list containing n elements exactly twice. Since the hash table reduces the look up time to <em>O(1)</em>，the time complexity is <em>O</em>($n$)</li>
-<li>Space complexity：<em>O</em>($n$)，the extra space required depends on the number of items stored in the hash table , which stores exactly n elements</li>
-</ul>
-
+<p><code>enumerate(sequence, [start=0])</code> ()</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> index, value <span class="keyword">in</span> enumerate(list):</div><div class="line">    print(index, value)</div></pre></td></tr></table></figure>
       
     </div>
     
@@ -493,7 +506,7 @@ You may assume that each input would have exactly one solution, and you may not 
                 <a href="/archives/">
               
                   <span class="site-state-item-count">13</span>
-                  <span class="site-state-item-name">Artikel</span>
+                  <span class="site-state-item-name">articles</span>
                 </a>
               </div>
             
@@ -504,7 +517,7 @@ You may assume that each input would have exactly one solution, and you may not 
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
                   <span class="site-state-item-count">5</span>
-                  <span class="site-state-item-name">Kategorien</span>
+                  <span class="site-state-item-name">categories</span>
                 </a>
               </div>
             
@@ -544,7 +557,7 @@ You may assume that each input would have exactly one solution, and you may not 
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2017</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -554,7 +567,7 @@ You may assume that each input would have exactly one solution, and you may not 
 </div>
 
 
-  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
 
@@ -562,7 +575,7 @@ You may assume that each input would have exactly one solution, and you may not 
 
 
 
-  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.3</div>
+  <div class="theme-info">Thème &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.3</div>
 
 
 
