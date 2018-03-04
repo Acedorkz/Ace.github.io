@@ -184,7 +184,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Accueil
+            Home
           </a>
         </li>
       
@@ -194,7 +194,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
-            A propos
+            About
           </a>
         </li>
       
@@ -290,7 +290,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posté le</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-22T17:02:36+08:00">
                 2017-12-22
@@ -476,7 +476,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posté le</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-02T00:00:00+08:00">
                 2017-11-02
@@ -652,7 +652,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posté le</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-30T00:00:00+08:00">
                 2017-10-30
@@ -863,7 +863,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posté le</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-27T20:55:19+08:00">
                 2017-10-27
@@ -1037,7 +1037,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posté le</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-25T17:16:22+08:00">
                 2017-10-25
@@ -1268,7 +1268,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posté le</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-05T11:01:23+08:00">
                 2017-10-05
@@ -1427,7 +1427,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posté le</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-04T09:31:22+08:00">
                 2017-10-04
@@ -1493,13 +1493,18 @@
           
             <p><strong>Question：</strong></p>
 <p>Reverse digits of an integer.</p>
-<p>Example1: x = 123, return 321<br>Example2: x = -123, return -321</p>
-<p><strong>Note：</strong>The input is assumed to be a 32-bit signed integer. Your function should <strong>return 0 when the reversed integer overflows</strong>.</p>
-<p><strong>My answer：</strong></p>
+<p>Example1: x = 123, return 321</p>
+<p>Example2: x = -123, return -321</p>
+<p>Example3: x = 120, return 21</p>
+<p><strong>Note：</strong>Assume we are dealing with an environment which could only hold integers within the <strong>32-bit signed integer range.</strong> For the purpose of this problem, assume that your function <strong>returns 0 when the reversed integer overflows.</strong></p>
+<p><strong>My answer in Java：</strong></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">reverse</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> res=<span class="number">0</span>;</div><div class="line">        <span class="keyword">if</span>(x==<span class="number">0</span>)</div><div class="line">            <span class="keyword">return</span> x;</div><div class="line">        <span class="keyword">while</span>(x!=<span class="number">0</span>)&#123;</div><div class="line">            res=res*<span class="number">10</span>+x%<span class="number">10</span>;</div><div class="line">            x=x/<span class="number">10</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> res;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p><strong>Better answer：</strong></p>
+<p><strong>Better answer in Java：</strong></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="function"><span class="keyword">int</span> <span class="title">reverse</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</div><div class="line">        <span class="keyword">long</span> <span class="keyword">long</span> res = <span class="number">0</span>;</div><div class="line">        <span class="keyword">while</span> (x != <span class="number">0</span>) &#123;</div><div class="line">            res = <span class="number">10</span> * res + x % <span class="number">10</span>;</div><div class="line">            x /= <span class="number">10</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> (res &gt; INT_MAX || res &lt; INT_MIN) ? <span class="number">0</span> : res;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
-<p>之前未考虑<strong>溢出问题</strong> ，为什么会存在溢出问题呢，我们知道int型的数值范围是 -2147483648～2147483647， 那么如果我们要翻转 1000000009 这个在范围内的数得到 9000000001，而翻转后的数就超过了范围，所以要进行溢出判断。</p>
+<p>Didn’t thought about over integer overflows, why this problem will happen, we know that the range of integer is  -2147483648～2147483647. So if we want to traverse the integer 1000000009, the traversed number 9000000001 will be out of range, so we need to judge the overflow situation.</p>
+<p><strong>Answer in python:</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="comment"># def reverse(self, x):</span></div><div class="line">    <span class="comment">#     """</span></div><div class="line">    <span class="comment">#     :type x: int</span></div><div class="line">    <span class="comment">#     :rtype: int</span></div><div class="line">    <span class="comment">#     """</span></div><div class="line">    <span class="comment">#     res=0</span></div><div class="line">    <span class="comment">#     if x==0:</span></div><div class="line">    <span class="comment">#         return 0</span></div><div class="line">    <span class="comment">#     while x!=0:</span></div><div class="line">    <span class="comment">#         res=res*10+x%10</span></div><div class="line">    <span class="comment">#         x=x/10</span></div><div class="line">    <span class="comment">#     return res if -2147483648 &lt;= res &lt;= 2147483647 else 0</span></div><div class="line">        </div><div class="line">        </div><div class="line">   <span class="function"><span class="keyword">def</span> <span class="title">reverse</span><span class="params">(self, x)</span>:</span></div><div class="line">       s = str(x)</div><div class="line">       res = int(<span class="string">'-'</span> + s[<span class="number">1</span>:][::<span class="number">-1</span>]) <span class="keyword">if</span> s[<span class="number">0</span>] == <span class="string">'-'</span> <span class="keyword">else</span> int(s[::<span class="number">-1</span>])</div><div class="line">       <span class="keyword">return</span> res <span class="keyword">if</span> <span class="number">-2147483648</span> &lt;= res &lt;= <span class="number">2147483647</span> <span class="keyword">else</span> <span class="number">0</span></div></pre></td></tr></table></figure>
+<p>But I have a consider is that why the code which are annotated can’t not run when the input integer is -321</p>
 
           
         
@@ -1577,7 +1582,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posté le</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-02T11:06:33+08:00">
                 2017-10-02
@@ -1759,7 +1764,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posté le</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-24T20:08:16+08:00">
                 2017-09-24
@@ -1906,7 +1911,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posté le</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-24T19:54:50+08:00">
                 2017-09-24
@@ -2063,7 +2068,7 @@
                 <a href="/archives/">
               
                   <span class="site-state-item-count">13</span>
-                  <span class="site-state-item-name">articles</span>
+                  <span class="site-state-item-name">posts</span>
                 </a>
               </div>
             
@@ -2132,7 +2137,7 @@
 
 
 
-  <div class="theme-info">Thème &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.3</div>
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.3</div>
 
 
 
