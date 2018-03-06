@@ -184,7 +184,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Home
+            Startseite
           </a>
         </li>
       
@@ -194,7 +194,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
-            About
+            Über
           </a>
         </li>
       
@@ -214,7 +214,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
             
-            Categories
+            Kategorien
           </a>
         </li>
       
@@ -224,7 +224,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archives
+            Archiv
           </a>
         </li>
       
@@ -247,6 +247,201 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/06/GIT/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ace_ZAJ">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/me.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ace">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/03/06/GIT/" itemprop="url">GIT</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-06T23:07:54+08:00">
+                2018-03-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/za/" itemprop="url" rel="index">
+                    <span itemprop="name">za</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="GIT"><a href="#GIT" class="headerlink" title="GIT"></a>GIT</h3><h4 id="Basics-of-git"><a href="#Basics-of-git" class="headerlink" title="Basics of git"></a>Basics of git</h4><ul>
+<li><p>a stream of snapshots</p>
+<p>Git thinks of its data more like a series of snapshots of a miniature filesystem. </p>
+</li>
+<li><p>nearly every operations is local</p>
+<p>We have the entire history of the project right there on our local disk, most operations seem almost instantaneous</p>
+</li>
+<li><p>three states</p>
+<ul>
+<li>committed means that the data is safely stored in your local database.</li>
+<li>modified means that you have changed the file but have not committed it to your database yet</li>
+<li>staged means that you have marked a modified file in its current version to go into your next commit snapshot</li>
+</ul>
+</li>
+<li><p>three main sections of a Git project</p>
+<ul>
+<li>working directory</li>
+<li>staging area</li>
+<li>.git directory(repository)</li>
+</ul>
+</li>
+</ul>
+<p><img src="D:\pro\Acedorkz.github.io\blog\source\img\three main sections GIT.png" alt="three main sections GIT"></p>
+<h4 id="Getting-Help"><a href="#Getting-Help" class="headerlink" title="Getting Help"></a>Getting Help</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git help config</div><div class="line">git add -h</div></pre></td></tr></table></figure>
+<h4 id="Getting-a-GIT-Repository"><a href="#Getting-a-GIT-Repository" class="headerlink" title="Getting a GIT Repository"></a>Getting a GIT Repository</h4><p>Two ways:</p>
+<ol>
+<li><p>You can take a local directory that is currently not under version control, and turn it into a Git repository</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git init</div></pre></td></tr></table></figure>
+</li>
+<li><p>You can <em>clone</em> an existing Git repository from elsewhere</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git clone https://github.com/libgit2/libgit2</div></pre></td></tr></table></figure>
+<p>through https or SSH</p>
+</li>
+</ol>
+<h4 id="Recording-Changes-to-the-Repository"><a href="#Recording-Changes-to-the-Repository" class="headerlink" title="Recording Changes to the Repository"></a>Recording Changes to the Repository</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git status</div><div class="line">git add README.md</div></pre></td></tr></table></figure>
+<h5 id="ignoring-files"><a href="#ignoring-files" class="headerlink" title="ignoring files"></a>ignoring files</h5><p>​    -&gt; .gitignore file</p>
+<h5 id="diff"><a href="#diff" class="headerlink" title="diff"></a>diff</h5><p>to see what you’ve changed but not yet staged</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git diff</div></pre></td></tr></table></figure>
+<p>to see what you’ve staged that will go into your next commit</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git diff --staged</div></pre></td></tr></table></figure>
+<h5 id="commit-your-changes"><a href="#commit-your-changes" class="headerlink" title="commit your changes"></a>commit your changes</h5><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ git commit -m <span class="string">"Story 182: Fix benchmarks for speed"</span></div><div class="line">[master <span class="number">463</span>dc4f] Story <span class="number">182</span>: Fix benchmarks <span class="keyword">for</span> speed</div><div class="line"> <span class="number">2</span> files changed, <span class="number">2</span> insertions(+)</div><div class="line"> create mode <span class="number">100644</span> README</div></pre></td></tr></table></figure>
+<p>we could find that, the branch we commited to (master), what SHA-1 checksum the commit has (463dc4f), how many files were changed, and statistics about lines added and removed in this commit</p>
+<h5 id="skipping-the-staging-area"><a href="#skipping-the-staging-area" class="headerlink" title="skipping the staging area"></a>skipping the staging area</h5><p>let u skip the <code>git add</code> part</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git commit -a -m &quot;add new benchmarks&quot;</div></pre></td></tr></table></figure>
+<p>don’t have to run <code>git add</code> on the file in this case before u commit. <code>-a</code> flag includes all changed files. This is convenient, but be helpful, sometimes this flag will cause u to include unwanted changes.</p>
+<h5 id="remove-files"><a href="#remove-files" class="headerlink" title="remove files"></a>remove files</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git rm readme.md</div></pre></td></tr></table></figure>
+<p>remove the file from your tracked files which means remove it from your staging area, and also removes the file from your working directory so you will not see it as an untracked file the next time around</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git rm -f readme.md</div></pre></td></tr></table></figure>
+<p>If you modified the file and added it to the staging area already, must force the removal with the <code>-f</code> option. This is a safety feature to prevent accidental removal of data that <strong>hasn’t yet been recorded</strong> in a snapshot and that <strong>can’t be recovered from Git</strong>.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git rm --cached readme</div></pre></td></tr></table></figure>
+<p>Keep the file in your working tree but remove it from your staging area. In other words, you may want to keep the file on your hard drive but not have Git track it anymore.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git mv README.md README</div></pre></td></tr></table></figure>
+<p>rename a file in git, which equals to </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">mv README.md README</div><div class="line">git rm README.md</div><div class="line">git add README</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
     
       
 
@@ -290,7 +485,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-22T17:02:36+08:00">
                 2017-12-22
@@ -311,7 +506,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -476,7 +671,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-02T00:00:00+08:00">
                 2017-11-02
@@ -497,7 +692,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -652,7 +847,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-30T00:00:00+08:00">
                 2017-10-30
@@ -673,7 +868,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -863,7 +1058,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-27T20:55:19+08:00">
                 2017-10-27
@@ -884,7 +1079,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -1037,7 +1232,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-25T17:16:22+08:00">
                 2017-10-25
@@ -1058,7 +1253,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -1268,7 +1463,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-05T11:01:23+08:00">
                 2017-10-05
@@ -1289,7 +1484,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -1427,7 +1622,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-04T09:31:22+08:00">
                 2017-10-04
@@ -1448,7 +1643,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -1582,7 +1777,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-02T11:06:33+08:00">
                 2017-10-02
@@ -1603,7 +1798,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -1764,7 +1959,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-24T20:08:16+08:00">
                 2017-09-24
@@ -1785,7 +1980,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -1834,150 +2029,6 @@
 <p>0到9的数字，一共10类，无法直接计算上述3个指标，通常的做法是，逐一评估某个类别的这三个性能指标，我们把所有其他的类别看作负样本，这样一来，创造了10个二分类的任务。</p>
 <p>特点分析：</p>
 <p>SVM可以帮助我们在<strong>海量甚至高纬度的数据</strong> 中，筛选对预测任务最为有效的少量训练样本，这样做<strong>不仅节省了模型学习所需要的数据内存，同时也提高了模型的预测性能</strong> ，然而，获得如此优势就必然要付出<strong>更多的计算代价（CPU资源和计算时间）</strong> 。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/24/knn/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Ace_ZAJ">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/me.JPG">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ace">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/09/24/knn/" itemprop="url">knn</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-24T19:54:50+08:00">
-                2017-09-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Machine-Learning/" itemprop="url" rel="index">
-                    <span itemprop="name">Machine Learning</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>寻找与这个待分类的样本在特征空间中距离最近的K个已标记的样本作为参考，来帮助我们做出分类决策</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># -*- coding: utf-8 -*-</span></div><div class="line"><span class="string">"""</span></div><div class="line">Created on Sun Sep 17 21:27:03 2017</div><div class="line"></div><div class="line">@author: aa</div><div class="line">"""</div><div class="line"></div><div class="line"><span class="keyword">from</span> sklearn.datasets <span class="keyword">import</span> load_iris</div><div class="line">iris=load_iris()</div><div class="line">print(iris.data.shape)  </div><div class="line"><span class="comment">#(150L, 4L)</span></div><div class="line"></div><div class="line"><span class="comment">#print iris.DESCR</span></div><div class="line"></div><div class="line"><span class="keyword">from</span> sklearn.cross_validation <span class="keyword">import</span> train_test_split</div><div class="line"><span class="comment"># train_test_split 用于数据分割</span></div><div class="line">X_train,X_test,y_train,y_test=train_test_split(iris.data,iris.target,test_size=<span class="number">0.25</span>,random_state=<span class="number">33</span>)</div><div class="line"><span class="comment"># 采样25%作为测试集</span></div><div class="line"></div><div class="line"><span class="keyword">from</span> sklearn.preprocessing <span class="keyword">import</span> StandardScaler </div><div class="line"><span class="comment"># 导入数据标准化模块</span></div><div class="line"><span class="keyword">from</span> sklearn.neighbors <span class="keyword">import</span> KNeighborsClassifier</div><div class="line"></div><div class="line">ss=StandardScaler()</div><div class="line">X_train=ss.fit_transform(X_train)</div><div class="line">X_test=ss.fit_transform(X_test)</div><div class="line"><span class="comment"># 标准化 训练和测试数据</span></div><div class="line"></div><div class="line">knc=KNeighborsClassifier()</div><div class="line">knc.fit(X_train,y_train)</div><div class="line">y_predict=knc.predict(X_test)</div><div class="line"></div><div class="line"><span class="keyword">print</span> <span class="string">'The accuracy of K-Nearest Neighor Classifier is'</span>,knc.score(X_test,y_test)</div><div class="line"><span class="comment"># 模型自带的评估函数进行准确率测评</span></div><div class="line"><span class="comment"># 0.710526315789</span></div><div class="line"></div><div class="line"><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> classification_report</div><div class="line"><span class="keyword">print</span> classification_report(y_test,y_predict,target_names=iris.target_names)</div><div class="line"><span class="comment"># classification_report对预测结果进行更详细的分析</span></div><div class="line"><span class="comment">#             precision    recall  f1-score   support</span></div><div class="line"><span class="comment">#</span></div><div class="line"><span class="comment">#     setosa       1.00      1.00      1.00         8</span></div><div class="line"><span class="comment"># versicolor       0.50      1.00      0.67        11</span></div><div class="line"><span class="comment">#  virginica       1.00      0.42      0.59        19</span></div><div class="line"></div><div class="line"><span class="comment">#avg / total       0.86      0.71      0.70        38</span></div></pre></td></tr></table></figure>
-<p>该模型<strong>没有参数训练</strong>的过程，只是根据测试样本在训练数据的分布直接做出分类决策，因此KNN属于无参数模型，正是这样的决策算法，导致了其<strong>非常高的计算复杂度和内存消耗</strong> 。因为该模型每处理一个测试样本，都需要对所有预先加载在内存的训练样本进行遍历，逐一计算相似度、排序并且选取K个最近邻训练样本的标记，进而做出分类决策。<strong>这是平方级别的算法复杂度</strong> ，一旦数据规模稍大，使用者便需要权衡更多计算时间的代价。</p>
 
           
         
@@ -2067,8 +2118,8 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">13</span>
-                  <span class="site-state-item-name">posts</span>
+                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-name">Artikel</span>
                 </a>
               </div>
             
@@ -2079,7 +2130,7 @@
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
                   <span class="site-state-item-count">5</span>
-                  <span class="site-state-item-name">categories</span>
+                  <span class="site-state-item-name">Kategorien</span>
                 </a>
               </div>
             
@@ -2129,7 +2180,7 @@
 </div>
 
 
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
 
