@@ -79,22 +79,16 @@
 
 
 
-<meta name="description" content="A systematic study of the class imbalance problem in convolutional neural networks
-several methods：oversampling，undersampling，two-phase training，thresholding
-problem：some classes have a significantly">
+<meta name="description" content="boom pow">
 <meta property="og:type" content="article">
-<meta property="og:title" content="class imbalance problem in CNN">
-<meta property="og:url" content="http://yoursite.com/2017/10/25/class-imbalance-problem-in-CNN/index.html">
+<meta property="og:title" content="post">
+<meta property="og:url" content="http://yoursite.com/2018/04/14/post/index.html">
 <meta property="og:site_name" content="Ace">
-<meta property="og:description" content="A systematic study of the class imbalance problem in convolutional neural networks
-several methods：oversampling，undersampling，two-phase training，thresholding
-problem：some classes have a significantly">
-<meta property="og:updated_time" content="2017-11-02T11:58:51.380Z">
+<meta property="og:description" content="boom pow">
+<meta property="og:updated_time" content="2018-04-14T06:58:54.044Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="class imbalance problem in CNN">
-<meta name="twitter:description" content="A systematic study of the class imbalance problem in convolutional neural networks
-several methods：oversampling，undersampling，two-phase training，thresholding
-problem：some classes have a significantly">
+<meta name="twitter:title" content="post">
+<meta name="twitter:description" content="boom pow">
 
 
 
@@ -124,13 +118,13 @@ problem：some classes have a significantly">
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/10/25/class-imbalance-problem-in-CNN/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/04/14/post/"/>
 
 
 
 
 
-  <title>class imbalance problem in CNN | Ace</title>
+  <title>post | Ace</title>
   
 
 
@@ -267,7 +261,7 @@ problem：some classes have a significantly">
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/25/class-imbalance-problem-in-CNN/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/14/post/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Ace_ZAJ">
@@ -284,7 +278,7 @@ problem：some classes have a significantly">
 
         
         
-          <h1 class="post-title" itemprop="name headline">class imbalance problem in CNN</h1>
+          <h1 class="post-title" itemprop="name headline">post</h1>
         
 
         <div class="post-meta">
@@ -296,8 +290,8 @@ problem：some classes have a significantly">
               
                 <span class="post-meta-item-text">Veröffentlicht am</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-25T17:16:22+08:00">
-                2017-10-25
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-14T14:58:53+08:00">
+                2018-04-14
               </time>
             
 
@@ -306,28 +300,6 @@ problem：some classes have a significantly">
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">in</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/paper/" itemprop="url" rel="index">
-                    <span itemprop="name">paper</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -356,97 +328,7 @@ problem：some classes have a significantly">
       
 
       
-        <h4 id="A-systematic-study-of-the-class-imbalance-problem-in-convolutional-neural-networks"><a href="#A-systematic-study-of-the-class-imbalance-problem-in-convolutional-neural-networks" class="headerlink" title="A systematic study of the class imbalance problem in convolutional neural networks"></a>A systematic study of the class imbalance problem in convolutional neural networks</h4><ul>
-<li>several methods：oversampling，undersampling，two-phase training，thresholding</li>
-<li>problem：some classes have a significantly higher number of examples in the training set than other classes –<strong>class imbalance</strong> ，Eg：computer vision，medical diagnosis，fraud detection，the frequency of one class can be 1000 times less than another class</li>
-<li>A new method for CNNs was introduced that trains the network in two-phases in which the network is trained on the balanced data first and then the output layers are fine-tuned</li>
-</ul>
-<ul>
-<li><p>Methods for addressing imbalance</p>
-<ul>
-<li><p>Data level methods：</p>
-<ul>
-<li><p>Oversampling：random minority oversampling，which simply replicates randomly selected samples from minority classes</p>
-</li>
-<li><p>Undersampling：</p>
-<p>examples are removed randomly from majority classes until all classes have the same number of examples；</p>
-<p>disadvantage：discard a portion of available data</p>
-</li>
-</ul>
-</li>
-<li><p>Classifier level methods：</p>
-<ul>
-<li><p>Threshold：</p>
-<p>adjust the decision threshold of a classifier</p>
-<p>There are estimated for each class by its frequency in the imbalanced dataset before sampling is applied</p>
-<p>Bayesian a posteriori probabilities</p>
-<p>a given datapoint x，their output for class i，y(x)=p(i | x)=p(i)*p(x | i)/p(x)</p>
-</li>
-<li><p>Cost sensitive learning：</p>
-<p>different cost to misclassification of examples from different classes</p>
-<p>One approach is threshold moving or post scaling </p>
-<p>Another adaptation of neural work is modify the learning rate such that higher cost examples contribute more to the update of weights</p>
-<p>Finally we can train the network by minimizing the misclassification cost instead of standard loss function</p>
-</li>
-<li><p>One-class classification：</p>
-<p>recognizes positive instances</p>
-<p>identity function：a reconstruction error between the input and output patterns Eg：absolute error，square sum of errors，Euclidean or Mahalanobis distance</p>
-<p>prove to work well for extremely high imbalance when classification problems turns info anomaly detection</p>
-</li>
-<li><p>Hybrid of problems：</p>
-<p>Two-phase training，approached as pixel level classification</p>
-<p>involve network pre-training on balanced dataset and then fine-tuning the last output layer before softmax on the original , imbalance data</p>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li><p>Experiments</p>
-<ul>
-<li><p>Forms of imbalance：</p>
-<ul>
-<li>step imbalance：the number of examples is equal within minority classes and equal within majority classes but differs between the majority and minority classes</li>
-<li>linear imbalance：the difference between consecutive pairs of classes is constant</li>
-</ul>
-</li>
-<li><p>Evaluation metrics and testing</p>
-<ul>
-<li><p>The metric：overall accuracy</p>
-</li>
-<li><p>the area under the receiver operating characteristic curve(ROC AUC) </p>
-<p>ROC has also been used to compare performance of classifiers trained on imbalance datasets</p>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li><p><strong>Conclusions</strong> ：</p>
-<ul>
-<li><p>The effect of class imbalance on classification performance is detrimental</p>
-</li>
-<li><p>The influence of imbalance on classification performance increases with the scale of a task</p>
-</li>
-<li><p>The impact of imbalance cannot be explained by the lower total number of training cases and depends on the distribution of examples among classes</p>
-<p>​</p>
-</li>
-<li><p>The method that <strong>in most of the cases outperforms all others with respect to multiclass ROC AUC was oversampling</strong> </p>
-</li>
-<li><p>For extreme ratio of imbalance and large portion of classes being minority , undersampling performs on a par with oversampling </p>
-</li>
-<li><p>To achieve the best accuracy , <strong>one should apply thresholding to compensate for prior class probabilities</strong> . A <strong>combination of thresholding with baseline and oversampling is the most preferable</strong> , whereas it should not be combined with undersampling </p>
-</li>
-<li><p>Oversampling should be applied to the level that totally eliminates the imbalance , whereas undersampling can perform better when the imbalance is only removed to some extent</p>
-</li>
-<li><p>As supposed to some classical machine learning models , <strong>oversampling does not necessarily cause overfitting of convolutional neural networks</strong> </p>
-</li>
-</ul>
-</li>
-</ul>
-
+        
       
     </div>
     
@@ -470,8 +352,8 @@ problem：some classes have a significantly">
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/10/05/9-Palindrome-Number/" rel="next" title="9.Palindrome Number">
-                <i class="fa fa-chevron-left"></i> 9.Palindrome Number
+              <a href="/2018/03/06/GIT/" rel="next" title="GIT">
+                <i class="fa fa-chevron-left"></i> GIT
               </a>
             
           </div>
@@ -480,8 +362,8 @@ problem：some classes have a significantly">
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/10/27/ROC-curve-AUC-Recall/" rel="prev" title="ROC curve,AUC&Recall">
-                ROC curve,AUC&Recall <i class="fa fa-chevron-right"></i>
+              <a href="/2018/04/14/13-Roman-Into-Integer/" rel="prev" title="13.Roman Into Integer">
+                13.Roman Into Integer <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -534,17 +416,8 @@ problem：some classes have a significantly">
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Inhaltsverzeichnis
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Übersicht
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -601,22 +474,6 @@ problem：some classes have a significantly">
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#A-systematic-study-of-the-class-imbalance-problem-in-convolutional-neural-networks"><span class="nav-number">1.</span> <span class="nav-text">A systematic study of the class imbalance problem in convolutional neural networks</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
