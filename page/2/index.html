@@ -103,7 +103,7 @@
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     duoshuo: {
       userId: '0',
-      author: 'Author'
+      author: 'Penulis'
     },
     algolia: {
       applicationID: '',
@@ -184,7 +184,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            Beranda
           </a>
         </li>
       
@@ -194,7 +194,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
-            Über
+            Tentang
           </a>
         </li>
       
@@ -214,7 +214,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
             
-            Kategorien
+            Kategori
           </a>
         </li>
       
@@ -224,7 +224,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archiv
+            Arsip
           </a>
         </li>
       
@@ -247,6 +247,161 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/04/7-Reverse-Integer/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ace_ZAJ">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/me.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ace">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/10/04/7-Reverse-Integer/" itemprop="url">7.Reverse Integer</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Diposting di</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-04T09:31:22+08:00">
+                2017-10-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Di</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/LeetCode/" itemprop="url" rel="index">
+                    <span itemprop="name">LeetCode</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><strong>Question：</strong></p>
+<p>Reverse digits of an integer.</p>
+<p>Example1: x = 123, return 321</p>
+<p>Example2: x = -123, return -321</p>
+<p>Example3: x = 120, return 21</p>
+<p><strong>Note：</strong>Assume we are dealing with an environment which could only hold integers within the <strong>32-bit signed integer range.</strong> For the purpose of this problem, assume that your function <strong>returns 0 when the reversed integer overflows.</strong></p>
+<p><strong>My answer in Java：</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">reverse</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> res=<span class="number">0</span>;</div><div class="line">        <span class="keyword">if</span>(x==<span class="number">0</span>)</div><div class="line">            <span class="keyword">return</span> x;</div><div class="line">        <span class="keyword">while</span>(x!=<span class="number">0</span>)&#123;</div><div class="line">            res=res*<span class="number">10</span>+x%<span class="number">10</span>;</div><div class="line">            x=x/<span class="number">10</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> res;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>Better answer in Java：</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="function"><span class="keyword">int</span> <span class="title">reverse</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</div><div class="line">        <span class="keyword">long</span> <span class="keyword">long</span> res = <span class="number">0</span>;</div><div class="line">        <span class="keyword">while</span> (x != <span class="number">0</span>) &#123;</div><div class="line">            res = <span class="number">10</span> * res + x % <span class="number">10</span>;</div><div class="line">            x /= <span class="number">10</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> (res &gt; INT_MAX || res &lt; INT_MIN) ? <span class="number">0</span> : res;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>Didn’t thought about over integer overflows, why this problem will happen, we know that the range of integer is  -2147483648～2147483647. So if we want to traverse the integer 1000000009, the traversed number 9000000001 will be out of range, so we need to judge the overflow situation.</p>
+<p><strong>Answer in python:</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="comment"># def reverse(self, x):</span></div><div class="line">    <span class="comment">#     """</span></div><div class="line">    <span class="comment">#     :type x: int</span></div><div class="line">    <span class="comment">#     :rtype: int</span></div><div class="line">    <span class="comment">#     """</span></div><div class="line">    <span class="comment">#     res=0</span></div><div class="line">    <span class="comment">#     if x==0:</span></div><div class="line">    <span class="comment">#         return 0</span></div><div class="line">    <span class="comment">#     while x!=0:</span></div><div class="line">    <span class="comment">#         res=res*10+x%10</span></div><div class="line">    <span class="comment">#         x=x/10</span></div><div class="line">    <span class="comment">#     return res if -2147483648 &lt;= res &lt;= 2147483647 else 0</span></div><div class="line">        </div><div class="line">        </div><div class="line">   <span class="function"><span class="keyword">def</span> <span class="title">reverse</span><span class="params">(self, x)</span>:</span></div><div class="line">       s = str(x)</div><div class="line">       res = int(<span class="string">'-'</span> + s[<span class="number">1</span>:][::<span class="number">-1</span>]) <span class="keyword">if</span> s[<span class="number">0</span>] == <span class="string">'-'</span> <span class="keyword">else</span> int(s[::<span class="number">-1</span>])</div><div class="line">       <span class="keyword">return</span> res <span class="keyword">if</span> <span class="number">-2147483648</span> &lt;= res &lt;= <span class="number">2147483647</span> <span class="keyword">else</span> <span class="number">0</span></div></pre></td></tr></table></figure>
+<p>But I have a consider is that why the code which are annotated can’t not run when the input integer is -321</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
     
       
 
@@ -290,7 +445,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Diposting di</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-02T11:06:33+08:00">
                 2017-10-02
@@ -311,7 +466,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">Di</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -472,7 +627,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Diposting di</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-24T20:08:16+08:00">
                 2017-09-24
@@ -493,7 +648,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">Di</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -619,7 +774,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Diposting di</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-24T19:54:50+08:00">
                 2017-09-24
@@ -640,7 +795,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">Di</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -763,7 +918,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Diposting di</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-24T18:25:01+08:00">
                 2017-09-24
@@ -784,7 +939,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">Di</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -910,7 +1065,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Diposting di</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-23T00:00:00+08:00">
                 2017-09-23
@@ -931,7 +1086,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">Di</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -1060,7 +1215,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Diposting di</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-12T23:05:31+08:00">
                 2017-03-12
@@ -1081,7 +1236,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">Di</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -1222,8 +1377,8 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">16</span>
-                  <span class="site-state-item-name">Artikel</span>
+                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-name">posting</span>
                 </a>
               </div>
             
@@ -1233,8 +1388,8 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">6</span>
-                  <span class="site-state-item-name">Kategorien</span>
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">kategori</span>
                 </a>
               </div>
             
@@ -1284,7 +1439,7 @@
 </div>
 
 
-  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
 
@@ -1292,7 +1447,7 @@
 
 
 
-  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.3</div>
+  <div class="theme-info">Tema &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.3</div>
 
 
 
