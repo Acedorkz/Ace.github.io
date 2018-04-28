@@ -80,33 +80,27 @@
 
 
 <meta name="description" content="Question： 
-Determine whether an integer is a palindrome . Do this without extra space.
-Example：
-12321
-Some hints：
-Could negative integers be palindromes? (ie, -1)
-If you are thinking of converting the">
+Write a function to find the longest common prefix string amongst an array of strings.
+If there is no common prefix, return an empty string &amp;quot;&amp;quot;.
+Example 1:
+12Input: [&amp;quot;flower&amp;q">
 <meta property="og:type" content="article">
-<meta property="og:title" content="9.Palindrome Number">
-<meta property="og:url" content="http://yoursite.com/2017/10/05/9-Palindrome-Number/index.html">
+<meta property="og:title" content="14.Longest Common Prefix">
+<meta property="og:url" content="http://yoursite.com/2018/04/28/14-Longest-Common-Prefix/index.html">
 <meta property="og:site_name" content="Ace">
 <meta property="og:description" content="Question： 
-Determine whether an integer is a palindrome . Do this without extra space.
-Example：
-12321
-Some hints：
-Could negative integers be palindromes? (ie, -1)
-If you are thinking of converting the">
-<meta property="og:updated_time" content="2018-03-08T13:51:11.579Z">
+Write a function to find the longest common prefix string amongst an array of strings.
+If there is no common prefix, return an empty string &amp;quot;&amp;quot;.
+Example 1:
+12Input: [&amp;quot;flower&amp;q">
+<meta property="og:updated_time" content="2018-04-28T09:32:13.699Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="9.Palindrome Number">
+<meta name="twitter:title" content="14.Longest Common Prefix">
 <meta name="twitter:description" content="Question： 
-Determine whether an integer is a palindrome . Do this without extra space.
-Example：
-12321
-Some hints：
-Could negative integers be palindromes? (ie, -1)
-If you are thinking of converting the">
+Write a function to find the longest common prefix string amongst an array of strings.
+If there is no common prefix, return an empty string &amp;quot;&amp;quot;.
+Example 1:
+12Input: [&amp;quot;flower&amp;q">
 
 
 
@@ -136,13 +130,13 @@ If you are thinking of converting the">
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/10/05/9-Palindrome-Number/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/04/28/14-Longest-Common-Prefix/"/>
 
 
 
 
 
-  <title>9.Palindrome Number | Ace</title>
+  <title>14.Longest Common Prefix | Ace</title>
   
 
 
@@ -279,7 +273,7 @@ If you are thinking of converting the">
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/05/9-Palindrome-Number/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/28/14-Longest-Common-Prefix/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Ace_ZAJ">
@@ -296,7 +290,7 @@ If you are thinking of converting the">
 
         
         
-          <h1 class="post-title" itemprop="name headline">9.Palindrome Number</h1>
+          <h1 class="post-title" itemprop="name headline">14.Longest Common Prefix</h1>
         
 
         <div class="post-meta">
@@ -308,8 +302,8 @@ If you are thinking of converting the">
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-05T11:01:23+08:00">
-                2017-10-05
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-28T17:27:36+08:00">
+                2018-04-28
               </time>
             
 
@@ -369,25 +363,17 @@ If you are thinking of converting the">
 
       
         <p><strong>Question：</strong> </p>
-<p>Determine whether an integer is a <strong>palindrome</strong> . Do this without extra space.</p>
-<p><strong>Example：</strong></p>
-<p>12321</p>
-<p><strong>Some hints：</strong></p>
-<p>Could negative integers be palindromes? (ie, -1)</p>
-<p>If you are thinking of converting the integer to string, note the restriction of using extra space.</p>
-<p>You could also try reversing an integer. However, if you have solved the problem “Reverse Integer”, you know that the reversed integer might overflow. How would you handle such case?</p>
-<p>There is a more generic way of solving this problem.</p>
-<p><strong>My answer (java)：</strong> </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isPalindrome</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> rev=<span class="number">0</span>;</div><div class="line">        <span class="keyword">int</span> ori=x;</div><div class="line">        <span class="keyword">if</span> (x&lt;<span class="number">0</span> || (x!=<span class="number">0</span> &amp;&amp; x%<span class="number">10</span>==<span class="number">0</span>)) </div><div class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">        <span class="keyword">while</span>(x!=<span class="number">0</span>)&#123;</div><div class="line">            rev=rev*<span class="number">10</span>+x%<span class="number">10</span>;</div><div class="line">            x=x/<span class="number">10</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> ori==rev;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p><strong>Better answer (java)：</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isPalindrome</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (x&lt;<span class="number">0</span> || (x!=<span class="number">0</span> &amp;&amp; x%<span class="number">10</span>==<span class="number">0</span>)) <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">    <span class="keyword">int</span> rev = <span class="number">0</span>;</div><div class="line">    <span class="keyword">while</span> (x&gt;rev)&#123;</div><div class="line">    	rev = rev*<span class="number">10</span> + x%<span class="number">10</span>;</div><div class="line">    	x = x/<span class="number">10</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> (x==rev || x==rev/<span class="number">10</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p><strong>Algorithm：</strong></p>
-<p>First of all we should take care of <strong>some edge cases</strong>. All negative numbers are not palindrome, for example: -123 is not a palindrome since the ‘-‘ does not equal to ‘3’. So we can return false for all negative numbers.</p>
-<p>Now let’s think about how to revert the last half of the number. For number <code>1221</code>, if we do <code>1221 % 10</code>, we get the last digit <code>1</code>, to get the second to the last digit, we need to remove the last digit from <code>1221</code>, we could do so by dividing it by 10, <code>1221 / 10 = 122</code>. Then we can get the last digit again by doing a modulus by 10, <code>122 % 10 = 2</code>, and if we multiply the last digit by 10 and add the second last digit, <code>1 * 10 + 2 = 12</code>, it gives us the reverted number we want. Continuing this process would give us the reverted number with more digits.</p>
-<p>Now the question is, how do we know that we’ve <strong>reached the half of the number</strong>?</p>
-<p>Since we divided the number by 10, and multiplied the reversed number by 10, <strong>when the original number is less than the reversed number, it means we’ve processed half of the number digits</strong>.</p>
-<p>My answer (python):</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">isPalindrome</span><span class="params">(self, x)</span>:</span></div><div class="line">        <span class="string">"""</span></div><div class="line">        :type x: int</div><div class="line">        :rtype: bool</div><div class="line">        """</div><div class="line">        </div><div class="line">        <span class="keyword">if</span>(str(x)==str(x)[::<span class="number">-1</span>]) <span class="keyword">and</span> <span class="number">-2147483648</span> &lt;= x &lt;= <span class="number">2147483647</span>:</div><div class="line">            <span class="keyword">return</span> <span class="keyword">True</span></div><div class="line">        <span class="keyword">else</span>: </div><div class="line">            <span class="keyword">return</span> <span class="keyword">False</span></div></pre></td></tr></table></figure>
+<p>Write a function to find the longest common prefix string amongst an array of strings.</p>
+<p>If there is no common prefix, return an empty string <code>&quot;&quot;</code>.</p>
+<p><strong>Example 1:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Input: [&quot;flower&quot;,&quot;flow&quot;,&quot;flight&quot;]</div><div class="line">Output: &quot;fl&quot;</div></pre></td></tr></table></figure>
+<p><strong>Example 2:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Input: [&quot;dog&quot;,&quot;racecar&quot;,&quot;car&quot;]</div><div class="line">Output: &quot;&quot;</div><div class="line">Explanation: There is no common prefix among the input strings.</div></pre></td></tr></table></figure>
+<p><strong>Note:</strong></p>
+<p>All given inputs are in lowercase letters <code>a-z</code>.</p>
+<p><strong>My answer (java)：</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">  <span class="function"><span class="keyword">public</span> String <span class="title">longestCommonPrefix</span><span class="params">(String[] strs)</span> </span>&#123;</div><div class="line">      <span class="keyword">if</span> (strs.length == <span class="number">0</span>) </div><div class="line">          <span class="keyword">return</span> <span class="string">""</span>;</div><div class="line">      String str1 = strs[<span class="number">0</span>];</div><div class="line">      <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;str1.length();i++)&#123;</div><div class="line">          <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;strs.length;j++)&#123;</div><div class="line">              <span class="keyword">if</span>(i==strs[j].length() || str1.charAt(i)!=strs[j].charAt(i))</div><div class="line">                  <span class="keyword">return</span> str1.substring(<span class="number">0</span>,i);</div><div class="line">          &#125;               </div><div class="line">      &#125;</div><div class="line">      <span class="keyword">return</span> str1;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>Running time: 12ms</p>
 
       
     </div>
@@ -412,8 +398,8 @@ If you are thinking of converting the">
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/10/04/7-Reverse-Integer/" rel="next" title="7.Reverse Integer">
-                <i class="fa fa-chevron-left"></i> 7.Reverse Integer
+              <a href="/2018/04/25/Grokking-Algorithms/" rel="next" title="Grokking Algorithms">
+                <i class="fa fa-chevron-left"></i> Grokking Algorithms
               </a>
             
           </div>
@@ -422,8 +408,8 @@ If you are thinking of converting the">
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/10/25/class-imbalance-problem-in-CNN/" rel="prev" title="class imbalance problem in CNN">
-                class imbalance problem in CNN <i class="fa fa-chevron-right"></i>
+              <a href="/2018/04/28/20-Valid-Parentheses/" rel="prev" title="20.Valid Parentheses">
+                20.Valid Parentheses <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>

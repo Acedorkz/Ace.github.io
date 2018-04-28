@@ -103,7 +103,7 @@
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     duoshuo: {
       userId: '0',
-      author: 'Penulis'
+      author: 'Author'
     },
     algolia: {
       applicationID: '',
@@ -184,7 +184,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Beranda
+            Home
           </a>
         </li>
       
@@ -194,7 +194,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
-            Tentang
+            About
           </a>
         </li>
       
@@ -214,7 +214,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
             
-            Kategori
+            Categories
           </a>
         </li>
       
@@ -224,7 +224,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Arsip
+            Archives
           </a>
         </li>
       
@@ -247,6 +247,398 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/25/class-imbalance-problem-in-CNN/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ace_ZAJ">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/me.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ace">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/10/25/class-imbalance-problem-in-CNN/" itemprop="url">class imbalance problem in CNN</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-25T17:16:22+08:00">
+                2017-10-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/paper/" itemprop="url" rel="index">
+                    <span itemprop="name">paper</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="A-systematic-study-of-the-class-imbalance-problem-in-convolutional-neural-networks"><a href="#A-systematic-study-of-the-class-imbalance-problem-in-convolutional-neural-networks" class="headerlink" title="A systematic study of the class imbalance problem in convolutional neural networks"></a>A systematic study of the class imbalance problem in convolutional neural networks</h4><ul>
+<li>several methods：oversampling，undersampling，two-phase training，thresholding</li>
+<li>problem：some classes have a significantly higher number of examples in the training set than other classes –<strong>class imbalance</strong> ，Eg：computer vision，medical diagnosis，fraud detection，the frequency of one class can be 1000 times less than another class</li>
+<li>A new method for CNNs was introduced that trains the network in two-phases in which the network is trained on the balanced data first and then the output layers are fine-tuned</li>
+</ul>
+<ul>
+<li><p>Methods for addressing imbalance</p>
+<ul>
+<li><p>Data level methods：</p>
+<ul>
+<li><p>Oversampling：random minority oversampling，which simply replicates randomly selected samples from minority classes</p>
+</li>
+<li><p>Undersampling：</p>
+<p>examples are removed randomly from majority classes until all classes have the same number of examples；</p>
+<p>disadvantage：discard a portion of available data</p>
+</li>
+</ul>
+</li>
+<li><p>Classifier level methods：</p>
+<ul>
+<li><p>Threshold：</p>
+<p>adjust the decision threshold of a classifier</p>
+<p>There are estimated for each class by its frequency in the imbalanced dataset before sampling is applied</p>
+<p>Bayesian a posteriori probabilities</p>
+<p>a given datapoint x，their output for class i，y(x)=p(i | x)=p(i)*p(x | i)/p(x)</p>
+</li>
+<li><p>Cost sensitive learning：</p>
+<p>different cost to misclassification of examples from different classes</p>
+<p>One approach is threshold moving or post scaling </p>
+<p>Another adaptation of neural work is modify the learning rate such that higher cost examples contribute more to the update of weights</p>
+<p>Finally we can train the network by minimizing the misclassification cost instead of standard loss function</p>
+</li>
+<li><p>One-class classification：</p>
+<p>recognizes positive instances</p>
+<p>identity function：a reconstruction error between the input and output patterns Eg：absolute error，square sum of errors，Euclidean or Mahalanobis distance</p>
+<p>prove to work well for extremely high imbalance when classification problems turns info anomaly detection</p>
+</li>
+<li><p>Hybrid of problems：</p>
+<p>Two-phase training，approached as pixel level classification</p>
+<p>involve network pre-training on balanced dataset and then fine-tuning the last output layer before softmax on the original , imbalance data</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>Experiments</p>
+<ul>
+<li><p>Forms of imbalance：</p>
+<ul>
+<li>step imbalance：the number of examples is equal within minority classes and equal within majority classes but differs between the majority and minority classes</li>
+<li>linear imbalance：the difference between consecutive pairs of classes is constant</li>
+</ul>
+</li>
+<li><p>Evaluation metrics and testing</p>
+<ul>
+<li><p>The metric：overall accuracy</p>
+</li>
+<li><p>the area under the receiver operating characteristic curve(ROC AUC) </p>
+<p>ROC has also been used to compare performance of classifiers trained on imbalance datasets</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p><strong>Conclusions</strong> ：</p>
+<ul>
+<li><p>The effect of class imbalance on classification performance is detrimental</p>
+</li>
+<li><p>The influence of imbalance on classification performance increases with the scale of a task</p>
+</li>
+<li><p>The impact of imbalance cannot be explained by the lower total number of training cases and depends on the distribution of examples among classes</p>
+<p>​</p>
+</li>
+<li><p>The method that <strong>in most of the cases outperforms all others with respect to multiclass ROC AUC was oversampling</strong> </p>
+</li>
+<li><p>For extreme ratio of imbalance and large portion of classes being minority , undersampling performs on a par with oversampling </p>
+</li>
+<li><p>To achieve the best accuracy , <strong>one should apply thresholding to compensate for prior class probabilities</strong> . A <strong>combination of thresholding with baseline and oversampling is the most preferable</strong> , whereas it should not be combined with undersampling </p>
+</li>
+<li><p>Oversampling should be applied to the level that totally eliminates the imbalance , whereas undersampling can perform better when the imbalance is only removed to some extent</p>
+</li>
+<li><p>As supposed to some classical machine learning models , <strong>oversampling does not necessarily cause overfitting of convolutional neural networks</strong> </p>
+</li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/05/9-Palindrome-Number/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ace_ZAJ">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/me.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ace">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/10/05/9-Palindrome-Number/" itemprop="url">9.Palindrome Number</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-05T11:01:23+08:00">
+                2017-10-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/LeetCode/" itemprop="url" rel="index">
+                    <span itemprop="name">LeetCode</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><strong>Question：</strong> </p>
+<p>Determine whether an integer is a <strong>palindrome</strong> . Do this without extra space.</p>
+<p><strong>Example：</strong></p>
+<p>12321</p>
+<p><strong>Some hints：</strong></p>
+<p>Could negative integers be palindromes? (ie, -1)</p>
+<p>If you are thinking of converting the integer to string, note the restriction of using extra space.</p>
+<p>You could also try reversing an integer. However, if you have solved the problem “Reverse Integer”, you know that the reversed integer might overflow. How would you handle such case?</p>
+<p>There is a more generic way of solving this problem.</p>
+<p><strong>My answer (java)：</strong> </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isPalindrome</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> rev=<span class="number">0</span>;</div><div class="line">        <span class="keyword">int</span> ori=x;</div><div class="line">        <span class="keyword">if</span> (x&lt;<span class="number">0</span> || (x!=<span class="number">0</span> &amp;&amp; x%<span class="number">10</span>==<span class="number">0</span>)) </div><div class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">        <span class="keyword">while</span>(x!=<span class="number">0</span>)&#123;</div><div class="line">            rev=rev*<span class="number">10</span>+x%<span class="number">10</span>;</div><div class="line">            x=x/<span class="number">10</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> ori==rev;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>Better answer (java)：</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isPalindrome</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (x&lt;<span class="number">0</span> || (x!=<span class="number">0</span> &amp;&amp; x%<span class="number">10</span>==<span class="number">0</span>)) <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">    <span class="keyword">int</span> rev = <span class="number">0</span>;</div><div class="line">    <span class="keyword">while</span> (x&gt;rev)&#123;</div><div class="line">    	rev = rev*<span class="number">10</span> + x%<span class="number">10</span>;</div><div class="line">    	x = x/<span class="number">10</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> (x==rev || x==rev/<span class="number">10</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>Algorithm：</strong></p>
+<p>First of all we should take care of <strong>some edge cases</strong>. All negative numbers are not palindrome, for example: -123 is not a palindrome since the ‘-‘ does not equal to ‘3’. So we can return false for all negative numbers.</p>
+<p>Now let’s think about how to revert the last half of the number. For number <code>1221</code>, if we do <code>1221 % 10</code>, we get the last digit <code>1</code>, to get the second to the last digit, we need to remove the last digit from <code>1221</code>, we could do so by dividing it by 10, <code>1221 / 10 = 122</code>. Then we can get the last digit again by doing a modulus by 10, <code>122 % 10 = 2</code>, and if we multiply the last digit by 10 and add the second last digit, <code>1 * 10 + 2 = 12</code>, it gives us the reverted number we want. Continuing this process would give us the reverted number with more digits.</p>
+<p>Now the question is, how do we know that we’ve <strong>reached the half of the number</strong>?</p>
+<p>Since we divided the number by 10, and multiplied the reversed number by 10, <strong>when the original number is less than the reversed number, it means we’ve processed half of the number digits</strong>.</p>
+<p>My answer (python):</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">isPalindrome</span><span class="params">(self, x)</span>:</span></div><div class="line">        <span class="string">"""</span></div><div class="line">        :type x: int</div><div class="line">        :rtype: bool</div><div class="line">        """</div><div class="line">        </div><div class="line">        <span class="keyword">if</span>(str(x)==str(x)[::<span class="number">-1</span>]) <span class="keyword">and</span> <span class="number">-2147483648</span> &lt;= x &lt;= <span class="number">2147483647</span>:</div><div class="line">            <span class="keyword">return</span> <span class="keyword">True</span></div><div class="line">        <span class="keyword">else</span>: </div><div class="line">            <span class="keyword">return</span> <span class="keyword">False</span></div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
     
       
 
@@ -290,7 +682,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Diposting di</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-04T09:31:22+08:00">
                 2017-10-04
@@ -311,7 +703,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Di</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -445,7 +837,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Diposting di</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-02T11:06:33+08:00">
                 2017-10-02
@@ -466,7 +858,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Di</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -627,7 +1019,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Diposting di</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-24T20:08:16+08:00">
                 2017-09-24
@@ -648,7 +1040,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Di</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -774,7 +1166,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Diposting di</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-24T19:54:50+08:00">
                 2017-09-24
@@ -795,7 +1187,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Di</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -918,7 +1310,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Diposting di</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-24T18:25:01+08:00">
                 2017-09-24
@@ -939,7 +1331,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Di</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -1065,7 +1457,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Diposting di</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-23T00:00:00+08:00">
                 2017-09-23
@@ -1086,7 +1478,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Di</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -1215,7 +1607,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Diposting di</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-12T23:05:31+08:00">
                 2017-03-12
@@ -1236,7 +1628,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Di</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -1377,8 +1769,8 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">17</span>
-                  <span class="site-state-item-name">posting</span>
+                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-name">posts</span>
                 </a>
               </div>
             
@@ -1389,7 +1781,7 @@
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
                   <span class="site-state-item-count">7</span>
-                  <span class="site-state-item-name">kategori</span>
+                  <span class="site-state-item-name">categories</span>
                 </a>
               </div>
             
@@ -1447,7 +1839,7 @@
 
 
 
-  <div class="theme-info">Tema &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.3</div>
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.3</div>
 
 
 
