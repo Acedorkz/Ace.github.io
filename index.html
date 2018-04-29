@@ -354,33 +354,19 @@
       
         
           
-            <p><strong>Question:</strong></p>
-<p>Given a string containing just the characters <code>(</code>, <code>)</code>, <code>{</code>, <code>}</code>, <code>[</code> and <code>]</code>, determine if the input string is valid.</p>
-<p>An input string is valid if:</p>
-<ol>
-<li>Open brackets must be closed by the same type of brackets.</li>
-<li>Open brackets must be closed in the correct order.</li>
-</ol>
-<p>Note that an empty string is also considered valid.</p>
-<p><strong>Example 1:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Input: &quot;()&quot;</div><div class="line">Output: true</div></pre></td></tr></table></figure>
-<p><strong>Example 2:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Input: &quot;()[]&#123;&#125;&quot;</div><div class="line">Output: true</div></pre></td></tr></table></figure>
-<p><strong>Example 3:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Input: &quot;(]&quot;</div><div class="line">Output: false</div></pre></td></tr></table></figure>
-<p><strong>Example 4:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Input: &quot;([)]&quot;</div><div class="line">Output: false</div></pre></td></tr></table></figure>
-<p><strong>Example 5:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Input: &quot;&#123;[]&#125;&quot;</div><div class="line">Output: true</div></pre></td></tr></table></figure>
-<p><strong>My Answer:</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isValid</span><span class="params">(String s)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span>(s.length()==<span class="number">0</span>)</div><div class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">        <span class="keyword">if</span>(s.length()==<span class="number">1</span> ||s.charAt(<span class="number">0</span>)==<span class="string">')'</span> || s.charAt(<span class="number">0</span>)==<span class="string">']'</span> ||s.charAt(<span class="number">0</span>)==<span class="string">'&#125;'</span>)</div><div class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;       </div><div class="line">        Stack&lt;Character&gt; stack = <span class="keyword">new</span> Stack&lt;Character&gt;(); </div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;s.length();i++)&#123;</div><div class="line">            <span class="keyword">char</span> c = s.charAt(i);</div><div class="line">            <span class="keyword">if</span>(c ==<span class="string">'('</span> || c ==<span class="string">'['</span> || c ==<span class="string">'&#123;'</span>)&#123;</div><div class="line">                stack.push(c);</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(c == <span class="string">')'</span> &amp;&amp; !stack.empty())&#123;</div><div class="line">                <span class="keyword">if</span>(stack.pop() != <span class="string">'('</span>)</div><div class="line">                    <span class="keyword">return</span> <span class="keyword">false</span>;                            </div><div class="line">            &#125;</div><div class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(c == <span class="string">']'</span> &amp;&amp; !stack.empty())&#123;</div><div class="line">                <span class="keyword">if</span>(stack.pop() != <span class="string">'['</span>)</div><div class="line">                    <span class="keyword">return</span> <span class="keyword">false</span>;                </div><div class="line">            &#125;</div><div class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(c == <span class="string">'&#125;'</span> &amp;&amp; !stack.empty())&#123;                </div><div class="line">                <span class="keyword">if</span>(stack.pop() != <span class="string">'&#123;'</span>)</div><div class="line">                    <span class="keyword">return</span> <span class="keyword">false</span>; </div><div class="line">            &#125;</div><div class="line">            <span class="keyword">else</span> </div><div class="line">                <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> stack.empty();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>Running time:  8ms</p>
-<p><strong>Better Answer 1:</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">isValid</span><span class="params">(String s)</span> </span>&#123;</div><div class="line">      <span class="keyword">if</span> (s.isEmpty()) <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">      Stack&lt;Character&gt; st = <span class="keyword">new</span> Stack&lt;&gt;();</div><div class="line"></div><div class="line">      <span class="keyword">for</span> (<span class="keyword">char</span> c : s.toCharArray()) &#123;</div><div class="line">          <span class="keyword">if</span> (st.isEmpty()) st.push(c);</div><div class="line">          <span class="keyword">else</span> &#123;</div><div class="line">              <span class="keyword">char</span> last = st.peek();</div><div class="line">              <span class="keyword">if</span> (c == <span class="string">'('</span> || c == <span class="string">'&#123;'</span> || c == <span class="string">'['</span>) st.push(c);</div><div class="line">              <span class="keyword">else</span> <span class="keyword">if</span> (c == <span class="string">')'</span> &amp;&amp; last == <span class="string">'('</span> || c == <span class="string">'&#125;'</span> &amp;&amp; last == <span class="string">'&#123;'</span></div><div class="line">                      || c == <span class="string">']'</span> &amp;&amp; last == <span class="string">'['</span>) st.pop();</div><div class="line">              <span class="keyword">else</span> <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">          &#125;</div><div class="line">      &#125;</div><div class="line">      <span class="keyword">return</span> st.isEmpty();</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
-<p><strong>Better Answer 2:</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isValid</span><span class="params">(String s)</span> </span>&#123;</div><div class="line">	Stack&lt;Character&gt; stack = <span class="keyword">new</span> Stack&lt;Character&gt;();</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">char</span> c : s.toCharArray()) &#123;</div><div class="line">		<span class="keyword">if</span> (c == <span class="string">'('</span>)</div><div class="line">			stack.push(<span class="string">')'</span>);</div><div class="line">		<span class="keyword">else</span> <span class="keyword">if</span> (c == <span class="string">'&#123;'</span>)</div><div class="line">			stack.push(<span class="string">'&#125;'</span>);</div><div class="line">		<span class="keyword">else</span> <span class="keyword">if</span> (c == <span class="string">'['</span>)</div><div class="line">			stack.push(<span class="string">']'</span>);</div><div class="line">		<span class="keyword">else</span> <span class="keyword">if</span> (stack.isEmpty() || stack.pop() != c)</div><div class="line">			<span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> stack.isEmpty();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+          Question:
+Given a string containing just the characters (, ), {, }, [ and ], determine if the input string is valid.
+An input string is valid if:
 
-          
+Ope
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/04/28/20-Valid-Parentheses/#more" rel="contents">
+              Weiterlesen &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -520,20 +506,17 @@
       
         
           
-            <p><strong>Question：</strong> </p>
-<p>Write a function to find the longest common prefix string amongst an array of strings.</p>
-<p>If there is no common prefix, return an empty string <code>&quot;&quot;</code>.</p>
-<p><strong>Example 1:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Input: [&quot;flower&quot;,&quot;flow&quot;,&quot;flight&quot;]</div><div class="line">Output: &quot;fl&quot;</div></pre></td></tr></table></figure>
-<p><strong>Example 2:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Input: [&quot;dog&quot;,&quot;racecar&quot;,&quot;car&quot;]</div><div class="line">Output: &quot;&quot;</div><div class="line">Explanation: There is no common prefix among the input strings.</div></pre></td></tr></table></figure>
-<p><strong>Note:</strong></p>
-<p>All given inputs are in lowercase letters <code>a-z</code>.</p>
-<p><strong>My answer (java)：</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">  <span class="function"><span class="keyword">public</span> String <span class="title">longestCommonPrefix</span><span class="params">(String[] strs)</span> </span>&#123;</div><div class="line">      <span class="keyword">if</span> (strs.length == <span class="number">0</span>) </div><div class="line">          <span class="keyword">return</span> <span class="string">""</span>;</div><div class="line">      String str1 = strs[<span class="number">0</span>];</div><div class="line">      <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;str1.length();i++)&#123;</div><div class="line">          <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;strs.length;j++)&#123;</div><div class="line">              <span class="keyword">if</span>(i==strs[j].length() || str1.charAt(i)!=strs[j].charAt(i))</div><div class="line">                  <span class="keyword">return</span> str1.substring(<span class="number">0</span>,i);</div><div class="line">          &#125;               </div><div class="line">      &#125;</div><div class="line">      <span class="keyword">return</span> str1;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>Running time: 12ms</p>
-
-          
+          Question： 
+Write a function to find the longest common prefix string amongst an array of strings.
+If there is no common prefix, return an empty string
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/04/28/14-Longest-Common-Prefix/#more" rel="contents">
+              Weiterlesen &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -673,29 +656,20 @@
       
         
           
-            <h3 id="Grokking-Algorithms-TURING"><a href="#Grokking-Algorithms-TURING" class="headerlink" title="Grokking Algorithms (TURING)"></a>Grokking Algorithms (TURING)</h3><blockquote>
-<p>Author: Aditya Bhargava</p>
-</blockquote>
-<ol>
-<li><p>Binary_search</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">binary_search</span><span class="params">(list, item)</span>:</span></div><div class="line">    <span class="string">"""</span></div><div class="line">    list must be ordered</div><div class="line">    time: O(logn)</div><div class="line">    """</div><div class="line">    low = <span class="number">0</span></div><div class="line">    high = len(list)<span class="number">-1</span></div><div class="line"></div><div class="line">    <span class="keyword">while</span>(low &lt;= high):</div><div class="line">        mid = (low + high)/<span class="number">2</span></div><div class="line">        <span class="keyword">if</span> list[mid] == item:</div><div class="line">            <span class="keyword">return</span> mid</div><div class="line">        <span class="keyword">if</span> list[mid] &lt; item:</div><div class="line">            low = mid+<span class="number">1</span></div><div class="line">        <span class="keyword">else</span>:</div><div class="line">            high = mid<span class="number">-1</span></div><div class="line">    <span class="keyword">return</span> <span class="keyword">None</span></div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">    print(binary_search([<span class="number">1</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">7</span>,<span class="number">9</span>],<span class="number">5</span>))</div><div class="line">    print(binary_search([<span class="number">1</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">7</span>,<span class="number">8</span>],<span class="number">9</span>))</div></pre></td></tr></table></figure>
-<p>​</p>
-</li>
-<li><p>Selection_sort</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">findSmallest</span><span class="params">(arr)</span>:</span></div><div class="line">    <span class="string">"""</span></div><div class="line">    input: arr</div><div class="line">    output: smallest_index</div><div class="line">    """</div><div class="line">    smallest = arr[<span class="number">0</span>]</div><div class="line">    smallest_index = <span class="number">0</span></div><div class="line"></div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(len(arr)):</div><div class="line">        <span class="keyword">if</span> arr[i] &lt; smallest:</div><div class="line">            smallest = arr[i]</div><div class="line">            smallest_index = i</div><div class="line">    <span class="keyword">return</span> smallest_index</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">selectionSort</span><span class="params">(arr)</span>:</span></div><div class="line">    newArr = []</div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(len(arr)):</div><div class="line">        smallest_index = findSmallest(arr)</div><div class="line">        newArr.append(arr.pop(smallest_index))</div><div class="line">    <span class="keyword">return</span> newArr</div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">    print(selectionSort([<span class="number">5</span>, <span class="number">3</span>, <span class="number">6</span>, <span class="number">2</span>, <span class="number">10</span>]))</div></pre></td></tr></table></figure>
-<p>​</p>
-</li>
-<li><p>Quick_sort</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">quicksort</span><span class="params">(array)</span>:</span></div><div class="line">    <span class="keyword">if</span>(len(array) &lt; <span class="number">2</span>):   <span class="comment"># baseline</span></div><div class="line">        <span class="keyword">return</span> array</div><div class="line">    <span class="keyword">else</span>:</div><div class="line">        pivot = array[<span class="number">0</span>]</div><div class="line">        less = [i <span class="keyword">for</span> i <span class="keyword">in</span> array[<span class="number">1</span>:] <span class="keyword">if</span> i &lt; pivot]</div><div class="line">        greater = [i <span class="keyword">for</span> i <span class="keyword">in</span> array[<span class="number">1</span>:] <span class="keyword">if</span> i &gt; pivot]</div><div class="line">        <span class="keyword">return</span> quicksort(less) + [pivot] + quicksort(greater)</div><div class="line"></div><div class="line">print(quicksort([<span class="number">10</span>, <span class="number">5</span>, <span class="number">2</span>, <span class="number">7</span>]))</div><div class="line"></div><div class="line"><span class="comment"># O(nlogn)</span></div><div class="line"><span class="comment"># layers: O(logn)</span></div><div class="line"><span class="comment"># for every layer: O(n)</span></div></pre></td></tr></table></figure>
-<p>​</p>
-</li>
-<li><p>Breadth_first_search</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> deque</div><div class="line">graph = &#123;&#125;</div><div class="line">graph[<span class="string">"you"</span>] = [<span class="string">"alice"</span>, <span class="string">"bob"</span>, <span class="string">"claire"</span>]</div><div class="line">graph[<span class="string">"bob"</span>] = [<span class="string">"anuj"</span>, <span class="string">"peggy"</span>]</div><div class="line">graph[<span class="string">"alice"</span>] = [<span class="string">"peggy"</span>]</div><div class="line">graph[<span class="string">"claire"</span>] = [<span class="string">"thom"</span>, <span class="string">"jonny"</span>]</div><div class="line">graph[<span class="string">"anuj"</span>] = []</div><div class="line">graph[<span class="string">"peggy"</span>] = []</div><div class="line">graph[<span class="string">"thom"</span>] = []</div><div class="line">graph[<span class="string">"jonny"</span>] = []</div><div class="line"></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">person_is_seller</span><span class="params">(name)</span>:</span></div><div class="line">    <span class="comment"># sample logic to judge if the person is a seller</span></div><div class="line">    <span class="keyword">return</span> name[<span class="number">-1</span>] == <span class="string">'m'</span> </div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">search</span><span class="params">(name)</span>:</span></div><div class="line">    search_queue = deque()</div><div class="line">    search_queue += graph[name]</div><div class="line">    <span class="comment"># This array is how you keep track of which people you've searched before.</span></div><div class="line">    searched = []</div><div class="line">    <span class="keyword">while</span> search_queue:</div><div class="line">        person = search_queue.popleft()</div><div class="line">        <span class="comment"># Only search this person if you haven't already searched them.</span></div><div class="line">        <span class="keyword">if</span> <span class="keyword">not</span> person <span class="keyword">in</span> searched:</div><div class="line">            <span class="keyword">if</span> person_is_seller(person):</div><div class="line">                <span class="keyword">print</span> person + <span class="string">" is a mango seller!"</span></div><div class="line">                <span class="keyword">return</span> <span class="keyword">True</span></div><div class="line">            <span class="keyword">else</span>:</div><div class="line">                search_queue += graph[person]</div><div class="line">                <span class="comment"># Marks this person as searched</span></div><div class="line">                searched.append(person)</div><div class="line">    <span class="keyword">return</span> <span class="keyword">False</span></div><div class="line"></div><div class="line">search(<span class="string">"you"</span>)</div></pre></td></tr></table></figure>
-<p>​</p>
-</li>
-</ol>
+          Grokking Algorithms (TURING)
+Author: Aditya Bhargava
 
-          
+
+Binary_search
+12345678910111213141516171819202122def binary_search(list, item):    """    list 
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/04/25/Grokking-Algorithms/#more" rel="contents">
+              Weiterlesen &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -835,29 +809,20 @@
       
         
           
-            <p><strong>Question:</strong></p>
-<p>Given a <strong>roman numeral</strong>, convert it to an integer.</p>
-<p>Input is guaranteed to be within the range from 1 to 3999.</p>
-<p><strong>Hints:</strong></p>
-<p>Hint-1:</p>
-<p>I - 1<br>V - 5<br>X - 10<br>L - 50<br>C - 100<br>D - 500<br>M - 1000</p>
-<p>Hint-2:</p>
-<ul>
-<li>If I comes before V or X, subtract 1 eg: IV = 4 and IX = 9</li>
-<li>If X comes before L or C, subtract 10 eg: XL = 40 and XC = 90</li>
-<li>If C comes before D or M, subtract 100 eg: CD = 400 and CM = 900</li>
-</ul>
-<p><strong>My Answer:</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">romanToInt</span><span class="params">(String s)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> len = s.length();</div><div class="line">        </div><div class="line">        <span class="keyword">int</span> res = <span class="number">0</span>;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;len;i++)&#123;</div><div class="line">            <span class="keyword">char</span> temp = s.charAt(i);</div><div class="line">            <span class="keyword">switch</span>(temp)&#123;</div><div class="line">            <span class="keyword">case</span> <span class="string">'I'</span>:</div><div class="line">                System.out.println(i);</div><div class="line">                System.out.println(temp);</div><div class="line">                <span class="keyword">if</span>(i &lt;= len-<span class="number">2</span> &amp;&amp; s.charAt(i+<span class="number">1</span>) == <span class="string">'V'</span>)&#123;</div><div class="line">                    res = res + <span class="number">4</span>;</div><div class="line">                    i = i + <span class="number">1</span>;</div><div class="line">                    System.out.println(i);</div><div class="line">                    System.out.println(res);</div><div class="line">                &#125;</div><div class="line">                <span class="keyword">else</span> <span class="keyword">if</span>(i &lt;= len-<span class="number">2</span> &amp;&amp; s.charAt(i+<span class="number">1</span>) == <span class="string">'X'</span>)&#123;</div><div class="line">                        res = res + <span class="number">9</span>;</div><div class="line">                        i = i + <span class="number">1</span>;</div><div class="line">                        </div><div class="line">                &#125;</div><div class="line">                <span class="keyword">else</span>&#123;</div><div class="line">                    res = res + <span class="number">1</span>;</div><div class="line">                    System.out.println(i);</div><div class="line">                    System.out.println(res);</div><div class="line">                &#125;</div><div class="line">                System.out.println(res);</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            <span class="keyword">case</span> <span class="string">'V'</span>:               </div><div class="line">                res = res + <span class="number">5</span>;</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            <span class="keyword">case</span> <span class="string">'X'</span>:</div><div class="line">                <span class="keyword">if</span>(i &lt;= len-<span class="number">2</span> &amp;&amp; s.charAt(i+<span class="number">1</span>) == <span class="string">'L'</span>)&#123;</div><div class="line">                    res = res + <span class="number">40</span>;</div><div class="line">                    i = i + <span class="number">1</span>;</div><div class="line">                &#125;</div><div class="line">                <span class="keyword">else</span> <span class="keyword">if</span>(i &lt;= len-<span class="number">2</span> &amp;&amp; s.charAt(i+<span class="number">1</span>) == <span class="string">'C'</span>)&#123;</div><div class="line">                    res = res + <span class="number">90</span>;</div><div class="line">                    i = i + <span class="number">1</span>;</div><div class="line">                &#125;</div><div class="line">                <span class="keyword">else</span>&#123;</div><div class="line">                    res = res + <span class="number">10</span>;</div><div class="line">                &#125;</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            <span class="keyword">case</span> <span class="string">'L'</span>:</div><div class="line">                res = res + <span class="number">50</span>;</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            <span class="keyword">case</span> <span class="string">'C'</span>:</div><div class="line">                <span class="keyword">if</span>(i &lt;= len-<span class="number">2</span> &amp;&amp; s.charAt(i+<span class="number">1</span>) == <span class="string">'D'</span>)&#123;</div><div class="line">                    res = res + <span class="number">400</span>;</div><div class="line">                    i = i + <span class="number">1</span>;</div><div class="line">                &#125;</div><div class="line">                <span class="keyword">else</span> <span class="keyword">if</span>(i &lt;= len-<span class="number">2</span> &amp;&amp; s.charAt(i+<span class="number">1</span>) == <span class="string">'M'</span>)&#123;</div><div class="line">                    res = res + <span class="number">900</span>;</div><div class="line">                    i = i + <span class="number">1</span>;</div><div class="line">                &#125;</div><div class="line">                <span class="keyword">else</span>&#123;</div><div class="line">                    res = res + <span class="number">100</span>;</div><div class="line">                &#125;</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            <span class="keyword">case</span> <span class="string">'D'</span>:</div><div class="line">                res = res + <span class="number">500</span>;</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            <span class="keyword">case</span> <span class="string">'M'</span>:</div><div class="line">                res = res + <span class="number">1000</span>;</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> res;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>I just know basic about java, so I only use sample logic.</p>
-<p>Sorry about that.</p>
-<p>Runtime: 300ms</p>
-<p><strong>Better Answers:</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">romanToInt</span><span class="params">(String s)</span> </span>&#123;</div><div class="line">        Map&lt;Character, Integer&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</div><div class="line">        map.put(<span class="string">'I'</span>, <span class="number">1</span>);</div><div class="line">        map.put(<span class="string">'V'</span>, <span class="number">5</span>);</div><div class="line">        map.put(<span class="string">'X'</span>, <span class="number">10</span>);</div><div class="line">        map.put(<span class="string">'L'</span>, <span class="number">50</span>);</div><div class="line">        map.put(<span class="string">'C'</span>, <span class="number">100</span>);</div><div class="line">        map.put(<span class="string">'D'</span>, <span class="number">500</span>);</div><div class="line">        map.put(<span class="string">'M'</span>, <span class="number">1000</span>);</div><div class="line">        <span class="keyword">int</span> len = s.length();</div><div class="line">        <span class="keyword">int</span> sum = map.get(s.charAt(len - <span class="number">1</span>));</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = len - <span class="number">2</span>; i &gt;= <span class="number">0</span>; --i) &#123;</div><div class="line">            <span class="keyword">if</span> (map.get(s.charAt(i)) &lt; map.get(s.charAt(i + <span class="number">1</span>))) &#123;</div><div class="line">                sum -= map.get(s.charAt(i));</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                sum += map.get(s.charAt(i));</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> sum;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>Runtime: 149ms</p>
-<p>Here use map HashMap, speed up~</p>
-
-          
+          Question:
+Given a roman numeral, convert it to an integer.
+Input is guaranteed to be within the range from 1 to 3999.
+Hints:
+Hint-1:
+I - 1V - 5X - 10L
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/04/14/13-Roman-Into-Integer/#more" rel="contents">
+              Weiterlesen &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -997,62 +962,19 @@
       
         
           
-            <h3 id="GIT"><a href="#GIT" class="headerlink" title="GIT"></a>GIT</h3><h4 id="Basics-of-git"><a href="#Basics-of-git" class="headerlink" title="Basics of git"></a>Basics of git</h4><ul>
-<li><p>a stream of snapshots</p>
-<p>Git thinks of its data more like a series of snapshots of a miniature filesystem. </p>
-</li>
-<li><p>nearly every operations is local</p>
-<p>We have the entire history of the project right there on our local disk, most operations seem almost instantaneous</p>
-</li>
-<li><p>three states</p>
-<ul>
-<li>committed means that the data is safely stored in your local database.</li>
-<li>modified means that you have changed the file but have not committed it to your database yet</li>
-<li>staged means that you have marked a modified file in its current version to go into your next commit snapshot</li>
-</ul>
-</li>
-<li><p>three main sections of a Git project</p>
-<ul>
-<li>working directory</li>
-<li>staging area</li>
-<li>.git directory(repository)</li>
-</ul>
-</li>
-</ul>
-<p><img src="img/three main sections GIT.png" alt="three main sections GIT">s</p>
-<h4 id="Getting-Help"><a href="#Getting-Help" class="headerlink" title="Getting Help"></a>Getting Help</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git help config</div><div class="line">git add -h</div></pre></td></tr></table></figure>
-<h4 id="Getting-a-GIT-Repository"><a href="#Getting-a-GIT-Repository" class="headerlink" title="Getting a GIT Repository"></a>Getting a GIT Repository</h4><p>Two ways:</p>
-<ol>
-<li><p>You can take a local directory that is currently not under version control, and turn it into a Git repository</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git init</div></pre></td></tr></table></figure>
-</li>
-<li><p>You can <em>clone</em> an existing Git repository from elsewhere</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git clone https://github.com/libgit2/libgit2</div></pre></td></tr></table></figure>
-<p>through https or SSH</p>
-</li>
-</ol>
-<h4 id="Recording-Changes-to-the-Repository"><a href="#Recording-Changes-to-the-Repository" class="headerlink" title="Recording Changes to the Repository"></a>Recording Changes to the Repository</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git status</div><div class="line">git add README.md</div></pre></td></tr></table></figure>
-<h5 id="ignoring-files"><a href="#ignoring-files" class="headerlink" title="ignoring files"></a>ignoring files</h5><p>​    -&gt; .gitignore file</p>
-<h5 id="diff"><a href="#diff" class="headerlink" title="diff"></a>diff</h5><p>to see what you’ve changed but not yet staged</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git diff</div></pre></td></tr></table></figure>
-<p>to see what you’ve staged that will go into your next commit</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git diff --staged</div></pre></td></tr></table></figure>
-<h5 id="commit-your-changes"><a href="#commit-your-changes" class="headerlink" title="commit your changes"></a>commit your changes</h5><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ git commit -m <span class="string">"Story 182: Fix benchmarks for speed"</span></div><div class="line">[master <span class="number">463</span>dc4f] Story <span class="number">182</span>: Fix benchmarks <span class="keyword">for</span> speed</div><div class="line"> <span class="number">2</span> files changed, <span class="number">2</span> insertions(+)</div><div class="line"> create mode <span class="number">100644</span> README</div></pre></td></tr></table></figure>
-<p>we could find that, the branch we commited to (master), what SHA-1 checksum the commit has (463dc4f), how many files were changed, and statistics about lines added and removed in this commit</p>
-<h5 id="skipping-the-staging-area"><a href="#skipping-the-staging-area" class="headerlink" title="skipping the staging area"></a>skipping the staging area</h5><p>let u skip the <code>git add</code> part</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git commit -a -m &quot;add new benchmarks&quot;</div></pre></td></tr></table></figure>
-<p>don’t have to run <code>git add</code> on the file in this case before u commit. <code>-a</code> flag includes all changed files. This is convenient, but be helpful, sometimes this flag will cause u to include unwanted changes.</p>
-<h5 id="remove-files"><a href="#remove-files" class="headerlink" title="remove files"></a>remove files</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git rm readme.md</div></pre></td></tr></table></figure>
-<p>remove the file from your tracked files which means remove it from your staging area, and also removes the file from your working directory so you will not see it as an untracked file the next time around</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git rm -f readme.md</div></pre></td></tr></table></figure>
-<p>If you modified the file and added it to the staging area already, must force the removal with the <code>-f</code> option. This is a safety feature to prevent accidental removal of data that <strong>hasn’t yet been recorded</strong> in a snapshot and that <strong>can’t be recovered from Git</strong>.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git rm --cached readme</div></pre></td></tr></table></figure>
-<p>Keep the file in your working tree but remove it from your staging area. In other words, you may want to keep the file on your hard drive but not have Git track it anymore.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git mv README.md README</div></pre></td></tr></table></figure>
-<p>rename a file in git, which equals to </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">mv README.md README</div><div class="line">git rm README.md</div><div class="line">git add README</div></pre></td></tr></table></figure>
+          GITBasics of git
+a stream of snapshots
+Git thinks of its data more like a series of snapshots of a miniature filesystem. 
 
-          
+nearly every operations is 
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/03/06/GIT/#more" rel="contents">
+              Weiterlesen &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1192,53 +1114,19 @@
       
         
           
-            <blockquote>
-<p>MULTI-SCALE CONTEXT AGGREGATION BY DILATED CONVOLUTIONS</p>
-</blockquote>
-<h4 id="空洞卷积"><a href="#空洞卷积" class="headerlink" title="空洞卷积"></a>空洞卷积</h4><h5 id="1-Introduction"><a href="#1-Introduction" class="headerlink" title="1. Introduction"></a>1. Introduction</h5><p>Dense prediction</p>
-<p>The goal is to compute a discrete or continuous label for each pixel in the image. A prominent example is to semantic segmentation , which calls for classifying each pixel into one of a given set of categories.</p>
-<p>Semantic segmentation is challenging because it requires combining <strong>pixel-level accuracy with multi-scale contextual reasoning.</strong> </p>
-<p>像素精度与上下文推理相结合</p>
-<p>Modern image classification networks integrate multi-scale contextual information via successive pooling and subsampling layers that reduce resolution until a global prediction is obtained.</p>
-<p>Dense prediction calls for multi-scale contextual reasoning in combination with full-resolution output.</p>
-<p>A network module that aggregates multi-scale contextual information without losing resolution or analyzing rescaled image.The module can be plugged into existing architectures at any resolution.</p>
-<p>is designed specifically for dense prediction</p>
-<p>It is a rectangular prism of convolution layers, with no pooling or subsampling.</p>
-<p>The module is based on dilated convolutions, which support exponential expansion of the receptive field without loss of resolution or coverage.</p>
-<h5 id="2-Dilated-Convolution"><a href="#2-Dilated-Convolution" class="headerlink" title="2.Dilated Convolution"></a>2.Dilated Convolution</h5><h5 id="3-Multi-scale-context-aggregation"><a href="#3-Multi-scale-context-aggregation" class="headerlink" title="3.Multi-scale context aggregation"></a>3.Multi-scale context aggregation</h5><p>The module takes C features maps as input and produces C feature maps as output. The input and output have the same form, thus the module can be plugged into existing dense prediction architecture.</p>
-<p>Found that random initalization schemes were not effective for the context module. Found an alternative initialization with clear semantics to be much more effective.</p>
-<p>This initialization sets all filters such that each layer simply passes the input directly to the next.</p>
-<hr>
-<p>FCN fully convolution network 全卷积</p>
-<p>预测一副图像中的所有像素点的类别</p>
-<p>将全连接层都改成卷积层</p>
-<ul>
-<li><p>卷积化convolutionalization：全卷积会不断降低分辨率，需要反卷积来提高分辨率</p>
-</li>
-<li><p>反卷积deconvolution</p>
-<ul>
-<li>外围全补0：在低分辨率的图片外围插0，与卷积核卷积输出高分辨率图片</li>
-<li>内部插0</li>
-</ul>
-<p>得到的分割结果比较粗糙，所以要使用跳层结构结合前两个卷积层的输出做融合</p>
-</li>
-<li><p>跳层结构skip-layer ?</p>
-</li>
-</ul>
-<hr>
-<h4 id="语义分割-Semantic-segmentation"><a href="#语义分割-Semantic-segmentation" class="headerlink" title="语义分割  Semantic segmentation"></a>语义分割  Semantic segmentation</h4><p><strong>像素级</strong> 地识别图像，标注图像中每个像素所属的对象类别</p>
-<ul>
-<li>patch classification图像块分类，即利用像素周围的图像块对每一个像素进行独立的分类，使用图像块分类的主要原因是分类网络通常是全连接层full connection layer，且要求固定尺寸</li>
-<li>FCN全卷积网络</li>
-</ul>
-<p>除了全连接层，使用卷积神经网络进行语义分割存在的一大问题是池化层，池化层不仅扩大感受野、聚会语境从而造成了位置信息的丢失</p>
-<p>问题的解决：</p>
-<ul>
-<li>U-Net 编码器与解码器结构：编码器逐步减少池化层的空间维度，解码器逐步修复物体的细节和空间维度，编码器与解码器之间通常存在快捷连接，因此能帮助解码器更好地修复目标的细节</li>
-<li>dilated convolution 空洞/带孔卷积</li>
-</ul>
-
           
+MULTI-SCALE CONTEXT AGGREGATION BY DILATED CONVOLUTIONS
+
+空洞卷积1. IntroductionDense prediction
+The goal is to compute a discrete or continuous label fo
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/12/22/Multi-scale-context-aggregation-by-dilated-convolutions/#more" rel="contents">
+              Weiterlesen &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1378,43 +1266,17 @@
       
         
           
-            <h3 id="Deep-Residual-Learning-for-Image-Recognition"><a href="#Deep-Residual-Learning-for-Image-Recognition" class="headerlink" title="Deep Residual Learning for Image Recognition"></a>Deep Residual Learning for Image Recognition</h3><p>Q：Is learning better networks as simple as stacking more layers？</p>
-<p>A：Noooo</p>
-<p>​      An obstacle to answering this question was the notorious problem of vanishing/exploding gradients , which hamper convergence from the beginning .</p>
-<p>This problem has been largely addressed by normalized initialization and intermediate normalized layers , which enable networks with tens of layers to start converging for SGD with bp.</p>
-<p><img src="/img/Resnet_1.png" alt="Resnet_1"></p>
-<p>常规的网络的堆叠（plain network）在网络很深的时候，效果却却越来越差，train set和test set都变差。</p>
-<p>产生这一问题的原因之一即 deeper network，gradients vanish越明显，network的训练效果也不是很好。</p>
-<p>Resnet network的目标是在网络加深的情况下解决gradients vanish的问题。</p>
-<hr>
-<blockquote>
-<p>method：</p>
-</blockquote>
-<p><em>Plain_net</em>：</p>
-<p><img src="/img/Resnet_plain net.png" alt="Resnet_plain net"></p>
-<p><em>Resnet network</em>：</p>
-<p><img src="/img/Resnet network.png" alt="Resnet network"></p>
-<p><strong>Identity mapping</strong> ：X*I=X</p>
-<p>20 layers -&gt; 20 layers + 36 identity layers</p>
-<p>There existence of this constructed solution indicates that a deeper model should produce no higher training error than its shallower counterpart .</p>
-<p><strong>shortcut connection</strong> ：H(x)=F(x)+x，skip one or more layers</p>
-<p>Results：</p>
-<ul>
-<li>Extremely deep residual nets are easy to optimize , but the counterpart “plain” nets(that simply stack layers ) exhibit higher training error when the depth increases</li>
-<li>Deep residual nets can easily enjoy accuracy gains from greatly increased depth , producing results substantially better than previous networks</li>
-</ul>
-<p><strong>Residual Network：</strong><br>H(x) – an underlying mapping to be fit by a few stacked layers (not necessarily the entire net) , with x denoting the inputs to the first of these layers . 若干堆叠层将进行拟合的映射</p>
-<p>If one hypothesizes that multiple nonlinear layers can asymptotically approximate complicated functions , then it is equivalent to hypothesize that they can asymptotically approximate the residual functions , i.e. H(x)-x</p>
-<p>直接映射是难以学习的，提出了一种修正方法，不再学习x到H(x)的基本映射关系，而是学习这两种关系的差异，也就是残差residual，然后，为了计算H(x)，我们只需要将这个残差加到输入上即可。</p>
-<p>假设残差为F(x)=H(x)-x，那么网络不会直接学习H(x)，而是学习F(x)+x</p>
-<p><strong>Identity Mapping by Shortcuts：</strong></p>
-<p>When the input and output are of the same dimensions , </p>
-<p>y=F(x,{Wi})+x，y and x are output and input vectors of the layers.</p>
-<p>If not , 1）perform a linear projection Ws by the short connections to match the dimensions：y=F(x,{Wi})+Ws*x</p>
-<p>2）The shortcut still performs identity mapping , with extra zero padded for increasing dimensions</p>
-<p>如果输入和输出的维度不同，使用零填充或投射（通过1*1卷积）来得到匹配的大小</p>
-
-          
+          Deep Residual Learning for Image RecognitionQ：Is learning better networks as simple as stacking more layers？
+A：Noooo
+​      An obstacle to answering t
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/11/02/Deep-Residual-Learning-for-Image-Recognition/#more" rel="contents">
+              Weiterlesen &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1554,78 +1416,16 @@
       
         
           
-            <h4 id="U-Net：Convolutional-Networks-for-Biomedical-Image-Segmentation"><a href="#U-Net：Convolutional-Networks-for-Biomedical-Image-Segmentation" class="headerlink" title="U-Net：Convolutional Networks for Biomedical Image Segmentation"></a>U-Net：Convolutional Networks for Biomedical Image Segmentation</h4><p><em>Abstract</em> ：</p>
-<p>The architecture consists of <strong>a contracting path to capture context and a symmetric expanding path</strong>  that enables precise localization</p>
-<p><em>Introduction</em> ：</p>
-<ul>
-<li><p>The convolutional network，their success was limited due to the size of the available training sets and the size of the considered networks. </p>
-</li>
-<li><p>In many visual tasks，especially in biomedical image processing，the desired output should include localization，i.e.，<strong>a class label is supposed to be assigned to each pixel</strong> . </p>
-</li>
-<li><p>Ciresan et al：trained a network in a <strong>sliding-window</strong> setup to predict the class label of each pixel by providing a local region (patch) around that pixel as input .</p>
-<ul>
-<li>advantages：<ul>
-<li>this network can localize </li>
-<li>the training data in terms of patches is much larger than the number of training images</li>
-</ul>
-</li>
-<li>disadvantages：<ul>
-<li>it is quite slow because the network must be run separately for each patch , and there is a lot of redundancy due to <strong>overlapping patches</strong>.</li>
-<li>there is a trade-off between localization accuracy and the use of context.</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>More recent approaches proposed a classifier output that takes into account the features from multiple layers.</p>
-<p>多尺度融合的深度网络，把某一个像素为中心的不同大小的patch作为多个通道输入到深度网络中学习</p>
-</li>
-<li><p>In this paper , “fully convolutional network” , the main idea is  to supplement a usual contracting network by successive layers , where pooling operators are replaced by upsampling operators .</p>
-</li>
-<li><p>In the <strong>upsampling part</strong> we have alse a large number of feature channels , which allow the network to <strong>propagate context information to higher resolution layers</strong>  . The segmentation map only contains the pixels , for which the full context is available in the input image . To predict the pixels in the border region of the image , the missing context is extrapolated by mirroring the input image . </p>
-</li>
-</ul>
-<p>  This strategy allows the seamless segmentation of arbitrarily        large images by an overlap-tile strategy.</p>
-<p><img src="/img/u_net_overlap.png" alt="u_net_overlap"></p>
-<p>​    </p>
-<ul>
-<li>There is very little training data available , we use <strong>excessive data augmentation by applying elastic deformations</strong> to the available training  images . </li>
-<li>Another challenge is <strong>the separation of touching objects of the same class</strong>  . We propose the use of a weighted loss , where the separating background labels between touching cells <strong>obtain a larger weight in the loss function</strong></li>
-</ul>
-<p><em>Network Architecture</em></p>
-<p><img src="/img/u-net.png" alt="u-net"></p>
-<p><em>Training</em></p>
-<ul>
-<li><p>SGD</p>
-</li>
-<li><p>unpadded</p>
-</li>
-<li><p>larger input tiles over a large batch size </p>
-</li>
-<li><p>softmax</p>
-</li>
-<li><p>The separation border computed using morphological operations </p>
-<p>中间项链的部分像素，人为的提高权重，让network可以重点学习这些特征，以便于分割</p>
-</li>
-<li><p>draw the initial weights from a Gaussian distribution</p>
-</li>
-</ul>
-<p><em>Data Augmentation</em></p>
-<p>Data Augmentation is essential to <strong>teach the network the desired invariance and robustness properties</strong>  , when only few training samples are available .</p>
-<ul>
-<li>Need <strong>shift and rotation invariance</strong>  as well as robustness to deformations and gray value variations</li>
-<li>Generate smooth deformations using random displacement vectors on a coarse 3 by 3 grid .</li>
-</ul>
-<p><em>Experiments</em></p>
-<ul>
-<li>30 images(512*512 pixels)</li>
-<li>ground truth</li>
-<li>membranes</li>
-<li>The u-net (averaged over 7 rotated version of the input data)</li>
-</ul>
-<p><em>Conclusion</em></p>
-<p>​     The u-net architecture achieves very good performance on very different biomedical segmentation applications . Thanks to data augmentation with elastic deformations , it only needs very few annotated images and has a very reasonable training time . </p>
-
-          
+          U-Net：Convolutional Networks for Biomedical Image SegmentationAbstract ：
+The architecture consists of a contracting path to capture context and a symm
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/10/30/U-net-Convolutional-Networks-for-Biomedical-Image-Segmentation/#more" rel="contents">
+              Weiterlesen &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1765,41 +1565,18 @@
       
         
           
-            <p><strong>ROC curve , AUC &amp; Recall</strong> </p>
-<p><strong>ROC（Receiver Operating Characteristic）curve</strong> ：</p>
-<blockquote>
-<p>In signal detection theory, a receiver operating characteristic (ROC), or simply ROC curve, is a graphical plot which illustrates the performance of a binary classifier system as its discrimination threshold is varied.</p>
-</blockquote>
-<p>ROC curve 和 AUC curve常用来被评价一个<strong>二值分类器（binary classifier）</strong> ，输出结果只有两种类别的模型，当讯号侦测（或变数测量）的结果是一个连续值，类与类的边界必须用<strong>一个阈值（threshold）</strong> 来界定</p>
-<p>横轴：伪阳率（FPR）False Positive Rate，在所有实际为阳性的样本中，被正确地判断为阳性的比率</p>
-<p>纵轴：真阳率（TPR）True Positive Rate，在所有实际为阴性的样本中，被错误地判断为阳性的比率</p>
-<p><img src="/img/ROC.png" alt="ROC"></p>
-<p>consider 4个点和一条线：</p>
-<p>（0，1），即FPR=0，TPR=1，FN=0，FP=0，完美的分类器</p>
-<p>（1，0），即FPR=1，TPR=0，最糟糕的分类器</p>
-<p>（0，0），FPR＝TPR＝０，FP=TP=0，该分类器预测所有样本为负样本</p>
-<p>（1，1），预测所有的样本为正样本</p>
-<p>ROC曲线越接近左上角，该分类器的性能越好</p>
-<p><strong>AUC（Area Under Curve）</strong> ，被定义为ROC curve下的面积，显然这个面积的数值不大于1，由于ROC curve一般都位于y=x的上方，所以AUC的取值范围一般在0.5和1之间</p>
-<p>AUC=1，完美的分类器，</p>
-<p>0.5&lt;AUC&lt;1，优于随机猜测</p>
-<p>AUC=0.5，随机猜测，模型没有预测价值</p>
-<p>AUC&lt;0.5，比随机猜测还差</p>
-<p>meaning：</p>
-<blockquote>
-<p>The AUC value is equivalent to the probability that a randomly chosen positive example is ranked higher than a randomly chosen negative example.</p>
-</blockquote>
-<p>当测试集的正负样本的分布变化的时候，ROC curve能够保持不变，在实际的数据集中常会出现类平衡（class imbalance）现象，且测试数据样本的分布也可能会随着时间变化，ROC curve基本保持原貌，而Precision-Recall则会变化很大</p>
-<p><strong>精确率 precision</strong> ：预测为真的样本中有多少是真正的正样本 “预测为正的样本有多少是真正的真样本”</p>
-<p>P=TP/（TP+FP）</p>
-<p><strong>召回率 recall</strong> ：样本中的正例有多少被预测正确 </p>
-<p>R=TP/（TP+FN）</p>
-<p><strong>准确率 accuracy</strong> ：</p>
-<p>（TP+TN）/（TP＋FP＋TN＋FN）</p>
-<p><strong>F1 Score</strong> ：</p>
-<p>P * R /2（P+R）</p>
+          ROC curve , AUC &amp; Recall 
+ROC（Receiver Operating Characteristic）curve ：
 
-          
+In signal detection theory, a receiver operating characteristic (ROC), or
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/10/27/ROC-curve-AUC-Recall/#more" rel="contents">
+              Weiterlesen &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1939,98 +1716,16 @@
       
         
           
-            <h4 id="A-systematic-study-of-the-class-imbalance-problem-in-convolutional-neural-networks"><a href="#A-systematic-study-of-the-class-imbalance-problem-in-convolutional-neural-networks" class="headerlink" title="A systematic study of the class imbalance problem in convolutional neural networks"></a>A systematic study of the class imbalance problem in convolutional neural networks</h4><ul>
-<li>several methods：oversampling，undersampling，two-phase training，thresholding</li>
-<li>problem：some classes have a significantly higher number of examples in the training set than other classes –<strong>class imbalance</strong> ，Eg：computer vision，medical diagnosis，fraud detection，the frequency of one class can be 1000 times less than another class</li>
-<li>A new method for CNNs was introduced that trains the network in two-phases in which the network is trained on the balanced data first and then the output layers are fine-tuned</li>
-</ul>
-<ul>
-<li><p>Methods for addressing imbalance</p>
-<ul>
-<li><p>Data level methods：</p>
-<ul>
-<li><p>Oversampling：random minority oversampling，which simply replicates randomly selected samples from minority classes</p>
-</li>
-<li><p>Undersampling：</p>
-<p>examples are removed randomly from majority classes until all classes have the same number of examples；</p>
-<p>disadvantage：discard a portion of available data</p>
-</li>
-</ul>
-</li>
-<li><p>Classifier level methods：</p>
-<ul>
-<li><p>Threshold：</p>
-<p>adjust the decision threshold of a classifier</p>
-<p>There are estimated for each class by its frequency in the imbalanced dataset before sampling is applied</p>
-<p>Bayesian a posteriori probabilities</p>
-<p>a given datapoint x，their output for class i，y(x)=p(i | x)=p(i)*p(x | i)/p(x)</p>
-</li>
-<li><p>Cost sensitive learning：</p>
-<p>different cost to misclassification of examples from different classes</p>
-<p>One approach is threshold moving or post scaling </p>
-<p>Another adaptation of neural work is modify the learning rate such that higher cost examples contribute more to the update of weights</p>
-<p>Finally we can train the network by minimizing the misclassification cost instead of standard loss function</p>
-</li>
-<li><p>One-class classification：</p>
-<p>recognizes positive instances</p>
-<p>identity function：a reconstruction error between the input and output patterns Eg：absolute error，square sum of errors，Euclidean or Mahalanobis distance</p>
-<p>prove to work well for extremely high imbalance when classification problems turns info anomaly detection</p>
-</li>
-<li><p>Hybrid of problems：</p>
-<p>Two-phase training，approached as pixel level classification</p>
-<p>involve network pre-training on balanced dataset and then fine-tuning the last output layer before softmax on the original , imbalance data</p>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li><p>Experiments</p>
-<ul>
-<li><p>Forms of imbalance：</p>
-<ul>
-<li>step imbalance：the number of examples is equal within minority classes and equal within majority classes but differs between the majority and minority classes</li>
-<li>linear imbalance：the difference between consecutive pairs of classes is constant</li>
-</ul>
-</li>
-<li><p>Evaluation metrics and testing</p>
-<ul>
-<li><p>The metric：overall accuracy</p>
-</li>
-<li><p>the area under the receiver operating characteristic curve(ROC AUC) </p>
-<p>ROC has also been used to compare performance of classifiers trained on imbalance datasets</p>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li><p><strong>Conclusions</strong> ：</p>
-<ul>
-<li><p>The effect of class imbalance on classification performance is detrimental</p>
-</li>
-<li><p>The influence of imbalance on classification performance increases with the scale of a task</p>
-</li>
-<li><p>The impact of imbalance cannot be explained by the lower total number of training cases and depends on the distribution of examples among classes</p>
-<p>​</p>
-</li>
-<li><p>The method that <strong>in most of the cases outperforms all others with respect to multiclass ROC AUC was oversampling</strong> </p>
-</li>
-<li><p>For extreme ratio of imbalance and large portion of classes being minority , undersampling performs on a par with oversampling </p>
-</li>
-<li><p>To achieve the best accuracy , <strong>one should apply thresholding to compensate for prior class probabilities</strong> . A <strong>combination of thresholding with baseline and oversampling is the most preferable</strong> , whereas it should not be combined with undersampling </p>
-</li>
-<li><p>Oversampling should be applied to the level that totally eliminates the imbalance , whereas undersampling can perform better when the imbalance is only removed to some extent</p>
-</li>
-<li><p>As supposed to some classical machine learning models , <strong>oversampling does not necessarily cause overfitting of convolutional neural networks</strong> </p>
-</li>
-</ul>
-</li>
-</ul>
-
-          
+          A systematic study of the class imbalance problem in convolutional neural networks
+several methods：oversampling，undersampling，two-phase training，thres
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/10/25/class-imbalance-problem-in-CNN/#more" rel="contents">
+              Weiterlesen &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
