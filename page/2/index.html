@@ -361,7 +361,9 @@ Example：
 Some hints：
 Could negative integers be palindromes? (ie, -1)
 If you are thinking of converting the integer to string, note the restriction of using extra space.
-You could also try reversing an integ
+You could also try reversing an integer. However, if you have solved the problem “Reverse Integer”, you know that the reversed integer might overflow. How would you handle such case?
+There is a more generic way of solving this problem.
+M
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -514,7 +516,9 @@ Reverse digits of an integer.
 Example1: x = 123, return 321
 Example2: x = -123, return -321
 Example3: x = 120, return 21
-Note：Assume we are dealing with an environment which could only hold integers within the 32-bit signed integer range. For the purpose of this problem, assume that your f
+Note：Assume we are dealing with an environment which could only hold integers within the 32-bit signed integer range. For the purpose of this problem, assume that your function returns 0 when the reversed integer overflows.
+My answer in Java：
+123456789101112class Solution &#123;    public int reverse(int x) &#123;        int res=0;        if(x==0)            return x
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -666,7 +670,9 @@ Note：Assume we are dealing with an environment which could only hold integers 
 Given an array of integers, return indices of the two numbers such that they add up to a specific target.
 You may assume that each input would have exactly one solution, and you may not use the same element twice.
 Example：
-1234Given nums = [2, 7, 11, 15], target = 9,Because nums[0] + nums[
+1234Given nums = [2, 7, 11, 15], target = 9,Because nums[0] + nums[1] = 2 + 7 = 9,return [0, 1].
+My First answer: (wrong)
+1234567891011121314class Solution(object):    def twoSum(self, nums, target):        """        :type nums: List[int]        :type target: int   
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -816,7 +822,7 @@ Example：
           
           支持向量机分类器（Support Vector Classifier）
 根据训练样本的分布，搜索所有可能的线性分类器中最佳的那一个 ，决定其直线位置的样本并不是所有训练数据，而是其中的两个空间间隔最小的两个不同类的数据点 ，把这种可以用来真正帮助决策最优线性分类模型的数据点叫做“支持向量”。
-1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859# -*- coding: utf-8 -*-"""Created on Tue Sep
+1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859# -*- coding: utf-8 -*-"""Created on Tue Sep 19 11:25:09 2017@author: aa"""from sklearn.datasets import load_digits# 从sklearn.datasets导入手写体数字加载器digits=load_digits()# 从通过数据加载器获得手写数字的数码图像数据并储存在digits变量中print digits.data.shape# (1797L, 64L)  有1797
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -965,7 +971,7 @@ Example：
         
           
           寻找与这个待分类的样本在特征空间中距离最近的K个已标记的样本作为参考，来帮助我们做出分类决策
-12345678910111213141516171819202122232425262728293031323334353637383940414243444546# -*- coding: utf-8 -*-"""Created on Sun Sep 17 21:27:03 2017@author: aa"""from sklearn.datasets import load_irisiris=load_iris()print(iris.data.shape)  #(150L, 4L)#print
+12345678910111213141516171819202122232425262728293031323334353637383940414243444546# -*- coding: utf-8 -*-"""Created on Sun Sep 17 21:27:03 2017@author: aa"""from sklearn.datasets import load_irisiris=load_iris()print(iris.data.shape)  #(150L, 4L)#print iris.DESCRfrom sklearn.cross_validation import train_test_split# train_test_split 用于数据分割X_train,X_test,y_train,y_test=train_test_split(iris.data,iris.target,test_size=0.25,random_state=33)# 采样25%作为测试
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1275,8 +1281,9 @@ Example：
 一个成熟的人，都会判断和摒弃那些和自己无关的事，过着真正简单的生活
 对他人的私事不关心不介入，允许他人的道德观，生活方式和自己的不同，将消除世上90%以上的烦恼。 不要随意介入别人的生活–这就是一种成熟
 简单，直接，通透，随性。返璞归真，让生命回归到最舒服、属于自己的状态，专注而极致地想做自己想做的事，过自己想过的生活。这才是简单成熟的人生。做回自己，去关心那些，真正让自己欢喜和舒服的事，取悦自己，生活才能美好起来，生命才能自由起来。
-Girl，
-          ...
+Girl，请经常问自己：和我有什么关系
+
+          
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/09/23/你这样的春天/#more" rel="contents">
@@ -1427,8 +1434,13 @@ Girl，
 Quick StartCreate a new post1$ hexo new "My New Post"
 More info: Writing
 Run server1$ hexo server
-More in
-          ...
+More info: Server
+Generate static files1$ hexo generate
+More info: Generating
+Deploy to remote sites1$ hexo deploy
+More info: Deployment
+
+          
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/03/12/hello-world/#more" rel="contents">

@@ -361,7 +361,15 @@ An input string is valid if:
 Open brackets must be closed by the same type of brackets.
 Open brackets must be closed in the correct order.
 
-Note that an empty string is also consider
+Note that an empty string is also considered valid.
+Example 1:
+12Input: &quot;()&quot;Output: true
+Example 2:
+12Input: &quot;()[]&#123;&#125;&quot;Output: true
+Example 3:
+12Input: &quot;(]&quot;Output: false
+Example 4:
+12Input: &quot;([)]&quo
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -515,7 +523,11 @@ If there is no common prefix, return an empty string &quot;&quot;.
 Example 1:
 12Input: [&quot;flower&quot;,&quot;flow&quot;,&quot;flight&quot;]Output: &quot;fl&quot;
 Example 2:
-123Input: [&quot;dog&quot
+123Input: [&quot;dog&quot;,&quot;racecar&quot;,&quot;car&quot;]Output: &quot;&quot;Explanation: There is no common prefix among the input strings.
+Note:
+All given inputs are in lowercase letters a-z.
+My answer (java)：
+1234567
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -668,7 +680,7 @@ Author: Aditya Bhargava
 
 
 Binary_search
-12345678910111213141516171819202122def binary_search(list, item):    """    list must be ordered    time: O(logn)    """    low = 0    high = len(list)-1    while(low &lt;= high):        mid = (low + high)/2        if list[mid] == 
+12345678910111213141516171819202122def binary_search(list, item):    """    list must be ordered    time: O(logn)    """    low = 0    high = len(list)-1    while(low &lt;= high):        mid = (low + high)/2        if list[mid] == item:            return mid        if list[mid] &lt; item:            low = mid+1        else:            high = mid-1    return Noneif __name__ == '__main__':    print(binary_search([1,3,5,7,9],5))  
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -825,7 +837,11 @@ I - 1V - 5X - 10L - 50C - 100D - 500M - 1000
 Hint-2:
 
 If I comes before V or X, subtract 1 eg: IV = 4 and IX = 9
-If X comes before L or C, subtract 10 eg: XL = 40 and 
+If X comes before L or C, subtract 10 eg: XL = 40 and XC = 90
+If C comes before D or M, subtract 100 eg: CD = 400 and CM = 900
+
+My Answer:
+1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -982,7 +998,9 @@ We have the entire history of the project right there on our local disk, most op
 
 three states
 
-committed mean
+committed means that the data is safely stored in your local database.
+modified means that you have changed the file but have not committed it to your database yet
+staged means that you have marked a modified file 
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1134,7 +1152,10 @@ committed mean
 MULTI-SCALE CONTEXT AGGREGATION BY DILATED CONVOLUTIONS
 
 空洞卷积1. IntroductionDense prediction
-The goal is to compute a discrete or continuous label for each pixel in the image. A prominent example is to semantic segmentation , which calls for classifying each pixel into one of a given set of categor
+The goal is to compute a discrete or continuous label for each pixel in the image. A prominent example is to semantic segmentation , which calls for classifying each pixel into one of a given set of categories.
+Semantic segmentation is challenging because it requires combining pixel-level accuracy with multi-scale contextual reasoning. 
+像素精度与上下文推理相结合
+Modern image classification networks integrate multi-
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1285,7 +1306,9 @@ The goal is to compute a discrete or continuous label for each pixel in the imag
           Deep Residual Learning for Image RecognitionQ：Is learning better networks as simple as stacking more layers？
 A：Noooo
 ​      An obstacle to answering this question was the notorious problem of vanishing/exploding gradients , which hamper convergence from the beginning .
-This problem has been largely 
+This problem has been largely addressed by normalized initialization and intermediate normalized layers , which enable networks with tens of layers to start converging for SGD with bp.
+
+常规的网络的堆叠（plain network）在网络很深的时候，效果却却越来越差，tra
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1437,7 +1460,9 @@ This problem has been largely
 The architecture consists of a contracting path to capture context and a symmetric expanding path  that enables precise localization
 Introduction ：
 
-The convolutional network，their success was limited due to the size of the ava
+The convolutional network，their success was limited due to the size of the available training sets and the size of the considered networks. 
+
+In many visual tasks，especially in biomedical image processing，the desired output should include localization，i.e.，a class label is supp
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1590,7 +1615,9 @@ ROC（Receiver Operating Characteristic）curve ：
 
 In signal detection theory, a receiver operating characteristic (ROC), or simply ROC curve, is a graphical plot which illustrates the performance of a binary classifier system as its discrimination threshold is varied.
 
-ROC
+ROC curve 和 AUC curve常用来被评价一个二值分类器（binary classifier） ，输出结果只有两种类别的模型，当讯号侦测（或变数测量）的结果是一个连续值，类与类的边界必须用一个阈值（threshold） 来界定
+横轴：伪阳率（FPR）False Positive Rate，在所有实际为阳性的样本中，被正确地判断为阳性的比率
+纵轴：真阳率（TPR）True Positive R
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1740,7 +1767,8 @@ ROC
           
           A systematic study of the class imbalance problem in convolutional neural networks
 several methods：oversampling，undersampling，two-phase training，thresholding
-problem：some classes have a significantly higher number of examples in the training set than other classes –class imbalance ，Eg：computer visio
+problem：some classes have a significantly higher number of examples in the training set than other classes –class imbalance ，Eg：computer vision，medical diagnosis，fraud detection，the frequency of one class can be 1000 times less than another class
+A new method for CNNs was introduced that trains the network in two-phases in which the network
           ...
           <!--noindex-->
           <div class="post-button text-center">
