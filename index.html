@@ -358,7 +358,10 @@
 Given a string containing just the characters (, ), {, }, [ and ], determine if the input string is valid.
 An input string is valid if:
 
-Ope
+Open brackets must be closed by the same type of brackets.
+Open brackets must be closed in the correct order.
+
+Note that an empty string is also consider
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -508,7 +511,11 @@ Ope
           
           Question： 
 Write a function to find the longest common prefix string amongst an array of strings.
-If there is no common prefix, return an empty string
+If there is no common prefix, return an empty string &quot;&quot;.
+Example 1:
+12Input: [&quot;flower&quot;,&quot;flow&quot;,&quot;flight&quot;]Output: &quot;fl&quot;
+Example 2:
+123Input: [&quot;dog&quot
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -661,7 +668,7 @@ Author: Aditya Bhargava
 
 
 Binary_search
-12345678910111213141516171819202122def binary_search(list, item):    """    list 
+12345678910111213141516171819202122def binary_search(list, item):    """    list must be ordered    time: O(logn)    """    low = 0    high = len(list)-1    while(low &lt;= high):        mid = (low + high)/2        if list[mid] == 
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -814,7 +821,11 @@ Given a roman numeral, convert it to an integer.
 Input is guaranteed to be within the range from 1 to 3999.
 Hints:
 Hint-1:
-I - 1V - 5X - 10L
+I - 1V - 5X - 10L - 50C - 100D - 500M - 1000
+Hint-2:
+
+If I comes before V or X, subtract 1 eg: IV = 4 and IX = 9
+If X comes before L or C, subtract 10 eg: XL = 40 and 
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -966,7 +977,12 @@ I - 1V - 5X - 10L
 a stream of snapshots
 Git thinks of its data more like a series of snapshots of a miniature filesystem. 
 
-nearly every operations is 
+nearly every operations is local
+We have the entire history of the project right there on our local disk, most operations seem almost instantaneous
+
+three states
+
+committed mean
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1118,7 +1134,7 @@ nearly every operations is
 MULTI-SCALE CONTEXT AGGREGATION BY DILATED CONVOLUTIONS
 
 空洞卷积1. IntroductionDense prediction
-The goal is to compute a discrete or continuous label fo
+The goal is to compute a discrete or continuous label for each pixel in the image. A prominent example is to semantic segmentation , which calls for classifying each pixel into one of a given set of categor
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1268,7 +1284,8 @@ The goal is to compute a discrete or continuous label fo
           
           Deep Residual Learning for Image RecognitionQ：Is learning better networks as simple as stacking more layers？
 A：Noooo
-​      An obstacle to answering t
+​      An obstacle to answering this question was the notorious problem of vanishing/exploding gradients , which hamper convergence from the beginning .
+This problem has been largely 
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1417,7 +1434,10 @@ A：Noooo
         
           
           U-Net：Convolutional Networks for Biomedical Image SegmentationAbstract ：
-The architecture consists of a contracting path to capture context and a symm
+The architecture consists of a contracting path to capture context and a symmetric expanding path  that enables precise localization
+Introduction ：
+
+The convolutional network，their success was limited due to the size of the ava
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1568,7 +1588,9 @@ The architecture consists of a contracting path to capture context and a symm
           ROC curve , AUC &amp; Recall 
 ROC（Receiver Operating Characteristic）curve ：
 
-In signal detection theory, a receiver operating characteristic (ROC), or
+In signal detection theory, a receiver operating characteristic (ROC), or simply ROC curve, is a graphical plot which illustrates the performance of a binary classifier system as its discrimination threshold is varied.
+
+ROC
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1717,7 +1739,8 @@ In signal detection theory, a receiver operating characteristic (ROC), or
         
           
           A systematic study of the class imbalance problem in convolutional neural networks
-several methods：oversampling，undersampling，two-phase training，thres
+several methods：oversampling，undersampling，two-phase training，thresholding
+problem：some classes have a significantly higher number of examples in the training set than other classes –class imbalance ，Eg：computer visio
           ...
           <!--noindex-->
           <div class="post-button text-center">
