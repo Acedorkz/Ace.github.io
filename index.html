@@ -977,32 +977,29 @@
 
       
         
-          
-          GITBasics of git
-a stream of snapshots
-Git thinks of its data more like a series of snapshots of a miniature filesystem. 
-
-nearly every operations is local
-We have the entire history of the project right there on our local disk, most operations seem almost instantaneous
-
-three states
-
-committed means that the data is safely stored in your local database.
-modified means that you have changed the file but have not committed it to your database yet
-staged means that you have marked a modified file in its current version to go into your next commit snapshot
-
-
-three main sections of a Git project
-
-working directory
-staging area
-.git directory(repository)
-
-
-
-s
-Getting Help12git help configgit add 
-          ...
+          <h3 id="GIT"><a href="#GIT" class="headerlink" title="GIT"></a>GIT</h3><h4 id="Basics-of-git"><a href="#Basics-of-git" class="headerlink" title="Basics of git"></a>Basics of git</h4><ul>
+<li><p>a stream of snapshots</p>
+<p>Git thinks of its data more like a series of snapshots of a miniature filesystem. </p>
+</li>
+<li><p>nearly every operations is local</p>
+<p>We have the entire history of the project right there on our local disk, most operations seem almost instantaneous</p>
+</li>
+<li><p>three states</p>
+<ul>
+<li>committed means that the data is safely stored in your local database.</li>
+<li>modified means that you have changed the file but have not committed it to your database yet</li>
+<li>staged means that you have marked a modified file in its current version to go into your next commit snapshot</li>
+</ul>
+</li>
+<li><p>three main sections of a Git project</p>
+<ul>
+<li>working directory</li>
+<li>staging area</li>
+<li>.git directory(repository)</li>
+</ul>
+</li>
+</ul>
+<p><img src="img/three main sections GIT.png" alt="three main sections GIT"></p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/03/06/GIT/#more" rel="contents">
@@ -1148,17 +1145,19 @@ Getting Help12git help configgit add
 
       
         
-          
-          
-MULTI-SCALE CONTEXT AGGREGATION BY DILATED CONVOLUTIONS
-
-空洞卷积1. IntroductionDense prediction
-The goal is to compute a discrete or continuous label for each pixel in the image. A prominent example is to semantic segmentation , which calls for classifying each pixel into one of a given set of categories.
-Semantic segmentation is challenging because it requires combining pixel-level accuracy with multi-scale contextual reasoning. 
-像素精度与上下文推理相结合
-Modern image classification networks integrate multi-scale contextual information via successive pooling and subsampling layers that reduce resolution until a global prediction is obtained.
-Dense prediction calls for multi-scale contextual reasoning in 
-          ...
+          <blockquote>
+<p>MULTI-SCALE CONTEXT AGGREGATION BY DILATED CONVOLUTIONS</p>
+</blockquote>
+<h4 id="空洞卷积"><a href="#空洞卷积" class="headerlink" title="空洞卷积"></a>空洞卷积</h4><h5 id="1-Introduction"><a href="#1-Introduction" class="headerlink" title="1. Introduction"></a>1. Introduction</h5><p>Dense prediction</p>
+<p>The goal is to compute a discrete or continuous label for each pixel in the image. A prominent example is to semantic segmentation , which calls for classifying each pixel into one of a given set of categories.</p>
+<p>Semantic segmentation is challenging because it requires combining <strong>pixel-level accuracy with multi-scale contextual reasoning.</strong> </p>
+<p>像素精度与上下文推理相结合</p>
+<p>Modern image classification networks integrate multi-scale contextual information via successive pooling and subsampling layers that reduce resolution until a global prediction is obtained.</p>
+<p>Dense prediction calls for multi-scale contextual reasoning in combination with full-resolution output.</p>
+<p>A network module that aggregates multi-scale contextual information without losing resolution or analyzing rescaled image.The module can be plugged into existing architectures at any resolution.</p>
+<p>is designed specifically for dense prediction</p>
+<p>It is a rectangular prism of convolution layers, with no pooling or subsampling.</p>
+<p>The module is based on dilated convolutions, which support exponential expansion of the receptive field without loss of resolution or coverage.</p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/12/22/Multi-scale-context-aggregation-by-dilated-convolutions/#more" rel="contents">
@@ -1304,25 +1303,14 @@ Dense prediction calls for multi-scale contextual reasoning in
 
       
         
-          
-          Deep Residual Learning for Image RecognitionQ：Is learning better networks as simple as stacking more layers？
-A：Noooo
-​      An obstacle to answering this question was the notorious problem of vanishing/exploding gradients , which hamper convergence from the beginning .
-This problem has been largely addressed by normalized initialization and intermediate normalized layers , which enable networks with tens of layers to start converging for SGD with bp.
-
-常规的网络的堆叠（plain network）在网络很深的时候，效果却却越来越差，train set和test set都变差。
-产生这一问题的原因之一即 deeper network，gradients vanish越明显，network的训练效果也不是很好。
-Resnet network的目标是在网络加深的情况下解决gradients vanish的问题。
-
-
-method：
-
-Plain_net：
-
-Resnet network：
-
-Identity mapping ：X*I=X
-          ...
+          <h3 id="Deep-Residual-Learning-for-Image-Recognition"><a href="#Deep-Residual-Learning-for-Image-Recognition" class="headerlink" title="Deep Residual Learning for Image Recognition"></a>Deep Residual Learning for Image Recognition</h3><p>Q：Is learning better networks as simple as stacking more layers？</p>
+<p>A：Noooo</p>
+<p>​      An obstacle to answering this question was the notorious problem of vanishing/exploding gradients , which hamper convergence from the beginning .</p>
+<p>This problem has been largely addressed by normalized initialization and intermediate normalized layers , which enable networks with tens of layers to start converging for SGD with bp.</p>
+<p><img src="/img/Resnet_1.png" alt="Resnet_1"></p>
+<p>常规的网络的堆叠（plain network）在网络很深的时候，效果却却越来越差，train set和test set都变差。</p>
+<p>产生这一问题的原因之一即 deeper network，gradients vanish越明显，network的训练效果也不是很好。</p>
+<p>Resnet network的目标是在网络加深的情况下解决gradients vanish的问题。</p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/11/02/Deep-Residual-Learning-for-Image-Recognition/#more" rel="contents">
@@ -1468,17 +1456,8 @@ Identity mapping ：X*I=X
 
       
         
-          
-          U-Net：Convolutional Networks for Biomedical Image SegmentationAbstract ：
-The architecture consists of a contracting path to capture context and a symmetric expanding path  that enables precise localization
-Introduction ：
-
-The convolutional network，their success was limited due to the size of the available training sets and the size of the considered networks. 
-
-In many visual tasks，especially in biomedical image processing，the desired output should include localization，i.e.，a class label is supposed to be assigned to each pixel . 
-
-Ciresan et al：trained a network in a sliding-window setup to predict the class label of each pixel by providing a local region (patch) around that pixel as input 
-          ...
+          <h4 id="U-Net：Convolutional-Networks-for-Biomedical-Image-Segmentation"><a href="#U-Net：Convolutional-Networks-for-Biomedical-Image-Segmentation" class="headerlink" title="U-Net：Convolutional Networks for Biomedical Image Segmentation"></a>U-Net：Convolutional Networks for Biomedical Image Segmentation</h4><p><em>Abstract</em> ：</p>
+<p>The architecture consists of <strong>a contracting path to capture context and a symmetric expanding path</strong>  that enables precise localization</p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/10/30/U-net-Convolutional-Networks-for-Biomedical-Image-Segmentation/#more" rel="contents">
@@ -1624,24 +1603,15 @@ Ciresan et al：trained a network in a sliding-window setup to predict the class
 
       
         
-          
-          ROC curve , AUC &amp; Recall 
-ROC（Receiver Operating Characteristic）curve ：
-
-In signal detection theory, a receiver operating characteristic (ROC), or simply ROC curve, is a graphical plot which illustrates the performance of a binary classifier system as its discrimination threshold is varied.
-
-ROC curve 和 AUC curve常用来被评价一个二值分类器（binary classifier） ，输出结果只有两种类别的模型，当讯号侦测（或变数测量）的结果是一个连续值，类与类的边界必须用一个阈值（threshold） 来界定
-横轴：伪阳率（FPR）False Positive Rate，在所有实际为阳性的样本中，被正确地判断为阳性的比率
-纵轴：真阳率（TPR）True Positive Rate，在所有实际为阴性的样本中，被错误地判断为阳性的比率
-
-consider 4个点和一条线：
-（0，1），即FPR=0，TPR=1，FN=0，FP=0，完美的分类器
-（1，0），即FPR=1，TPR=0，最糟糕的分类器
-（0，0），FPR＝TPR＝０，FP=TP=0，该分类器预测所有样本为负样本
-（1，1），预测所有的样本为正样本
-ROC曲线越接近左上角，该分类器的性能越好
-AUC（Area 
-          ...
+          <p><strong>ROC curve , AUC &amp; Recall</strong> </p>
+<p><strong>ROC（Receiver Operating Characteristic）curve</strong> ：</p>
+<blockquote>
+<p>In signal detection theory, a receiver operating characteristic (ROC), or simply ROC curve, is a graphical plot which illustrates the performance of a binary classifier system as its discrimination threshold is varied.</p>
+</blockquote>
+<p>ROC curve 和 AUC curve常用来被评价一个<strong>二值分类器（binary classifier）</strong> ，输出结果只有两种类别的模型，当讯号侦测（或变数测量）的结果是一个连续值，类与类的边界必须用<strong>一个阈值（threshold）</strong> 来界定</p>
+<p>横轴：伪阳率（FPR）False Positive Rate，在所有实际为阳性的样本中，被正确地判断为阳性的比率</p>
+<p>纵轴：真阳率（TPR）True Positive Rate，在所有实际为阴性的样本中，被错误地判断为阳性的比率</p>
+<p><img src="/img/ROC.png" alt="ROC"></p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/10/27/ROC-curve-AUC-Recall/#more" rel="contents">
@@ -1787,19 +1757,11 @@ AUC（Area
 
       
         
-          
-          A systematic study of the class imbalance problem in convolutional neural networks
-several methods：oversampling，undersampling，two-phase training，thresholding
-problem：some classes have a significantly higher number of examples in the training set than other classes –class imbalance ，Eg：computer vision，medical diagnosis，fraud detection，the frequency of one class can be 1000 times less than another class
-A new method for CNNs was introduced that trains the network in two-phases in which the network is trained on the balanced data first and then the output layers are fine-tuned
-
-
-Methods for addressing imbalance
-
-Data level methods：
-
-Oversampling：random minority oversampling，which simply replica
-          ...
+          <h4 id="A-systematic-study-of-the-class-imbalance-problem-in-convolutional-neural-networks"><a href="#A-systematic-study-of-the-class-imbalance-problem-in-convolutional-neural-networks" class="headerlink" title="A systematic study of the class imbalance problem in convolutional neural networks"></a>A systematic study of the class imbalance problem in convolutional neural networks</h4><ul>
+<li>several methods：oversampling，undersampling，two-phase training，thresholding</li>
+<li>problem：some classes have a significantly higher number of examples in the training set than other classes –<strong>class imbalance</strong> ，Eg：computer vision，medical diagnosis，fraud detection，the frequency of one class can be 1000 times less than another class</li>
+<li>A new method for CNNs was introduced that trains the network in two-phases in which the network is trained on the balanced data first and then the output layers are fine-tuned</li>
+</ul>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/10/25/class-imbalance-problem-in-CNN/#more" rel="contents">

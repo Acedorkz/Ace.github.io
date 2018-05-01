@@ -91,7 +91,7 @@ The goal is to compute a discrete or continuous label for each pixel in the imag
 
 空洞卷积1. IntroductionDense prediction
 The goal is to compute a discrete or continuous label for each pixel in the image. A prominent example is">
-<meta property="og:updated_time" content="2017-12-22T10:59:27.875Z">
+<meta property="og:updated_time" content="2018-05-01T09:01:45.229Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Multi-scale context aggregation by dilated convolutions">
 <meta name="twitter:description" content="MULTI-SCALE CONTEXT AGGREGATION BY DILATED CONVOLUTIONS
@@ -372,6 +372,7 @@ The goal is to compute a discrete or continuous label for each pixel in the imag
 <p>is designed specifically for dense prediction</p>
 <p>It is a rectangular prism of convolution layers, with no pooling or subsampling.</p>
 <p>The module is based on dilated convolutions, which support exponential expansion of the receptive field without loss of resolution or coverage.</p>
+<a id="more"></a>
 <h5 id="2-Dilated-Convolution"><a href="#2-Dilated-Convolution" class="headerlink" title="2.Dilated Convolution"></a>2.Dilated Convolution</h5><h5 id="3-Multi-scale-context-aggregation"><a href="#3-Multi-scale-context-aggregation" class="headerlink" title="3.Multi-scale context aggregation"></a>3.Multi-scale context aggregation</h5><p>The module takes C features maps as input and produces C feature maps as output. The input and output have the same form, thus the module can be plugged into existing dense prediction architecture.</p>
 <p>Found that random initalization schemes were not effective for the context module. Found an alternative initialization with clear semantics to be much more effective.</p>
 <p>This initialization sets all filters such that each layer simply passes the input directly to the next.</p>

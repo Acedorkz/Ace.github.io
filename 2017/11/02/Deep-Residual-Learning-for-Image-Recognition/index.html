@@ -92,7 +92,7 @@ A：Noooo
 <meta property="og:image" content="http://yoursite.com/img/Resnet_1.png">
 <meta property="og:image" content="http://yoursite.com/img/Resnet_plain net.png">
 <meta property="og:image" content="http://yoursite.com/img/Resnet network.png">
-<meta property="og:updated_time" content="2017-11-09T12:36:57.855Z">
+<meta property="og:updated_time" content="2018-05-01T08:59:50.765Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Deep Residual Learning for Image Recognition">
 <meta name="twitter:description" content="Deep Residual Learning for Image RecognitionQ：Is learning better networks as simple as stacking more layers？
@@ -368,11 +368,9 @@ A：Noooo
 <p>常规的网络的堆叠（plain network）在网络很深的时候，效果却却越来越差，train set和test set都变差。</p>
 <p>产生这一问题的原因之一即 deeper network，gradients vanish越明显，network的训练效果也不是很好。</p>
 <p>Resnet network的目标是在网络加深的情况下解决gradients vanish的问题。</p>
+<a id="more"></a>
 <hr>
-<blockquote>
-<p>method：</p>
-</blockquote>
-<p><em>Plain_net</em>：</p>
+<h3 id="method："><a href="#method：" class="headerlink" title="method："></a>method：</h3><p><em>Plain_net</em>：</p>
 <p><img src="/img/Resnet_plain net.png" alt="Resnet_plain net"></p>
 <p><em>Resnet network</em>：</p>
 <p><img src="/img/Resnet network.png" alt="Resnet network"></p>
@@ -385,12 +383,11 @@ A：Noooo
 <li>Extremely deep residual nets are easy to optimize , but the counterpart “plain” nets(that simply stack layers ) exhibit higher training error when the depth increases</li>
 <li>Deep residual nets can easily enjoy accuracy gains from greatly increased depth , producing results substantially better than previous networks</li>
 </ul>
-<p><strong>Residual Network：</strong><br>H(x) – an underlying mapping to be fit by a few stacked layers (not necessarily the entire net) , with x denoting the inputs to the first of these layers . 若干堆叠层将进行拟合的映射</p>
+<h4 id="Residual-Network："><a href="#Residual-Network：" class="headerlink" title="Residual Network："></a>Residual Network：</h4><p>H(x) – an underlying mapping to be fit by a few stacked layers (not necessarily the entire net) , with x denoting the inputs to the first of these layers . 若干堆叠层将进行拟合的映射</p>
 <p>If one hypothesizes that multiple nonlinear layers can asymptotically approximate complicated functions , then it is equivalent to hypothesize that they can asymptotically approximate the residual functions , i.e. H(x)-x</p>
 <p>直接映射是难以学习的，提出了一种修正方法，不再学习x到H(x)的基本映射关系，而是学习这两种关系的差异，也就是残差residual，然后，为了计算H(x)，我们只需要将这个残差加到输入上即可。</p>
 <p>假设残差为F(x)=H(x)-x，那么网络不会直接学习H(x)，而是学习F(x)+x</p>
-<p><strong>Identity Mapping by Shortcuts：</strong></p>
-<p>When the input and output are of the same dimensions , </p>
+<h4 id="Identity-Mapping-by-Shortcuts："><a href="#Identity-Mapping-by-Shortcuts：" class="headerlink" title="Identity Mapping by Shortcuts："></a>Identity Mapping by Shortcuts：</h4><p>When the input and output are of the same dimensions , </p>
 <p>y=F(x,{Wi})+x，y and x are output and input vectors of the layers.</p>
 <p>If not , 1）perform a linear projection Ws by the short connections to match the dimensions：y=F(x,{Wi})+Ws*x</p>
 <p>2）The shortcut still performs identity mapping , with extra zero padded for increasing dimensions</p>
@@ -560,7 +557,7 @@ A：Noooo
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Deep-Residual-Learning-for-Image-Recognition"><span class="nav-number">1.</span> <span class="nav-text">Deep Residual Learning for Image Recognition</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Deep-Residual-Learning-for-Image-Recognition"><span class="nav-number">1.</span> <span class="nav-text">Deep Residual Learning for Image Recognition</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#method："><span class="nav-number">2.</span> <span class="nav-text">method：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Residual-Network："><span class="nav-number">2.1.</span> <span class="nav-text">Residual Network：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Identity-Mapping-by-Shortcuts："><span class="nav-number">2.2.</span> <span class="nav-text">Identity Mapping by Shortcuts：</span></a></li></ol></li></ol></div>
             
 
           </div>
