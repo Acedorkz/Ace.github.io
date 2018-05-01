@@ -97,7 +97,7 @@
     root: '/',
     scheme: 'Mist',
     version: '5.1.3',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":false,"onmobile":false},
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
     fancybox: true,
     tabs: true,
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
@@ -261,6 +261,136 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/01/Grokking-Algorithms/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ace_ZAJ">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/me.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ace">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/05/01/Grokking-Algorithms/" itemprop="url">Untitled</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-01T16:45:37+08:00">
+                2018-05-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>title: Grokking Algorithms<br>date: 2018-04-25 22:59:30<br>categories: Algorithms<br>tags:</p>
+<h3 id="Grokking-Algorithms-TURING"><a href="#Grokking-Algorithms-TURING" class="headerlink" title="Grokking Algorithms (TURING)"></a>Grokking Algorithms (TURING)</h3><blockquote>
+<p>Author: Aditya Bhargava</p>
+</blockquote>
+<h3 id="1-Binary-search"><a href="#1-Binary-search" class="headerlink" title="1.Binary_search"></a>1.Binary_search</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">binary_search</span><span class="params">(list, item)</span>:</span></div><div class="line">    <span class="string">"""</div><div class="line">    list must be ordered</div><div class="line">    time: O(logn)</div><div class="line">    """</span></div><div class="line">    low = <span class="number">0</span></div><div class="line">    high = len(list)<span class="number">-1</span></div><div class="line"></div><div class="line">    <span class="keyword">while</span>(low &lt;= high):</div><div class="line">        mid = (low + high)/<span class="number">2</span></div><div class="line">        <span class="keyword">if</span> list[mid] == item:</div><div class="line">            <span class="keyword">return</span> mid</div><div class="line">        <span class="keyword">if</span> list[mid] &lt; item:</div><div class="line">            low = mid+<span class="number">1</span></div><div class="line">        <span class="keyword">else</span>:</div><div class="line">            high = mid<span class="number">-1</span></div><div class="line">    <span class="keyword">return</span> <span class="keyword">None</span></div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">    print(binary_search([<span class="number">1</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">7</span>,<span class="number">9</span>],<span class="number">5</span>))</div><div class="line">    print(binary_search([<span class="number">1</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">7</span>,<span class="number">8</span>],<span class="number">9</span>))</div></pre></td></tr></table></figure>
+<p>​</p>
+<h3 id="2-Selection-sort"><a href="#2-Selection-sort" class="headerlink" title="2.Selection_sort"></a>2.Selection_sort</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">findSmallest</span><span class="params">(arr)</span>:</span></div><div class="line">    <span class="string">"""</div><div class="line">    input: arr</div><div class="line">    output: smallest_index</div><div class="line">    """</span></div><div class="line">    smallest = arr[<span class="number">0</span>]</div><div class="line">    smallest_index = <span class="number">0</span></div><div class="line"></div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(len(arr)):</div><div class="line">        <span class="keyword">if</span> arr[i] &lt; smallest:</div><div class="line">            smallest = arr[i]</div><div class="line">            smallest_index = i</div><div class="line">    <span class="keyword">return</span> smallest_index</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">selectionSort</span><span class="params">(arr)</span>:</span></div><div class="line">    newArr = []</div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(len(arr)):</div><div class="line">        smallest_index = findSmallest(arr)</div><div class="line">        newArr.append(arr.pop(smallest_index))</div><div class="line">    <span class="keyword">return</span> newArr</div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">    print(selectionSort([<span class="number">5</span>, <span class="number">3</span>, <span class="number">6</span>, <span class="number">2</span>, <span class="number">10</span>]))</div></pre></td></tr></table></figure>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/05/01/Grokking-Algorithms/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/28/20-Valid-Parentheses/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -369,7 +499,11 @@ Example 2:
 Example 3:
 12Input: &quot;(]&quot;Output: false
 Example 4:
-12Input: &quot;([)]&quo
+12Input: &quot;([)]&quot;Output: false
+Example 5:
+12Input: &quot;&#123;[]&#125;&quot;Output: true
+My Answer:
+123456789101112131415161718192021222324252627282930class Solution &#123;    public boolean isValid(String s) &#123
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -527,164 +661,11 @@ Example 2:
 Note:
 All given inputs are in lowercase letters a-z.
 My answer (java)：
-1234567
+1234567891011121314class Solution &#123;  public String longestCommonPrefix(String[] strs) &#123;      if (strs.length == 0)           return "";      String str1 = strs[0];      for(int i=0;i&lt;str1.length
           ...
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/04/28/14-Longest-Common-Prefix/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/25/Grokking-Algorithms/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Ace_ZAJ">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/me.JPG">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ace">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/04/25/Grokking-Algorithms/" itemprop="url">Grokking Algorithms</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-25T22:59:30+08:00">
-                2018-04-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Algorithms/" itemprop="url" rel="index">
-                    <span itemprop="name">Algorithms</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          Grokking Algorithms (TURING)
-Author: Aditya Bhargava
-
-
-Binary_search
-12345678910111213141516171819202122def binary_search(list, item):    """    list must be ordered    time: O(logn)    """    low = 0    high = len(list)-1    while(low &lt;= high):        mid = (low + high)/2        if list[mid] == item:            return mid        if list[mid] &lt; item:            low = mid+1        else:            high = mid-1    return Noneif __name__ == '__main__':    print(binary_search([1,3,5,7,9],5))  
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/04/25/Grokking-Algorithms/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -841,7 +822,7 @@ If X comes before L or C, subtract 10 eg: XL = 40 and XC = 90
 If C comes before D or M, subtract 100 eg: CD = 400 and CM = 900
 
 My Answer:
-1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162
+123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172class Solution &#123;    public int romanToInt(String s) &#123;        int len = s.length();                int res = 0;        for(int i=0;i&lt;len;i++)&#123;            char temp
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1000,7 +981,19 @@ three states
 
 committed means that the data is safely stored in your local database.
 modified means that you have changed the file but have not committed it to your database yet
-staged means that you have marked a modified file 
+staged means that you have marked a modified file in its current version to go into your next commit snapshot
+
+
+three main sections of a Git project
+
+working directory
+staging area
+.git directory(repository)
+
+
+
+s
+Getting Help12git help configgit add 
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1155,7 +1148,8 @@ MULTI-SCALE CONTEXT AGGREGATION BY DILATED CONVOLUTIONS
 The goal is to compute a discrete or continuous label for each pixel in the image. A prominent example is to semantic segmentation , which calls for classifying each pixel into one of a given set of categories.
 Semantic segmentation is challenging because it requires combining pixel-level accuracy with multi-scale contextual reasoning. 
 像素精度与上下文推理相结合
-Modern image classification networks integrate multi-
+Modern image classification networks integrate multi-scale contextual information via successive pooling and subsampling layers that reduce resolution until a global prediction is obtained.
+Dense prediction calls for multi-scale contextual reasoning in 
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1308,7 +1302,18 @@ A：Noooo
 ​      An obstacle to answering this question was the notorious problem of vanishing/exploding gradients , which hamper convergence from the beginning .
 This problem has been largely addressed by normalized initialization and intermediate normalized layers , which enable networks with tens of layers to start converging for SGD with bp.
 
-常规的网络的堆叠（plain network）在网络很深的时候，效果却却越来越差，tra
+常规的网络的堆叠（plain network）在网络很深的时候，效果却却越来越差，train set和test set都变差。
+产生这一问题的原因之一即 deeper network，gradients vanish越明显，network的训练效果也不是很好。
+Resnet network的目标是在网络加深的情况下解决gradients vanish的问题。
+
+
+method：
+
+Plain_net：
+
+Resnet network：
+
+Identity mapping ：X*I=X
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1462,7 +1467,9 @@ Introduction ：
 
 The convolutional network，their success was limited due to the size of the available training sets and the size of the considered networks. 
 
-In many visual tasks，especially in biomedical image processing，the desired output should include localization，i.e.，a class label is supp
+In many visual tasks，especially in biomedical image processing，the desired output should include localization，i.e.，a class label is supposed to be assigned to each pixel . 
+
+Ciresan et al：trained a network in a sliding-window setup to predict the class label of each pixel by providing a local region (patch) around that pixel as input 
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1617,7 +1624,15 @@ In signal detection theory, a receiver operating characteristic (ROC), or simply
 
 ROC curve 和 AUC curve常用来被评价一个二值分类器（binary classifier） ，输出结果只有两种类别的模型，当讯号侦测（或变数测量）的结果是一个连续值，类与类的边界必须用一个阈值（threshold） 来界定
 横轴：伪阳率（FPR）False Positive Rate，在所有实际为阳性的样本中，被正确地判断为阳性的比率
-纵轴：真阳率（TPR）True Positive R
+纵轴：真阳率（TPR）True Positive Rate，在所有实际为阴性的样本中，被错误地判断为阳性的比率
+
+consider 4个点和一条线：
+（0，1），即FPR=0，TPR=1，FN=0，FP=0，完美的分类器
+（1，0），即FPR=1，TPR=0，最糟糕的分类器
+（0，0），FPR＝TPR＝０，FP=TP=0，该分类器预测所有样本为负样本
+（1，1），预测所有的样本为正样本
+ROC曲线越接近左上角，该分类器的性能越好
+AUC（Area 
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1768,7 +1783,14 @@ ROC curve 和 AUC curve常用来被评价一个二值分类器（binary classifi
           A systematic study of the class imbalance problem in convolutional neural networks
 several methods：oversampling，undersampling，two-phase training，thresholding
 problem：some classes have a significantly higher number of examples in the training set than other classes –class imbalance ，Eg：computer vision，medical diagnosis，fraud detection，the frequency of one class can be 1000 times less than another class
-A new method for CNNs was introduced that trains the network in two-phases in which the network
+A new method for CNNs was introduced that trains the network in two-phases in which the network is trained on the balanced data first and then the output layers are fine-tuned
+
+
+Methods for addressing imbalance
+
+Data level methods：
+
+Oversampling：random minority oversampling，which simply replica
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1875,7 +1897,7 @@ A new method for CNNs was introduced that trains the network in two-phases in wh
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -1907,6 +1929,8 @@ A new method for CNNs was introduced that trains the network in two-phases in wh
       
         <div class="back-to-top">
           <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
           
         </div>
       
