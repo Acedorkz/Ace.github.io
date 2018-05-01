@@ -97,7 +97,7 @@ Example：
 Some hints：
 Could negative integers be palindromes? (ie, -1)
 If you are thinking of converting the">
-<meta property="og:updated_time" content="2018-03-08T13:51:11.579Z">
+<meta property="og:updated_time" content="2018-05-01T08:54:59.470Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="9.Palindrome Number">
 <meta name="twitter:description" content="Question： 
@@ -377,6 +377,7 @@ If you are thinking of converting the">
 <p>If you are thinking of converting the integer to string, note the restriction of using extra space.</p>
 <p>You could also try reversing an integer. However, if you have solved the problem “Reverse Integer”, you know that the reversed integer might overflow. How would you handle such case?</p>
 <p>There is a more generic way of solving this problem.</p>
+<a id="more"></a>
 <p><strong>My answer (java)：</strong> </p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isPalindrome</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> rev=<span class="number">0</span>;</div><div class="line">        <span class="keyword">int</span> ori=x;</div><div class="line">        <span class="keyword">if</span> (x&lt;<span class="number">0</span> || (x!=<span class="number">0</span> &amp;&amp; x%<span class="number">10</span>==<span class="number">0</span>)) </div><div class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">        <span class="keyword">while</span>(x!=<span class="number">0</span>)&#123;</div><div class="line">            rev=rev*<span class="number">10</span>+x%<span class="number">10</span>;</div><div class="line">            x=x/<span class="number">10</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> ori==rev;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p><strong>Better answer (java)：</strong></p>
@@ -507,7 +508,7 @@ If you are thinking of converting the">
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>

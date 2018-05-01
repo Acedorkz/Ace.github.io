@@ -353,19 +353,15 @@
 
       
         
-          
-          Question： 
-Determine whether an integer is a palindrome . Do this without extra space.
-Example：
-12321
-Some hints：
-Could negative integers be palindromes? (ie, -1)
-If you are thinking of converting the integer to string, note the restriction of using extra space.
-You could also try reversing an integer. However, if you have solved the problem “Reverse Integer”, you know that the reversed integer might overflow. How would you handle such case?
-There is a more generic way of solving this problem.
-My answer (java)： 
-12345678910111213class Solution &#123;    public boolean isPalindrome(int x) &#123;        int rev=0;        int ori=x;        if (x&lt;0 || (x!=0 &amp;&amp; x%10==0))             re
-          ...
+          <p><strong>Question：</strong> </p>
+<p>Determine whether an integer is a <strong>palindrome</strong> . Do this without extra space.</p>
+<p><strong>Example：</strong></p>
+<p>12321</p>
+<p><strong>Some hints：</strong></p>
+<p>Could negative integers be palindromes? (ie, -1)</p>
+<p>If you are thinking of converting the integer to string, note the restriction of using extra space.</p>
+<p>You could also try reversing an integer. However, if you have solved the problem “Reverse Integer”, you know that the reversed integer might overflow. How would you handle such case?</p>
+<p>There is a more generic way of solving this problem.</p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/10/05/9-Palindrome-Number/#more" rel="contents">
@@ -511,18 +507,12 @@ My answer (java)：
 
       
         
-          
-          Question：
-Reverse digits of an integer.
-Example1: x = 123, return 321
-Example2: x = -123, return -321
-Example3: x = 120, return 21
-Note：Assume we are dealing with an environment which could only hold integers within the 32-bit signed integer range. For the purpose of this problem, assume that your function returns 0 when the reversed integer overflows.
-My answer in Java：
-123456789101112class Solution &#123;    public int reverse(int x) &#123;        int res=0;        if(x==0)            return x;        while(x!=0)&#123;            res=res*10+x%10;            x=x/10;        &#125;        return res;    &#125;&#125;
-Better answer in Java：
-1234567891011class Solution &#123;public:    int rever
-          ...
+          <p><strong>Question：</strong></p>
+<p>Reverse digits of an integer.</p>
+<p>Example1: x = 123, return 321</p>
+<p>Example2: x = -123, return -321</p>
+<p>Example3: x = 120, return 21</p>
+<p><strong>Note：</strong>Assume we are dealing with an environment which could only hold integers within the <strong>32-bit signed integer range.</strong> For the purpose of this problem, assume that your function <strong>returns 0 when the reversed integer overflows.</strong></p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/10/04/7-Reverse-Integer/#more" rel="contents">
@@ -668,15 +658,11 @@ Better answer in Java：
 
       
         
-          
-          Question：
-Given an array of integers, return indices of the two numbers such that they add up to a specific target.
-You may assume that each input would have exactly one solution, and you may not use the same element twice.
-Example：
-1234Given nums = [2, 7, 11, 15], target = 9,Because nums[0] + nums[1] = 2 + 7 = 9,return [0, 1].
-My First answer: (wrong)
-1234567891011121314class Solution(object):    def twoSum(self, nums, target):        """        :type nums: List[int]        :type target: int        :rtype: List[int]        """        j=0        for i in nums:            j+=1            tmp=nums[j:]            if target-i in tmp:                return [nums.index(i),nums.index(target-i)]    
-          ...
+          <p><strong>Question：</strong></p>
+<p>Given an array of integers, return <strong>indices</strong> of the two numbers such that they add up to a specific target.</p>
+<p>You may assume that each input would have <strong>exactly</strong> one solution, and you may not use the same element twice.</p>
+<p><strong>Example：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Given nums = [2, 7, 11, 15], target = 9,</div><div class="line"></div><div class="line">Because nums[0] + nums[1] = 2 + 7 = 9,</div><div class="line">return [0, 1].</div></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/10/02/1-Two-Sum/#more" rel="contents">
@@ -1549,7 +1535,7 @@ More info: Deployment
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>

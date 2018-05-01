@@ -95,7 +95,7 @@ Example1: x = 123, return 321
 Example2: x = -123, return -321
 Example3: x = 120, return 21
 Note：Assume we are dealing with an environment which could only hold">
-<meta property="og:updated_time" content="2018-03-04T09:25:44.567Z">
+<meta property="og:updated_time" content="2018-05-01T08:54:47.956Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="7.Reverse Integer">
 <meta name="twitter:description" content="Question：
@@ -371,6 +371,7 @@ Note：Assume we are dealing with an environment which could only hold">
 <p>Example2: x = -123, return -321</p>
 <p>Example3: x = 120, return 21</p>
 <p><strong>Note：</strong>Assume we are dealing with an environment which could only hold integers within the <strong>32-bit signed integer range.</strong> For the purpose of this problem, assume that your function <strong>returns 0 when the reversed integer overflows.</strong></p>
+<a id="more"></a>
 <p><strong>My answer in Java：</strong></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">reverse</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> res=<span class="number">0</span>;</div><div class="line">        <span class="keyword">if</span>(x==<span class="number">0</span>)</div><div class="line">            <span class="keyword">return</span> x;</div><div class="line">        <span class="keyword">while</span>(x!=<span class="number">0</span>)&#123;</div><div class="line">            res=res*<span class="number">10</span>+x%<span class="number">10</span>;</div><div class="line">            x=x/<span class="number">10</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> res;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p><strong>Better answer in Java：</strong></p>
@@ -498,7 +499,7 @@ Note：Assume we are dealing with an environment which could only hold">
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>

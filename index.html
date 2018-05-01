@@ -280,7 +280,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/05/01/Grokking-Algorithms/" itemprop="url">Untitled</a></h1>
+                <a class="post-title-link" href="/2018/05/01/Grokking-Algorithms/" itemprop="url">Grokking Algorithms</a></h1>
         
 
         <div class="post-meta">
@@ -292,7 +292,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-01T16:45:37+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-01T16:52:17+08:00">
                 2018-05-01
               </time>
             
@@ -302,6 +302,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Algorithms/" itemprop="url" rel="index">
+                    <span itemprop="name">Algorithms</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -331,13 +353,11 @@
 
       
         
-          <p>title: Grokking Algorithms<br>date: 2018-04-25 22:59:30<br>categories: Algorithms<br>tags:</p>
-<h3 id="Grokking-Algorithms-TURING"><a href="#Grokking-Algorithms-TURING" class="headerlink" title="Grokking Algorithms (TURING)"></a>Grokking Algorithms (TURING)</h3><blockquote>
+          <h3 id="Grokking-Algorithms-TURING"><a href="#Grokking-Algorithms-TURING" class="headerlink" title="Grokking Algorithms (TURING)"></a>Grokking Algorithms (TURING)</h3><blockquote>
 <p>Author: Aditya Bhargava</p>
 </blockquote>
-<h3 id="1-Binary-search"><a href="#1-Binary-search" class="headerlink" title="1.Binary_search"></a>1.Binary_search</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">binary_search</span><span class="params">(list, item)</span>:</span></div><div class="line">    <span class="string">"""</div><div class="line">    list must be ordered</div><div class="line">    time: O(logn)</div><div class="line">    """</span></div><div class="line">    low = <span class="number">0</span></div><div class="line">    high = len(list)<span class="number">-1</span></div><div class="line"></div><div class="line">    <span class="keyword">while</span>(low &lt;= high):</div><div class="line">        mid = (low + high)/<span class="number">2</span></div><div class="line">        <span class="keyword">if</span> list[mid] == item:</div><div class="line">            <span class="keyword">return</span> mid</div><div class="line">        <span class="keyword">if</span> list[mid] &lt; item:</div><div class="line">            low = mid+<span class="number">1</span></div><div class="line">        <span class="keyword">else</span>:</div><div class="line">            high = mid<span class="number">-1</span></div><div class="line">    <span class="keyword">return</span> <span class="keyword">None</span></div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">    print(binary_search([<span class="number">1</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">7</span>,<span class="number">9</span>],<span class="number">5</span>))</div><div class="line">    print(binary_search([<span class="number">1</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">7</span>,<span class="number">8</span>],<span class="number">9</span>))</div></pre></td></tr></table></figure>
-<p>​</p>
-<h3 id="2-Selection-sort"><a href="#2-Selection-sort" class="headerlink" title="2.Selection_sort"></a>2.Selection_sort</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">findSmallest</span><span class="params">(arr)</span>:</span></div><div class="line">    <span class="string">"""</div><div class="line">    input: arr</div><div class="line">    output: smallest_index</div><div class="line">    """</span></div><div class="line">    smallest = arr[<span class="number">0</span>]</div><div class="line">    smallest_index = <span class="number">0</span></div><div class="line"></div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(len(arr)):</div><div class="line">        <span class="keyword">if</span> arr[i] &lt; smallest:</div><div class="line">            smallest = arr[i]</div><div class="line">            smallest_index = i</div><div class="line">    <span class="keyword">return</span> smallest_index</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">selectionSort</span><span class="params">(arr)</span>:</span></div><div class="line">    newArr = []</div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(len(arr)):</div><div class="line">        smallest_index = findSmallest(arr)</div><div class="line">        newArr.append(arr.pop(smallest_index))</div><div class="line">    <span class="keyword">return</span> newArr</div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">    print(selectionSort([<span class="number">5</span>, <span class="number">3</span>, <span class="number">6</span>, <span class="number">2</span>, <span class="number">10</span>]))</div></pre></td></tr></table></figure>
+<h3 id="1-Binary-search"><a href="#1-Binary-search" class="headerlink" title="1.Binary_search"></a>1.Binary_search</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">binary_search</span><span class="params">(list, item)</span>:</span></div><div class="line">    <span class="string">"""</div><div class="line">    list must be ordered</div><div class="line">    time: O(logn)</div><div class="line">    """</span></div><div class="line">    low = <span class="number">0</span></div><div class="line">    high = len(list)<span class="number">-1</span></div><div class="line"></div><div class="line">    <span class="keyword">while</span>(low &lt;= high):</div><div class="line">        mid = (low + high)/<span class="number">2</span></div><div class="line">        <span class="keyword">if</span> list[mid] == item:</div><div class="line">            <span class="keyword">return</span> mid</div><div class="line">        <span class="keyword">if</span> list[mid] &lt; item:</div><div class="line">            low = mid+<span class="number">1</span></div><div class="line">        <span class="keyword">else</span>:</div><div class="line">            high = mid<span class="number">-1</span></div><div class="line">    <span class="keyword">return</span> <span class="keyword">None</span></div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">    print(binary_search([<span class="number">1</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">7</span>,<span class="number">9</span>],<span class="number">5</span>))</div><div class="line">    print(binary_search([<span class="number">1</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">7</span>,<span class="number">8</span>],<span class="number">9</span>))</div></pre></td></tr></table></figure>
+<h3 id="2-Selection-sort"><a href="#2-Selection-sort" class="headerlink" title="2.Selection_sort"></a>2.Selection_sort</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">findSmallest</span><span class="params">(arr)</span>:</span></div><div class="line">    <span class="string">"""</div><div class="line">    input: arr</div><div class="line">    output: smallest_index</div><div class="line">    """</span></div><div class="line">    smallest = arr[<span class="number">0</span>]</div><div class="line">    smallest_index = <span class="number">0</span></div><div class="line"></div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(len(arr)):</div><div class="line">        <span class="keyword">if</span> arr[i] &lt; smallest:</div><div class="line">            smallest = arr[i]</div><div class="line">            smallest_index = i</div><div class="line">    <span class="keyword">return</span> smallest_index</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">selectionSort</span><span class="params">(arr)</span>:</span></div><div class="line">    newArr = []</div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(len(arr)):</div><div class="line">        smallest_index = findSmallest(arr)</div><div class="line">        newArr.append(arr.pop(smallest_index))</div><div class="line">    <span class="keyword">return</span> newArr</div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">    print(selectionSort([<span class="number">5</span>, <span class="number">3</span>, <span class="number">6</span>, <span class="number">2</span>, <span class="number">10</span>]))</div></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/05/01/Grokking-Algorithms/#more" rel="contents">
@@ -483,28 +503,24 @@
 
       
         
-          
-          Question:
-Given a string containing just the characters (, ), {, }, [ and ], determine if the input string is valid.
-An input string is valid if:
-
-Open brackets must be closed by the same type of brackets.
-Open brackets must be closed in the correct order.
-
-Note that an empty string is also considered valid.
-Example 1:
-12Input: &quot;()&quot;Output: true
-Example 2:
-12Input: &quot;()[]&#123;&#125;&quot;Output: true
-Example 3:
-12Input: &quot;(]&quot;Output: false
-Example 4:
-12Input: &quot;([)]&quot;Output: false
-Example 5:
-12Input: &quot;&#123;[]&#125;&quot;Output: true
-My Answer:
-123456789101112131415161718192021222324252627282930class Solution &#123;    public boolean isValid(String s) &#123
-          ...
+          <p><strong>Question:</strong></p>
+<p>Given a string containing just the characters <code>(</code>, <code>)</code>, <code>{</code>, <code>}</code>, <code>[</code> and <code>]</code>, determine if the input string is valid.</p>
+<p>An input string is valid if:</p>
+<ol>
+<li>Open brackets must be closed by the same type of brackets.</li>
+<li>Open brackets must be closed in the correct order.</li>
+</ol>
+<p>Note that an empty string is also considered valid.</p>
+<p><strong>Example 1:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Input: &quot;()&quot;</div><div class="line">Output: true</div></pre></td></tr></table></figure>
+<p><strong>Example 2:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Input: &quot;()[]&#123;&#125;&quot;</div><div class="line">Output: true</div></pre></td></tr></table></figure>
+<p><strong>Example 3:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Input: &quot;(]&quot;</div><div class="line">Output: false</div></pre></td></tr></table></figure>
+<p><strong>Example 4:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Input: &quot;([)]&quot;</div><div class="line">Output: false</div></pre></td></tr></table></figure>
+<p><strong>Example 5:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Input: &quot;&#123;[]&#125;&quot;</div><div class="line">Output: true</div></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/04/28/20-Valid-Parentheses/#more" rel="contents">
@@ -650,19 +666,15 @@ My Answer:
 
       
         
-          
-          Question： 
-Write a function to find the longest common prefix string amongst an array of strings.
-If there is no common prefix, return an empty string &quot;&quot;.
-Example 1:
-12Input: [&quot;flower&quot;,&quot;flow&quot;,&quot;flight&quot;]Output: &quot;fl&quot;
-Example 2:
-123Input: [&quot;dog&quot;,&quot;racecar&quot;,&quot;car&quot;]Output: &quot;&quot;Explanation: There is no common prefix among the input strings.
-Note:
-All given inputs are in lowercase letters a-z.
-My answer (java)：
-1234567891011121314class Solution &#123;  public String longestCommonPrefix(String[] strs) &#123;      if (strs.length == 0)           return "";      String str1 = strs[0];      for(int i=0;i&lt;str1.length
-          ...
+          <p><strong>Question：</strong> </p>
+<p>Write a function to find the longest common prefix string amongst an array of strings.</p>
+<p>If there is no common prefix, return an empty string <code>&quot;&quot;</code>.</p>
+<p><strong>Example 1:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Input: [&quot;flower&quot;,&quot;flow&quot;,&quot;flight&quot;]</div><div class="line">Output: &quot;fl&quot;</div></pre></td></tr></table></figure>
+<p><strong>Example 2:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Input: [&quot;dog&quot;,&quot;racecar&quot;,&quot;car&quot;]</div><div class="line">Output: &quot;&quot;</div><div class="line">Explanation: There is no common prefix among the input strings.</div></pre></td></tr></table></figure>
+<p><strong>Note:</strong></p>
+<p>All given inputs are in lowercase letters <code>a-z</code>.</p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/04/28/14-Longest-Common-Prefix/#more" rel="contents">
@@ -808,22 +820,18 @@ My answer (java)：
 
       
         
-          
-          Question:
-Given a roman numeral, convert it to an integer.
-Input is guaranteed to be within the range from 1 to 3999.
-Hints:
-Hint-1:
-I - 1V - 5X - 10L - 50C - 100D - 500M - 1000
-Hint-2:
-
-If I comes before V or X, subtract 1 eg: IV = 4 and IX = 9
-If X comes before L or C, subtract 10 eg: XL = 40 and XC = 90
-If C comes before D or M, subtract 100 eg: CD = 400 and CM = 900
-
-My Answer:
-123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172class Solution &#123;    public int romanToInt(String s) &#123;        int len = s.length();                int res = 0;        for(int i=0;i&lt;len;i++)&#123;            char temp
-          ...
+          <p><strong>Question:</strong></p>
+<p>Given a <strong>roman numeral</strong>, convert it to an integer.</p>
+<p>Input is guaranteed to be within the range from 1 to 3999.</p>
+<p><strong>Hints:</strong></p>
+<p>Hint-1:</p>
+<p>I - 1<br>V - 5<br>X - 10<br>L - 50<br>C - 100<br>D - 500<br>M - 1000</p>
+<p>Hint-2:</p>
+<ul>
+<li>If I comes before V or X, subtract 1 eg: IV = 4 and IX = 9</li>
+<li>If X comes before L or C, subtract 10 eg: XL = 40 and XC = 90</li>
+<li>If C comes before D or M, subtract 100 eg: CD = 400 and CM = 900</li>
+</ul>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/04/14/13-Roman-Into-Integer/#more" rel="contents">
@@ -1897,7 +1905,7 @@ Oversampling：random minority oversampling，which simply replica
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
