@@ -79,22 +79,19 @@
 
 
 
-<meta name="description" content="Question：
-Given an array of integers, return indices of the two numbers such that they add up to a specific target.
-You may assume that each input would have exactly one solution, and you may not use">
+<meta name="description" content="Question:Write a function that takes a string as input and returns the string reversed.
+Example:Given s = “hello”, return “olleh”.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="1.Two Sum">
-<meta property="og:url" content="http://yoursite.com/2017/10/02/1-Two-Sum/index.html">
+<meta property="og:title" content="344.Reverse String">
+<meta property="og:url" content="http://yoursite.com/2018/05/03/344-Reverse-String/index.html">
 <meta property="og:site_name" content="Ace">
-<meta property="og:description" content="Question：
-Given an array of integers, return indices of the two numbers such that they add up to a specific target.
-You may assume that each input would have exactly one solution, and you may not use">
-<meta property="og:updated_time" content="2018-05-01T08:54:34.657Z">
+<meta property="og:description" content="Question:Write a function that takes a string as input and returns the string reversed.
+Example:Given s = “hello”, return “olleh”.">
+<meta property="og:updated_time" content="2018-05-03T14:12:38.246Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="1.Two Sum">
-<meta name="twitter:description" content="Question：
-Given an array of integers, return indices of the two numbers such that they add up to a specific target.
-You may assume that each input would have exactly one solution, and you may not use">
+<meta name="twitter:title" content="344.Reverse String">
+<meta name="twitter:description" content="Question:Write a function that takes a string as input and returns the string reversed.
+Example:Given s = “hello”, return “olleh”.">
 
 
 
@@ -124,13 +121,13 @@ You may assume that each input would have exactly one solution, and you may not 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/10/02/1-Two-Sum/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/05/03/344-Reverse-String/"/>
 
 
 
 
 
-  <title>1.Two Sum | Ace</title>
+  <title>344.Reverse String | Ace</title>
   
 
 
@@ -267,7 +264,7 @@ You may assume that each input would have exactly one solution, and you may not 
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/02/1-Two-Sum/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/03/344-Reverse-String/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Ace_ZAJ">
@@ -284,7 +281,7 @@ You may assume that each input would have exactly one solution, and you may not 
 
         
         
-          <h1 class="post-title" itemprop="name headline">1.Two Sum</h1>
+          <h1 class="post-title" itemprop="name headline">344.Reverse String</h1>
         
 
         <div class="post-meta">
@@ -296,8 +293,8 @@ You may assume that each input would have exactly one solution, and you may not 
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-02T11:06:33+08:00">
-                2017-10-02
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-03T21:56:32+08:00">
+                2018-05-03
               </time>
             
 
@@ -356,49 +353,22 @@ You may assume that each input would have exactly one solution, and you may not 
       
 
       
-        <p><strong>Question：</strong></p>
-<p>Given an array of integers, return <strong>indices</strong> of the two numbers such that they add up to a specific target.</p>
-<p>You may assume that each input would have <strong>exactly</strong> one solution, and you may not use the same element twice.</p>
-<p><strong>Example：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Given nums = [2, 7, 11, 15], target = 9,</div><div class="line"></div><div class="line">Because nums[0] + nums[1] = 2 + 7 = 9,</div><div class="line">return [0, 1].</div></pre></td></tr></table></figure>
+        <h4 id="Question"><a href="#Question" class="headerlink" title="Question:"></a>Question:</h4><p>Write a function that takes a string as input and returns the string reversed.</p>
+<p><strong>Example:</strong><br>Given s = “hello”, return “olleh”.</p>
 <a id="more"></a>
-<p><strong>My First answer: (wrong)</strong></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">twoSum</span><span class="params">(self, nums, target)</span>:</span></div><div class="line">        <span class="string">"""</span></div><div class="line">        :type nums: List[int]</div><div class="line">        :type target: int</div><div class="line">        :rtype: List[int]</div><div class="line">        """</div><div class="line">        j=<span class="number">0</span></div><div class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> nums:</div><div class="line">            j+=<span class="number">1</span></div><div class="line">            tmp=nums[j:]</div><div class="line">            <span class="keyword">if</span> target-i <span class="keyword">in</span> tmp:</div><div class="line">                <span class="keyword">return</span> [nums.index(i),nums.index(target-i)]</div><div class="line">        <span class="keyword">return</span> [<span class="number">0</span>,<span class="number">0</span>]</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">input:(3,3)</div><div class="line">output(0,0)</div><div class="line">should be(0,1)</div></pre></td></tr></table></figure>
-<p>so we need to clear the index and value, exchange their position to make them uniqueness</p>
-<p><strong>Modified Answer:</strong></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">twoSum</span><span class="params">(self, nums, target)</span>:</span></div><div class="line">        <span class="string">"""</span></div><div class="line">        :type nums: List[int]</div><div class="line">        :type target: int</div><div class="line">        :rtype: List[int]</div><div class="line">        """</div><div class="line">        d=&#123;&#125;</div><div class="line">        <span class="keyword">for</span> i,value <span class="keyword">in</span> enumerate(nums):</div><div class="line">            <span class="keyword">if</span> target-value <span class="keyword">in</span> d:</div><div class="line">                <span class="keyword">return</span> [d[target-value],i]</div><div class="line">            d[value]=i</div></pre></td></tr></table></figure>
-<p>Traverse the list, and put every item into the <code>list d</code>, and the order of <code>return list</code> is also important, first is index in <code>list d</code>, because the item in <code>list d</code> is earilier put from the origin list i.e. <code>list nums</code>. Second is current index in <code>list nums</code>.</p>
-<p><strong>Complexity Analysis：</strong></p>
-<ul>
-<li>Time complexity：<em>O</em> (n)，for each element , we try to find its complement by looping through the rest of array which takes <em>O</em> (n) time</li>
-<li>Space complexity：<em>O</em> (1)</li>
-</ul>
-<p><strong>Supplement:</strong></p>
-<p><strong>List</strong></p>
-<p><code>list1 = [&#39;physics&#39;, &#39;chemistry&#39;, 1997, 2000]</code></p>
-<p><code>list.append(x)</code> : Add an <strong>item</strong> x to the end of the list</p>
-<p><code>list.extend(list)</code> : Extend the <strong>list</strong> by appending all the items in the given list</p>
-<p><code>list.insert(i,x)</code> </p>
-<p><code>list.remove(x)</code> : the first item from the first</p>
-<p><code>list.pop([i])</code> : Remove the item at the given position in the list, and return it</p>
-<p><code>list.index(x)</code></p>
-<p><code>list.count(x)</code></p>
-<p><code>list.sort()</code></p>
-<p><code>list.reverse()</code></p>
-<p><code>del(list[2])</code></p>
-<p><code>len(list)</code></p>
-<p><code>cmp(list1,list2)</code></p>
-<p><code>max(list),min(list)</code></p>
-<p><code>[&#39;Hi&#39;]*4</code></p>
-<p><code>3 in [1,2,3]</code></p>
-<p><code>for x in [1,2,3]</code></p>
-<p><code>list[2]</code> : the third item in the list</p>
-<p><code>list[-2]</code> : the second last item in the list</p>
-<p><code>list[1:]</code> : read the list beginning from the second item</p>
+<h4 id="My-Answer"><a href="#My-Answer" class="headerlink" title="My Answer:"></a>My Answer:</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">reverseString</span><span class="params">(String s)</span> </span>&#123;</div><div class="line">        StringBuilder str = <span class="keyword">new</span> StringBuilder(s);</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>, j=str.length()-<span class="number">1</span>;i&lt;j;i++,j--)&#123;</div><div class="line">            <span class="keyword">char</span> temp;  </div><div class="line">            temp = str.charAt(i);</div><div class="line">            str.setCharAt(i, str.charAt(j));</div><div class="line">            str.setCharAt(j, temp);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> str.toString();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>Using StringBuilder, it’s mutable</p>
+<p>Running time: 7ms</p>
+<h4 id="Better-Answer"><a href="#Better-Answer" class="headerlink" title="Better Answer:"></a>Better Answer:</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">reverseString</span><span class="params">(String s)</span> </span>&#123;</div><div class="line">        <span class="keyword">char</span>[] str = s.toCharArray();</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>,j=str.length-<span class="number">1</span>;i&lt;j;i++,j--)&#123;</div><div class="line">            <span class="keyword">char</span> temp = str[i];</div><div class="line">            str[i] = str[j];</div><div class="line">            str[j] = temp;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">new</span> String(str);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>Using char[]</p>
+<p>Running time: 3ms, faster~</p>
 <hr>
-<p><code>enumerate(sequence, [start=0])</code> ()</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> index, value <span class="keyword">in</span> enumerate(list):</div><div class="line">    print(index, value)</div></pre></td></tr></table></figure>
+<h4 id="StringBuilder-VS-Char-Array"><a href="#StringBuilder-VS-Char-Array" class="headerlink" title="StringBuilder VS Char Array"></a>StringBuilder VS Char Array</h4><h5 id="StringBuilder"><a href="#StringBuilder" class="headerlink" title="StringBuilder"></a>StringBuilder</h5><p>The StringBuilder class represents a <strong>mutable string of characters</strong>. StringBuilder is said to be mutable because it can be modified once it has been created by appending, removing, replacing, or inserting characters. A StringBuilder object maintains a buffer to accommodate the concatenation of new data. New data is appended to the end of the buffer if room is available; <strong>otherwise, a new, larger buffer is allocated</strong>, data from the original buffer is copied to the new buffer, then the new data is appended to the new buffer.</p>
+<h5 id="Char-Array"><a href="#Char-Array" class="headerlink" title="Char Array"></a>Char Array</h5><p>In some contexts using char[] arrays is far more efficient if the maximum size of the strings are known and <strong>if the string manipulation requirements are simple</strong>. Following are the remarks from the MSDN documentation about the <a href="http://msdn.microsoft.com/en-us/library/system.char.aspx" target="_blank" rel="external">char structure</a>:</p>
+<blockquote>
+<p>The .NET Framework uses the Char structure to represent a Unicode character. The Unicode Standard identifies each Unicode character with a unique 21-bit scalar number called a code point, and defines the UTF-16 encoding form that specifies how a code point is encoded into a sequence of one or more 16-bit values. Each 16-bit value ranges from hexadecimal 0x0000 through 0xFFFF and is stored in a Char structure. The value of a Char object is its 16-bit numeric (ordinal) value.</p>
+</blockquote>
+
       
     </div>
     
@@ -422,8 +392,8 @@ You may assume that each input would have exactly one solution, and you may not 
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/09/24/svm/" rel="next" title="svm">
-                <i class="fa fa-chevron-left"></i> svm
+              <a href="/2018/05/01/PAT-B-1001-3n-1/" rel="next" title="PAT-B-1001.(3n+1)">
+                <i class="fa fa-chevron-left"></i> PAT-B-1001.(3n+1)
               </a>
             
           </div>
@@ -431,10 +401,6 @@ You may assume that each input would have exactly one solution, and you may not 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/10/04/7-Reverse-Integer/" rel="prev" title="7.Reverse Integer">
-                7.Reverse Integer <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -486,8 +452,17 @@ You may assume that each input would have exactly one solution, and you may not 
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -544,6 +519,22 @@ You may assume that each input would have exactly one solution, and you may not 
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Question"><span class="nav-number">1.</span> <span class="nav-text">Question:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#My-Answer"><span class="nav-number">2.</span> <span class="nav-text">My Answer:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Better-Answer"><span class="nav-number">3.</span> <span class="nav-text">Better Answer:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#StringBuilder-VS-Char-Array"><span class="nav-number">4.</span> <span class="nav-text">StringBuilder VS Char Array</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#StringBuilder"><span class="nav-number">4.1.</span> <span class="nav-text">StringBuilder</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Char-Array"><span class="nav-number">4.2.</span> <span class="nav-text">Char Array</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
