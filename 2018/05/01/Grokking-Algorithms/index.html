@@ -84,16 +84,16 @@ Author: Aditya Bhargava
 
 1.Binary_search123456789101112131415161718192021def binary_search(list, item):    &quot;&quot;&quot;    list must be ordered    time: O(logn)    &quot;&quot;&quot;    low = 0">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Grokking Algorithms">
+<meta property="og:title" content="Ace">
 <meta property="og:url" content="http://yoursite.com/2018/05/01/Grokking-Algorithms/index.html">
 <meta property="og:site_name" content="Ace">
 <meta property="og:description" content="Grokking Algorithms (TURING)
 Author: Aditya Bhargava
 
 1.Binary_search123456789101112131415161718192021def binary_search(list, item):    &quot;&quot;&quot;    list must be ordered    time: O(logn)    &quot;&quot;&quot;    low = 0">
-<meta property="og:updated_time" content="2018-05-05T15:50:42.316Z">
+<meta property="og:updated_time" content="2018-05-06T12:54:45.443Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Grokking Algorithms">
+<meta name="twitter:title" content="Ace">
 <meta name="twitter:description" content="Grokking Algorithms (TURING)
 Author: Aditya Bhargava
 
@@ -133,7 +133,7 @@ Author: Aditya Bhargava
 
 
 
-  <title>Grokking Algorithms | Ace</title>
+  <title> | Ace</title>
   
 
 
@@ -287,7 +287,7 @@ Author: Aditya Bhargava
 
         
         
-          <h1 class="post-title" itemprop="name headline">Grokking Algorithms</h1>
+          <h1 class="post-title" itemprop="name headline"></h1>
         
 
         <div class="post-meta">
@@ -434,6 +434,138 @@ Author: Aditya Bhargava
 <li>memo, for record</li>
 <li>DP</li>
 </ul>
+<h5 id="The-King-and-the-Golden"><a href="#The-King-and-the-Golden" class="headerlink" title="The King and the Golden"></a>The King and the Golden</h5><p>10 workers + 5 Golden</p>
+<table>
+<thead>
+<tr>
+<th>Num</th>
+<th>Golden</th>
+<th>People</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>400</td>
+<td>5</td>
+</tr>
+<tr>
+<td>2</td>
+<td>500</td>
+<td>5</td>
+</tr>
+<tr>
+<td>3</td>
+<td>200</td>
+<td>3</td>
+</tr>
+<tr>
+<td>4</td>
+<td>300</td>
+<td>4</td>
+</tr>
+<tr>
+<td>5</td>
+<td>350</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+<p>最优子结构：</p>
+<p>​    5个金矿的最优选择：Max（前4座金矿10人的挖金数量，前4座金矿7工人的挖金数量+第5座金矿的挖金数量）</p>
+<p>金矿数量设为N，工人数W，金矿的黄金量设为数组G[ ]，金矿的用工量设为数组P[ ]</p>
+<p>F(5, 10) = Max( F(4, 10), F(4, 10-P[4])+G[4])</p>
+<p>边界情况：</p>
+<p>​    N=1, W&gt;=P[0], F(N, W) = G[0]</p>
+<p>​    N=1, W&lt;P[0], F(N, W) = 0</p>
+<p>Summary:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">F(N, W) = 0 (N&lt;=1, W&lt;=P[0])</div><div class="line">F(N, W) = G[0] (N==1, W&gt;=P[0])</div><div class="line">F(N, W) = F(N-1, W) (N&gt;1, W&lt;P[N-1])</div><div class="line">F(N, W) = max(F(N-1,W), F(N-1, W-P[N-1])+G[N-1]) (N&gt;1, W&gt;=P[N-1])</div></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">N\W</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+<th style="text-align:left">7</th>
+<th>8</th>
+<th>9</th>
+<th>10</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">1</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>400</td>
+<td>400</td>
+<td style="text-align:left">400</td>
+<td>400</td>
+<td>400</td>
+<td>400</td>
+</tr>
+<tr>
+<td style="text-align:left">2</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>500</td>
+<td>500</td>
+<td style="text-align:left">500</td>
+<td>500</td>
+<td>500</td>
+<td>900</td>
+</tr>
+<tr>
+<td style="text-align:left">3</td>
+<td></td>
+<td></td>
+<td>200</td>
+<td>200</td>
+<td>500</td>
+<td>500</td>
+<td style="text-align:left">500</td>
+<td>700</td>
+<td>700</td>
+<td>900</td>
+</tr>
+<tr>
+<td style="text-align:left">4</td>
+<td></td>
+<td></td>
+<td>200</td>
+<td>300</td>
+<td>500</td>
+<td>500</td>
+<td style="text-align:left">500</td>
+<td>700</td>
+<td>800</td>
+<td>900</td>
+</tr>
+<tr>
+<td style="text-align:left">5</td>
+<td></td>
+<td></td>
+<td>200</td>
+<td>350</td>
+<td>500</td>
+<td>550</td>
+<td style="text-align:left">650</td>
+<td>850</td>
+<td>850</td>
+<td>900</td>
+</tr>
+</tbody>
+</table>
+<p>除了第一行以外，每个格子都是前一行的一个或者两个格子推导而来的</p>
+<p>并不需要存储整个表格，只需要存储前一行的结果，就可以推到出新的一行</p>
 
       
     </div>
@@ -599,7 +731,7 @@ Author: Aditya Bhargava
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Grokking-Algorithms-TURING"><span class="nav-number">1.</span> <span class="nav-text">Grokking Algorithms (TURING)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Binary-search"><span class="nav-number">2.</span> <span class="nav-text">1.Binary_search</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Selection-sort"><span class="nav-number">3.</span> <span class="nav-text">2.Selection_sort</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-Quick-sort"><span class="nav-number">4.</span> <span class="nav-text">3.Quick_sort</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-Breadth-first-search"><span class="nav-number">5.</span> <span class="nav-text">4.Breadth_first_search</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-Dijkstra’s-Algorithm"><span class="nav-number">6.</span> <span class="nav-text">5.Dijkstra’s Algorithm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-Greedy-Algorithm"><span class="nav-number">7.</span> <span class="nav-text">6.Greedy Algorithm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-Dynamic-Programming"><span class="nav-number">8.</span> <span class="nav-text">7.Dynamic Programming</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Grokking-Algorithms-TURING"><span class="nav-number">1.</span> <span class="nav-text">Grokking Algorithms (TURING)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Binary-search"><span class="nav-number">2.</span> <span class="nav-text">1.Binary_search</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Selection-sort"><span class="nav-number">3.</span> <span class="nav-text">2.Selection_sort</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-Quick-sort"><span class="nav-number">4.</span> <span class="nav-text">3.Quick_sort</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-Breadth-first-search"><span class="nav-number">5.</span> <span class="nav-text">4.Breadth_first_search</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-Dijkstra’s-Algorithm"><span class="nav-number">6.</span> <span class="nav-text">5.Dijkstra’s Algorithm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-Greedy-Algorithm"><span class="nav-number">7.</span> <span class="nav-text">6.Greedy Algorithm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-Dynamic-Programming"><span class="nav-number">8.</span> <span class="nav-text">7.Dynamic Programming</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#The-King-and-the-Golden"><span class="nav-number">8.0.1.</span> <span class="nav-text">The King and the Golden</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
