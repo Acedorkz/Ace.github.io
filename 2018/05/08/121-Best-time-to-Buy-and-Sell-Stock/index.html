@@ -79,33 +79,19 @@
 
 
 
-<meta name="description" content="GITBasics of git
-a stream of snapshots
-Git thinks of its data more like a series of snapshots of a miniature filesystem. 
-
-nearly every operations is local
-We have the entire history of the project ri">
+<meta name="description" content="Dynamic Programming, EasyQuestionSay you have an array for which the ith element is the price of a given stock on day i.
+If you were only permitted to complete at most one transaction (i.e., buy one a">
 <meta property="og:type" content="article">
-<meta property="og:title" content="GIT">
-<meta property="og:url" content="http://yoursite.com/2018/03/06/GIT/index.html">
+<meta property="og:title" content="121.Best time to Buy and Sell Stock">
+<meta property="og:url" content="http://yoursite.com/2018/05/08/121-Best-time-to-Buy-and-Sell-Stock/index.html">
 <meta property="og:site_name" content="Ace">
-<meta property="og:description" content="GITBasics of git
-a stream of snapshots
-Git thinks of its data more like a series of snapshots of a miniature filesystem. 
-
-nearly every operations is local
-We have the entire history of the project ri">
-<meta property="og:image" content="http://yoursite.com/img/three main sections GIT.png">
-<meta property="og:updated_time" content="2018-05-01T09:00:24.297Z">
+<meta property="og:description" content="Dynamic Programming, EasyQuestionSay you have an array for which the ith element is the price of a given stock on day i.
+If you were only permitted to complete at most one transaction (i.e., buy one a">
+<meta property="og:updated_time" content="2018-05-08T13:40:44.203Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="GIT">
-<meta name="twitter:description" content="GITBasics of git
-a stream of snapshots
-Git thinks of its data more like a series of snapshots of a miniature filesystem. 
-
-nearly every operations is local
-We have the entire history of the project ri">
-<meta name="twitter:image" content="http://yoursite.com/img/three main sections GIT.png">
+<meta name="twitter:title" content="121.Best time to Buy and Sell Stock">
+<meta name="twitter:description" content="Dynamic Programming, EasyQuestionSay you have an array for which the ith element is the price of a given stock on day i.
+If you were only permitted to complete at most one transaction (i.e., buy one a">
 
 
 
@@ -135,13 +121,13 @@ We have the entire history of the project ri">
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/03/06/GIT/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/05/08/121-Best-time-to-Buy-and-Sell-Stock/"/>
 
 
 
 
 
-  <title>GIT | Ace</title>
+  <title>121.Best time to Buy and Sell Stock | Ace</title>
   
 
 
@@ -278,7 +264,7 @@ We have the entire history of the project ri">
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/06/GIT/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/08/121-Best-time-to-Buy-and-Sell-Stock/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Ace_ZAJ">
@@ -295,7 +281,7 @@ We have the entire history of the project ri">
 
         
         
-          <h1 class="post-title" itemprop="name headline">GIT</h1>
+          <h1 class="post-title" itemprop="name headline">121.Best time to Buy and Sell Stock</h1>
         
 
         <div class="post-meta">
@@ -307,8 +293,8 @@ We have the entire history of the project ri">
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-06T23:07:54+08:00">
-                2018-03-06
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-08T21:28:24+08:00">
+                2018-05-08
               </time>
             
 
@@ -330,8 +316,8 @@ We have the entire history of the project ri">
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/za/" itemprop="url" rel="index">
-                    <span itemprop="name">za</span>
+                  <a href="/categories/LeetCode/" itemprop="url" rel="index">
+                    <span itemprop="name">LeetCode</span>
                   </a>
                 </span>
 
@@ -367,61 +353,22 @@ We have the entire history of the project ri">
       
 
       
-        <h3 id="GIT"><a href="#GIT" class="headerlink" title="GIT"></a>GIT</h3><h4 id="Basics-of-git"><a href="#Basics-of-git" class="headerlink" title="Basics of git"></a>Basics of git</h4><ul>
-<li><p>a stream of snapshots</p>
-<p>Git thinks of its data more like a series of snapshots of a miniature filesystem. </p>
-</li>
-<li><p>nearly every operations is local</p>
-<p>We have the entire history of the project right there on our local disk, most operations seem almost instantaneous</p>
-</li>
-<li><p>three states</p>
-<ul>
-<li>committed means that the data is safely stored in your local database.</li>
-<li>modified means that you have changed the file but have not committed it to your database yet</li>
-<li>staged means that you have marked a modified file in its current version to go into your next commit snapshot</li>
-</ul>
-</li>
-<li><p>three main sections of a Git project</p>
-<ul>
-<li>working directory</li>
-<li>staging area</li>
-<li>.git directory(repository)</li>
-</ul>
-</li>
-</ul>
-<p><img src="img/three main sections GIT.png" alt="three main sections GIT"></p>
+        <h4 id="Dynamic-Programming-Easy"><a href="#Dynamic-Programming-Easy" class="headerlink" title="Dynamic Programming, Easy"></a>Dynamic Programming, Easy</h4><h4 id="Question"><a href="#Question" class="headerlink" title="Question"></a>Question</h4><p>Say you have an array for which the <em>i</em>th element is the price of a given stock on day <em>i</em>.</p>
+<p>If you were only permitted to complete at most one transaction (i.e., buy one and sell one share of the stock), design an algorithm to find the maximum profit.</p>
+<p>Note that you cannot sell a stock before you buy one.</p>
+<p><strong>Example 1:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Input: [7,1,5,3,6,4]</div><div class="line">Output: 5</div><div class="line">Explanation: Buy on day 2 (price = 1) and sell on day 5 (price = 6), profit = 6-1 = 5.</div><div class="line">             Not 7-1 = 6, as selling price needs to be larger than buying price.</div></pre></td></tr></table></figure>
+<p><strong>Example 2:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Input: [7,6,4,3,1]</div><div class="line">Output: 0</div><div class="line">Explanation: In this case, no transaction is done, i.e. max profit = 0.</div></pre></td></tr></table></figure>
 <a id="more"></a>
-<h4 id="Getting-Help"><a href="#Getting-Help" class="headerlink" title="Getting Help"></a>Getting Help</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git help config</div><div class="line">git add -h</div></pre></td></tr></table></figure>
-<h4 id="Getting-a-GIT-Repository"><a href="#Getting-a-GIT-Repository" class="headerlink" title="Getting a GIT Repository"></a>Getting a GIT Repository</h4><p>Two ways:</p>
-<ol>
-<li><p>You can take a local directory that is currently not under version control, and turn it into a Git repository</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git init</div></pre></td></tr></table></figure>
-</li>
-<li><p>You can <em>clone</em> an existing Git repository from elsewhere</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git clone https://github.com/libgit2/libgit2</div></pre></td></tr></table></figure>
-<p>through https or SSH</p>
-</li>
-</ol>
-<h4 id="Recording-Changes-to-the-Repository"><a href="#Recording-Changes-to-the-Repository" class="headerlink" title="Recording Changes to the Repository"></a>Recording Changes to the Repository</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git status</div><div class="line">git add README.md</div></pre></td></tr></table></figure>
-<h5 id="ignoring-files"><a href="#ignoring-files" class="headerlink" title="ignoring files"></a>ignoring files</h5><p>​    -&gt; .gitignore file</p>
-<h5 id="diff"><a href="#diff" class="headerlink" title="diff"></a>diff</h5><p>to see what you’ve changed but not yet staged</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git diff</div></pre></td></tr></table></figure>
-<p>to see what you’ve staged that will go into your next commit</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git diff --staged</div></pre></td></tr></table></figure>
-<h5 id="commit-your-changes"><a href="#commit-your-changes" class="headerlink" title="commit your changes"></a>commit your changes</h5><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ git commit -m <span class="string">"Story 182: Fix benchmarks for speed"</span></div><div class="line">[master <span class="number">463</span>dc4f] Story <span class="number">182</span>: Fix benchmarks <span class="keyword">for</span> speed</div><div class="line"> <span class="number">2</span> files changed, <span class="number">2</span> insertions(+)</div><div class="line"> create mode <span class="number">100644</span> README</div></pre></td></tr></table></figure>
-<p>we could find that, the branch we commited to (master), what SHA-1 checksum the commit has (463dc4f), how many files were changed, and statistics about lines added and removed in this commit</p>
-<h5 id="skipping-the-staging-area"><a href="#skipping-the-staging-area" class="headerlink" title="skipping the staging area"></a>skipping the staging area</h5><p>let u skip the <code>git add</code> part</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git commit -a -m &quot;add new benchmarks&quot;</div></pre></td></tr></table></figure>
-<p>don’t have to run <code>git add</code> on the file in this case before u commit. <code>-a</code> flag includes all changed files. This is convenient, but be helpful, sometimes this flag will cause u to include unwanted changes.</p>
-<h5 id="remove-files"><a href="#remove-files" class="headerlink" title="remove files"></a>remove files</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git rm readme.md</div></pre></td></tr></table></figure>
-<p>remove the file from your tracked files which means remove it from your staging area, and also removes the file from your working directory so you will not see it as an untracked file the next time around</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git rm -f readme.md</div></pre></td></tr></table></figure>
-<p>If you modified the file and added it to the staging area already, must force the removal with the <code>-f</code> option. This is a safety feature to prevent accidental removal of data that <strong>hasn’t yet been recorded</strong> in a snapshot and that <strong>can’t be recovered from Git</strong>.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git rm --cached readme</div></pre></td></tr></table></figure>
-<p>Keep the file in your working tree but remove it from your staging area. In other words, you may want to keep the file on your hard drive but not have Git track it anymore.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git mv README.md README</div></pre></td></tr></table></figure>
-<p>rename a file in git, which equals to </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">mv README.md README</div><div class="line">git rm README.md</div><div class="line">git add README</div></pre></td></tr></table></figure>
+<p>Eg：</p>
+<p>[7,1,5,3,6,4], difference between adjacent elements is [-6, 5, -2, 3, -2]</p>
+<p>The problem is changed to find <strong>Largest continuous substring</strong></p>
+<h4 id="My-Answer"><a href="#My-Answer" class="headerlink" title="My Answer"></a>My Answer</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxProfit</span><span class="params">(<span class="keyword">int</span>[] prices)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> diff=<span class="number">0</span>, temp, bigger, res=<span class="number">0</span>;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;prices.length-<span class="number">1</span>;i++)&#123;</div><div class="line">            temp = prices[i];</div><div class="line">            bigger = prices[i+<span class="number">1</span>];</div><div class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=i+<span class="number">2</span>;j&lt;prices.length;j++)            </div><div class="line">                <span class="keyword">if</span>(prices[j]&gt;bigger)</div><div class="line">                    bigger = prices[j];</div><div class="line">            diff = bigger-temp;</div><div class="line">            <span class="keyword">if</span>(res&lt;diff)</div><div class="line">                res=diff;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> res;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>Running time: $O(n^2)$</p>
+<p>With less time:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxProfit</span><span class="params">(<span class="keyword">int</span>[] prices)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span>(prices.length&lt;=<span class="number">1</span>)</div><div class="line">            <span class="keyword">return</span> <span class="number">0</span>;   </div><div class="line">        <span class="keyword">int</span> temp[] = <span class="keyword">new</span> <span class="keyword">int</span>[prices.length-<span class="number">1</span>];</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;temp.length;i++)</div><div class="line">            temp[i] = prices[i+<span class="number">1</span>]-prices[i];</div><div class="line">        </div><div class="line">        <span class="keyword">int</span> f[] = <span class="keyword">new</span> <span class="keyword">int</span>[temp.length];</div><div class="line">        <span class="keyword">int</span> res = temp[<span class="number">0</span>];</div><div class="line">        f[<span class="number">0</span>] = temp[<span class="number">0</span>];</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;temp.length;i++)&#123;</div><div class="line">            <span class="keyword">if</span>(f[i-<span class="number">1</span>]&lt;<span class="number">0</span>)</div><div class="line">                f[i] = temp[i];</div><div class="line">            <span class="keyword">else</span></div><div class="line">                f[i] = f[i-<span class="number">1</span>] + temp[i];</div><div class="line">            res = Math.max(res, f[i]);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> Math.max(res, <span class="number">0</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>Running time: O(n) 4ms</p>
 
       
     </div>
@@ -446,8 +393,8 @@ We have the entire history of the project ri">
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/12/22/Multi-scale-context-aggregation-by-dilated-convolutions/" rel="next" title="Multi-scale context aggregation by dilated convolutions">
-                <i class="fa fa-chevron-left"></i> Multi-scale context aggregation by dilated convolutions
+              <a href="/2018/05/04/784-Letter-Case-Permutation/" rel="next" title="784.Letter Case Permutation">
+                <i class="fa fa-chevron-left"></i> 784.Letter Case Permutation
               </a>
             
           </div>
@@ -456,8 +403,8 @@ We have the entire history of the project ri">
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/04/14/13-Roman-Into-Integer/" rel="prev" title="13.Roman Into Integer">
-                13.Roman Into Integer <i class="fa fa-chevron-right"></i>
+              <a href="/2018/05/08/70-Climbing-Stairs/" rel="prev" title="70.Climbing Stairs">
+                70.Climbing Stairs <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -587,7 +534,7 @@ We have the entire history of the project ri">
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#GIT"><span class="nav-number">1.</span> <span class="nav-text">GIT</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Basics-of-git"><span class="nav-number">1.1.</span> <span class="nav-text">Basics of git</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Getting-Help"><span class="nav-number">1.2.</span> <span class="nav-text">Getting Help</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Getting-a-GIT-Repository"><span class="nav-number">1.3.</span> <span class="nav-text">Getting a GIT Repository</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Recording-Changes-to-the-Repository"><span class="nav-number">1.4.</span> <span class="nav-text">Recording Changes to the Repository</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#ignoring-files"><span class="nav-number">1.4.1.</span> <span class="nav-text">ignoring files</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#diff"><span class="nav-number">1.4.2.</span> <span class="nav-text">diff</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#commit-your-changes"><span class="nav-number">1.4.3.</span> <span class="nav-text">commit your changes</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#skipping-the-staging-area"><span class="nav-number">1.4.4.</span> <span class="nav-text">skipping the staging area</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#remove-files"><span class="nav-number">1.4.5.</span> <span class="nav-text">remove files</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Dynamic-Programming-Easy"><span class="nav-number">1.</span> <span class="nav-text">Dynamic Programming, Easy</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Question"><span class="nav-number">2.</span> <span class="nav-text">Question</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#My-Answer"><span class="nav-number">3.</span> <span class="nav-text">My Answer</span></a></li></ol></div>
             
 
           </div>
