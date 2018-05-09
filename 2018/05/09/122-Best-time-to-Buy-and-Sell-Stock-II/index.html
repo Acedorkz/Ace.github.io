@@ -79,19 +79,19 @@
 
 
 
-<meta name="description" content="Question:Given two binary trees and imagine that when you put one of them to cover the other, some nodes of the two trees are overlapped while the others are not.
-You need to merge them into a new bin">
+<meta name="description" content="Dynamic Programming, EasyQuestionSay you have an array for which the ith element is the price of a given stock on day i.
+Design an algorithm to find the maximum profit. You may complete as many transa">
 <meta property="og:type" content="article">
-<meta property="og:title" content="617.Merge Two Binary Trees">
-<meta property="og:url" content="http://yoursite.com/2018/05/01/617-Merge-Two-Binary-Trees/index.html">
+<meta property="og:title" content="122.Best time to Buy and Sell Stock II">
+<meta property="og:url" content="http://yoursite.com/2018/05/09/122-Best-time-to-Buy-and-Sell-Stock-II/index.html">
 <meta property="og:site_name" content="Ace">
-<meta property="og:description" content="Question:Given two binary trees and imagine that when you put one of them to cover the other, some nodes of the two trees are overlapped while the others are not.
-You need to merge them into a new bin">
-<meta property="og:updated_time" content="2018-05-01T13:22:13.902Z">
+<meta property="og:description" content="Dynamic Programming, EasyQuestionSay you have an array for which the ith element is the price of a given stock on day i.
+Design an algorithm to find the maximum profit. You may complete as many transa">
+<meta property="og:updated_time" content="2018-05-09T14:38:33.492Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="617.Merge Two Binary Trees">
-<meta name="twitter:description" content="Question:Given two binary trees and imagine that when you put one of them to cover the other, some nodes of the two trees are overlapped while the others are not.
-You need to merge them into a new bin">
+<meta name="twitter:title" content="122.Best time to Buy and Sell Stock II">
+<meta name="twitter:description" content="Dynamic Programming, EasyQuestionSay you have an array for which the ith element is the price of a given stock on day i.
+Design an algorithm to find the maximum profit. You may complete as many transa">
 
 
 
@@ -121,13 +121,13 @@ You need to merge them into a new bin">
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/05/01/617-Merge-Two-Binary-Trees/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/05/09/122-Best-time-to-Buy-and-Sell-Stock-II/"/>
 
 
 
 
 
-  <title>617.Merge Two Binary Trees | Ace</title>
+  <title>122.Best time to Buy and Sell Stock II | Ace</title>
   
 
 
@@ -264,7 +264,7 @@ You need to merge them into a new bin">
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/01/617-Merge-Two-Binary-Trees/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/09/122-Best-time-to-Buy-and-Sell-Stock-II/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Ace_ZAJ">
@@ -281,7 +281,7 @@ You need to merge them into a new bin">
 
         
         
-          <h1 class="post-title" itemprop="name headline">617.Merge Two Binary Trees</h1>
+          <h1 class="post-title" itemprop="name headline">122.Best time to Buy and Sell Stock II</h1>
         
 
         <div class="post-meta">
@@ -293,8 +293,8 @@ You need to merge them into a new bin">
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-01T21:12:01+08:00">
-                2018-05-01
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-09T22:35:30+08:00">
+                2018-05-09
               </time>
             
 
@@ -353,13 +353,20 @@ You need to merge them into a new bin">
       
 
       
-        <h4 id="Question"><a href="#Question" class="headerlink" title="Question:"></a>Question:</h4><p>Given two binary trees and imagine that when you put one of them to cover the other, some nodes of the two trees are overlapped while the others are not.</p>
-<p>You need to merge them into a new binary tree. The merge rule is that if two nodes overlap, then sum node values up as the new value of the merged node. Otherwise, the NOT null node will be used as the node of new tree.</p>
-<h4 id="Example-1"><a href="#Example-1" class="headerlink" title="Example 1:"></a>Example 1:</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">Input: </div><div class="line">	Tree 1                     Tree 2                  </div><div class="line">          1                         2                             </div><div class="line">         / \                       / \                            </div><div class="line">        3   2                     1   3                        </div><div class="line">       /                           \   \                      </div><div class="line">      5                             4   7                  </div><div class="line">Output: </div><div class="line">Merged tree:</div><div class="line">	     3</div><div class="line">	    / \</div><div class="line">	   4   5</div><div class="line">	  / \   \ </div><div class="line">	 5   4   7</div></pre></td></tr></table></figure>
-<p><strong>Note:</strong> The merging process must start from the root nodes of both trees.</p>
+        <h4 id="Dynamic-Programming-Easy"><a href="#Dynamic-Programming-Easy" class="headerlink" title="Dynamic Programming, Easy"></a>Dynamic Programming, Easy</h4><h4 id="Question"><a href="#Question" class="headerlink" title="Question"></a>Question</h4><p>Say you have an array for which the <em>i</em>th element is the price of a given stock on day <em>i</em>.</p>
+<p>Design an algorithm to find the maximum profit. You may complete as many transactions as you like (i.e., buy one and sell one share of the stock multiple times).</p>
+<p><strong>Note:</strong> You may not engage in multiple transactions at the same time (i.e., you must sell the stock before you buy again).</p>
+<p><strong>Example 1:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Input: [7,1,5,3,6,4]</div><div class="line">Output: 7</div><div class="line">Explanation: Buy on day 2 (price = 1) and sell on day 3 (price = 5), profit = 5-1 = 4.</div><div class="line">             Then buy on day 4 (price = 3) and sell on day 5 (price = 6), profit = 6-3 = 3.</div></pre></td></tr></table></figure>
+<p><strong>Example 2:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Input: [1,2,3,4,5]</div><div class="line">Output: 4</div><div class="line">Explanation: Buy on day 1 (price = 1) and sell on day 5 (price = 5), profit = 5-1 = 4.</div><div class="line">             Note that you cannot buy on day 1, buy on day 2 and sell them later, as you are</div><div class="line">             engaging multiple transactions at the same time. You must sell before buying again.</div></pre></td></tr></table></figure>
+<p><strong>Example 3:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Input: [7,6,4,3,1]</div><div class="line">Output: 0</div><div class="line">Explanation: In this case, no transaction is done, i.e. max profit = 0.</div></pre></td></tr></table></figure>
+<p>Related to the Question “122.Best time to Buy and Sell Stock”</p>
 <a id="more"></a>
-<h4 id="My-Answer-java"><a href="#My-Answer-java" class="headerlink" title="My Answer(java):"></a>My Answer(java):</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> TreeNode <span class="title">mergeTrees</span><span class="params">(TreeNode t1, TreeNode t2)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> val;</div><div class="line">        <span class="keyword">if</span>(t1==<span class="keyword">null</span> &amp; t2==<span class="keyword">null</span>)</div><div class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;        </div><div class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(t1==<span class="keyword">null</span>&amp;t2!=<span class="keyword">null</span>)</div><div class="line">            val = t2.val;</div><div class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(t1!=<span class="keyword">null</span>&amp;t2==<span class="keyword">null</span>)</div><div class="line">            val = t1.val;</div><div class="line">        <span class="keyword">else</span> val = t1.val+t2.val;</div><div class="line">        TreeNode node = <span class="keyword">new</span> TreeNode(val);</div><div class="line">        </div><div class="line">        node.left = mergeTrees(t1==<span class="keyword">null</span>?<span class="keyword">null</span>:t1.left, t2==<span class="keyword">null</span>?<span class="keyword">null</span>:t2.left);</div><div class="line">        node.right = mergeTrees(t1==<span class="keyword">null</span>?<span class="keyword">null</span>:t1.right, t2==<span class="keyword">null</span>?<span class="keyword">null</span>:t2.right);</div><div class="line">        <span class="keyword">return</span> node;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>Running time: 15ms</p>
+<p>This is easy to solve if you understand the question 121, using difference between adjacent element for stock problem</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxProfit</span><span class="params">(<span class="keyword">int</span>[] prices)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span>(prices.length&lt;=<span class="number">1</span>)</div><div class="line">            <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">        <span class="keyword">int</span> sum = <span class="number">0</span>;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;prices.length-<span class="number">1</span>;i++)&#123;</div><div class="line">            <span class="keyword">if</span>(prices[i+<span class="number">1</span>] - prices[i] &gt; <span class="number">0</span>)</div><div class="line">                sum += prices[i+<span class="number">1</span>] - prices[i];</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> sum;</div><div class="line">    &#125; </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>Running time: O(n) 2ms</p>
 
       
     </div>
@@ -384,8 +391,8 @@ You need to merge them into a new bin">
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/05/01/Grokking-Algorithms/" rel="next" title="Grokking Algorithms">
-                <i class="fa fa-chevron-left"></i> Grokking Algorithms
+              <a href="/2018/05/09/746-Min-Cost-Climbing-Stairs/" rel="next" title="746.Min Cost Climbing Stairs">
+                <i class="fa fa-chevron-left"></i> 746.Min Cost Climbing Stairs
               </a>
             
           </div>
@@ -393,10 +400,6 @@ You need to merge them into a new bin">
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/05/01/PAT-B-1001-3n-1/" rel="prev" title="PAT-B-1001.(3n+1)">
-                PAT-B-1001.(3n+1) <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -525,7 +528,7 @@ You need to merge them into a new bin">
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Question"><span class="nav-number">1.</span> <span class="nav-text">Question:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Example-1"><span class="nav-number">2.</span> <span class="nav-text">Example 1:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#My-Answer-java"><span class="nav-number">3.</span> <span class="nav-text">My Answer(java):</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Dynamic-Programming-Easy"><span class="nav-number">1.</span> <span class="nav-text">Dynamic Programming, Easy</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Question"><span class="nav-number">2.</span> <span class="nav-text">Question</span></a></li></ol></div>
             
 
           </div>
