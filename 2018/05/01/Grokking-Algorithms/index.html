@@ -91,7 +91,7 @@ Author: Aditya Bhargava
 Author: Aditya Bhargava
 
 1.Binary_search123456789101112131415161718192021def binary_search(list, item):    &quot;&quot;&quot;    list must be ordered    time: O(logn)    &quot;&quot;&quot;    low = 0">
-<meta property="og:updated_time" content="2018-05-06T13:06:05.601Z">
+<meta property="og:updated_time" content="2018-05-13T08:09:22.934Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Grokking Algorithms">
 <meta name="twitter:description" content="Grokking Algorithms (TURING)
@@ -566,6 +566,50 @@ Author: Aditya Bhargava
 </table>
 <p>除了第一行以外，每个格子都是前一行的一个或者两个格子推导而来的</p>
 <p>并不需要存储整个表格，只需要存储前一行的结果，就可以推到出新的一行</p>
+<h3 id="8-Next"><a href="#8-Next" class="headerlink" title="8.Next"></a>8.Next</h3><ul>
+<li><p>树</p>
+<ul>
+<li><p>二叉树</p>
+<p>查找：O(logn)，插入：O(logn)，删除：O(logn)</p>
+</li>
+<li><p>B树</p>
+</li>
+<li><p>红黑树</p>
+</li>
+<li><p>堆</p>
+</li>
+<li><p>伸展树</p>
+</li>
+</ul>
+</li>
+<li><p>反向索引</p>
+</li>
+<li><p>傅里叶变换</p>
+</li>
+<li><p>并行算法</p>
+<ul>
+<li>Map，Reduce</li>
+</ul>
+</li>
+<li><p>布隆过滤器</p>
+<p>概率型数据结构，提供的答案可能不对，但很可能是正确的</p>
+<p>使用散列表时，答案绝对可靠，而使用布隆过滤器时，答案却很可能是正确的</p>
+<p>可能出现报错的情况，不可能出现漏报的情况</p>
+<ul>
+<li>HyperLogLog 类似布隆过滤器的算法</li>
+</ul>
+<p>面对海量数据且要求答案八九不离十时，可考虑使用概率性算法</p>
+</li>
+<li><p>SHA算法</p>
+<p>安全散列函数（secure hash algorithm），生成一个散列值–一个较短的字符串</p>
+<p>散列算法是单向的</p>
+<p>局部敏感的散列函数：Simhash，需要检查两项内容相似程度时</p>
+</li>
+<li><p>Diffie-Hellman密钥交换</p>
+<p>私钥、公钥</p>
+<p>RSA</p>
+</li>
+</ul>
 
       
     </div>
@@ -683,7 +727,7 @@ Author: Aditya Bhargava
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-count">31</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -731,7 +775,7 @@ Author: Aditya Bhargava
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Grokking-Algorithms-TURING"><span class="nav-number">1.</span> <span class="nav-text">Grokking Algorithms (TURING)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Binary-search"><span class="nav-number">2.</span> <span class="nav-text">1.Binary_search</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Selection-sort"><span class="nav-number">3.</span> <span class="nav-text">2.Selection_sort</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-Quick-sort"><span class="nav-number">4.</span> <span class="nav-text">3.Quick_sort</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-Breadth-first-search"><span class="nav-number">5.</span> <span class="nav-text">4.Breadth_first_search</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-Dijkstra’s-Algorithm"><span class="nav-number">6.</span> <span class="nav-text">5.Dijkstra’s Algorithm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-Greedy-Algorithm"><span class="nav-number">7.</span> <span class="nav-text">6.Greedy Algorithm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-Dynamic-Programming"><span class="nav-number">8.</span> <span class="nav-text">7.Dynamic Programming</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#The-King-and-the-Golden"><span class="nav-number">8.0.1.</span> <span class="nav-text">The King and the Golden</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Grokking-Algorithms-TURING"><span class="nav-number">1.</span> <span class="nav-text">Grokking Algorithms (TURING)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Binary-search"><span class="nav-number">2.</span> <span class="nav-text">1.Binary_search</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Selection-sort"><span class="nav-number">3.</span> <span class="nav-text">2.Selection_sort</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-Quick-sort"><span class="nav-number">4.</span> <span class="nav-text">3.Quick_sort</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-Breadth-first-search"><span class="nav-number">5.</span> <span class="nav-text">4.Breadth_first_search</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-Dijkstra’s-Algorithm"><span class="nav-number">6.</span> <span class="nav-text">5.Dijkstra’s Algorithm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-Greedy-Algorithm"><span class="nav-number">7.</span> <span class="nav-text">6.Greedy Algorithm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-Dynamic-Programming"><span class="nav-number">8.</span> <span class="nav-text">7.Dynamic Programming</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#The-King-and-the-Golden"><span class="nav-number">8.0.1.</span> <span class="nav-text">The King and the Golden</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-Next"><span class="nav-number">9.</span> <span class="nav-text">8.Next</span></a></li></ol></div>
             
 
           </div>
