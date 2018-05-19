@@ -79,31 +79,22 @@
 
 
 
-<meta name="description" content="Stack, EasyQuestionImplement the following operations of a stack using queues.
-
-push(x) – Push element x onto stack.
-pop() – Removes the element on top of the stack.
-top() – Get the top element.
-empty">
+<meta name="description" content="Divide And Conquer, EasyQuestionGiven an integer array nums, find the contiguous subarray (containing at least one number) which has the largest sum and return its sum.
+Example:
+123Input: [-2,1,-3,4,-">
 <meta property="og:type" content="article">
-<meta property="og:title" content="225.Implement Stack using Queues">
-<meta property="og:url" content="http://yoursite.com/2018/05/13/225-Implement-Stack-using-Queues/index.html">
+<meta property="og:title" content="53.Maximum Subarray">
+<meta property="og:url" content="http://yoursite.com/2018/05/16/53-Maximum-Subarray/index.html">
 <meta property="og:site_name" content="Ace">
-<meta property="og:description" content="Stack, EasyQuestionImplement the following operations of a stack using queues.
-
-push(x) – Push element x onto stack.
-pop() – Removes the element on top of the stack.
-top() – Get the top element.
-empty">
-<meta property="og:updated_time" content="2018-05-13T12:27:00.511Z">
+<meta property="og:description" content="Divide And Conquer, EasyQuestionGiven an integer array nums, find the contiguous subarray (containing at least one number) which has the largest sum and return its sum.
+Example:
+123Input: [-2,1,-3,4,-">
+<meta property="og:updated_time" content="2018-05-17T13:27:06.179Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="225.Implement Stack using Queues">
-<meta name="twitter:description" content="Stack, EasyQuestionImplement the following operations of a stack using queues.
-
-push(x) – Push element x onto stack.
-pop() – Removes the element on top of the stack.
-top() – Get the top element.
-empty">
+<meta name="twitter:title" content="53.Maximum Subarray">
+<meta name="twitter:description" content="Divide And Conquer, EasyQuestionGiven an integer array nums, find the contiguous subarray (containing at least one number) which has the largest sum and return its sum.
+Example:
+123Input: [-2,1,-3,4,-">
 
 
 
@@ -133,13 +124,13 @@ empty">
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/05/13/225-Implement-Stack-using-Queues/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/05/16/53-Maximum-Subarray/"/>
 
 
 
 
 
-  <title>225.Implement Stack using Queues | Ace</title>
+  <title>53.Maximum Subarray | Ace</title>
   
 
 
@@ -276,7 +267,7 @@ empty">
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/13/225-Implement-Stack-using-Queues/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/16/53-Maximum-Subarray/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Ace_ZAJ">
@@ -293,7 +284,7 @@ empty">
 
         
         
-          <h1 class="post-title" itemprop="name headline">225.Implement Stack using Queues</h1>
+          <h1 class="post-title" itemprop="name headline">53.Maximum Subarray</h1>
         
 
         <div class="post-meta">
@@ -305,8 +296,8 @@ empty">
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-13T20:23:49+08:00">
-                2018-05-13
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-16T21:35:03+08:00">
+                2018-05-16
               </time>
             
 
@@ -365,22 +356,16 @@ empty">
       
 
       
-        <h4 id="Stack-Easy"><a href="#Stack-Easy" class="headerlink" title="Stack, Easy"></a>Stack, Easy</h4><h4 id="Question"><a href="#Question" class="headerlink" title="Question"></a>Question</h4><p>Implement the following operations of a stack using queues.</p>
-<ul>
-<li>push(x) – Push element x onto stack.</li>
-<li>pop() – Removes the element on top of the stack.</li>
-<li>top() – Get the top element.</li>
-<li>empty() – Return whether the stack is empty.</li>
-</ul>
-<p>Notes:</p>
-<ul>
-<li>You must use <em>only</em> standard operations of a queue – which means only <code>push to back</code>, <code>peek/pop from front</code>, <code>size</code>, and <code>is empty</code> operations are valid.</li>
-<li>Depending on your language, queue may not be supported natively. You may simulate a queue by using a list or deque (double-ended queue), as long as you use only standard operations of a queue.</li>
-<li>You may assume that all operations are valid (for example, no pop or top operations will be called on an empty stack).</li>
-</ul>
+        <h4 id="Divide-And-Conquer-Easy"><a href="#Divide-And-Conquer-Easy" class="headerlink" title="Divide And Conquer, Easy"></a>Divide And Conquer, Easy</h4><h4 id="Question"><a href="#Question" class="headerlink" title="Question"></a>Question</h4><p>Given an integer array <code>nums</code>, find the contiguous subarray (containing at least one number) which has the largest sum and return its sum.</p>
+<p><strong>Example:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Input: [-2,1,-3,4,-1,2,1,-5,4],</div><div class="line">Output: 6</div><div class="line">Explanation: [4,-1,2,1] has the largest sum = 6.</div></pre></td></tr></table></figure>
+<p><strong>Follow up:</strong></p>
+<p>If you have figured out the O(<em>n</em>) solution, try coding another solution using the divide and conquer approach, which is more subtle.</p>
 <a id="more"></a>
-<h4 id="My-Answer"><a href="#My-Answer" class="headerlink" title="My Answer"></a>My Answer</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyStack</span> </span>&#123;</div><div class="line">    Queue&lt;Integer&gt; stack = <span class="keyword">new</span> LinkedList&lt;&gt;();</div><div class="line">    <span class="comment">/** Initialize your data structure here. */</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MyStack</span><span class="params">()</span> </span>&#123;</div><div class="line">        </div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="comment">/** Push element x onto stack. */</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">push</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</div><div class="line">        stack.add(x);</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;stack.size();i++)</div><div class="line">            stack.add(stack.poll());</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="comment">/** Removes the element on top of the stack and returns that element. */</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">pop</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> stack.remove();</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="comment">/** Get the top element. */</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">top</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> stack.peek();</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="comment">/** Returns whether the stack is empty. */</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">empty</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> stack.isEmpty();</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * Your MyStack object will be instantiated and called as such:</div><div class="line"> * MyStack obj = new MyStack();</div><div class="line"> * obj.push(x);</div><div class="line"> * int param_2 = obj.pop();</div><div class="line"> * int param_3 = obj.top();</div><div class="line"> * boolean param_4 = obj.empty();</div><div class="line"> */</div></pre></td></tr></table></figure>
-<p>Running time: 98ms</p>
+<h4 id="My-Answer"><a href="#My-Answer" class="headerlink" title="My Answer"></a>My Answer</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxSubArray</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> findMaxSubarray(nums, <span class="number">0</span>, nums.length-<span class="number">1</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">findMaxCrossingSubArray</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> low, <span class="keyword">int</span> mid, <span class="keyword">int</span> high)</span></span>&#123;                                 </div><div class="line">        <span class="keyword">int</span> left_sum = Integer.MIN_VALUE;</div><div class="line">        <span class="keyword">int</span> sum1 = <span class="number">0</span>;</div><div class="line">        <span class="keyword">int</span> max_left=mid, max_right=mid; <span class="comment">//just to record</span></div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=mid;i&gt;=low;i--)&#123;</div><div class="line">            sum1 = sum1+nums[i];</div><div class="line">            <span class="keyword">if</span>(sum1&gt;left_sum)&#123;</div><div class="line">                left_sum = sum1;</div><div class="line">                max_left = i;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">int</span> right_sum = Integer.MIN_VALUE;</div><div class="line">        <span class="keyword">int</span> sum2 = <span class="number">0</span>;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=mid+<span class="number">1</span>;j&lt;=high;j++)&#123;</div><div class="line">            sum2 = sum2+nums[j];</div><div class="line">            <span class="keyword">if</span>(sum2&gt;right_sum)&#123;</div><div class="line">                right_sum = sum2;</div><div class="line">                max_right = j;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> left_sum+right_sum;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">findMaxSubarray</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> low, <span class="keyword">int</span> high)</span></span>&#123;</div><div class="line">        <span class="keyword">if</span>(high==low)</div><div class="line">            <span class="keyword">return</span> nums[low];</div><div class="line">        <span class="keyword">else</span>&#123;</div><div class="line">            <span class="keyword">int</span> mid = (high+low)/<span class="number">2</span>;</div><div class="line">            <span class="keyword">int</span> left_sum = findMaxSubarray(nums, low, mid);</div><div class="line">            <span class="keyword">int</span> right_sum = findMaxSubarray(nums, mid+<span class="number">1</span>, high);</div><div class="line">            <span class="keyword">int</span> cross_sum = findMaxCrossingSubArray(nums, low, mid, high);</div><div class="line">            </div><div class="line">            <span class="keyword">if</span>(left_sum&gt;=right_sum &amp;&amp; left_sum&gt;=cross_sum)</div><div class="line">                <span class="keyword">return</span> left_sum;</div><div class="line">            <span class="keyword">if</span>(right_sum&gt;=left_sum &amp;&amp; right_sum&gt;=cross_sum)</div><div class="line">                <span class="keyword">return</span> right_sum;</div><div class="line">            <span class="keyword">else</span> <span class="keyword">return</span> cross_sum;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>Running time: O(nlogn), 17ms</p>
+<h4 id="Simpler-Answer"><a href="#Simpler-Answer" class="headerlink" title="Simpler Answer"></a>Simpler Answer</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxSubArray</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> max = Integer.MIN_VALUE, sum = <span class="number">0</span>;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; i++) &#123;</div><div class="line">            <span class="keyword">if</span> (sum &lt; <span class="number">0</span>) </div><div class="line">                sum = nums[i];</div><div class="line">            <span class="keyword">else</span> </div><div class="line">                sum += nums[i];</div><div class="line">            <span class="keyword">if</span> (sum &gt; max)</div><div class="line">                max = sum;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> max;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>Running: O(n), 16ms</p>
 
       
     </div>
@@ -405,8 +390,8 @@ empty">
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/05/13/232-Implement-Queue-using-Stacks/" rel="next" title="232.Implement Queue using Stacks">
-                <i class="fa fa-chevron-left"></i> 232.Implement Queue using Stacks
+              <a href="/2018/05/16/461-Hamming-Distance/" rel="next" title="461.Hamming Distance">
+                <i class="fa fa-chevron-left"></i> 461.Hamming Distance
               </a>
             
           </div>
@@ -415,8 +400,8 @@ empty">
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/05/13/155-Min-Stack/" rel="prev" title="155.Min Stack">
-                155.Min Stack <i class="fa fa-chevron-right"></i>
+              <a href="/2018/05/18/206-Reversed-Linked-List/" rel="prev" title="206.Reversed Linked List">
+                206.Reversed Linked List <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -546,7 +531,7 @@ empty">
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Stack-Easy"><span class="nav-number">1.</span> <span class="nav-text">Stack, Easy</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Question"><span class="nav-number">2.</span> <span class="nav-text">Question</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#My-Answer"><span class="nav-number">3.</span> <span class="nav-text">My Answer</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Divide-And-Conquer-Easy"><span class="nav-number">1.</span> <span class="nav-text">Divide And Conquer, Easy</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Question"><span class="nav-number">2.</span> <span class="nav-text">Question</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#My-Answer"><span class="nav-number">3.</span> <span class="nav-text">My Answer</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Simpler-Answer"><span class="nav-number">4.</span> <span class="nav-text">Simpler Answer</span></a></li></ol></div>
             
 
           </div>
