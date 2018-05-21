@@ -87,7 +87,7 @@ You may assume that the array is non-empty and th">
 <meta property="og:site_name" content="Ace">
 <meta property="og:description" content="Bit ManipulationQuestionGiven an array of size n, find the majority element. The majority element is the element that appears more than ⌊ n/2 ⌋ times.
 You may assume that the array is non-empty and th">
-<meta property="og:updated_time" content="2018-05-19T04:07:44.950Z">
+<meta property="og:updated_time" content="2018-05-21T15:00:06.100Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="169. Majority Element">
 <meta name="twitter:description" content="Bit ManipulationQuestionGiven an array of size n, find the majority element. The majority element is the element that appears more than ⌊ n/2 ⌋ times.
@@ -359,6 +359,7 @@ You may assume that the array is non-empty and th">
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Input: [3,2,3]</div><div class="line">Output: 3</div></pre></td></tr></table></figure>
 <p><strong>Example 2:</strong></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Input: [<span class="number">2</span>,<span class="number">2</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">2</span>]</div><div class="line">Output: <span class="number">2</span></div></pre></td></tr></table></figure>
+<a id="more"></a>
 <h4 id="My-Answer"><a href="#My-Answer" class="headerlink" title="My Answer"></a>My Answer</h4><h5 id="HashMap"><a href="#HashMap" class="headerlink" title="HashMap"></a>HashMap</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">majorityElement</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</div><div class="line">        Map&lt;Integer, Integer&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</div><div class="line">        <span class="keyword">int</span> maxNum = nums[<span class="number">0</span>];</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i:nums)&#123;</div><div class="line">            <span class="keyword">if</span>(map.containsKey(i))&#123;</div><div class="line">                map.put(i, map.get(i)+<span class="number">1</span>);</div><div class="line">                <span class="keyword">if</span>(map.get(i)&gt;nums.length/<span class="number">2</span>)</div><div class="line">                    maxNum = i;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">else</span>&#123;</div><div class="line">                map.put(i,<span class="number">1</span>);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> maxNum;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>Running time: O(n), 48ms</p>
 <p>Space: O(2/n)</p>
@@ -411,6 +412,10 @@ You may assume that the array is non-empty and th">
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/05/21/714-Best-Time-to-Buy-and-Sell-Stock-with-Transaction-Fee/" rel="prev" title="714. Best Time to Buy and Sell Stock with Transaction Fee">
+                714. Best Time to Buy and Sell Stock with Transaction Fee <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -491,7 +496,7 @@ You may assume that the array is non-empty and th">
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">38</span>
+                  <span class="site-state-item-count">40</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

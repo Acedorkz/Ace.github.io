@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="default">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Question：Your are given an array of integers prices, for which the i-th element is the price of a given stock on day i; and a non-negative integer fee representing a transaction fee.
+You may complete">
+<meta property="og:type" content="article">
+<meta property="og:title" content="714. Best Time to Buy and Sell Stock with Transaction Fee">
+<meta property="og:url" content="http://yoursite.com/2018/05/21/714-Best-Time-to-Buy-and-Sell-Stock-with-Transaction-Fee/index.html">
+<meta property="og:site_name" content="Ace">
+<meta property="og:description" content="Question：Your are given an array of integers prices, for which the i-th element is the price of a given stock on day i; and a non-negative integer fee representing a transaction fee.
+You may complete">
+<meta property="og:updated_time" content="2018-05-21T14:49:30.943Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="714. Best Time to Buy and Sell Stock with Transaction Fee">
+<meta name="twitter:description" content="Question：Your are given an array of integers prices, for which the i-th element is the price of a given stock on day i; and a non-negative integer fee representing a transaction fee.
+You may complete">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/05/21/714-Best-Time-to-Buy-and-Sell-Stock-with-Transaction-Fee/"/>
+
+
+
+
+
+  <title>714. Best Time to Buy and Sell Stock with Transaction Fee | Ace</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Ace</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Ace.github.io</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/21/714-Best-Time-to-Buy-and-Sell-Stock-with-Transaction-Fee/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ace_ZAJ">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/me.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ace">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">714. Best Time to Buy and Sell Stock with Transaction Fee</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-21T22:31:04+08:00">
+                2018-05-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/LeetCode/" itemprop="url" rel="index">
+                    <span itemprop="name">LeetCode</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="Question："><a href="#Question：" class="headerlink" title="Question："></a>Question：</h4><p>Your are given an array of integers <code>prices</code>, for which the <code>i</code>-th element is the price of a given stock on day <code>i</code>; and a non-negative integer <code>fee</code> representing a transaction fee.</p>
+<p>You may complete as many transactions as you like, but you need to pay the transaction fee for each transaction. You may not buy more than 1 share of a stock at a time (ie. you must sell the stock share before you buy again.)</p>
+<p>Return the maximum profit you can make.</p>
+<p><strong>Example 1:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Input: prices = [1, 3, 2, 8, 4, 9], fee = 2</div><div class="line">Output: 8</div><div class="line">Explanation: The maximum profit can be achieved by:</div><div class="line">Buying at prices[0] = 1Selling at prices[3] = 8Buying at prices[4] = 4Selling at prices[5] = 9The total profit is ((8 - 1) - 2) + ((9 - 4) - 2) = 8.</div></pre></td></tr></table></figure>
+<p><strong>Note:</strong></p>
+<p><code>0 &lt; prices.length &lt;= 50000</code>.</p>
+<p><code>0 &lt; prices[i] &lt; 50000</code>.</p>
+<p><code>0 &lt;= fee &lt; 50000</code>.</p>
+<a id="more"></a>
+<h4 id="Answer："><a href="#Answer：" class="headerlink" title="Answer："></a>Answer：</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxProfit</span><span class="params">(<span class="keyword">int</span>[] prices, <span class="keyword">int</span> fee)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> buy[] = <span class="keyword">new</span> <span class="keyword">int</span>[prices.length], sell[] = <span class="keyword">new</span> <span class="keyword">int</span>[prices.length];</div><div class="line">        buy[<span class="number">0</span>] = -prices[<span class="number">0</span>];</div><div class="line">        sell[<span class="number">0</span>] = <span class="number">0</span>;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;prices.length; i++)&#123;</div><div class="line">            buy[i] = Math.max(buy[i-<span class="number">1</span>], sell[i-<span class="number">1</span>] - prices[i]);</div><div class="line">            sell[i] = Math.max(sell[i-<span class="number">1</span>], buy[i-<span class="number">1</span>] + prices[i] - fee);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> sell[prices.length-<span class="number">1</span>];</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>Running time: O(n), 20ms</p>
+<h4 id="Explanation"><a href="#Explanation" class="headerlink" title="Explanation"></a>Explanation</h4><p>Given any <strong>day I</strong>, its max profit status boils down to one of the two status below:</p>
+<p><strong>(1) buy status</strong>:<br><strong>buy[i]</strong> represents the <strong>max profit</strong> at <strong>day i</strong> in <strong>buy status</strong>, given that <strong>the last action you took is a buy action</strong> at <strong>day K</strong>, where <strong>K&lt;=i</strong>. <strong>And you have the right to sell at day i+1, or do nothing.</strong><br><strong>(2) sell status</strong>:<br><strong>sell[i]</strong> represents the <strong>max profit</strong> at <strong>day i</strong> in <strong>sell status</strong>, given that <strong>the last action you took is a sell action</strong> at <strong>day K</strong>, where <strong>K&lt;=i</strong>. <strong>And you have the right to buy at day i+1, or do nothing.</strong></p>
+<p>Let’s walk through from <strong>base case</strong>.</p>
+<p><strong>Base case:</strong><br>We can start from <strong>buy status</strong>, which means we buy stock at <strong>day 0</strong>.<br><strong>buy[0]=-prices[0]</strong>;<br>Or we can start from <strong>sell status</strong>, which means we sell stock at <strong>day 0</strong>.<br>Given that we don’t have any stock at hand in day 0, we set sell status to be 0.<br><strong>sell[0]=0</strong>;</p>
+<p><strong>Status transformation:</strong><br>At <strong>day i</strong>, we may <strong>buy</strong> stock (from <strong>previous sell status</strong>) or do nothing (from <strong>previous buy status</strong>):<br><strong>buy[i] = Math.max(buy[i - 1], sell[i - 1] - prices[i]);</strong><br>Or<br>At <strong>day i</strong>, we may <strong>sell</strong> stock (from previous <strong>buy status</strong>) or keep holding (from <strong>previous sell status</strong>):<br><strong>sell[i] = Math.max(sell[i - 1], buy[i - 1] + prices[i]);</strong></p>
+<p><strong>Finally:</strong><br>We will return <strong>sell[last_day]</strong> as our result, which represents the max profit at the last day, given that you took sell action at any day before the last day.</p>
+<h4 id="Other-Understanding"><a href="#Other-Understanding" class="headerlink" title="Other Understanding"></a>Other Understanding</h4><p>Define dp array:<br>hold[i] : The maximum profit of holding stock until day i;<br>notHold[i] : The maximum profit of not hold stock until day i;</p>
+<p>dp transition function:<br>For day i, we have two situations:</p>
+<ol>
+<li>Hold stock:<br>(1) We do nothing on day i: hold[i - 1];<br>(2) We buy stock on day i: notHold[i - 1] - prices[i];</li>
+<li>Not hold stock:<br>(1) We do nothing on day i: notHold[i - 1];<br>(2) We sell stock on day i: hold[i - 1] + prices[i] - fee;</li>
+</ol>
+<p><code>O(n) space</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public int maxProfit(int[] prices, int fee) &#123;</div><div class="line">        if (prices == null || prices.length &lt;= 1) &#123;</div><div class="line">            return 0;</div><div class="line">        &#125;</div><div class="line">        </div><div class="line">        int len = prices.length;</div><div class="line">        int[] hold = new int[len];     //Till day i, the max profit is hold[i] if I hold the stock.</div><div class="line">        int[] notHold = new int[len];  //Till day i, the max profit is notHold[i] if I do not hold the stock.</div><div class="line">        </div><div class="line">        hold[0] = -prices[0];</div><div class="line">        notHold[0] = 0;</div><div class="line">        </div><div class="line">        for (int i = 1; i &lt; prices.length; i++) &#123;</div><div class="line">            hold[i] = Math.max(hold[i - 1], notHold[i - 1] - prices[i]);</div><div class="line">            notHold[i] = Math.max(notHold[i - 1], hold[i - 1] - fee + prices[i]);</div><div class="line">        &#125;</div><div class="line">        </div><div class="line">        return notHold[len - 1];</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><code>O(1) Space</code><br>From the dp transition function, we can see the i th state are only based on the i-1 th state. So we could optimize space to O(1) using two variables.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxProfit</span><span class="params">(<span class="keyword">int</span>[] prices, <span class="keyword">int</span> fee)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (prices == <span class="keyword">null</span> || prices.length &lt;= <span class="number">1</span>) &#123;</div><div class="line">            <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">        &#125;</div><div class="line">        </div><div class="line">        <span class="keyword">int</span> len = prices.length;</div><div class="line">        <span class="keyword">int</span> hold = -prices[<span class="number">0</span>];</div><div class="line">        <span class="keyword">int</span> notHold = <span class="number">0</span>;</div><div class="line">        </div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; prices.length; i++) &#123;</div><div class="line">            hold = Math.max(hold, notHold - prices[i]);</div><div class="line">            notHold = Math.max(notHold, hold + prices[i] - fee);</div><div class="line">        &#125;</div><div class="line">        </div><div class="line">        <span class="keyword">return</span> notHold;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/05/19/169-Majority-Element/" rel="next" title="169. Majority Element">
+                <i class="fa fa-chevron-left"></i> 169. Majority Element
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/05/22/PAT-B-1002-写出这个数/" rel="prev" title="PAT-B-1002--写出这个数">
+                PAT-B-1002--写出这个数 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/me.JPG"
+                alt="Ace_ZAJ" />
+            
+              <p class="site-author-name" itemprop="name">Ace_ZAJ</p>
+              <p class="site-description motion-element" itemprop="description">boom pow</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">40</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Question："><span class="nav-number">1.</span> <span class="nav-text">Question：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Answer："><span class="nav-number">2.</span> <span class="nav-text">Answer：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Explanation"><span class="nav-number">3.</span> <span class="nav-text">Explanation</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Other-Understanding"><span class="nav-number">4.</span> <span class="nav-text">Other Understanding</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ace_ZAJ</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.3</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
