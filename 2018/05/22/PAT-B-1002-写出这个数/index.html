@@ -97,7 +97,7 @@
 11234567890987654321123456789
 输出样例：
 1yi san wu">
-<meta property="og:updated_time" content="2018-05-21T16:04:59.734Z">
+<meta property="og:updated_time" content="2018-05-21T16:15:36.921Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PAT-B-1002--写出这个数">
 <meta name="twitter:description" content="Question读入一个自然数n，计算其各位数字之和，用汉语拼音写出和的每一位数字。
@@ -381,6 +381,7 @@
 <p>Length of Code: 16KB</p>
 <h4 id="Answer"><a href="#Answer" class="headerlink" title="Answer"></a>Answer</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> java.util.Scanner;</div><div class="line"><span class="keyword">import</span> java.util.Stack;</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span></span>&#123;</div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</div><div class="line">    Scanner in = <span class="keyword">new</span> Scanner(System.in);</div><div class="line">		String str = in.nextLine();</div><div class="line">		in.close();</div><div class="line">    <span class="keyword">int</span> res = <span class="number">0</span>;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;str.length(); i++)</div><div class="line">      res += str.charAt(i) - <span class="string">'0'</span>;</div><div class="line">      </div><div class="line">    Stack&lt;String&gt; stack = <span class="keyword">new</span> Stack&lt;&gt;();</div><div class="line">    <span class="keyword">do</span>&#123;</div><div class="line">      <span class="keyword">int</span> temp = res%<span class="number">10</span>;</div><div class="line">      <span class="keyword">switch</span>(temp)&#123;</div><div class="line">        <span class="keyword">case</span>(<span class="number">0</span>):</div><div class="line">          stack.push(<span class="string">"ling"</span>);</div><div class="line">          <span class="keyword">break</span>;</div><div class="line">        <span class="keyword">case</span>(<span class="number">1</span>):</div><div class="line">          stack.push(<span class="string">"yi"</span>);</div><div class="line">          <span class="keyword">break</span>;</div><div class="line">        <span class="keyword">case</span>(<span class="number">2</span>):</div><div class="line">          stack.push(<span class="string">"er"</span>);</div><div class="line">          <span class="keyword">break</span>;</div><div class="line">        <span class="keyword">case</span>(<span class="number">3</span>):</div><div class="line">          stack.push(<span class="string">"san"</span>);</div><div class="line">          <span class="keyword">break</span>;</div><div class="line">        <span class="keyword">case</span>(<span class="number">4</span>):</div><div class="line">          stack.push(<span class="string">"si"</span>);</div><div class="line">          <span class="keyword">break</span>;</div><div class="line">        <span class="keyword">case</span>(<span class="number">5</span>):</div><div class="line">          stack.push(<span class="string">"wu"</span>);</div><div class="line">          <span class="keyword">break</span>;</div><div class="line">        <span class="keyword">case</span>(<span class="number">6</span>):</div><div class="line">          stack.push(<span class="string">"liu"</span>);</div><div class="line">          <span class="keyword">break</span>;</div><div class="line">        <span class="keyword">case</span>(<span class="number">7</span>):</div><div class="line">          stack.push(<span class="string">"qi"</span>);</div><div class="line">          <span class="keyword">break</span>;</div><div class="line">        <span class="keyword">case</span>(<span class="number">8</span>):</div><div class="line">          stack.push(<span class="string">"ba"</span>);</div><div class="line">          <span class="keyword">break</span>;</div><div class="line">        <span class="keyword">case</span>(<span class="number">9</span>):</div><div class="line">          stack.push(<span class="string">"jiu"</span>);</div><div class="line">          <span class="keyword">break</span>;</div><div class="line">      &#125;</div><div class="line">      res /= <span class="number">10</span>;</div><div class="line">    &#125;<span class="keyword">while</span>(res!=<span class="number">0</span>);</div><div class="line">    </div><div class="line">    System.out.print(stack.pop());</div><div class="line">		<span class="keyword">while</span> (!stack.isEmpty()) </div><div class="line">			System.out.print(<span class="string">" "</span> + stack.pop());</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>Running time: 114 ms</p>
+<p>One thing worth mentioning: Using do{ }(while)</p>
 
       
     </div>
@@ -414,6 +415,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/05/22/136-Single-Number/" rel="prev" title="136.Single Number">
+                136.Single Number <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -494,7 +499,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">40</span>
+                  <span class="site-state-item-count">41</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

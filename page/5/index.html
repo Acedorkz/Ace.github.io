@@ -79,22 +79,15 @@
 
 
 
-<meta name="description" content="U-Net：Convolutional Networks for Biomedical Image SegmentationAbstract ：
-The architecture consists of a contracting path to capture context and a symmetric expanding path  that enables precise localiz">
-<meta property="og:type" content="article">
-<meta property="og:title" content="U-net:Convolutional Networks for Biomedical Image Segmentation">
-<meta property="og:url" content="http://yoursite.com/2017/10/30/U-net-Convolutional-Networks-for-Biomedical-Image-Segmentation/index.html">
+<meta name="description" content="boom pow">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Ace">
+<meta property="og:url" content="http://yoursite.com/page/5/index.html">
 <meta property="og:site_name" content="Ace">
-<meta property="og:description" content="U-Net：Convolutional Networks for Biomedical Image SegmentationAbstract ：
-The architecture consists of a contracting path to capture context and a symmetric expanding path  that enables precise localiz">
-<meta property="og:image" content="http://yoursite.com/img/u_net_overlap.png">
-<meta property="og:image" content="http://yoursite.com/img/u-net.png">
-<meta property="og:updated_time" content="2018-05-01T09:02:38.226Z">
+<meta property="og:description" content="boom pow">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="U-net:Convolutional Networks for Biomedical Image Segmentation">
-<meta name="twitter:description" content="U-Net：Convolutional Networks for Biomedical Image SegmentationAbstract ：
-The architecture consists of a contracting path to capture context and a symmetric expanding path  that enables precise localiz">
-<meta name="twitter:image" content="http://yoursite.com/img/u_net_overlap.png">
+<meta name="twitter:title" content="Ace">
+<meta name="twitter:description" content="boom pow">
 
 
 
@@ -124,13 +117,13 @@ The architecture consists of a contracting path to capture context and a symmetr
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/10/30/U-net-Convolutional-Networks-for-Biomedical-Image-Segmentation/"/>
+  <link rel="canonical" href="http://yoursite.com/page/5/"/>
 
 
 
 
 
-  <title>U-net:Convolutional Networks for Biomedical Image Segmentation | Ace</title>
+  <title>Ace</title>
   
 
 
@@ -149,7 +142,8 @@ The architecture consists of a contracting path to capture context and a symmetr
     
   
 
-  <div class="container sidebar-position-left page-post-detail">
+  <div class="container sidebar-position-left 
+  page-home">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -252,9 +246,9 @@ The architecture consists of a contracting path to capture context and a symmetr
         <div class="content-wrap">
           <div id="content" class="content">
             
-
-  <div id="posts" class="posts-expand">
+  <section id="posts" class="posts-expand">
     
+      
 
   
 
@@ -267,7 +261,7 @@ The architecture consists of a contracting path to capture context and a symmetr
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/30/U-net-Convolutional-Networks-for-Biomedical-Image-Segmentation/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/12/hello-world/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Ace_ZAJ">
@@ -284,7 +278,9 @@ The architecture consists of a contracting path to capture context and a symmetr
 
         
         
-          <h1 class="post-title" itemprop="name headline">U-net:Convolutional Networks for Biomedical Image Segmentation</h1>
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/03/12/hello-world/" itemprop="url">Hello World</a></h1>
         
 
         <div class="post-meta">
@@ -296,8 +292,8 @@ The architecture consists of a contracting path to capture context and a symmetr
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-30T00:00:00+08:00">
-                2017-10-30
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-12T23:05:31+08:00">
+                2017-03-12
               </time>
             
 
@@ -319,8 +315,8 @@ The architecture consists of a contracting path to capture context and a symmetr
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/paper/" itemprop="url" rel="index">
-                    <span itemprop="name">paper</span>
+                  <a href="/categories/za/" itemprop="url" rel="index">
+                    <span itemprop="name">za</span>
                   </a>
                 </span>
 
@@ -356,78 +352,27 @@ The architecture consists of a contracting path to capture context and a symmetr
       
 
       
-        <h4 id="U-Net：Convolutional-Networks-for-Biomedical-Image-Segmentation"><a href="#U-Net：Convolutional-Networks-for-Biomedical-Image-Segmentation" class="headerlink" title="U-Net：Convolutional Networks for Biomedical Image Segmentation"></a>U-Net：Convolutional Networks for Biomedical Image Segmentation</h4><p><em>Abstract</em> ：</p>
-<p>The architecture consists of <strong>a contracting path to capture context and a symmetric expanding path</strong>  that enables precise localization</p>
-<a id="more"></a>
-<p><em>Introduction</em> ：</p>
-<ul>
-<li><p>The convolutional network，their success was limited due to the size of the available training sets and the size of the considered networks. </p>
-</li>
-<li><p>In many visual tasks，especially in biomedical image processing，the desired output should include localization，i.e.，<strong>a class label is supposed to be assigned to each pixel</strong> . </p>
-</li>
-<li><p>Ciresan et al：trained a network in a <strong>sliding-window</strong> setup to predict the class label of each pixel by providing a local region (patch) around that pixel as input .</p>
-<ul>
-<li>advantages：<ul>
-<li>this network can localize </li>
-<li>the training data in terms of patches is much larger than the number of training images</li>
-</ul>
-</li>
-<li>disadvantages：<ul>
-<li>it is quite slow because the network must be run separately for each patch , and there is a lot of redundancy due to <strong>overlapping patches</strong>.</li>
-<li>there is a trade-off between localization accuracy and the use of context.</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>More recent approaches proposed a classifier output that takes into account the features from multiple layers.</p>
-<p>多尺度融合的深度网络，把某一个像素为中心的不同大小的patch作为多个通道输入到深度网络中学习</p>
-</li>
-<li><p>In this paper , “fully convolutional network” , the main idea is  to supplement a usual contracting network by successive layers , where pooling operators are replaced by upsampling operators .</p>
-</li>
-<li><p>In the <strong>upsampling part</strong> we have alse a large number of feature channels , which allow the network to <strong>propagate context information to higher resolution layers</strong>  . The segmentation map only contains the pixels , for which the full context is available in the input image . To predict the pixels in the border region of the image , the missing context is extrapolated by mirroring the input image . </p>
-</li>
-</ul>
-<p>  This strategy allows the seamless segmentation of arbitrarily        large images by an overlap-tile strategy.</p>
-<p><img src="/img/u_net_overlap.png" alt="u_net_overlap"></p>
-<p>​    </p>
-<ul>
-<li>There is very little training data available , we use <strong>excessive data augmentation by applying elastic deformations</strong> to the available training  images . </li>
-<li>Another challenge is <strong>the separation of touching objects of the same class</strong>  . We propose the use of a weighted loss , where the separating background labels between touching cells <strong>obtain a larger weight in the loss function</strong></li>
-</ul>
-<p><em>Network Architecture</em></p>
-<p><img src="/img/u-net.png" alt="u-net"></p>
-<p><em>Training</em></p>
-<ul>
-<li><p>SGD</p>
-</li>
-<li><p>unpadded</p>
-</li>
-<li><p>larger input tiles over a large batch size </p>
-</li>
-<li><p>softmax</p>
-</li>
-<li><p>The separation border computed using morphological operations </p>
-<p>中间项链的部分像素，人为的提高权重，让network可以重点学习这些特征，以便于分割</p>
-</li>
-<li><p>draw the initial weights from a Gaussian distribution</p>
-</li>
-</ul>
-<p><em>Data Augmentation</em></p>
-<p>Data Augmentation is essential to <strong>teach the network the desired invariance and robustness properties</strong>  , when only few training samples are available .</p>
-<ul>
-<li>Need <strong>shift and rotation invariance</strong>  as well as robustness to deformations and gray value variations</li>
-<li>Generate smooth deformations using random displacement vectors on a coarse 3 by 3 grid .</li>
-</ul>
-<p><em>Experiments</em></p>
-<ul>
-<li>30 images(512*512 pixels)</li>
-<li>ground truth</li>
-<li>membranes</li>
-<li>The u-net (averaged over 7 rotated version of the input data)</li>
-</ul>
-<p><em>Conclusion</em></p>
-<p>​     The u-net architecture achieves very good performance on very different biomedical segmentation applications . Thanks to data augmentation with elastic deformations , it only needs very few annotated images and has a very reasonable training time . </p>
+        
+          
+          Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
+Quick StartCreate a new post1$ hexo new "My New Post"
+More info: Writing
+Run server1$ hexo server
+More info: Server
+Generate static files1$ hexo generate
+More info: Generating
+Deploy to remote sites1$ hexo deploy
+More info: Deployment
 
+          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/03/12/hello-world/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
       
     </div>
     
@@ -444,32 +389,12 @@ The architecture consists of a contracting path to capture context and a symmetr
       
 
       
-      
+
       
 
       
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2017/10/27/ROC-curve-AUC-Recall/" rel="next" title="ROC curve,AUC&Recall">
-                <i class="fa fa-chevron-left"></i> ROC curve,AUC&Recall
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/11/02/Deep-Residual-Learning-for-Image-Recognition/" rel="prev" title="Deep Residual Learning for Image Recognition">
-                Deep Residual Learning for Image Recognition <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
       
-
-      
+        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -479,11 +404,14 @@ The architecture consists of a contracting path to capture context and a symmetr
   </article>
 
 
+    
+  </section>
 
-    <div class="post-spread">
-      
-    </div>
-  </div>
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span>
+  </nav>
+
 
 
           </div>
@@ -491,10 +419,6 @@ The architecture consists of a contracting path to capture context and a symmetr
 
 
           
-
-  
-
-
 
         </div>
         
@@ -515,17 +439,8 @@ The architecture consists of a contracting path to capture context and a symmetr
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -582,22 +497,6 @@ The architecture consists of a contracting path to capture context and a symmetr
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#U-Net：Convolutional-Networks-for-Biomedical-Image-Segmentation"><span class="nav-number">1.</span> <span class="nav-text">U-Net：Convolutional Networks for Biomedical Image Segmentation</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
@@ -740,10 +639,6 @@ The architecture consists of a contracting path to capture context and a symmetr
   
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
-
-
 
   
 
