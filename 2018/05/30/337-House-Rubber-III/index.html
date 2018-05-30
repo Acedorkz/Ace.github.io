@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="default">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Dynamic Programming, EasyQuestionThe thief has found himself a new place for his thievery again. There is only one entrance to this area, called the “root.” Besides the root, each house has one and on">
+<meta property="og:type" content="article">
+<meta property="og:title" content="337.House Rubber III">
+<meta property="og:url" content="http://yoursite.com/2018/05/30/337-House-Rubber-III/index.html">
+<meta property="og:site_name" content="Ace">
+<meta property="og:description" content="Dynamic Programming, EasyQuestionThe thief has found himself a new place for his thievery again. There is only one entrance to this area, called the “root.” Besides the root, each house has one and on">
+<meta property="og:updated_time" content="2018-05-30T15:48:26.180Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="337.House Rubber III">
+<meta name="twitter:description" content="Dynamic Programming, EasyQuestionThe thief has found himself a new place for his thievery again. There is only one entrance to this area, called the “root.” Besides the root, each house has one and on">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/05/30/337-House-Rubber-III/"/>
+
+
+
+
+
+  <title>337.House Rubber III | Ace</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Ace</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Ace.github.io</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/30/337-House-Rubber-III/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ace_ZAJ">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/me.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ace">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">337.House Rubber III</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-30T23:36:44+08:00">
+                2018-05-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/LeetCode/" itemprop="url" rel="index">
+                    <span itemprop="name">LeetCode</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="Dynamic-Programming-Easy"><a href="#Dynamic-Programming-Easy" class="headerlink" title="Dynamic Programming, Easy"></a>Dynamic Programming, Easy</h4><h4 id="Question"><a href="#Question" class="headerlink" title="Question"></a>Question</h4><p>The thief has found himself a new place for his thievery again. There is only one entrance to this area, called the “root.” Besides the root, each house has one and only one parent house. After a tour, the smart thief realized that “all houses in this place forms a binary tree”. It will automatically contact the police if two directly-linked houses were broken into on the same night.</p>
+<p>Determine the maximum amount of money the thief can rob tonight without alerting the police.</p>
+<p><strong>Example 1:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">  3</div><div class="line"> / \</div><div class="line">2   3</div><div class="line"> \   \ </div><div class="line">  3   1</div></pre></td></tr></table></figure>
+<p>Maximum amount of money the thief can rob = 3+3+1 = 7</p>
+<p><strong>Example 2:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">    3</div><div class="line">   / \</div><div class="line">  4   5</div><div class="line"> / \   \ </div><div class="line">1   3   1</div></pre></td></tr></table></figure>
+<p>Maximum amount of money the thief can rob = 4+5 = 9</p>
+<a id="more"></a>
+<h4 id="Answer"><a href="#Answer" class="headerlink" title="Answer"></a>Answer</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * Definition for a binary tree node.</div><div class="line"> * public class TreeNode &#123;</div><div class="line"> *     int val;</div><div class="line"> *     TreeNode left;</div><div class="line"> *     TreeNode right;</div><div class="line"> *     TreeNode(int x) &#123; val = x; &#125;</div><div class="line"> * &#125;</div><div class="line"> */</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    </div><div class="line">    Map&lt;TreeNode,Integer&gt; arrlist = <span class="keyword">new</span> HashMap&lt;&gt;(); </div><div class="line">    <span class="comment">// ArrayList&lt;Integer&gt; arrlist = new ArrayList&lt;&gt;();</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">rob</span><span class="params">(TreeNode root)</span> </span>&#123;        </div><div class="line">        <span class="keyword">return</span> traveserob(root);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">int</span> cout =<span class="number">0</span>;</div><div class="line">    <span class="function"><span class="keyword">int</span> <span class="title">traveserob</span><span class="params">(TreeNode root)</span></span>&#123;</div><div class="line">        <span class="keyword">if</span>(root==<span class="keyword">null</span>)</div><div class="line">            <span class="keyword">return</span> <span class="number">0</span>;  </div><div class="line">        <span class="keyword">if</span>(arrlist.containsKey(root))  <span class="keyword">return</span> arrlist.get(root);</div><div class="line">      </div><div class="line">        </div><div class="line">        <span class="keyword">int</span> temp;     </div><div class="line">        <span class="keyword">if</span>(root.left==<span class="keyword">null</span>&amp;&amp;root.right==<span class="keyword">null</span>)</div><div class="line">            temp = root.val;                    </div><div class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(root.left==<span class="keyword">null</span>)</div><div class="line">            temp = Math.max(traveserob(root.right), root.val+traveserob(root.right.left)+traveserob(root.right.right));        </div><div class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(root.right==<span class="keyword">null</span>)</div><div class="line">            temp = Math.max(traveserob(root.left), root.val+traveserob(root.left.left)+traveserob(root.left.right));            </div><div class="line">        <span class="keyword">else</span></div><div class="line">            temp = Math.max(traveserob(root.left)+traveserob(root.right), root.val+traveserob(root.left.left)+traveserob(root.left.right)+traveserob(root.right.left)+traveserob(root.right.right));</div><div class="line">        arrlist.put(root, temp);</div><div class="line">        <span class="keyword">return</span> temp;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>Running time: O(n), n the number of nodes in the tree</p>
+<p>Space: O(n), record</p>
+<h4 id="Step-by-step-tackling-of-the-problem"><a href="#Step-by-step-tackling-of-the-problem" class="headerlink" title="Step by step tackling of the problem"></a>Step by step tackling of the problem</h4><p><strong>Step I – Think naively</strong></p>
+<p>At first glance, the problem exhibits the feature of “optimal substructure”: if we want to rob maximum amount of money from current binary tree (rooted at <code>root</code>), we surely hope that we can do the same to its left and right subtrees.</p>
+<p>So going along this line, let’s define the function <code>rob(root)</code> which will return the maximum amount of money that we can rob for the binary tree rooted at <code>root</code>; the key now is to construct the solution to the original problem from solutions to its subproblems, i.e., how to get <code>rob(root)</code> from <code>rob(root.left), rob(root.right), ...</code> etc.</p>
+<p>Apparently the analyses above suggest a recursive solution. And for recursion, it’s always worthwhile figuring out the following two properties:</p>
+<ol>
+<li>Termination condition: when do we know the answer to <code>rob(root)</code> without any calculation? Of course when the tree is empty —- we’ve got nothing to rob so the amount of money is zero.</li>
+<li>Recurrence relation: i.e., how to get <code>rob(root)</code> from <code>rob(root.left), rob(root.right), ...</code> etc. From the point of view of the tree root, there are only two scenarios at the end: <code>root</code> is robbed or is not. If it is, due to the constraint that “we cannot rob any two directly-linked houses”, the next level of subtrees that are available would be the four “<strong>grandchild-subtrees</strong>“ (<code>root.left.left, root.left.right, root.right.left, root.right.right</code>). However if <code>root</code> is not robbed, the next level of available subtrees would just be the two “<strong>child-subtrees</strong>“ (<code>root.left, root.right</code>). We only need to choose the scenario which yields the larger amount of money.</li>
+</ol>
+<p>Here is the program for the ideas above:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">public int rob(TreeNode root) &#123;</div><div class="line">    if (root == null) return 0;</div><div class="line">    </div><div class="line">    int val = 0;</div><div class="line">    </div><div class="line">    if (root.left != null) &#123;</div><div class="line">        val += rob(root.left.left) + rob(root.left.right);</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    if (root.right != null) &#123;</div><div class="line">        val += rob(root.right.left) + rob(root.right.right);</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    return Math.max(val + root.val, rob(root.left) + rob(root.right));</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>However the solution runs very slowly (<code>1186 ms</code>) and barely got accepted (the time complexity turns out to be exponential, see my <a href="https://discuss.leetcode.com/topic/39834/step-by-step-tackling-of-the-problem/26?page=2" target="_blank" rel="external">comments</a> below).</p>
+<hr>
+<p><strong>Step II – Think one step further</strong></p>
+<p>In step <code>I</code>, we only considered the aspect of “optimal substructure”, but think little about the possibilities of overlapping of the subproblems. For example, to obtain <code>rob(root)</code>, we need <code>rob(root.left), rob(root.right), rob(root.left.left), rob(root.left.right), rob(root.right.left), rob(root.right.right)</code>; but to get <code>rob(root.left)</code>, we also need <code>rob(root.left.left), rob(root.left.right)</code>, similarly for <code>rob(root.right)</code>. The naive solution above computed these subproblems repeatedly, which resulted in bad time performance. Now if you recall the two conditions for dynamic programming: “<strong>optimal substructure</strong>“ + “<strong>overlapping of subproblems</strong>“, we actually have a DP problem. A naive way to implement DP here is to use a hash map to record the results for visited subtrees.</p>
+<p>And here is the improved solution:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">rob</span><span class="params">(TreeNode root)</span> </span>&#123;</div><div class="line">    <span class="keyword">return</span> robSub(root, <span class="keyword">new</span> HashMap&lt;&gt;());</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">robSub</span><span class="params">(TreeNode root, Map&lt;TreeNode, Integer&gt; map)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (root == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">    <span class="keyword">if</span> (map.containsKey(root)) <span class="keyword">return</span> map.get(root);</div><div class="line">    </div><div class="line">    <span class="keyword">int</span> val = <span class="number">0</span>;</div><div class="line">    </div><div class="line">    <span class="keyword">if</span> (root.left != <span class="keyword">null</span>) &#123;</div><div class="line">        val += robSub(root.left.left, map) + robSub(root.left.right, map);</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="keyword">if</span> (root.right != <span class="keyword">null</span>) &#123;</div><div class="line">        val += robSub(root.right.left, map) + robSub(root.right.right, map);</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    val = Math.max(val + root.val, robSub(root.left, map) + robSub(root.right, map));</div><div class="line">    map.put(root, val);</div><div class="line">    </div><div class="line">    <span class="keyword">return</span> val;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>The runtime is sharply reduced to <code>9 ms</code>, at the expense of <code>O(n)</code> space cost (<code>n</code> is the total number of nodes; stack cost for recursion is not counted).</p>
+<hr>
+<p><strong>Step III – Think one step back</strong></p>
+<p>In step <code>I</code>, we defined our problem as <code>rob(root)</code>, which will yield the maximum amount of money that can be robbed of the binary tree rooted at <code>root</code>. This leads to the DP problem summarized in step <code>II</code>.</p>
+<p>Now let’s take one step back and ask why we have overlapping subproblems. If you trace all the way back to the beginning, you’ll find the answer lies in the way how we have defined <code>rob(root)</code>. As I mentioned, for each tree root, there are two scenarios: it is robbed or is not. <code>rob(root)</code> does not distinguish between these two cases, so “information is lost as the recursion goes deeper and deeper”, which results in repeated subproblems.</p>
+<p>If we were able to maintain the information about the two scenarios for each tree root, let’s see how it plays out. Redefine <code>rob(root)</code> as a new function which will return an array of two elements, the first element of which denotes the maximum amount of money that can be robbed if <code>root</code> is <strong>not robbed</strong>, while the second element signifies the maximum amount of money robbed if it is <strong>robbed</strong>.</p>
+<p>Let’s relate <code>rob(root)</code> to <code>rob(root.left)</code> and <code>rob(root.right)...</code>, etc. For the 1st element of <code>rob(root)</code>, we only need to sum up the larger elements of <code>rob(root.left)</code> and <code>rob(root.right)</code>, respectively, since <code>root</code> is not robbed and we are free to rob its left and right subtrees. For the 2nd element of <code>rob(root)</code>, however, we only need to add up the 1st elements of <code>rob(root.left)</code> and <code>rob(root.right)</code>, respectively, plus the value robbed from <code>root</code> itself, since in this case it’s guaranteed that we cannot rob the nodes of <code>root.left</code> and <code>root.right</code>.</p>
+<p>As you can see, by keeping track of the information of both scenarios, we decoupled the subproblems and the solution essentially boiled down to a greedy one. Here is the program:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">rob</span><span class="params">(TreeNode root)</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span>[] res = robSub(root);</div><div class="line">    <span class="keyword">return</span> Math.max(res[<span class="number">0</span>], res[<span class="number">1</span>]);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">private</span> <span class="keyword">int</span>[] robSub(TreeNode root) &#123;</div><div class="line">    <span class="keyword">if</span> (root == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">2</span>];</div><div class="line">    </div><div class="line">    <span class="keyword">int</span>[] left = robSub(root.left);</div><div class="line">    <span class="keyword">int</span>[] right = robSub(root.right);</div><div class="line">    <span class="keyword">int</span>[] res = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">2</span>];</div><div class="line"></div><div class="line">    res[<span class="number">0</span>] = Math.max(left[<span class="number">0</span>], left[<span class="number">1</span>]) + Math.max(right[<span class="number">0</span>], right[<span class="number">1</span>]);</div><div class="line">    res[<span class="number">1</span>] = root.val + left[<span class="number">0</span>] + right[<span class="number">0</span>];</div><div class="line">    </div><div class="line">    <span class="keyword">return</span> res;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/05/30/198-House-Rubber/" rel="next" title="198.House Rubber">
+                <i class="fa fa-chevron-left"></i> 198.House Rubber
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/me.JPG"
+                alt="Ace_ZAJ" />
+            
+              <p class="site-author-name" itemprop="name">Ace_ZAJ</p>
+              <p class="site-description motion-element" itemprop="description">boom pow</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">48</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Dynamic-Programming-Easy"><span class="nav-number">1.</span> <span class="nav-text">Dynamic Programming, Easy</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Question"><span class="nav-number">2.</span> <span class="nav-text">Question</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Answer"><span class="nav-number">3.</span> <span class="nav-text">Answer</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Step-by-step-tackling-of-the-problem"><span class="nav-number">4.</span> <span class="nav-text">Step by step tackling of the problem</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ace_ZAJ</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.3</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
