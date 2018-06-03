@@ -79,19 +79,25 @@
 
 
 
-<meta name="description" content="Question卡拉兹(Callatz)猜想：
-对任何一个自然数n，如果它是偶数，那么把它砍掉一半；如果它是奇数，那么把(3n+1)砍掉一半。这样一直反复砍下去，最后一定在某一步得到n=1。卡拉兹在1950年的世界数学家大会上公布了这个猜想，传说当时耶鲁大学师生齐动员，拼命想证明这个貌似很傻很天真的命题，结果闹得学生们无心学业，一心只证(3n+1)，以至于有人说这是一个阴谋，卡拉兹是在蓄意延缓美国">
+<meta name="description" content="(Pseudocode)
+Insert Sorting123456789// from right to leftINSERTION(A)for j=2 to A.length	key = A[j]	i=j-1	while i&amp;gt;0 and A[i]&amp;gt;key		A[i+1] = A[i]		i = i-1	A[i+1] = key
+$O(n^2)$
+Merge Sorting分治模式：（">
 <meta property="og:type" content="article">
-<meta property="og:title" content="PAT-B-1001.(3n+1)">
-<meta property="og:url" content="http://yoursite.com/2018/05/01/PAT-B-1001-3n-1/index.html">
+<meta property="og:title" content="Introduction to Algorithms--SORT Algorithms">
+<meta property="og:url" content="http://yoursite.com/2018/06/02/SORT-Algorithms/index.html">
 <meta property="og:site_name" content="Ace">
-<meta property="og:description" content="Question卡拉兹(Callatz)猜想：
-对任何一个自然数n，如果它是偶数，那么把它砍掉一半；如果它是奇数，那么把(3n+1)砍掉一半。这样一直反复砍下去，最后一定在某一步得到n=1。卡拉兹在1950年的世界数学家大会上公布了这个猜想，传说当时耶鲁大学师生齐动员，拼命想证明这个貌似很傻很天真的命题，结果闹得学生们无心学业，一心只证(3n+1)，以至于有人说这是一个阴谋，卡拉兹是在蓄意延缓美国">
-<meta property="og:updated_time" content="2018-05-21T15:31:13.630Z">
+<meta property="og:description" content="(Pseudocode)
+Insert Sorting123456789// from right to leftINSERTION(A)for j=2 to A.length	key = A[j]	i=j-1	while i&amp;gt;0 and A[i]&amp;gt;key		A[i+1] = A[i]		i = i-1	A[i+1] = key
+$O(n^2)$
+Merge Sorting分治模式：（">
+<meta property="og:updated_time" content="2018-06-03T15:43:45.531Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="PAT-B-1001.(3n+1)">
-<meta name="twitter:description" content="Question卡拉兹(Callatz)猜想：
-对任何一个自然数n，如果它是偶数，那么把它砍掉一半；如果它是奇数，那么把(3n+1)砍掉一半。这样一直反复砍下去，最后一定在某一步得到n=1。卡拉兹在1950年的世界数学家大会上公布了这个猜想，传说当时耶鲁大学师生齐动员，拼命想证明这个貌似很傻很天真的命题，结果闹得学生们无心学业，一心只证(3n+1)，以至于有人说这是一个阴谋，卡拉兹是在蓄意延缓美国">
+<meta name="twitter:title" content="Introduction to Algorithms--SORT Algorithms">
+<meta name="twitter:description" content="(Pseudocode)
+Insert Sorting123456789// from right to leftINSERTION(A)for j=2 to A.length	key = A[j]	i=j-1	while i&amp;gt;0 and A[i]&amp;gt;key		A[i+1] = A[i]		i = i-1	A[i+1] = key
+$O(n^2)$
+Merge Sorting分治模式：（">
 
 
 
@@ -121,13 +127,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/05/01/PAT-B-1001-3n-1/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/06/02/SORT-Algorithms/"/>
 
 
 
 
 
-  <title>PAT-B-1001.(3n+1) | Ace</title>
+  <title>Introduction to Algorithms--SORT Algorithms | Ace</title>
   
 
 
@@ -264,7 +270,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/01/PAT-B-1001-3n-1/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/02/SORT-Algorithms/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Ace_ZAJ">
@@ -281,7 +287,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">PAT-B-1001.(3n+1)</h1>
+          <h1 class="post-title" itemprop="name headline">Introduction to Algorithms--SORT Algorithms</h1>
         
 
         <div class="post-meta">
@@ -293,8 +299,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-01T22:25:23+08:00">
-                2018-05-01
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-06-02T23:30:52+08:00">
+                2018-06-02
               </time>
             
 
@@ -316,8 +322,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/PAT-solutions/" itemprop="url" rel="index">
-                    <span itemprop="name">PAT_solutions</span>
+                  <a href="/categories/Algorithms/" itemprop="url" rel="index">
+                    <span itemprop="name">Algorithms</span>
                   </a>
                 </span>
 
@@ -353,24 +359,19 @@
       
 
       
-        <h3 id="Question"><a href="#Question" class="headerlink" title="Question"></a>Question</h3><p>卡拉兹(Callatz)猜想：</p>
-<p>对任何一个自然数n，如果它是偶数，那么把它砍掉一半；如果它是奇数，那么把(3n+1)砍掉一半。这样一直反复砍下去，最后一定在某一步得到n=1。卡拉兹在1950年的世界数学家大会上公布了这个猜想，传说当时耶鲁大学师生齐动员，拼命想证明这个貌似很傻很天真的命题，结果闹得学生们无心学业，一心只证(3n+1)，以至于有人说这是一个阴谋，卡拉兹是在蓄意延缓美国数学界教学与科研的进展……</p>
-<p>我们今天的题目不是证明卡拉兹猜想，而是对给定的任一不超过1000的正整数n，简单地数一下，需要多少步（砍几下）才能得到n=1？</p>
-<p><strong>输入格式：</strong>每个测试输入包含1个测试用例，即给出自然数n的值。</p>
-<p><strong>输出格式：</strong>输出从n计算到1需要的步数。</p>
-<p>输入样例：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">3</div></pre></td></tr></table></figure>
-<p>输出样例：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">5</div></pre></td></tr></table></figure>
-<a id="more"></a>
-<h3 id="Requirements"><a href="#Requirements" class="headerlink" title="Requirements"></a>Requirements</h3><p>Time: 400ms</p>
-<p>Space: 65536KB</p>
-<p>Length of Code: 8000B</p>
-<h3 id="My-Answer"><a href="#My-Answer" class="headerlink" title="My Answer"></a>My Answer</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> java.util.Scanner;</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span></span>&#123;</div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</div><div class="line">    Scanner in = <span class="keyword">new</span> Scanner(System.in);</div><div class="line">    <span class="keyword">int</span> num = in.nextInt();</div><div class="line">    in.close();</div><div class="line">    <span class="keyword">int</span> count=<span class="number">0</span>;</div><div class="line">    <span class="keyword">while</span>(num!=<span class="number">1</span>)&#123;</div><div class="line">      <span class="keyword">if</span>(num%<span class="number">2</span>!=<span class="number">0</span>)</div><div class="line">        num=(<span class="number">3</span>*num)+<span class="number">1</span>; </div><div class="line">      num/=<span class="number">2</span>;</div><div class="line">      count++;</div><div class="line">    &#125;</div><div class="line">    System.out.println(count);  </div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>Running time: 90ms</p>
-<p>Space: 12656KB</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> java.util.Scanner;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span></span>&#123;</div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</div><div class="line">    Scanner in = <span class="keyword">new</span> Scanner(System.in);</div><div class="line">    <span class="keyword">int</span> num = in.nextInt();</div><div class="line">    <span class="keyword">int</span> sum=<span class="number">0</span>;</div><div class="line">    <span class="keyword">while</span>(num!=<span class="number">1</span>)&#123;</div><div class="line">      <span class="keyword">if</span>(num%<span class="number">2</span> == <span class="number">0</span>)</div><div class="line">        num = num/<span class="number">2</span>;</div><div class="line">      <span class="keyword">else</span></div><div class="line">        num = (<span class="number">3</span>*num+<span class="number">1</span>)/<span class="number">2</span>;</div><div class="line">      sum++;</div><div class="line">    &#125;</div><div class="line">    System.out.println(sum);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>Running time: 123ms</p>
+        <p><strong>(Pseudocode)</strong></p>
+<h4 id="Insert-Sorting"><a href="#Insert-Sorting" class="headerlink" title="Insert Sorting"></a>Insert Sorting</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">// from right to left</div><div class="line">INSERTION(A)</div><div class="line">for j=2 to A.length</div><div class="line">	key = A[j]</div><div class="line">	i=j-1</div><div class="line">	while i&gt;0 and A[i]&gt;key</div><div class="line">		A[i+1] = A[i]</div><div class="line">		i = i-1</div><div class="line">	A[i+1] = key</div></pre></td></tr></table></figure>
+<p>$O(n^2)$</p>
+<h4 id="Merge-Sorting"><a href="#Merge-Sorting" class="headerlink" title="Merge Sorting"></a>Merge Sorting</h4><p>分治模式：（归并排序）</p>
+<p>分解：分解待排序的n个元素的序列各具n/2个元素的两个子序列</p>
+<p>解决：使用归并排序递归的排序两个子序列</p>
+<p>合并：合并两个已排序的子序列以产生已排序的答案</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">//A array; p, q, r index</div><div class="line">Merge(A, p, q, r)</div><div class="line">n1 = p - q + 1</div><div class="line">n2 = r - q</div><div class="line">let L[1..n1+1] and R[1..n2+1] be new arrays</div><div class="line">for i=1 to n1</div><div class="line">	L[i] = A[p+i-1]</div><div class="line">for j=1 to n2</div><div class="line">	L[j] = A[q+j]</div><div class="line">L[n1+1] = infinity</div><div class="line">R[n2+1] = infinity</div><div class="line">i = 1</div><div class="line">j = 1</div><div class="line">for k=p to r</div><div class="line">	if(L[i]&lt;=R[i])</div><div class="line">		A[k]=L[i]</div><div class="line">		i = i+1</div><div class="line">	else</div><div class="line">		A[k]=R[j]</div><div class="line">		j = j+1</div></pre></td></tr></table></figure>
+<p>避免在每个基本步骤必须检查堆是否为空，在每个堆的底部放置一张哨兵牌，此处使用infinity作为哨兵值，结果每当显露一张值为infinity的牌，他不可能为较小的值，除非两个堆都已显露出其哨兵牌</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">MERGE-SORT(A, p, r)</div><div class="line">if p&lt;r</div><div class="line">	q = (p+r)/2 //向下取整</div><div class="line">	MERGE-SORT(A, p, q)</div><div class="line">	MERGE-SORT(A, q+1, r)</div><div class="line">	MERGE(A, p, q, r)</div></pre></td></tr></table></figure>
+<p>$O(nlogn)$</p>
+<h4 id="Bubble-Sorting"><a href="#Bubble-Sorting" class="headerlink" title="Bubble Sorting"></a>Bubble Sorting</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">BUBBLESORT(A)</div><div class="line">for i=1 to A.length-1</div><div class="line">	for j=A.length downto i+1</div><div class="line">		if A[j]&lt;A[j-1]</div><div class="line">			exchange A[j] with A[j-1]</div></pre></td></tr></table></figure>
+<p>$ O(n^2) $ </p>
 
       
     </div>
@@ -395,8 +396,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/05/01/617-Merge-Two-Binary-Trees/" rel="next" title="617.Merge Two Binary Trees">
-                <i class="fa fa-chevron-left"></i> 617.Merge Two Binary Trees
+              <a href="/2018/05/31/二叉树中和为某值的路径/" rel="next" title="二叉树中和为某值的路径">
+                <i class="fa fa-chevron-left"></i> 二叉树中和为某值的路径
               </a>
             
           </div>
@@ -405,8 +406,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/05/03/344-Reverse-String/" rel="prev" title="344.Reverse String">
-                344.Reverse String <i class="fa fa-chevron-right"></i>
+              <a href="/2018/06/03/Introduction-to-Algorithms-Divide-and-Conquer/" rel="prev" title="Introduction to Algorithms--Divide and Conquer">
+                Introduction to Algorithms--Divide and Conquer <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -536,7 +537,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Question"><span class="nav-number">1.</span> <span class="nav-text">Question</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Requirements"><span class="nav-number">2.</span> <span class="nav-text">Requirements</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#My-Answer"><span class="nav-number">3.</span> <span class="nav-text">My Answer</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Insert-Sorting"><span class="nav-number">1.</span> <span class="nav-text">Insert Sorting</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Merge-Sorting"><span class="nav-number">2.</span> <span class="nav-text">Merge Sorting</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Bubble-Sorting"><span class="nav-number">3.</span> <span class="nav-text">Bubble Sorting</span></a></li></ol></div>
             
 
           </div>
