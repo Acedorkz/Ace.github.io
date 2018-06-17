@@ -89,7 +89,7 @@ Example:
 <meta property="og:description" content="QuestionRemove all elements from a linked list of integers that have value val.
 Example:
 12Input:  1-&amp;gt;2-&amp;gt;6-&amp;gt;3-&amp;gt;4-&amp;gt;5-&amp;gt;6, val = 6Output: 1-&amp;gt;2-&amp;gt;3-&amp;gt;4-&amp;gt;5">
-<meta property="og:updated_time" content="2018-06-12T14:20:17.881Z">
+<meta property="og:updated_time" content="2018-06-13T11:52:24.753Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="203.Remove Linked List Elements">
 <meta name="twitter:description" content="QuestionRemove all elements from a linked list of integers that have value val.
@@ -365,6 +365,7 @@ Example:
 <p>[] -remove-&gt; [] null</p>
 <p>[1,1] –remove 1–&gt; []</p>
 <p>[1] –remove 1–&gt;[]</p>
+<h4 id="Recursive-method"><a href="#Recursive-method" class="headerlink" title="Recursive method"></a>Recursive method</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> ListNode <span class="title">removeElements</span><span class="params">(ListNode head, <span class="keyword">int</span> val)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (head == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">        head.next = removeElements(head.next, val);</div><div class="line">        <span class="keyword">return</span> head.val == val ? head.next : head;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -404,6 +405,10 @@ Example:
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/06/13/160-Intersection-of-Two-Linked-Lists/" rel="prev" title="160.Intersection of Two Linked Lists">
+                160.Intersection of Two Linked Lists <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -484,7 +489,7 @@ Example:
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">60</span>
+                  <span class="site-state-item-count">64</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -506,7 +511,7 @@ Example:
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -541,7 +546,7 @@ Example:
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Question"><span class="nav-number">1.</span> <span class="nav-text">Question</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Answer"><span class="nav-number">2.</span> <span class="nav-text">Answer</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Question"><span class="nav-number">1.</span> <span class="nav-text">Question</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Answer"><span class="nav-number">2.</span> <span class="nav-text">Answer</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Recursive-method"><span class="nav-number">3.</span> <span class="nav-text">Recursive method</span></a></li></ol></div>
             
 
           </div>
