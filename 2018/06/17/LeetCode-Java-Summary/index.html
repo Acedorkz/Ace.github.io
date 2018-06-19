@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Ace">
 <meta property="og:description" content="ArrayListconstructor and iterator
 1234567891011121314151617import java.util.*;  class TestCollection1&amp;#123;   public static void main(String args[])&amp;#123;    ArrayList&amp;lt;String&amp;gt; list=new ArrayList">
-<meta property="og:updated_time" content="2018-06-17T12:47:27.126Z">
+<meta property="og:updated_time" content="2018-06-18T03:38:44.223Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LeetCode-Java-Summary">
 <meta name="twitter:description" content="ArrayListconstructor and iterator
@@ -385,6 +385,101 @@
 <h4 id="Stack"><a href="#Stack" class="headerlink" title="Stack"></a>Stack</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Stack&lt;&gt; stack = <span class="keyword">new</span> Stack&lt;&gt;();</div></pre></td></tr></table></figure>
 <p>Iterate through stack</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> java.util.*;</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyClass</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span> <span class="params">(String[] args)</span></span></div><div class="line">	&#123;</div><div class="line">		<span class="comment">// if we use Stack, output will be [1, 2, 3]</span></div><div class="line">		Stack&lt;Integer&gt; stack = <span class="keyword">new</span> Stack&lt;&gt;();</div><div class="line">		<span class="comment">// if we use Deque, output will be [3, 2, 1]</span></div><div class="line">		<span class="comment">// Deque&lt;Integer&gt; stack = new ArrayDeque&lt;&gt;();</span></div><div class="line">		stack.push(<span class="number">1</span>);</div><div class="line">		stack.push(<span class="number">2</span>);</div><div class="line">		stack.push(<span class="number">3</span>);</div><div class="line">		<span class="comment">/* Using Iterator */</span></div><div class="line">		<span class="comment">// 1. Using Iterator to iterate through Stack</span></div><div class="line">		Iterator&lt;Integer&gt; itr = stack.iterator();</div><div class="line">		<span class="comment">// hasNext() returns true if the stack has more elements</span></div><div class="line">		<span class="keyword">while</span> (itr.hasNext())</div><div class="line">		&#123;</div><div class="line">			<span class="comment">// next() returns the next element in the iteration</span></div><div class="line">			System.out.println(itr.next());</div><div class="line">		&#125;	</div><div class="line">		<span class="comment">// 2. Using enhanced for loop (uses Iterator internally)</span></div><div class="line">		<span class="keyword">for</span> (Integer item: stack) &#123;</div><div class="line">			System.out.println(item);</div><div class="line">		&#125;</div><div class="line">		<span class="comment">/* Java 8 and above */</span></div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="Array-length"><a href="#Array-length" class="headerlink" title="Array length"></a>Array length</h3><p><code>length</code> – <strong>arrays</strong> ( int[], double[], String[])</p>
+<p><code>length()</code> – <strong>String</strong> related object ( String, StringBuilder, etc)</p>
+<p><code>size()</code> – <strong>Collection</strong> Object (ArrayList, Set, etc)</p>
+<h3 id="Array-initial"><a href="#Array-initial" class="headerlink" title="Array initial"></a>Array initial</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">double</span>[] myList;   <span class="comment">// preferred way.</span></div><div class="line">or</div><div class="line"><span class="keyword">double</span> myList[];   <span class="comment">// works but not preferred way.</span></div></pre></td></tr></table></figure>
+<p>iter items</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> (<span class="keyword">double</span> element: myList) &#123;</div><div class="line">         System.out.println(element);</div><div class="line">      &#125;</div></pre></td></tr></table></figure>
+<h3 id="StringBuilder"><a href="#StringBuilder" class="headerlink" title="StringBuilder"></a>StringBuilder</h3><p><code>StringBuilder</code> objects are like <code>String</code> objects, except that <strong>they can be modified</strong>. Internally, these objects are treated like variable-length arrays that contain a sequence of characters. At any point, the length and content of the sequence can be changed through method invocations.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// creates empty builder, capacity 16</span></div><div class="line">StringBuilder sb = <span class="keyword">new</span> StringBuilder();</div><div class="line"><span class="comment">// adds 9 character string at beginning</span></div><div class="line">sb.append(<span class="string">"Greetings"</span>);</div></pre></td></tr></table></figure>
+<p><code>StringBuilder append(float f) / (int i) / (long lng) / (Object obj) / (String s)</code></p>
+<p><code>StringBuilder delete(int start, int end)</code></p>
+<p><code>StringBuilder deleteCharAt(int index)</code></p>
+<p><code>StringBuilder insert()</code> <code>StringBuilder replace()</code> <code>StringBuilder reverse()</code> <code>String toString()</code> </p>
+<h3 id="String-Trim"><a href="#String-Trim" class="headerlink" title="String Trim"></a>String Trim</h3><p><code>public String trim()</code></p>
+<p>It returns a copy of this string with leading and trailing white space removed, or this string if it has no leading or trailing white space.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="string">"   Welcome to Tutorialspoint.com   "</span> ==&gt;</div><div class="line"><span class="string">"Welcome to Tutorialspoint.com"</span></div></pre></td></tr></table></figure>
+<h3 id="char-to-String"><a href="#char-to-String" class="headerlink" title="char to String"></a>char to String</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="number">1</span>. String stringValueOf = String.valueOf(<span class="string">'c'</span>); <span class="comment">// most efficient</span></div><div class="line"><span class="number">2</span>. String stringValueOfCharArray = String.valueOf(<span class="keyword">new</span> <span class="keyword">char</span>[]&#123;x&#125;);</div><div class="line"><span class="number">3</span>. String characterToString = Character.toString(<span class="string">'c'</span>);</div><div class="line"><span class="number">4</span>. String characterObjectToString = <span class="keyword">new</span> Character(<span class="string">'c'</span>).toString();</div><div class="line">   <span class="comment">// Although this method seems very simple, </span></div><div class="line">   <span class="comment">// this is less efficient because the concatenation</span></div><div class="line">   <span class="comment">// expands to new StringBuilder().append(x).append("").toString();</span></div><div class="line"><span class="number">5</span>. String concatBlankString = <span class="string">'c'</span> + <span class="string">""</span>;</div><div class="line"><span class="number">6</span>. String fromCharArray = <span class="keyword">new</span> String(<span class="keyword">new</span> <span class="keyword">char</span>[]&#123;x&#125;);</div></pre></td></tr></table></figure>
+<h3 id="HashSet"><a href="#HashSet" class="headerlink" title="HashSet"></a>HashSet</h3><h4 id="Important-Methods-in-HashSet"><a href="#Important-Methods-in-HashSet" class="headerlink" title="Important Methods in HashSet:"></a>Important Methods in HashSet:</h4><ol>
+<li><code>boolean add(E e)</code> : add the specified element if it is not present, if it is present then return false.</li>
+<li><code>void clear()</code> : removes all the elements from set.</li>
+<li><code>boolean contains(Object o)</code> : return true if element is present in set.</li>
+<li><code>boolean remove(Object o)</code> : remove the element if it is present in set.</li>
+<li><code>Iterator iterator()</code> : return an iterator over the element in the set.</li>
+</ol>
+<h4 id="How-HashSet-internally-work"><a href="#How-HashSet-internally-work" class="headerlink" title="How HashSet internally work?"></a>How HashSet internally work?</h4><p><strong>All the classes of Set interface internally backed up by Map</strong>. HashSet uses HashMap for storing its object internally. You must be wondering that to enter a value in HashMap we need a key-value pair, but in HashSet we are passing only one value.</p>
+<h4 id="Then-how-is-it-storing-in-HashMap"><a href="#Then-how-is-it-storing-in-HashMap" class="headerlink" title="Then how is it storing in HashMap?"></a>Then how is it storing in HashMap?</h4><p>Actually the value we insert in HashSet acts as key to the map Object and for its value java uses a constant variable. So in key-value pair all the keys will have same value.</p>
+<h3 id="Operator-Priority"><a href="#Operator-Priority" class="headerlink" title="Operator Priority"></a>Operator Priority</h3><table>
+<thead>
+<tr>
+<th>Operators</th>
+<th>Precedence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>postfix</td>
+<td><code>expr++ expr--</code></td>
+</tr>
+<tr>
+<td>unary</td>
+<td><code>++expr --expr +expr -*expr* ~ !</code></td>
+</tr>
+<tr>
+<td>multiplicative</td>
+<td><code>* / %</code></td>
+</tr>
+<tr>
+<td>additive</td>
+<td><code>+ -</code></td>
+</tr>
+<tr>
+<td>shift</td>
+<td><code>&lt;&lt; &gt;&gt; &gt;&gt;&gt;</code></td>
+</tr>
+<tr>
+<td>relational</td>
+<td><code>&lt; &gt; &lt;= &gt;= instanceof</code></td>
+</tr>
+<tr>
+<td>equality</td>
+<td><code>== !=</code></td>
+</tr>
+<tr>
+<td>bitwise AND</td>
+<td><code>&amp;</code></td>
+</tr>
+<tr>
+<td>bitwise exclusive OR</td>
+<td><code>^</code></td>
+</tr>
+<tr>
+<td>bitwise inclusive OR</td>
+<td>`</td>
+<td>`</td>
+</tr>
+<tr>
+<td>logical AND</td>
+<td><code>&amp;&amp;</code></td>
+</tr>
+<tr>
+<td>logical OR</td>
+<td>`</td>
+<td></td>
+<td>`</td>
+</tr>
+<tr>
+<td>ternary</td>
+<td><code>? :</code></td>
+</tr>
+<tr>
+<td>assignment</td>
+<td>`= += -= *= /= %= &amp;= ^=</td>
+<td>= &lt;&lt;= &gt;&gt;= &gt;&gt;&gt;=`</td>
+</tr>
+</tbody>
+</table>
 
       
     </div>
@@ -508,7 +603,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">64</span>
+                  <span class="site-state-item-count">66</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -519,7 +614,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -565,7 +660,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#ArrayList"><span class="nav-number">1.</span> <span class="nav-text">ArrayList</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#List-and-ArrayList"><span class="nav-number">2.</span> <span class="nav-text">List and ArrayList</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ArrayList-and-LinkedList"><span class="nav-number">3.</span> <span class="nav-text">ArrayList and LinkedList</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#ArrayList-1"><span class="nav-number">3.1.</span> <span class="nav-text">ArrayList</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#LinkedList"><span class="nav-number">3.2.</span> <span class="nav-text">LinkedList</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Conclude"><span class="nav-number">3.3.</span> <span class="nav-text">Conclude</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#StringBuffer"><span class="nav-number">4.</span> <span class="nav-text">StringBuffer</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Stack"><span class="nav-number">4.1.</span> <span class="nav-text">Stack</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#ArrayList"><span class="nav-number">1.</span> <span class="nav-text">ArrayList</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#List-and-ArrayList"><span class="nav-number">2.</span> <span class="nav-text">List and ArrayList</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ArrayList-and-LinkedList"><span class="nav-number">3.</span> <span class="nav-text">ArrayList and LinkedList</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#ArrayList-1"><span class="nav-number">3.1.</span> <span class="nav-text">ArrayList</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#LinkedList"><span class="nav-number">3.2.</span> <span class="nav-text">LinkedList</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Conclude"><span class="nav-number">3.3.</span> <span class="nav-text">Conclude</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#StringBuffer"><span class="nav-number">4.</span> <span class="nav-text">StringBuffer</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Stack"><span class="nav-number">4.1.</span> <span class="nav-text">Stack</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Array-length"><span class="nav-number">5.</span> <span class="nav-text">Array length</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Array-initial"><span class="nav-number">6.</span> <span class="nav-text">Array initial</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#StringBuilder"><span class="nav-number">7.</span> <span class="nav-text">StringBuilder</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#String-Trim"><span class="nav-number">8.</span> <span class="nav-text">String Trim</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#char-to-String"><span class="nav-number">9.</span> <span class="nav-text">char to String</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HashSet"><span class="nav-number">10.</span> <span class="nav-text">HashSet</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Important-Methods-in-HashSet"><span class="nav-number">10.1.</span> <span class="nav-text">Important Methods in HashSet:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#How-HashSet-internally-work"><span class="nav-number">10.2.</span> <span class="nav-text">How HashSet internally work?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Then-how-is-it-storing-in-HashMap"><span class="nav-number">10.3.</span> <span class="nav-text">Then how is it storing in HashMap?</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Operator-Priority"><span class="nav-number">11.</span> <span class="nav-text">Operator Priority</span></a></li></ol></div>
             
 
           </div>
