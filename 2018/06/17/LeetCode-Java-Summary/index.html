@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Ace">
 <meta property="og:description" content="ArrayListconstructor and iterator
 1234567891011121314151617import java.util.*;  class TestCollection1&amp;#123;   public static void main(String args[])&amp;#123;    ArrayList&amp;lt;String&amp;gt; list=new ArrayList">
-<meta property="og:updated_time" content="2018-06-18T03:38:44.223Z">
+<meta property="og:updated_time" content="2018-06-20T08:47:28.303Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LeetCode-Java-Summary">
 <meta name="twitter:description" content="ArrayListconstructor and iterator
@@ -355,6 +355,7 @@
       
         <h3 id="ArrayList"><a href="#ArrayList" class="headerlink" title="ArrayList"></a>ArrayList</h3><p>constructor and iterator</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> java.util.*;  </div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">TestCollection1</span></span>&#123;  </div><div class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span></span>&#123;  </div><div class="line">  ArrayList&lt;String&gt; list=<span class="keyword">new</span> ArrayList&lt;String&gt;();<span class="comment">//Creating arraylist  </span></div><div class="line">  list.add(<span class="string">"Ravi"</span>);<span class="comment">//Adding object in arraylist  </span></div><div class="line">  list.add(<span class="string">"Vijay"</span>);  </div><div class="line">  list.add(<span class="string">"Ravi"</span>);  </div><div class="line">  list.add(<span class="string">"Ajay"</span>);  </div><div class="line">  <span class="comment">//Traversing list through Iterator  </span></div><div class="line">  Iterator itr=list.iterator();  </div><div class="line">  <span class="keyword">while</span>(itr.hasNext())&#123;  </div><div class="line">   System.out.println(itr.next());  </div><div class="line">  &#125;  </div><div class="line">  <span class="keyword">for</span>(String str:list)</div><div class="line">    System.out.println(str);</div><div class="line"> &#125;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>(only have<code>add(Element e)</code> and <code>addAll(Collection c)</code>, not <code>addFirst(Element e)</code>)</p>
 <a id="more"></a>
 <h3 id="List-and-ArrayList"><a href="#List-and-ArrayList" class="headerlink" title="List and ArrayList"></a>List and ArrayList</h3><p><code>List</code> is an interface, but <code>ListArray</code> is a class</p>
 <p><code>List</code> 不能被构造，即不能创建实例对象，但是可以为<code>List</code>接口创建一个指向自己的引用，而<code>ArrayList</code>实现类的实例对象则充当了这个指向<code>List</code>接口的对象引用</p>
@@ -375,14 +376,21 @@
 <li>因为是数组，所以ArrayList在初始化的时候，有初始大小10，插入新元素的时候，会判断是否需要扩容，扩容的步长是0.5倍原容量，扩容方式是利用数组的复制，因此有一定的开销；</li>
 <li>ArrayList在进行元素插入的时候，需要移动插入位置之后的所有元素，位置越靠前，需要位移的元素越多，开销越大，相反，插入位置越靠后的话，开销就越小了，如果在最后面进行插入，那就不需要进行位移；</li>
 </ul>
+<p><code>add(int index, E element)</code></p>
+<p>Inserts the specified element at the specified position in this list.</p>
 <h4 id="LinkedList"><a href="#LinkedList" class="headerlink" title="LinkedList"></a>LinkedList</h4><p>内部使用双向链表的结构实现存储，<code>LinkedList</code>有一个内部类作为存放元素的单元，有3个属性，用来存放元素本身和前后2个单元的引用，另外<code>LinkedList</code>内部还有一个header属性，用来标识起始位置，<code>LinkedList</code>的第一个单元和最后一个单元都会指向header，因此形成了一个双向的链表结构。</p>
 <p><code>LinkedList</code>是采用双向链表实现的。所以它也具有链表的特点，<strong>每一个元素（结点）的地址不连续</strong>，通过<strong>引用</strong>找到当前结点的上一个结点和下一个结点，即<strong>插入和删除效率较高</strong>，只需要常数时间，<strong>而get和set则较为低效</strong>。</p>
 <p>LinkedList的方法和使用和ArrayList大致相同，由于LinkedList是链表实现的，所以额外提供了在头部和尾部添加/删除元素的方法，也没有ArrayList扩容的问题了。另外，ArrayList和LinkedList都可以实现栈、队列等数据结构，但LinkedList本身实现了队列的接口，所以<strong>更推荐用LinkedList来实现队列和栈</strong>。</p>
+<p><code>public void addFirst(E e)</code></p>
+<p>Inserts the specified element <strong>at the beginning of this list</strong>.</p>
+<p><code>public void addLast(E e)</code></p>
+<p>Appends the specified element <strong>to the end of this list</strong>.</p>
+<p>This method is equivalent to <code>add(E)</code>.</p>
 <h4 id="Conclude"><a href="#Conclude" class="headerlink" title="Conclude"></a>Conclude</h4><p>在需要频繁读取集合中的元素时，使用<code>ArrayList</code>效率较高，而在插入和删除操作较多时，使用<code>LinkedList</code>效率较高</p>
 <h3 id="StringBuffer"><a href="#StringBuffer" class="headerlink" title="StringBuffer"></a>StringBuffer</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> StringBuffer <span class="title">append</span><span class="params">(<span class="keyword">char</span> c)</span></span></div></pre></td></tr></table></figure>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> StringBuffer <span class="title">reverse</span><span class="params">()</span></span></div></pre></td></tr></table></figure>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span></span></div></pre></td></tr></table></figure>
-<h4 id="Stack"><a href="#Stack" class="headerlink" title="Stack"></a>Stack</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Stack&lt;&gt; stack = <span class="keyword">new</span> Stack&lt;&gt;();</div></pre></td></tr></table></figure>
+<h3 id="Stack"><a href="#Stack" class="headerlink" title="Stack"></a>Stack</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Stack&lt;&gt; stack = <span class="keyword">new</span> Stack&lt;&gt;();</div></pre></td></tr></table></figure>
 <p>Iterate through stack</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> java.util.*;</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyClass</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span> <span class="params">(String[] args)</span></span></div><div class="line">	&#123;</div><div class="line">		<span class="comment">// if we use Stack, output will be [1, 2, 3]</span></div><div class="line">		Stack&lt;Integer&gt; stack = <span class="keyword">new</span> Stack&lt;&gt;();</div><div class="line">		<span class="comment">// if we use Deque, output will be [3, 2, 1]</span></div><div class="line">		<span class="comment">// Deque&lt;Integer&gt; stack = new ArrayDeque&lt;&gt;();</span></div><div class="line">		stack.push(<span class="number">1</span>);</div><div class="line">		stack.push(<span class="number">2</span>);</div><div class="line">		stack.push(<span class="number">3</span>);</div><div class="line">		<span class="comment">/* Using Iterator */</span></div><div class="line">		<span class="comment">// 1. Using Iterator to iterate through Stack</span></div><div class="line">		Iterator&lt;Integer&gt; itr = stack.iterator();</div><div class="line">		<span class="comment">// hasNext() returns true if the stack has more elements</span></div><div class="line">		<span class="keyword">while</span> (itr.hasNext())</div><div class="line">		&#123;</div><div class="line">			<span class="comment">// next() returns the next element in the iteration</span></div><div class="line">			System.out.println(itr.next());</div><div class="line">		&#125;	</div><div class="line">		<span class="comment">// 2. Using enhanced for loop (uses Iterator internally)</span></div><div class="line">		<span class="keyword">for</span> (Integer item: stack) &#123;</div><div class="line">			System.out.println(item);</div><div class="line">		&#125;</div><div class="line">		<span class="comment">/* Java 8 and above */</span></div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h3 id="Array-length"><a href="#Array-length" class="headerlink" title="Array length"></a>Array length</h3><p><code>length</code> – <strong>arrays</strong> ( int[], double[], String[])</p>
@@ -477,6 +485,58 @@
 <td>assignment</td>
 <td>`= += -= *= /= %= &amp;= ^=</td>
 <td>= &lt;&lt;= &gt;&gt;= &gt;&gt;&gt;=`</td>
+</tr>
+</tbody>
+</table>
+<h3 id="Queue"><a href="#Queue" class="headerlink" title="Queue"></a>Queue</h3><h4 id="Interface-Queue"><a href="#Interface-Queue" class="headerlink" title="Interface Queue"></a>Interface Queue<e></e></h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Java orogram to demonstrate working of Queue</span></div><div class="line"><span class="comment">// interface in Java</span></div><div class="line"><span class="keyword">import</span> java.util.LinkedList;</div><div class="line"><span class="keyword">import</span> java.util.Queue;</div><div class="line"> </div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">QueueExample</span></span></div><div class="line">&#123;</div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span></div><div class="line">  &#123;</div><div class="line">    Queue&lt;Integer&gt; q = <span class="keyword">new</span> LinkedList&lt;&gt;();</div><div class="line"> </div><div class="line">    <span class="comment">// Adds elements &#123;0, 1, 2, 3, 4&#125; to queue</span></div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;<span class="number">5</span>; i++)</div><div class="line">     q.add(i);</div><div class="line"> </div><div class="line">    <span class="comment">// Display contents of the queue.</span></div><div class="line">    System.out.println(<span class="string">"Elements of queue-"</span>+q);</div><div class="line"> </div><div class="line">    <span class="comment">// To remove the head of queue.</span></div><div class="line">    <span class="keyword">int</span> removedele = q.remove();</div><div class="line">    System.out.println(<span class="string">"removed element-"</span> + removedele);</div><div class="line"> </div><div class="line">    System.out.println(q);</div><div class="line"> </div><div class="line">    <span class="comment">// To view the head of queue</span></div><div class="line">    <span class="keyword">int</span> head = q.peek();</div><div class="line">    System.out.println(<span class="string">"head of queue-"</span> + head);</div><div class="line"> </div><div class="line">    <span class="comment">// Rest all methods of collection interface,</span></div><div class="line">    <span class="comment">// Like size and contains can be used with this</span></div><div class="line">    <span class="comment">// implementation.</span></div><div class="line">    <span class="keyword">int</span> size = q.size();</div><div class="line">    System.out.println(<span class="string">"Size of queue-"</span> + size);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>1.<code>boolean offer(E e)</code></p>
+<p>Inserts the specified element into this queue if it is possible to do so immediately without violating capacity restrictions. When using a capacity-restricted queue, this method is generally preferable to <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Queue.html#add(E" target="_blank" rel="external"><code>add(E)</code></a>), which can fail to insert an element only by throwing an exception.</p>
+<p>Parameters:</p>
+<p><code>e</code> - the element to add</p>
+<p>Returns:</p>
+<p><code>true</code> if the element was added to this queue, else <code>false</code></p>
+<p>2.<code>E remove()</code></p>
+<p>Retrieves and removes the head of this queue. This method differs from <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Queue.html#poll(" target="_blank" rel="external"><code>poll</code></a>) only in that it throws an exception if this queue is empty.</p>
+<ul>
+<li><p>Returns:</p>
+<p>the head of this queue</p>
+</li>
+</ul>
+<p>3.<code>E poll()</code></p>
+<p>Retrieves and removes the head of this queue, or returns <code>null</code> if this queue is empty.</p>
+<p>Returns:</p>
+<p>the head of this queue, or <code>null</code> if this queue is empty</p>
+<table>
+<thead>
+<tr>
+<th>Modifier and Type</th>
+<th>Method and Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>boolean</code></td>
+<td><code>add(E e)</code>Inserts the specified element into this queue if it is possible to do so immediately without violating capacity restrictions, returning <code>true</code> upon success and throwing an <code>IllegalStateException</code> if no space is currently available.</td>
+</tr>
+<tr>
+<td><code>E</code></td>
+<td><code>element()</code>Retrieves, but does not remove, the head of this queue.</td>
+</tr>
+<tr>
+<td><code>boolean</code></td>
+<td><code>offer(E e)</code>Inserts the specified element into this queue if it is possible to do so immediately without violating capacity restrictions.</td>
+</tr>
+<tr>
+<td><code>E</code></td>
+<td><code>peek()</code>Retrieves, but does not remove, the head of this queue, or returns <code>null</code> if this queue is empty.</td>
+</tr>
+<tr>
+<td><code>E</code></td>
+<td><code>poll()</code>Retrieves and removes the head of this queue, or returns <code>null</code> if this queue is empty.</td>
+</tr>
+<tr>
+<td><code>E</code></td>
+<td><code>remove()</code>Retrieves and removes the head of this queue.</td>
 </tr>
 </tbody>
 </table>
@@ -603,7 +663,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">66</span>
+                  <span class="site-state-item-count">74</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -625,7 +685,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -660,7 +720,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#ArrayList"><span class="nav-number">1.</span> <span class="nav-text">ArrayList</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#List-and-ArrayList"><span class="nav-number">2.</span> <span class="nav-text">List and ArrayList</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ArrayList-and-LinkedList"><span class="nav-number">3.</span> <span class="nav-text">ArrayList and LinkedList</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#ArrayList-1"><span class="nav-number">3.1.</span> <span class="nav-text">ArrayList</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#LinkedList"><span class="nav-number">3.2.</span> <span class="nav-text">LinkedList</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Conclude"><span class="nav-number">3.3.</span> <span class="nav-text">Conclude</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#StringBuffer"><span class="nav-number">4.</span> <span class="nav-text">StringBuffer</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Stack"><span class="nav-number">4.1.</span> <span class="nav-text">Stack</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Array-length"><span class="nav-number">5.</span> <span class="nav-text">Array length</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Array-initial"><span class="nav-number">6.</span> <span class="nav-text">Array initial</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#StringBuilder"><span class="nav-number">7.</span> <span class="nav-text">StringBuilder</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#String-Trim"><span class="nav-number">8.</span> <span class="nav-text">String Trim</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#char-to-String"><span class="nav-number">9.</span> <span class="nav-text">char to String</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HashSet"><span class="nav-number">10.</span> <span class="nav-text">HashSet</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Important-Methods-in-HashSet"><span class="nav-number">10.1.</span> <span class="nav-text">Important Methods in HashSet:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#How-HashSet-internally-work"><span class="nav-number">10.2.</span> <span class="nav-text">How HashSet internally work?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Then-how-is-it-storing-in-HashMap"><span class="nav-number">10.3.</span> <span class="nav-text">Then how is it storing in HashMap?</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Operator-Priority"><span class="nav-number">11.</span> <span class="nav-text">Operator Priority</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#ArrayList"><span class="nav-number">1.</span> <span class="nav-text">ArrayList</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#List-and-ArrayList"><span class="nav-number">2.</span> <span class="nav-text">List and ArrayList</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ArrayList-and-LinkedList"><span class="nav-number">3.</span> <span class="nav-text">ArrayList and LinkedList</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#ArrayList-1"><span class="nav-number">3.1.</span> <span class="nav-text">ArrayList</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#LinkedList"><span class="nav-number">3.2.</span> <span class="nav-text">LinkedList</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Conclude"><span class="nav-number">3.3.</span> <span class="nav-text">Conclude</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#StringBuffer"><span class="nav-number">4.</span> <span class="nav-text">StringBuffer</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Stack"><span class="nav-number">5.</span> <span class="nav-text">Stack</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Array-length"><span class="nav-number">6.</span> <span class="nav-text">Array length</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Array-initial"><span class="nav-number">7.</span> <span class="nav-text">Array initial</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#StringBuilder"><span class="nav-number">8.</span> <span class="nav-text">StringBuilder</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#String-Trim"><span class="nav-number">9.</span> <span class="nav-text">String Trim</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#char-to-String"><span class="nav-number">10.</span> <span class="nav-text">char to String</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HashSet"><span class="nav-number">11.</span> <span class="nav-text">HashSet</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Important-Methods-in-HashSet"><span class="nav-number">11.1.</span> <span class="nav-text">Important Methods in HashSet:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#How-HashSet-internally-work"><span class="nav-number">11.2.</span> <span class="nav-text">How HashSet internally work?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Then-how-is-it-storing-in-HashMap"><span class="nav-number">11.3.</span> <span class="nav-text">Then how is it storing in HashMap?</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Operator-Priority"><span class="nav-number">12.</span> <span class="nav-text">Operator Priority</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Queue"><span class="nav-number">13.</span> <span class="nav-text">Queue</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Interface-Queue"><span class="nav-number">13.1.</span> <span class="nav-text">Interface Queue</span></a></li></ol></li></ol></div>
             
 
           </div>
