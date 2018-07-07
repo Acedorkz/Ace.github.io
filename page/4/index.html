@@ -261,6 +261,158 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/12/PAT-B-1008-数组元素循环右移问题/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ace_ZAJ">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/me.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ace">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/06/12/PAT-B-1008-数组元素循环右移问题/" itemprop="url">PAT-B-1008-数组元素循环右移问题</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-06-12T21:30:56+08:00">
+                2018-06-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PAT-solutions/" itemprop="url" rel="index">
+                    <span itemprop="name">PAT-solutions</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h4 id="Question"><a href="#Question" class="headerlink" title="Question"></a>Question</h4><h4 id="1008-数组元素循环右移问题-20-（20-分）"><a href="#1008-数组元素循环右移问题-20-（20-分）" class="headerlink" title="1008 数组元素循环右移问题 (20)（20 分）"></a>1008 数组元素循环右移问题 (20)（20 分）</h4><p>一个数组A中存有N（N&amp;gt0）个整数，在不允许使用另外数组的前提下，将每个整数循环向右移M（M&gt;=0）个位置，即将A中的数据由（A~0~ A~1~……A~N-1~）变换为（A~N-M~ …… A~N-1~ A~0~ A~1~……A~N-M-1~）（最后M个数循环移至最前面的M个位置）。如果需要考虑程序移动数据的次数尽量少，要如何设计移动的方法？</p>
+<p><strong>输入格式：</strong>每个输入包含一个测试用例，第1行输入N ( 1&lt;=N&lt;=100)、M（M&gt;=0）；第2行输入N个整数，之间用空格分隔。</p>
+<p><strong>输出格式：</strong>在一行中输出循环右移M位以后的整数序列，之间用空格分隔，序列结尾不能有多余空格。</p>
+<p><strong>输入样例：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">6 2</div><div class="line">1 2 3 4 5 6</div></pre></td></tr></table></figure>
+<p><strong>输出样例：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">5 6 1 2 3 4</div></pre></td></tr></table></figure>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/06/12/PAT-B-1008-数组元素循环右移问题/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/09/PAT-B-1006-换个格式输出整数/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1407,7 +1559,26 @@
 
       
         
-          <h4 id="Find-maximum-subarray-continuous"><a href="#Find-maximum-subarray-continuous" class="headerlink" title="Find maximum subarray, continuous"></a>Find maximum subarray, continuous</h4><p>stock problem –&gt; A[i] - A[i-1] –&gt; find maximum subarray of A –&gt; A[i..j]</p>
+          <h4 id="Design-paradigm"><a href="#Design-paradigm" class="headerlink" title="Design paradigm"></a>Design paradigm</h4><ol>
+<li><strong>Divide</strong> the problem(instance) into subproblems</li>
+<li><strong>Conquer</strong> the subproblems by solving them recursively</li>
+<li><strong>Combine</strong> subproblem solutions</li>
+</ol>
+<h4 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h4><h5 id="Merge-sort"><a href="#Merge-sort" class="headerlink" title="Merge sort"></a>Merge sort</h5><p>$T(n) = 2T(n/2) + O(n)$</p>
+<p>$T(n) = O(nlgn)$</p>
+<h5 id="Binary-search"><a href="#Binary-search" class="headerlink" title="Binary search"></a>Binary search</h5><p>$T(n) = 1T(n/2) + O(1)$</p>
+<h5 id="Powering-a-number"><a href="#Powering-a-number" class="headerlink" title="Powering a number"></a>Powering a number</h5><p>given a number $x$, integer $n\leq 0$&gt;=0, compute $x^n$</p>
+<p>Naive algorithm:  multiply, time complexity: $O(n)$</p>
+<p>$T(n) = T(n/2) + O(1) $</p>
+<p>$T(n) = O(lgn)$</p>
+<h4 id="递归式"><a href="#递归式" class="headerlink" title="递归式"></a>递归式</h4><p>递归式刻画分治算法的运行时间</p>
+<p>3种求解递归式的方法：</p>
+<ul>
+<li>代入法</li>
+<li>递归树法，将递归式转换成为一棵树</li>
+<li>主方法：$T(n) = aT(n/b) + f(n)$, 生成 <code>a</code> 个子问题，每个子问题的规模是原问题规模的 <code>1/b</code> , 分解和合并步骤花费时间为 <code>f(n)</code></li>
+</ul>
+<h4 id="Find-maximum-subarray-continuous"><a href="#Find-maximum-subarray-continuous" class="headerlink" title="Find maximum subarray, continuous"></a>Find maximum subarray, continuous</h4><p>stock problem –&gt; A[i] - A[i-1] –&gt; find maximum subarray of A –&gt; A[i..j]</p>
 <p>Using divide and conquer, A[low..mid], A[mid+1..high]</p>
 <p>Only three cases:</p>
 <p>case 1: All in A[low..mid], so low&lt;=i&lt;=j&lt;=mid</p>
@@ -1416,154 +1587,6 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/06/03/Introduction-to-Algorithms-Divide-and-Conquer/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/02/SORT-Algorithms/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Ace_ZAJ">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/me.JPG">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ace">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/06/02/SORT-Algorithms/" itemprop="url">Introduction to Algorithms--SORT Algorithms</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-06-02T23:30:52+08:00">
-                2018-06-02
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Algorithms/" itemprop="url" rel="index">
-                    <span itemprop="name">Algorithms</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p><strong>(Pseudocode)</strong></p>
-<h4 id="Insert-Sorting"><a href="#Insert-Sorting" class="headerlink" title="Insert Sorting"></a>Insert Sorting</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">// from right to left</div><div class="line">INSERTION(A)</div><div class="line">for j=2 to A.length</div><div class="line">	key = A[j]</div><div class="line">	i=j-1</div><div class="line">	while i&gt;0 and A[i]&gt;key</div><div class="line">		A[i+1] = A[i]</div><div class="line">		i = i-1</div><div class="line">	A[i+1] = key</div></pre></td></tr></table></figure>
-<p>$O(n^2)$</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/06/02/SORT-Algorithms/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>

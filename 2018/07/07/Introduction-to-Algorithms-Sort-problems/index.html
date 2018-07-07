@@ -79,34 +79,22 @@
 
 
 
-<meta name="description" content="Design paradigm
-Divide the problem(instance) into subproblems
-Conquer the subproblems by solving them recursively
-Combine subproblem solutions
-
-ExampleMerge sort$T(n) = 2T(n/2) + O(n)$
-$T(n) = O(nlgn)">
+<meta name="description" content="(Pseudocode)
+Insert Sorting123456789// from right to leftINSERTION(A)for j=2 to A.length	key = A[j]	i=j-1	while i&amp;gt;0 and A[i]&amp;gt;key		A[i+1] = A[i]		i = i-1	A[i+1] = key
+$O(n^2)$">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Introduction to Algorithms--Divide and Conquer">
-<meta property="og:url" content="http://yoursite.com/2018/06/03/Introduction-to-Algorithms-Divide-and-Conquer/index.html">
+<meta property="og:title" content="Introduction to Algorithms--Sort problems">
+<meta property="og:url" content="http://yoursite.com/2018/07/07/Introduction-to-Algorithms-Sort-problems/index.html">
 <meta property="og:site_name" content="Ace">
-<meta property="og:description" content="Design paradigm
-Divide the problem(instance) into subproblems
-Conquer the subproblems by solving them recursively
-Combine subproblem solutions
-
-ExampleMerge sort$T(n) = 2T(n/2) + O(n)$
-$T(n) = O(nlgn)">
-<meta property="og:updated_time" content="2018-07-07T10:02:48.998Z">
+<meta property="og:description" content="(Pseudocode)
+Insert Sorting123456789// from right to leftINSERTION(A)for j=2 to A.length	key = A[j]	i=j-1	while i&amp;gt;0 and A[i]&amp;gt;key		A[i+1] = A[i]		i = i-1	A[i+1] = key
+$O(n^2)$">
+<meta property="og:updated_time" content="2018-07-07T09:59:25.755Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Introduction to Algorithms--Divide and Conquer">
-<meta name="twitter:description" content="Design paradigm
-Divide the problem(instance) into subproblems
-Conquer the subproblems by solving them recursively
-Combine subproblem solutions
-
-ExampleMerge sort$T(n) = 2T(n/2) + O(n)$
-$T(n) = O(nlgn)">
+<meta name="twitter:title" content="Introduction to Algorithms--Sort problems">
+<meta name="twitter:description" content="(Pseudocode)
+Insert Sorting123456789// from right to leftINSERTION(A)for j=2 to A.length	key = A[j]	i=j-1	while i&amp;gt;0 and A[i]&amp;gt;key		A[i+1] = A[i]		i = i-1	A[i+1] = key
+$O(n^2)$">
 
 
 
@@ -136,13 +124,13 @@ $T(n) = O(nlgn)">
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/06/03/Introduction-to-Algorithms-Divide-and-Conquer/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/07/07/Introduction-to-Algorithms-Sort-problems/"/>
 
 
 
 
 
-  <title>Introduction to Algorithms--Divide and Conquer | Ace</title>
+  <title>Introduction to Algorithms--Sort problems | Ace</title>
   
 
 
@@ -279,7 +267,7 @@ $T(n) = O(nlgn)">
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/03/Introduction-to-Algorithms-Divide-and-Conquer/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/07/Introduction-to-Algorithms-Sort-problems/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Ace_ZAJ">
@@ -296,7 +284,7 @@ $T(n) = O(nlgn)">
 
         
         
-          <h1 class="post-title" itemprop="name headline">Introduction to Algorithms--Divide and Conquer</h1>
+          <h1 class="post-title" itemprop="name headline">Introduction to Algorithms--Sort problems</h1>
         
 
         <div class="post-meta">
@@ -308,8 +296,8 @@ $T(n) = O(nlgn)">
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-06-03T23:44:22+08:00">
-                2018-06-03
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-07T17:53:53+08:00">
+                2018-07-07
               </time>
             
 
@@ -368,38 +356,20 @@ $T(n) = O(nlgn)">
       
 
       
-        <h4 id="Design-paradigm"><a href="#Design-paradigm" class="headerlink" title="Design paradigm"></a>Design paradigm</h4><ol>
-<li><strong>Divide</strong> the problem(instance) into subproblems</li>
-<li><strong>Conquer</strong> the subproblems by solving them recursively</li>
-<li><strong>Combine</strong> subproblem solutions</li>
-</ol>
-<h4 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h4><h5 id="Merge-sort"><a href="#Merge-sort" class="headerlink" title="Merge sort"></a>Merge sort</h5><p>$T(n) = 2T(n/2) + O(n)$</p>
-<p>$T(n) = O(nlgn)$</p>
-<h5 id="Binary-search"><a href="#Binary-search" class="headerlink" title="Binary search"></a>Binary search</h5><p>$T(n) = 1T(n/2) + O(1)$</p>
-<h5 id="Powering-a-number"><a href="#Powering-a-number" class="headerlink" title="Powering a number"></a>Powering a number</h5><p>given a number $x$, integer $n\leq 0$&gt;=0, compute $x^n$</p>
-<p>Naive algorithm:  multiply, time complexity: $O(n)$</p>
-<p>$T(n) = T(n/2) + O(1) $</p>
-<p>$T(n) = O(lgn)$</p>
-<h4 id="递归式"><a href="#递归式" class="headerlink" title="递归式"></a>递归式</h4><p>递归式刻画分治算法的运行时间</p>
-<p>3种求解递归式的方法：</p>
-<ul>
-<li>代入法</li>
-<li>递归树法，将递归式转换成为一棵树</li>
-<li>主方法：$T(n) = aT(n/b) + f(n)$, 生成 <code>a</code> 个子问题，每个子问题的规模是原问题规模的 <code>1/b</code> , 分解和合并步骤花费时间为 <code>f(n)</code></li>
-</ul>
-<h4 id="Find-maximum-subarray-continuous"><a href="#Find-maximum-subarray-continuous" class="headerlink" title="Find maximum subarray, continuous"></a>Find maximum subarray, continuous</h4><p>stock problem –&gt; A[i] - A[i-1] –&gt; find maximum subarray of A –&gt; A[i..j]</p>
-<p>Using divide and conquer, A[low..mid], A[mid+1..high]</p>
-<p>Only three cases:</p>
-<p>case 1: All in A[low..mid], so low&lt;=i&lt;=j&lt;=mid</p>
-<p>case 2: All in A[mid+1..high], so mid+1&lt;=i&lt;=j&lt;=high</p>
-<p>case 3: span over the mid, so low&lt;=i&lt;=mid&lt;=j&lt;=high</p>
+        <p><strong>(Pseudocode)</strong></p>
+<h4 id="Insert-Sorting"><a href="#Insert-Sorting" class="headerlink" title="Insert Sorting"></a>Insert Sorting</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">// from right to left</div><div class="line">INSERTION(A)</div><div class="line">for j=2 to A.length</div><div class="line">	key = A[j]</div><div class="line">	i=j-1</div><div class="line">	while i&gt;0 and A[i]&gt;key</div><div class="line">		A[i+1] = A[i]</div><div class="line">		i = i-1</div><div class="line">	A[i+1] = key</div></pre></td></tr></table></figure>
+<p>$O(n^2)$</p>
 <a id="more"></a>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">FIND-MAXIMUM-SUBARRAY(A, low, high)</div><div class="line">if high==low</div><div class="line">	return (low, high, A[low]) //base case: only one element</div><div class="line">else </div><div class="line">	mid = (low+high)/2 --向下取整</div><div class="line">	left-low, left-high, left-sum = FIND-MAXIMUM-SUBARRAY(A, low, mid)</div><div class="line">	right-low, right-high, right-sum = FIND-MAXIMUM-SUBARRAY(A, mid+1, high)</div><div class="line">	cross-low, cross-high, cross-sum = FIND-MAXIMUM-CROSSING-SUBARRAY(A, low, mid, high)</div><div class="line">	if left-sum&gt;=right-sum and left-sum&gt;=cross-sum</div><div class="line">		return (left-low, left-high, left-sum)</div><div class="line">	else if right-sum&gt;=left-sum and right-sum&gt;=cross-sum</div><div class="line">		return (right-low, right-high, right-sum)</div><div class="line">	else return cross-low, cross-high, cross-sum</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">FIND-MAXIMUM-CROSSING-SUBARRAY(A, low, mid, high)</div><div class="line">left-sum = -infinity</div><div class="line">sum = 0</div><div class="line">for i = mid downto low</div><div class="line">	sum = sum + A[i]</div><div class="line">	if sum &gt; left-sum</div><div class="line">		left-sum = sum</div><div class="line">		max-left = i</div><div class="line">right-sum = -infinity</div><div class="line">sum = 0</div><div class="line">for j = mid+1 downto high</div><div class="line">	sum = sum + A[j]</div><div class="line">	if sum &gt; right-sum</div><div class="line">		right-sum = sum</div><div class="line">		max-right = j</div><div class="line">return (max-left, max-right, left-sum+right-sum)</div></pre></td></tr></table></figure>
-<p>Running time: $ O(nlgn) $</p>
-<h4 id="Matrix-Multiply-–-Strassen"><a href="#Matrix-Multiply-–-Strassen" class="headerlink" title="Matrix Multiply – Strassen"></a>Matrix Multiply – Strassen</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">SQUARE-MATRIX-MULTIPLY(A. B)</div><div class="line">m = A.rows</div><div class="line">let C be a new n*n matrix</div><div class="line">for i = 1 to n</div><div class="line">	for j  = 1 to n</div><div class="line">	c_ij = 0</div><div class="line">	for k = 1 to n</div><div class="line">		c_ij = c_ij + a_ik * b_kj</div><div class="line">return C</div></pre></td></tr></table></figure>
-<p>Time complexity: $O(n^3)$</p>
-<h5 id="Strassen"><a href="#Strassen" class="headerlink" title="Strassen"></a>Strassen</h5><p>Time complexity: $O(n^{lg7}) = O(n^{2.81})$</p>
+<h4 id="Merge-Sorting"><a href="#Merge-Sorting" class="headerlink" title="Merge Sorting"></a>Merge Sorting</h4><p>分治模式：（归并排序）</p>
+<p>分解：分解待排序的n个元素的序列各具n/2个元素的两个子序列</p>
+<p>解决：使用归并排序递归的排序两个子序列</p>
+<p>合并：合并两个已排序的子序列以产生已排序的答案</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">//A array; p, q, r index</div><div class="line">Merge(A, p, q, r)</div><div class="line">n1 = p - q + 1</div><div class="line">n2 = r - q</div><div class="line">let L[1..n1+1] and R[1..n2+1] be new arrays</div><div class="line">for i=1 to n1</div><div class="line">	L[i] = A[p+i-1]</div><div class="line">for j=1 to n2</div><div class="line">	L[j] = A[q+j]</div><div class="line">L[n1+1] = infinity</div><div class="line">R[n2+1] = infinity</div><div class="line">i = 1</div><div class="line">j = 1</div><div class="line">for k=p to r</div><div class="line">	if(L[i]&lt;=R[i])</div><div class="line">		A[k]=L[i]</div><div class="line">		i = i+1</div><div class="line">	else</div><div class="line">		A[k]=R[j]</div><div class="line">		j = j+1</div></pre></td></tr></table></figure>
+<p>避免在每个基本步骤必须检查堆是否为空，在每个堆的底部放置一张哨兵牌，此处使用infinity作为哨兵值，结果每当显露一张值为infinity的牌，他不可能为较小的值，除非两个堆都已显露出其哨兵牌</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">MERGE-SORT(A, p, r)</div><div class="line">if p&lt;r</div><div class="line">	q = (p+r)/2 //向下取整</div><div class="line">	MERGE-SORT(A, p, q)</div><div class="line">	MERGE-SORT(A, q+1, r)</div><div class="line">	MERGE(A, p, q, r)</div></pre></td></tr></table></figure>
+<p>$O(nlogn)$</p>
+<h4 id="Bubble-Sorting"><a href="#Bubble-Sorting" class="headerlink" title="Bubble Sorting"></a>Bubble Sorting</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">BUBBLESORT(A)</div><div class="line">for i=1 to A.length-1</div><div class="line">	for j=A.length downto i+1</div><div class="line">		if A[j]&lt;A[j-1]</div><div class="line">			exchange A[j] with A[j-1]</div></pre></td></tr></table></figure>
+<p>$ O(n^2) $ </p>
 
       
     </div>
@@ -424,8 +394,8 @@ $T(n) = O(nlgn)">
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/05/31/二叉树中和为某值的路径/" rel="next" title="二叉树中和为某值的路径">
-                <i class="fa fa-chevron-left"></i> 二叉树中和为某值的路径
+              <a href="/2018/06/26/Jobdu-27-简单计算器/" rel="next" title="Jobdu-27-简单计算器">
+                <i class="fa fa-chevron-left"></i> Jobdu-27-简单计算器
               </a>
             
           </div>
@@ -433,10 +403,6 @@ $T(n) = O(nlgn)">
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/06/05/141-Linked-List-Cycle/" rel="prev" title="141.Linked List Cycle">
-                141.Linked List Cycle <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -574,7 +540,7 @@ $T(n) = O(nlgn)">
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Design-paradigm"><span class="nav-number">1.</span> <span class="nav-text">Design paradigm</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Example"><span class="nav-number">2.</span> <span class="nav-text">Example</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Merge-sort"><span class="nav-number">2.1.</span> <span class="nav-text">Merge sort</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Binary-search"><span class="nav-number">2.2.</span> <span class="nav-text">Binary search</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Powering-a-number"><span class="nav-number">2.3.</span> <span class="nav-text">Powering a number</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#递归式"><span class="nav-number">3.</span> <span class="nav-text">递归式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Find-maximum-subarray-continuous"><span class="nav-number">4.</span> <span class="nav-text">Find maximum subarray, continuous</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Matrix-Multiply-–-Strassen"><span class="nav-number">5.</span> <span class="nav-text">Matrix Multiply – Strassen</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Strassen"><span class="nav-number">5.1.</span> <span class="nav-text">Strassen</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Insert-Sorting"><span class="nav-number">1.</span> <span class="nav-text">Insert Sorting</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Merge-Sorting"><span class="nav-number">2.</span> <span class="nav-text">Merge Sorting</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Bubble-Sorting"><span class="nav-number">3.</span> <span class="nav-text">Bubble Sorting</span></a></li></ol></div>
             
 
           </div>
