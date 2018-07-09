@@ -1571,6 +1571,26 @@
 <p>Naive algorithm:  multiply, time complexity: $O(n)$</p>
 <p>$T(n) = T(n/2) + O(1) $</p>
 <p>$T(n) = O(lgn)$</p>
+<h5 id="Fibonacci-number"><a href="#Fibonacci-number" class="headerlink" title="Fibonacci number"></a>Fibonacci number</h5><p>$F_n = 0$ , when n = 1</p>
+<p>$F_n = 1$ , when n = 2</p>
+<p>$F<em>n = F</em>{n-1} + F_{n-2}$ , else</p>
+<p>naive recursive algorithm: $\phi ^n$, $\phi = \frac{1+\sqrt{5}}{2}$, golden ratio, <strong>exponential time</strong></p>
+<ul>
+<li>Bottom-up algorithm</li>
+</ul>
+<p>​      Compute $F_0, F_1, F_2..F_n$</p>
+<p>​      Time complexity: $O(n)$</p>
+<ul>
+<li><p>Naive recursive squaring</p>
+<p>$F_n = \phi_n / \sqrt{5}$ rounded to the nearest integer </p>
+<p>Time complexity: $O(lgn)$</p>
+<p>This method is unreliable, since floating-point arithmetic is prone  to round-off errors (四舍五入时会有误差)</p>
+<p>NOT allowed</p>
+</li>
+</ul>
+<h5 id="Recursive-Squaring-Fibonacci-number"><a href="#Recursive-Squaring-Fibonacci-number" class="headerlink" title="Recursive Squaring(Fibonacci number)"></a>Recursive Squaring(Fibonacci number)</h5><p><strong>Theorem:</strong><br>$$<br>\begin{bmatrix}<br>    F_{n+1} &amp; F_n\<br>    F<em>n &amp; F</em>{n-1}<br>\end{bmatrix}^n<br>=<br>\begin{bmatrix}<br>    1 &amp; 1\<br>    1 &amp; 0<br>\end{bmatrix}^n<br>$$<br>Time complexity: $O(lgn)$</p>
+<p><strong>proof:</strong> by induction on n</p>
+<p>Base: (n=1)<br>$$<br>\begin{bmatrix}<br>    F_2 &amp; F_1\<br>    F_1 &amp; F<em>0<br>\end{bmatrix}<br>=<br>\begin{bmatrix}<br>    1 &amp; 1\<br>    1 &amp; 0<br>\end{bmatrix}^1<br>$$<br> Inductive step: (n&gt;=2)<br>$$<br>\begin{equation}<br>\begin{split}<br>\begin{bmatrix}<br>    F</em>{n+1} &amp; F_n\<br>    F<em>n &amp; F</em>{n-1}<br>\end{bmatrix}<br>&amp;=<br>\begin{bmatrix}<br>    F<em>n &amp; F</em>{n-1}\<br>    F<em>{n-1} &amp; F</em>{n-2}<br>\end{bmatrix}<br>\begin{bmatrix}<br>    1 &amp; 1\<br>    1 &amp; 0<br>\end{bmatrix} \\<br>&amp;=<br>\begin{bmatrix}<br>    1 &amp; 1\<br>    1 &amp; 0<br>\end{bmatrix}^{n-1}<br>\begin{bmatrix}<br>    1 &amp; 1\<br>    1 &amp; 0<br>\end{bmatrix}\\<br>&amp;=<br>\begin{bmatrix}<br>    1 &amp; 1\<br>    1 &amp; 0<br>\end{bmatrix}^n<br>\end{split}<br>\end{equation}<br>$$</p>
 <h4 id="递归式"><a href="#递归式" class="headerlink" title="递归式"></a>递归式</h4><p>递归式刻画分治算法的运行时间</p>
 <p>3种求解递归式的方法：</p>
 <ul>
