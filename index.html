@@ -353,24 +353,11 @@
 
       
         
-          
-          我遇到的问题
-下角标 _ 无效
-matrix无效
-
-Markdown本身的特殊符号与Latex中的符号会出现冲突
-解决方法nodes_modules/lib/marked/lib/marked.js文件中，
-1.
-1escape: /^\\([\\`*&#123;&#125;\[\]()# +\-.!_&gt;])/,
-改为：
-1escape: /^\\([`*&#123;&#125;\[\]()# +\-.!_&gt;])/,
-2.
-1em: /^\b_((?:[^_]|__)+?)_\b|^\*((?:\*\*|[\s\S])+?)\*(?!\*)/,
-改为：
-1em:/^\*((?:\*\*|[\s\S])+?)\*(?!\*)/,
-Hexo默认使用marked.js去解析Markdown，比如一些符号，_代表斜体，会被处理为&lt;em&gt;标签，比如x_i在开始被渲染的时候，处理为x&lt;em&gt;i&lt;/em&gt;，这个时候MathJax就无法渲染成下标了。
-
-          
+          <h4 id="我遇到的问题"><a href="#我遇到的问题" class="headerlink" title="我遇到的问题"></a>我遇到的问题</h4><ul>
+<li>下角标 <code>_</code> 无效</li>
+<li>matrix无效</li>
+</ul>
+<p>Markdown本身的特殊符号与Latex中的符号会出现冲突</p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/07/26/Mathjex的转义问题/#more" rel="contents">

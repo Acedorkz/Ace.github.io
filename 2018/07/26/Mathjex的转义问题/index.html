@@ -83,12 +83,7 @@
 下角标 _ 无效
 matrix无效
 
-Markdown本身的特殊符号与Latex中的符号会出现冲突
-解决方法nodes_modules/lib/marked/lib/marked.js文件中，
-1.
-1escape: /^\\([\\`*&amp;#123;&amp;#125;\[\]()# +\-.!_&amp;gt;])/,
-改为：
-1escape: /^\\([`*&amp;#123;&amp;#125;\[\]()">
+Markdown本身的特殊符号与Latex中的符号会出现冲突">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Mathjex的转义问题">
 <meta property="og:url" content="http://yoursite.com/2018/07/26/Mathjex的转义问题/index.html">
@@ -97,25 +92,15 @@ Markdown本身的特殊符号与Latex中的符号会出现冲突
 下角标 _ 无效
 matrix无效
 
-Markdown本身的特殊符号与Latex中的符号会出现冲突
-解决方法nodes_modules/lib/marked/lib/marked.js文件中，
-1.
-1escape: /^\\([\\`*&amp;#123;&amp;#125;\[\]()# +\-.!_&amp;gt;])/,
-改为：
-1escape: /^\\([`*&amp;#123;&amp;#125;\[\]()">
-<meta property="og:updated_time" content="2018-07-26T10:17:32.894Z">
+Markdown本身的特殊符号与Latex中的符号会出现冲突">
+<meta property="og:updated_time" content="2018-07-26T10:24:04.246Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mathjex的转义问题">
 <meta name="twitter:description" content="我遇到的问题
 下角标 _ 无效
 matrix无效
 
-Markdown本身的特殊符号与Latex中的符号会出现冲突
-解决方法nodes_modules/lib/marked/lib/marked.js文件中，
-1.
-1escape: /^\\([\\`*&amp;#123;&amp;#125;\[\]()# +\-.!_&amp;gt;])/,
-改为：
-1escape: /^\\([`*&amp;#123;&amp;#125;\[\]()">
+Markdown本身的特殊符号与Latex中的符号会出现冲突">
 
 
 
@@ -382,12 +367,12 @@ Markdown本身的特殊符号与Latex中的符号会出现冲突
 <li>matrix无效</li>
 </ul>
 <p>Markdown本身的特殊符号与Latex中的符号会出现冲突</p>
+<a id="more"></a>
 <h4 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h4><p><code>nodes_modules/lib/marked/lib/marked.js</code>文件中，</p>
-<p>1.</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">escape: /^\\([\\`*&#123;&#125;\[\]()# +\-.!_&gt;])/,</div></pre></td></tr></table></figure>
 <p>改为：</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">escape: /^\\([`*&#123;&#125;\[\]()# +\-.!_&gt;])/,</div></pre></td></tr></table></figure>
-<p>2.</p>
+<p>and</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">em: /^\b_((?:[^_]|__)+?)_\b|^\*((?:\*\*|[\s\S])+?)\*(?!\*)/,</div></pre></td></tr></table></figure>
 <p>改为：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">em:/^\*((?:\*\*|[\s\S])+?)\*(?!\*)/,</div></pre></td></tr></table></figure>
