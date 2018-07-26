@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="LeetCode-LinkedList," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -79,28 +79,43 @@
 
 
 
-<meta name="description" content="Linked List, EasyQuestionGiven a singly linked list, determine if it is a palindrome.
-Example 1:
-12Input: 1-&amp;gt;2Output: false
-Example 2:
-12Input: 1-&amp;gt;2-&amp;gt;2-&amp;gt;1Output: true">
+<meta name="description" content="我遇到的问题
+下角标 _ 无效
+matrix无效
+
+Markdown本身的特殊符号与Latex中的符号会出现冲突
+解决方法nodes_modules/lib/marked/lib/marked.js文件中，
+1.
+1escape: /^\\([\\`*&amp;#123;&amp;#125;\[\]()# +\-.!_&amp;gt;])/,
+改为：
+1escape: /^\\([`*&amp;#123;&amp;#125;\[\]()">
 <meta property="og:type" content="article">
-<meta property="og:title" content="234.Palindrome Linked List">
-<meta property="og:url" content="http://yoursite.com/2018/06/07/234-Palindrome-Linked-List/index.html">
+<meta property="og:title" content="Mathjex的转义问题">
+<meta property="og:url" content="http://yoursite.com/2018/07/26/Mathjex的转义问题/index.html">
 <meta property="og:site_name" content="Ace">
-<meta property="og:description" content="Linked List, EasyQuestionGiven a singly linked list, determine if it is a palindrome.
-Example 1:
-12Input: 1-&amp;gt;2Output: false
-Example 2:
-12Input: 1-&amp;gt;2-&amp;gt;2-&amp;gt;1Output: true">
-<meta property="og:updated_time" content="2018-06-07T14:49:09.676Z">
+<meta property="og:description" content="我遇到的问题
+下角标 _ 无效
+matrix无效
+
+Markdown本身的特殊符号与Latex中的符号会出现冲突
+解决方法nodes_modules/lib/marked/lib/marked.js文件中，
+1.
+1escape: /^\\([\\`*&amp;#123;&amp;#125;\[\]()# +\-.!_&amp;gt;])/,
+改为：
+1escape: /^\\([`*&amp;#123;&amp;#125;\[\]()">
+<meta property="og:updated_time" content="2018-07-26T10:17:32.894Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="234.Palindrome Linked List">
-<meta name="twitter:description" content="Linked List, EasyQuestionGiven a singly linked list, determine if it is a palindrome.
-Example 1:
-12Input: 1-&amp;gt;2Output: false
-Example 2:
-12Input: 1-&amp;gt;2-&amp;gt;2-&amp;gt;1Output: true">
+<meta name="twitter:title" content="Mathjex的转义问题">
+<meta name="twitter:description" content="我遇到的问题
+下角标 _ 无效
+matrix无效
+
+Markdown本身的特殊符号与Latex中的符号会出现冲突
+解决方法nodes_modules/lib/marked/lib/marked.js文件中，
+1.
+1escape: /^\\([\\`*&amp;#123;&amp;#125;\[\]()# +\-.!_&amp;gt;])/,
+改为：
+1escape: /^\\([`*&amp;#123;&amp;#125;\[\]()">
 
 
 
@@ -130,13 +145,13 @@ Example 2:
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/06/07/234-Palindrome-Linked-List/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/07/26/Mathjex的转义问题/"/>
 
 
 
 
 
-  <title>234.Palindrome Linked List | Ace</title>
+  <title>Mathjex的转义问题 | Ace</title>
   
 
 
@@ -273,7 +288,7 @@ Example 2:
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/07/234-Palindrome-Linked-List/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/26/Mathjex的转义问题/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Ace_ZAJ">
@@ -290,7 +305,7 @@ Example 2:
 
         
         
-          <h1 class="post-title" itemprop="name headline">234.Palindrome Linked List</h1>
+          <h1 class="post-title" itemprop="name headline">Mathjex的转义问题</h1>
         
 
         <div class="post-meta">
@@ -302,8 +317,8 @@ Example 2:
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-06-07T22:40:23+08:00">
-                2018-06-07
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-26T18:13:00+08:00">
+                2018-07-26
               </time>
             
 
@@ -325,8 +340,8 @@ Example 2:
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/LeetCode/" itemprop="url" rel="index">
-                    <span itemprop="name">LeetCode</span>
+                  <a href="/categories/za/" itemprop="url" rel="index">
+                    <span itemprop="name">za</span>
                   </a>
                 </span>
 
@@ -362,14 +377,21 @@ Example 2:
       
 
       
-        <h4 id="Linked-List-Easy"><a href="#Linked-List-Easy" class="headerlink" title="Linked List, Easy"></a>Linked List, Easy</h4><h4 id="Question"><a href="#Question" class="headerlink" title="Question"></a>Question</h4><p>Given a singly linked list, determine if it is a palindrome.</p>
-<p><strong>Example 1:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Input: 1-&gt;2</div><div class="line">Output: false</div></pre></td></tr></table></figure>
-<p><strong>Example 2:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Input: 1-&gt;2-&gt;2-&gt;1</div><div class="line">Output: true</div></pre></td></tr></table></figure>
-<a id="more"></a>
-<h4 id="Answer"><a href="#Answer" class="headerlink" title="Answer"></a>Answer</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * Definition for singly-linked list.</div><div class="line"> * public class ListNode &#123;</div><div class="line"> *     int val;</div><div class="line"> *     ListNode next;</div><div class="line"> *     ListNode(int x) &#123; val = x; &#125;</div><div class="line"> * &#125;</div><div class="line"> */</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isPalindrome</span><span class="params">(ListNode head)</span> </span>&#123;</div><div class="line">        ListNode fast = head, slow = head;</div><div class="line">        <span class="keyword">while</span>(fast!=<span class="keyword">null</span>&amp;&amp;fast.next!=<span class="keyword">null</span>)&#123;</div><div class="line">            fast = fast.next.next;</div><div class="line">            slow = slow.next;</div><div class="line">        &#125;</div><div class="line">        <span class="comment">//slow -- mid</span></div><div class="line">        ListNode tail = reverse(slow);</div><div class="line">        <span class="comment">//compare head-&gt;mid, tail-&gt;mid if they are the same</span></div><div class="line">        <span class="keyword">while</span>(tail!=<span class="keyword">null</span>&amp;&amp;head!=<span class="keyword">null</span>)&#123;</div><div class="line">            <span class="keyword">if</span>(tail.val!=head.val)</div><div class="line">                <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">            tail = tail.next;</div><div class="line">            head = head.next;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> ListNode <span class="title">reverse</span><span class="params">(ListNode head)</span></span>&#123;</div><div class="line">        ListNode prev = <span class="keyword">null</span>;</div><div class="line">        <span class="keyword">while</span>(head!=<span class="keyword">null</span>)&#123;</div><div class="line">            ListNode next = head.next;</div><div class="line">            head.next = prev;</div><div class="line">            prev = head;</div><div class="line">            head = next;</div><div class="line">        &#125;</div><div class="line">        <span class="comment">//worth mentioning: return prev, when head comes to the end, 'prev=head' prev will get the last node, head will be null</span></div><div class="line">        <span class="keyword">return</span> prev;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>Running time:O(n)</p>
+        <h4 id="我遇到的问题"><a href="#我遇到的问题" class="headerlink" title="我遇到的问题"></a>我遇到的问题</h4><ul>
+<li>下角标 <code>_</code> 无效</li>
+<li>matrix无效</li>
+</ul>
+<p>Markdown本身的特殊符号与Latex中的符号会出现冲突</p>
+<h4 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h4><p><code>nodes_modules/lib/marked/lib/marked.js</code>文件中，</p>
+<p>1.</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">escape: /^\\([\\`*&#123;&#125;\[\]()# +\-.!_&gt;])/,</div></pre></td></tr></table></figure>
+<p>改为：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">escape: /^\\([`*&#123;&#125;\[\]()# +\-.!_&gt;])/,</div></pre></td></tr></table></figure>
+<p>2.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">em: /^\b_((?:[^_]|__)+?)_\b|^\*((?:\*\*|[\s\S])+?)\*(?!\*)/,</div></pre></td></tr></table></figure>
+<p>改为：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">em:/^\*((?:\*\*|[\s\S])+?)\*(?!\*)/,</div></pre></td></tr></table></figure>
+<p>Hexo默认使用<code>marked.js</code>去解析Markdown，比如一些符号，<code>_</code>代表斜体，会被处理为<code>&lt;em&gt;</code>标签，<br>比如<code>x_i</code>在开始被渲染的时候，处理为<code>x&lt;em&gt;i&lt;/em&gt;</code>，这个时候MathJax就无法渲染成下标了。</p>
 
       
     </div>
@@ -385,12 +407,6 @@ Example 2:
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/LeetCode-LinkedList/" rel="tag"># LeetCode-LinkedList</a>
-          
-        </div>
-      
 
       
       
@@ -400,8 +416,8 @@ Example 2:
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/06/07/83-Remove-Duplicates-from-Sorted-List/" rel="next" title="83.Remove Duplicates from Sorted List">
-                <i class="fa fa-chevron-left"></i> 83.Remove Duplicates from Sorted List
+              <a href="/2018/07/07/Introduction-to-Algorithms-Sort-problems/" rel="next" title="Introduction to Algorithms--Sort problems">
+                <i class="fa fa-chevron-left"></i> Introduction to Algorithms--Sort problems
               </a>
             
           </div>
@@ -409,10 +425,6 @@ Example 2:
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/06/09/PAT-B-1004-成绩排名/" rel="prev" title="PAT-B-1004-成绩排名">
-                PAT-B-1004-成绩排名 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -550,7 +562,7 @@ Example 2:
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Linked-List-Easy"><span class="nav-number">1.</span> <span class="nav-text">Linked List, Easy</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Question"><span class="nav-number">2.</span> <span class="nav-text">Question</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Answer"><span class="nav-number">3.</span> <span class="nav-text">Answer</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#我遇到的问题"><span class="nav-number">1.</span> <span class="nav-text">我遇到的问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#解决方法"><span class="nav-number">2.</span> <span class="nav-text">解决方法</span></a></li></ol></div>
             
 
           </div>
