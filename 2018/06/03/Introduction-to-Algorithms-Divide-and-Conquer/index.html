@@ -84,8 +84,8 @@ Divide the problem(instance) into subproblems
 Conquer the subproblems by solving them recursively
 Combine subproblem solutions
 
-ExampleMerge sort$T(n) = 2T(n/2) + O(n)$
-$T(n) = O(nlgn)">
+Example1. Merge sort$T(n) = 2T(n/2) + O(n)$
+$T(n) = O(nl">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Introduction to Algorithms--Divide and Conquer">
 <meta property="og:url" content="http://yoursite.com/2018/06/03/Introduction-to-Algorithms-Divide-and-Conquer/index.html">
@@ -95,9 +95,9 @@ Divide the problem(instance) into subproblems
 Conquer the subproblems by solving them recursively
 Combine subproblem solutions
 
-ExampleMerge sort$T(n) = 2T(n/2) + O(n)$
-$T(n) = O(nlgn)">
-<meta property="og:updated_time" content="2018-07-09T04:41:26.935Z">
+Example1. Merge sort$T(n) = 2T(n/2) + O(n)$
+$T(n) = O(nl">
+<meta property="og:updated_time" content="2018-07-26T09:45:00.648Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Introduction to Algorithms--Divide and Conquer">
 <meta name="twitter:description" content="Design paradigm
@@ -105,8 +105,8 @@ Divide the problem(instance) into subproblems
 Conquer the subproblems by solving them recursively
 Combine subproblem solutions
 
-ExampleMerge sort$T(n) = 2T(n/2) + O(n)$
-$T(n) = O(nlgn)">
+Example1. Merge sort$T(n) = 2T(n/2) + O(n)$
+$T(n) = O(nl">
 
 
 
@@ -368,21 +368,21 @@ $T(n) = O(nlgn)">
       
 
       
-        <h4 id="Design-paradigm"><a href="#Design-paradigm" class="headerlink" title="Design paradigm"></a>Design paradigm</h4><ol>
+        <h3 id="Design-paradigm"><a href="#Design-paradigm" class="headerlink" title="Design paradigm"></a>Design paradigm</h3><ol>
 <li><strong>Divide</strong> the problem(instance) into subproblems</li>
 <li><strong>Conquer</strong> the subproblems by solving them recursively</li>
 <li><strong>Combine</strong> subproblem solutions</li>
 </ol>
-<h4 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h4><h5 id="Merge-sort"><a href="#Merge-sort" class="headerlink" title="Merge sort"></a>Merge sort</h5><p>$T(n) = 2T(n/2) + O(n)$</p>
+<h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><h4 id="1-Merge-sort"><a href="#1-Merge-sort" class="headerlink" title="1. Merge sort"></a>1. Merge sort</h4><p>$T(n) = 2T(n/2) + O(n)$</p>
 <p>$T(n) = O(nlgn)$</p>
-<h5 id="Binary-search"><a href="#Binary-search" class="headerlink" title="Binary search"></a>Binary search</h5><p>$T(n) = 1T(n/2) + O(1)$</p>
-<h5 id="Powering-a-number"><a href="#Powering-a-number" class="headerlink" title="Powering a number"></a>Powering a number</h5><p>given a number $x$, integer $n\leq 0$&gt;=0, compute $x^n$</p>
+<h4 id="2-Binary-search"><a href="#2-Binary-search" class="headerlink" title="2. Binary search"></a>2. Binary search</h4><p>$T(n) = 1T(n/2) + O(1)$</p>
+<h4 id="3-Powering-a-number"><a href="#3-Powering-a-number" class="headerlink" title="3. Powering a number"></a>3. Powering a number</h4><p>given a number $x$, integer $n\leq 0$&gt;=0, compute $x^n$</p>
 <p>Naive algorithm:  multiply, time complexity: $O(n)$</p>
 <p>$T(n) = T(n/2) + O(1) $</p>
 <p>$T(n) = O(lgn)$</p>
-<h5 id="Fibonacci-number"><a href="#Fibonacci-number" class="headerlink" title="Fibonacci number"></a>Fibonacci number</h5><p>$F_n = 0$ , when n = 1</p>
+<h4 id="4-Fibonacci-number"><a href="#4-Fibonacci-number" class="headerlink" title="4. Fibonacci number"></a>4. Fibonacci number</h4><p>$F_n = 0$ , when n = 1</p>
 <p>$F_n = 1$ , when n = 2</p>
-<p>$F<em>n = F</em>{n-1} + F_{n-2}$ , else</p>
+<p>$ F<em>n = F</em>{n-1} + F_{n-2} $ , else</p>
 <p>naive recursive algorithm: $\phi ^n$, $\phi = \frac{1+\sqrt{5}}{2}$, golden ratio, <strong>exponential time</strong></p>
 <ul>
 <li>Bottom-up algorithm</li>
@@ -397,9 +397,45 @@ $T(n) = O(nlgn)">
 <p>NOT allowed</p>
 </li>
 </ul>
-<h5 id="Recursive-Squaring-Fibonacci-number"><a href="#Recursive-Squaring-Fibonacci-number" class="headerlink" title="Recursive Squaring(Fibonacci number)"></a>Recursive Squaring(Fibonacci number)</h5><p><strong>Theorem:</strong><br>$$<br>\begin{bmatrix}<br>    F_{n+1} &amp; F_n\<br>    F<em>n &amp; F</em>{n-1}<br>\end{bmatrix}^n<br>=<br>\begin{bmatrix}<br>    1 &amp; 1\<br>    1 &amp; 0<br>\end{bmatrix}^n<br>$$<br>Time complexity: $O(lgn)$</p>
+<h4 id="5-Recursive-Squaring-Fibonacci-number"><a href="#5-Recursive-Squaring-Fibonacci-number" class="headerlink" title="5. Recursive Squaring(Fibonacci number)"></a>5. Recursive Squaring(Fibonacci number)</h4><p><strong>Theorem:</strong> </p>
+<p>$\begin{bmatrix} a &amp; b \ c &amp; d \end{bmatrix}$<br>$$<br>M = \left(<br>\begin{array}{ccc}<br>F_{n+1} &amp; F_n\<br>F<em>n &amp; F</em>{n-1} \<br>\end{array}<br>\right)^n<br>$$</p>
+<p>$$<br>\begin{bmatrix}<br>    F_{n+1} &amp; F_n\<br>    F<em>n &amp; F</em>{n-1}<br>\end{bmatrix}^n<br>=<br>\begin{bmatrix}<br>    1 &amp; 1\<br>    1 &amp; 0<br>\end{bmatrix}^n<br>$$<br>Time complexity: $O(lgn)$</p>
 <p><strong>proof:</strong> by induction on n</p>
 <p>Base: (n=1)<br>$$<br>\begin{bmatrix}<br>    F_2 &amp; F_1\<br>    F_1 &amp; F<em>0<br>\end{bmatrix}<br>=<br>\begin{bmatrix}<br>    1 &amp; 1\<br>    1 &amp; 0<br>\end{bmatrix}^1<br>$$<br> Inductive step: (n&gt;=2)<br>$$<br>\begin{equation}<br>\begin{split}<br>\begin{bmatrix}<br>    F</em>{n+1} &amp; F_n\<br>    F<em>n &amp; F</em>{n-1}<br>\end{bmatrix}<br>&amp;=<br>\begin{bmatrix}<br>    F<em>n &amp; F</em>{n-1}\<br>    F<em>{n-1} &amp; F</em>{n-2}<br>\end{bmatrix}<br>\begin{bmatrix}<br>    1 &amp; 1\<br>    1 &amp; 0<br>\end{bmatrix} \\<br>&amp;=<br>\begin{bmatrix}<br>    1 &amp; 1\<br>    1 &amp; 0<br>\end{bmatrix}^{n-1}<br>\begin{bmatrix}<br>    1 &amp; 1\<br>    1 &amp; 0<br>\end{bmatrix}\\<br>&amp;=<br>\begin{bmatrix}<br>    1 &amp; 1\<br>    1 &amp; 0<br>\end{bmatrix}^n<br>\end{split}<br>\end{equation}<br>$$</p>
+<h4 id="6-Matrix-multiplication"><a href="#6-Matrix-multiplication" class="headerlink" title="6. Matrix multiplication"></a>6. Matrix multiplication</h4><p>Input: $A = [a<em>{ij}], B = [b</em>{ij}]$</p>
+<p>Output: $C= [c_{ij}] = A \cdot B$</p>
+<p>$c<em>{ij} = \sum</em>{k=1}^na<em>{ij}\cdot b</em>{kj}$</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">for i = 1 to n</div><div class="line">	for j = 1 to n</div><div class="line">		c_ij = 0</div><div class="line">			for k = 1 to n </div><div class="line">				c_ij = c_ij + a_ik * b_kj</div></pre></td></tr></table></figure>
+<p>Time complexity: $O(n^3)$</p>
+<p><strong>IDEA</strong></p>
+<p>$n \times n$ matrix = $2 \times 2$ matrix of $n/2 \times n/2$ submatrices<br>$$<br>\begin{bmatrix}<br>    r &amp; s\<br>    t &amp; u<br>\end{bmatrix}<br>=<br>\begin{bmatrix}<br>    a &amp; b\<br>    c &amp; d<br>\end{bmatrix}<br>\cdot<br>\begin{bmatrix}<br>    e &amp; f\<br>    g &amp; h<br>\end{bmatrix}<br>$$<br>$C= A\cdot B$<br>$$<br>\begin{equation}<br>\begin{split}<br>r &amp;= ae + bg \<br>s &amp;= af + bh \<br>t &amp;= ce + dg \<br>u &amp;=cf + dh<br>\end{split}<br>\end{equation}<br>$$<br>8 mults of $(n/2) \times (n/2) $submatrices – recursive mult</p>
+<p>4 adds of $(n/2) \times (n/2) $submatrices – $O(n^2)$</p>
+<p>explanation for $n^2$: </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span>[][] AddMatrix(<span class="keyword">int</span>[][] p,<span class="keyword">int</span>[][] q,<span class="keyword">int</span> n)&#123;</div><div class="line">	<span class="keyword">int</span>[][] result = <span class="keyword">new</span> <span class="keyword">int</span>[n][n];</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</div><div class="line">      	<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;n;j++)&#123;</div><div class="line">        	result[i][j] = p[i][j]+q[i][j];</div><div class="line">      	&#125;</div><div class="line">    &#125;</div><div class="line">  	<span class="keyword">return</span> result;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>Time complexity: $T(n) = 8T(n/2) + O(n^2) = O(n^3)$ </p>
+<p>No better than the ordinary algorithm</p>
+<p><strong>Strassen’s algorithm</strong></p>
+<p>IDEA: reduce # mults to 7</p>
+<p>multiply $2 \times 2$ matrices with only 7 recursive mults<br>$$<br>\begin{equation}<br>\begin{split}<br>P_1 &amp;= a \cdot (f - h) \<br>P_2 &amp;= (a + b) \cdot  h \<br>P_3 &amp;= (c + d) \cdot e \<br>P_4 &amp;= d \cdot (g - e) \<br>P_5 &amp;= (a + d) \cdot (e + h) \<br>P_6 &amp;= (b - d) \cdot (g + h) \<br>P_7 &amp;= (a - c) \cdot (e + f)<br>\end{split}<br>\end{equation}<br>$$</p>
+<p>$$<br>\begin{equation}<br>\begin{split}<br>r &amp;= P_5  + P_4 - P_2 + P_6 \<br>s &amp;= P_1 + P_2 \<br>t &amp;= P_3 + P_4 \<br>u &amp;= P_5  + P_1 - P_3 -  P_7<br>\end{split}<br>\end{equation}<br>$$</p>
+<p>Algorithm:</p>
+<ul>
+<li><p>Divide: Partition A and B into $n/2 \times n/2$ submatrices. Form terms to be multiplied using + and -</p>
+<p>$P_1, P_2 …$ – $O(n^2)$</p>
+</li>
+<li><p>Conquer: Perform 7 multiplications of $n/2 \times n/2$ submatrices recursively</p>
+</li>
+<li><p>Combine: Form C using + and - on $n/2 \times n/2$ matrices  $O(n^2)$</p>
+</li>
+</ul>
+<p>Time complexity:  $T(n) = 7T(n/2) + O(n^2) = O(n^{lg7}) = O(n^{2.81})$</p>
+<p>The number 2.81 may not seem much smaller than 3, but because the difference is in the exponent, the impact on running time is significant. In fact, Strassen’s algorithm beats the ordinary algorithm on today’s machines for $n\geq 32$ or so.</p>
+<p>Best to date (of theoretical interest only): $O(n^{2.376..})$</p>
+<h4 id="7-VLSI-layout-超大规模集成电路"><a href="#7-VLSI-layout-超大规模集成电路" class="headerlink" title="7. VLSI layout (超大规模集成电路)"></a>7. VLSI layout (超大规模集成电路)</h4><p>Problem: Embed a complete binary tree with n leaves in a grid using minimal area</p>
+<p>Naive: </p>
+<p>$H(n) = H(n/2) + O(1) = O(lgn)$</p>
+<p>$W(n) = 2W(n/2) + O(1) = O(n)$</p>
+<p>$Area = O(nlgn)$</p>
 <h4 id="递归式"><a href="#递归式" class="headerlink" title="递归式"></a>递归式</h4><p>递归式刻画分治算法的运行时间</p>
 <p>3种求解递归式的方法：</p>
 <ul>
@@ -594,7 +630,7 @@ $T(n) = O(nlgn)">
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Design-paradigm"><span class="nav-number">1.</span> <span class="nav-text">Design paradigm</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Example"><span class="nav-number">2.</span> <span class="nav-text">Example</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Merge-sort"><span class="nav-number">2.1.</span> <span class="nav-text">Merge sort</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Binary-search"><span class="nav-number">2.2.</span> <span class="nav-text">Binary search</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Powering-a-number"><span class="nav-number">2.3.</span> <span class="nav-text">Powering a number</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Fibonacci-number"><span class="nav-number">2.4.</span> <span class="nav-text">Fibonacci number</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Recursive-Squaring-Fibonacci-number"><span class="nav-number">2.5.</span> <span class="nav-text">Recursive Squaring(Fibonacci number)</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#递归式"><span class="nav-number">3.</span> <span class="nav-text">递归式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Find-maximum-subarray-continuous"><span class="nav-number">4.</span> <span class="nav-text">Find maximum subarray, continuous</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Matrix-Multiply-–-Strassen"><span class="nav-number">5.</span> <span class="nav-text">Matrix Multiply – Strassen</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Strassen"><span class="nav-number">5.1.</span> <span class="nav-text">Strassen</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Design-paradigm"><span class="nav-number">1.</span> <span class="nav-text">Design paradigm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Example"><span class="nav-number">2.</span> <span class="nav-text">Example</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-Merge-sort"><span class="nav-number">2.1.</span> <span class="nav-text">1. Merge sort</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-Binary-search"><span class="nav-number">2.2.</span> <span class="nav-text">2. Binary search</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-Powering-a-number"><span class="nav-number">2.3.</span> <span class="nav-text">3. Powering a number</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-Fibonacci-number"><span class="nav-number">2.4.</span> <span class="nav-text">4. Fibonacci number</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-Recursive-Squaring-Fibonacci-number"><span class="nav-number">2.5.</span> <span class="nav-text">5. Recursive Squaring(Fibonacci number)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-Matrix-multiplication"><span class="nav-number">2.6.</span> <span class="nav-text">6. Matrix multiplication</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-VLSI-layout-超大规模集成电路"><span class="nav-number">2.7.</span> <span class="nav-text">7. VLSI layout (超大规模集成电路)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#递归式"><span class="nav-number">2.8.</span> <span class="nav-text">递归式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Find-maximum-subarray-continuous"><span class="nav-number">2.9.</span> <span class="nav-text">Find maximum subarray, continuous</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Matrix-Multiply-–-Strassen"><span class="nav-number">2.10.</span> <span class="nav-text">Matrix Multiply – Strassen</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Strassen"><span class="nav-number">2.10.1.</span> <span class="nav-text">Strassen</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
