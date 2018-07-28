@@ -95,7 +95,7 @@ Very practical (with tuning)
 
 Divide and conquer
 Divide (Key): Partition array into 2 subarrays around, pivot x, elements in the lower subarray $\leq$ x $\leq$ ele">
-<meta property="og:updated_time" content="2018-07-28T06:47:15.368Z">
+<meta property="og:updated_time" content="2018-07-28T07:36:58.723Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Introduction to Algorithms--QuickSort and its randomize">
 <meta name="twitter:description" content="Divide and conquer
@@ -378,7 +378,7 @@ Divide (Key): Partition array into 2 subarrays around, pivot x, elements in the 
 <p>Time complexity: $O(n)$</p>
 <p>(Pseudocode)</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">QUICKSORT(A,p,r)</div><div class="line"><span class="keyword">if</span> p &lt; r</div><div class="line">	q = PARTITION(A, p, r)</div><div class="line">	QUICKSORT(A, p, q-<span class="number">1</span>)</div><div class="line">	QUICKSORT(A, q+<span class="number">1</span>, r)</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">PARTITION(A,p,r)</div><div class="line">x = A[r]</div><div class="line">i = p - 1</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">PARTITION(A,p,r)</div><div class="line">x = A[p]</div><div class="line">i = p</div><div class="line">for j = p+1 to q</div></pre></td></tr></table></figure>
 
       
     </div>
