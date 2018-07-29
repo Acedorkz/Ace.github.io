@@ -84,7 +84,7 @@ Sorts “in place”
 Very practical (with tuning)
 
 Divide and conquer
-Divide (Key): Partition array into 2 subarrays around, pivot x, elements in the lower subarray $\leq$ x $\leq$ ele">
+Divide (Key): Partition array into 2 subarrays around, pivot x, elements in the lower subarray $\leq​$ x $\leq​$ e">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Introduction to Algorithms--QuickSort and its randomize">
 <meta property="og:url" content="http://yoursite.com/2018/07/26/Introduction-to-Algorithms-QuickSort-and-its-randomize/index.html">
@@ -94,8 +94,9 @@ Sorts “in place”
 Very practical (with tuning)
 
 Divide and conquer
-Divide (Key): Partition array into 2 subarrays around, pivot x, elements in the lower subarray $\leq$ x $\leq$ ele">
-<meta property="og:updated_time" content="2018-07-28T07:36:58.723Z">
+Divide (Key): Partition array into 2 subarrays around, pivot x, elements in the lower subarray $\leq​$ x $\leq​$ e">
+<meta property="og:image" content="http://yoursite.com/\img\quicksort_worstcase.png">
+<meta property="og:updated_time" content="2018-07-29T04:31:45.811Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Introduction to Algorithms--QuickSort and its randomize">
 <meta name="twitter:description" content="Divide and conquer
@@ -103,7 +104,8 @@ Sorts “in place”
 Very practical (with tuning)
 
 Divide and conquer
-Divide (Key): Partition array into 2 subarrays around, pivot x, elements in the lower subarray $\leq$ x $\leq$ ele">
+Divide (Key): Partition array into 2 subarrays around, pivot x, elements in the lower subarray $\leq​$ x $\leq​$ e">
+<meta name="twitter:image" content="http://yoursite.com/\img\quicksort_worstcase.png">
 
 
 
@@ -371,14 +373,64 @@ Divide (Key): Partition array into 2 subarrays around, pivot x, elements in the 
 <li>Very practical (with tuning)</li>
 </ul>
 <h4 id="Divide-and-conquer"><a href="#Divide-and-conquer" class="headerlink" title="Divide and conquer"></a>Divide and conquer</h4><ol>
-<li>Divide (Key): Partition array into 2 subarrays around, pivot x, elements in the lower subarray $\leq$ x $\leq$ elements in the upper subarray</li>
+<li>Divide (Key): Partition array into 2 subarrays around, pivot x, elements in the lower subarray $\leq​$ x $\leq​$ elements in the upper subarray</li>
 <li>Conquer: Recursively sort 2 subarrays</li>
 <li>Combine: Trivial</li>
 </ol>
 <p>Time complexity: $O(n)$</p>
-<p>(Pseudocode)</p>
+<a id="more"></a>
+<h4 id="Pseudocode"><a href="#Pseudocode" class="headerlink" title="Pseudocode"></a>Pseudocode</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//initial call</span></div><div class="line">QUCIKSORT(A, <span class="number">1</span>, n)</div></pre></td></tr></table></figure>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">QUICKSORT(A,p,r)</div><div class="line"><span class="keyword">if</span> p &lt; r</div><div class="line">	q = PARTITION(A, p, r)</div><div class="line">	QUICKSORT(A, p, q-<span class="number">1</span>)</div><div class="line">	QUICKSORT(A, q+<span class="number">1</span>, r)</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">PARTITION(A,p,r)</div><div class="line">x = A[p]</div><div class="line">i = p</div><div class="line">for j = p+1 to q</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">PARTITION(A,p,r)</div><div class="line">x = A[p]</div><div class="line">i = p</div><div class="line"><span class="keyword">for</span> j = p+<span class="number">1</span> to q</div><div class="line">	<span class="keyword">if</span> A[j] &lt;= x</div><div class="line">		i = i+<span class="number">1</span></div><div class="line">		exchange A[i] with A[j]</div><div class="line">exchange A[p] with A[i]</div><div class="line"><span class="keyword">return</span> i</div></pre></td></tr></table></figure>
+<h4 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h4><ul>
+<li>Assume all input elements are distinct</li>
+<li>In practice, there are better partitioning algorithms for when duplicate input elements may exist</li>
+<li><code>T(n)</code> = worst-case running time on an array of n elements</li>
+</ul>
+<h5 id="Worst-case-of-quicksort"><a href="#Worst-case-of-quicksort" class="headerlink" title="Worst-case of quicksort"></a>Worst-case of quicksort</h5><ul>
+<li><p>Input sorted of reversed sorted</p>
+</li>
+<li><p>Partition around min or max element</p>
+</li>
+<li><p>One side of partition always has no elements<br>$$<br>\begin{equation}<br>\begin{split}<br>T(n) &amp;= T(0) +T(n-1) + O(n) \\<br>&amp;= O(1) + T(n-1) +O(n) \\<br>&amp;= T(n-1) + O(n)\\<br>&amp;= O(n^2) \\<br>\end{split}<br>\end{equation}<br>$$<br>arithmetic series 等差级数, like insertion sort</p>
+<p>$O(c\sum_{k=1}^nk) = O((\frac{1+n}{2})n) = O(n^2)$</p>
+<p>$T(n) = O(n) + O(n^2) = O(n^2)$</p>
+</li>
+</ul>
+<p><img src="\img\quicksort_worstcase.png" alt="worst_case"></p>
+<h5 id="Best-case-analysis-intuition-only"><a href="#Best-case-analysis-intuition-only" class="headerlink" title="Best-case analysis (intuition only)"></a>Best-case analysis (intuition only)</h5><p>If we’re really lucky, Partition splits the array evenly n/2: n/2<br>$$<br>\begin{equation}<br>\begin{split}<br>T(n) &amp;= 2T(n/2) + O(n) \\<br>&amp;= O(nlgn)<br>\end{split}<br>\end{equation}<br>$$<br>(same as merge sort)</p>
+<h5 id="Analysis-of-“almost-best”-case-intuition-only"><a href="#Analysis-of-“almost-best”-case-intuition-only" class="headerlink" title="Analysis of “almost-best” case (intuition only)"></a>Analysis of “almost-best” case (intuition only)</h5><p>What if the split is always $\frac{1}{10}:\frac{9}{10}$ ?</p>
+<p>$$<br>\begin{equation}<br>\begin{split}<br>T(n) &amp;= T(\frac{1}{10}n) + T(\frac{9}{10}n) + O(n) \\<br>O(n) &amp;\le cn\\<br>\end{split}<br>\end{equation}<br>$$</p>
+<p>$$<br>cn\cdot log_{10} \leq T(n) \leq cn\cdot log_{\frac{9}{10}} + O(n)<br>\approx nlgn<br>$$</p>
+<p>same as evenly</p>
+<h5 id="More-intuition"><a href="#More-intuition" class="headerlink" title="More intuition"></a>More intuition</h5><p>Suppose we alternate lucky, unlucky, lucky, unlucky, …<br>$$<br>\begin{equation}<br>\begin{split}<br>L(n) &amp;= 2U(\frac{n}{2}) + O(n)\quad lucky\\<br>U(n) &amp;= L(n-1) + O(n) \quad unlucky<br>\end{split}<br>\end{equation}<br>$$<br>Solving:<br>$$<br>\begin{equation}<br>\begin{split}<br>L(n) &amp;= 2(L(\frac{n}{2}-1) + O(\frac{n}{2}))+O(n)\ <br>&amp;=  2L(\frac{n}{2}-1) + O(n) \\<br>&amp;= O(nlgn) \quad lucky<br>\end{split}<br>\end{equation}<br>$$<br>How can we make sure we are usually lucky?</p>
+<h5 id="Randomized-quicksort"><a href="#Randomized-quicksort" class="headerlink" title="Randomized quicksort"></a>Randomized quicksort</h5><p>IDEA: Partition around a random element</p>
+<ul>
+<li>Running time is independent of the input ordering</li>
+<li>No assumptions need to be made about the input distribution</li>
+<li>No specific input elicits the worst-case behavior</li>
+<li>The worst-case in determined only by the output of a random-number generator</li>
+</ul>
+<p><strong>Analysis</strong></p>
+<p>Let $T(n)$ be the random variable for the running time of randomized quicksort on an input of size $n$, assuming random numbers are independent</p>
+<p>For $k=0,1,…,n-1$, define the <strong>indicator random variable</strong><br>$$<br>X_k =<br>\begin{cases}<br>  1, \quad \text{for if partition generates a k: n-k-1 split}\\<br>0, \quad \text{otherwise}<br>\end{cases}<br>$$</p>
+<p>$$<br>\begin{equation}<br>\begin{split}<br>E[X_k]&amp;=0\cdot P{X_k=0} + 1\cdot P{X_k=1}\ <br>&amp;=  P{X_k=1}\\<br>&amp;= \frac{1}{n}\\<br>&amp;\text{all splts are equally likely 所有划分都是相同概率, assuming elements are  distinct}\\<br>&amp;\text{each one has a }\frac{1}{n}\text{ chance of being picked as the pivot}\\<br>&amp;\text{when you pick the pivot, that determines what is on the left and the right and so forth}<br>\end{split}<br>\end{equation}<br>$$</p>
+<p>$$<br>\begin{equation}<br>\begin{split}<br>T_n &amp;=<br>\begin{cases}<br>T(0)+T(n-1)+O(n)\quad \text{if 0:n-1 split}\\<br>T(1)+T(n-2)+O(n)\quad \text{if 1:n-2 split}\\<br>…\\<br>T(n-1)+T(0)+O(n)\quad \text{if n-1:0 split}<br>\end{cases}\\<br>&amp;=\sum_{k=0}^{n-1}X_k(T(k)+T(n-k-1)+O(n))<br>\end{split}<br>\end{equation}<br>$$</p>
+<p><strong>Calculating expectation</strong></p>
+<p>Take expectations of both sides<br>$$<br>\begin{equation}<br>\begin{split}<br>E[T(n)]&amp;=E[\sum_{k=0}^{n-1}X_k(T(k)+T(n-k-1)+O(n))]\ <br>&amp;= \sum_{k=0}^{n-1}E[X_k(T(k)+T(n-k-1)+O(n))]\text{ linearity of expectation}\\<br>&amp;=\sum_{k=0}^{n-1}E[X_k]\cdot E[(T(k)+T(n-k-1)+O(n))]\text{ Independence of }X_k\text{from other random choices}\\<br>&amp;=\frac{1}{n}\sum_{k=0}^{n-1}E[(T(k)]+\frac{1}{n}\sum_{k=0}^{n-1}E[T(n-k-1)]+\frac{1}{n}\sum_{k=0}^{n-1}O(n)\text{ summations have identical terms}\\<br>&amp;=\frac{2}{n}\sum_{k=0}^{n-1}E[(T(k)]+O(n)<br>\end{split}<br>\end{equation}<br>$$<br>The $k=0,1$ terms can be absorbed in the $O(n)$</p>
+<p><strong>Prove</strong>:</p>
+<p>$E[T(n)]\leq anlgn$ for constant $a \geq 0$</p>
+<p>Choose $a$ large enough so that $anlgn$ dominates $E[T(n)]$ for sufficiently small $n\geq 2$</p>
+<p>Use fact:</p>
+<p>$\sum_{k=2}^{n-1}klgk \leq \frac{1}{2}n^2lgn-\frac{1}{8}n^2$</p>
+<p>(exercise)</p>
+<p>Substitution method:<br>$$<br>\begin{equation}<br>\begin{split}<br>E[T(n)]&amp;\leq\frac{2}{n}\sum_{k=2}^{n-1}aklgk+O(n)\\<br>&amp;\leq \frac{2a}{n}(\frac{1}{2}n^2lgn-\frac{1}{8}n^2)+O(n)\text{ use fact}\\<br>&amp;=anlgn-(\frac{an}{4}-O(n))\text{ express as desired - residual}\\<br>&amp;\leq anlgn\\<br>&amp; \text{if a is chosen large enough so that }\frac{an}{4} \text{ dominates the }\geq O(n)<br>\end{split}<br>\end{equation}\\<br>$$</p>
+<h5 id="Quicksort-in-practice"><a href="#Quicksort-in-practice" class="headerlink" title="Quicksort in practice"></a>Quicksort in practice</h5><ul>
+<li>Quicksort is a great general-purpose sorting algorithm</li>
+<li>Quicksort is typically over twice as fast as merge sort</li>
+<li>Quicksort can benefit substantially from code tuning</li>
+<li>Quicksort behaves well even with caching and virtual memory</li>
+</ul>
 
       
     </div>
@@ -553,7 +605,7 @@ Divide (Key): Partition array into 2 subarrays around, pivot x, elements in the 
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Divide-and-conquer"><span class="nav-number">1.</span> <span class="nav-text">Divide and conquer</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Divide-and-conquer"><span class="nav-number">1.</span> <span class="nav-text">Divide and conquer</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Pseudocode"><span class="nav-number">2.</span> <span class="nav-text">Pseudocode</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Analysis"><span class="nav-number">3.</span> <span class="nav-text">Analysis</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Worst-case-of-quicksort"><span class="nav-number">3.1.</span> <span class="nav-text">Worst-case of quicksort</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Best-case-analysis-intuition-only"><span class="nav-number">3.2.</span> <span class="nav-text">Best-case analysis (intuition only)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Analysis-of-“almost-best”-case-intuition-only"><span class="nav-number">3.3.</span> <span class="nav-text">Analysis of “almost-best” case (intuition only)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#More-intuition"><span class="nav-number">3.4.</span> <span class="nav-text">More intuition</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Randomized-quicksort"><span class="nav-number">3.5.</span> <span class="nav-text">Randomized quicksort</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Quicksort-in-practice"><span class="nav-number">3.6.</span> <span class="nav-text">Quicksort in practice</span></a></li></ol></li></ol></div>
             
 
           </div>

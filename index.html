@@ -835,23 +835,17 @@
 
       
         
-          
-          
-Divide and conquer
-Sorts “in place”
-Very practical (with tuning)
-
-Divide and conquer
-Divide (Key): Partition array into 2 subarrays around, pivot x, elements in the lower subarray $\leq$ x $\leq$ elements in the upper subarray
-Conquer: Recursively sort 2 subarrays
-Combine: Trivial
-
-Time complexity: $O(n)$
-(Pseudocode)
-12345QUICKSORT(A,p,r)if p &lt; r	q = PARTITION(A, p, r)	QUICKSORT(A, p, q-1)	QUICKSORT(A, q+1, r)
-1234PARTITION(A,p,r)x = A[p]i = pfor j = p+1 to q
-
-          
+          <ul>
+<li>Divide and conquer</li>
+<li>Sorts “in place”</li>
+<li>Very practical (with tuning)</li>
+</ul>
+<h4 id="Divide-and-conquer"><a href="#Divide-and-conquer" class="headerlink" title="Divide and conquer"></a>Divide and conquer</h4><ol>
+<li>Divide (Key): Partition array into 2 subarrays around, pivot x, elements in the lower subarray $\leq​$ x $\leq​$ elements in the upper subarray</li>
+<li>Conquer: Recursively sort 2 subarrays</li>
+<li>Combine: Trivial</li>
+</ol>
+<p>Time complexity: $O(n)$</p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/07/26/Introduction-to-Algorithms-QuickSort-and-its-randomize/#more" rel="contents">
