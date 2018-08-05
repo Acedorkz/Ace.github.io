@@ -84,55 +84,17 @@
 没有监督信息，只有“奖赏”的反馈信号
 反馈通常是延迟的
 样本通常不符合独立同分布假设
-智能体的动作会影响到其后续观察到的数据的分布
-
-Example：
-
-直升机的飞行控制
-+r 沿着既定路线飞行
--r 偏离或坠毁
-
-
-组合投资管理
-+r 盈利
--r 亏损
-
-
-电站的控制
-+r 稳定输出电力
--r 超出安全预警
-
-
-Atari游">
+智能体的动作会影响到其后续观察到的数据的分布">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Introduction to Reinforcement learning">
-<meta property="og:url" content="http://yoursite.com/2018/08/04/Introduction-to-Reinforcement-learning/index.html">
+<meta property="og:url" content="http://yoursite.com/2018/08/04/Introduction-to-Reinforcement-learning2/index.html">
 <meta property="og:site_name" content="Ace">
 <meta property="og:description" content="强化学习什么是强化学习介于监督学习（有label）和无监督学习的中间
 
 没有监督信息，只有“奖赏”的反馈信号
 反馈通常是延迟的
 样本通常不符合独立同分布假设
-智能体的动作会影响到其后续观察到的数据的分布
-
-Example：
-
-直升机的飞行控制
-+r 沿着既定路线飞行
--r 偏离或坠毁
-
-
-组合投资管理
-+r 盈利
--r 亏损
-
-
-电站的控制
-+r 稳定输出电力
--r 超出安全预警
-
-
-Atari游">
+智能体的动作会影响到其后续观察到的数据的分布">
 <meta property="og:image" content="https://image.jiqizhixin.com/uploads/editor/04de9a06-2330-4433-a858-3d72dcbeae9b/1522652096508.jpg">
 <meta property="og:image" content="https://image.jiqizhixin.com/uploads/editor/79655275-f0e8-410c-b5ed-b6a634266d71/1522652097371.jpg">
 <meta property="og:image" content="https://image.jiqizhixin.com/uploads/editor/a7ac93ad-71ae-4e93-b0c7-a0e17966c645/1522652097931.jpg">
@@ -140,7 +102,7 @@ Atari游">
 <meta property="og:image" content="https://pic4.zhimg.com/80/v2-8381e1ee9bdec6720629ce5e06c29baa_hd.jpg">
 <meta property="og:image" content="https://pic4.zhimg.com/80/v2-77f230260004d6935a8c7a0816d29db5_hd.jpg">
 <meta property="og:image" content="https://pic2.zhimg.com/80/v2-cadfd4a98f96e815214a0a431ca343a8_hd.jpg">
-<meta property="og:updated_time" content="2018-08-05T02:40:50.277Z">
+<meta property="og:updated_time" content="2018-08-04T10:31:36.274Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Introduction to Reinforcement learning">
 <meta name="twitter:description" content="强化学习什么是强化学习介于监督学习（有label）和无监督学习的中间
@@ -148,26 +110,7 @@ Atari游">
 没有监督信息，只有“奖赏”的反馈信号
 反馈通常是延迟的
 样本通常不符合独立同分布假设
-智能体的动作会影响到其后续观察到的数据的分布
-
-Example：
-
-直升机的飞行控制
-+r 沿着既定路线飞行
--r 偏离或坠毁
-
-
-组合投资管理
-+r 盈利
--r 亏损
-
-
-电站的控制
-+r 稳定输出电力
--r 超出安全预警
-
-
-Atari游">
+智能体的动作会影响到其后续观察到的数据的分布">
 <meta name="twitter:image" content="https://image.jiqizhixin.com/uploads/editor/04de9a06-2330-4433-a858-3d72dcbeae9b/1522652096508.jpg">
 
 
@@ -198,7 +141,7 @@ Atari游">
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/08/04/Introduction-to-Reinforcement-learning/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/08/04/Introduction-to-Reinforcement-learning2/"/>
 
 
 
@@ -341,7 +284,7 @@ Atari游">
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/04/Introduction-to-Reinforcement-learning/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/04/Introduction-to-Reinforcement-learning2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Ace_ZAJ">
@@ -437,6 +380,7 @@ Atari游">
 <li>样本通常不符合独立同分布假设</li>
 <li>智能体的动作会影响到其后续观察到的数据的分布</li>
 </ul>
+<a id="more"></a>
 <p>Example：</p>
 <ul>
 <li>直升机的飞行控制<ul>
@@ -469,8 +413,19 @@ Atari游">
 </ul>
 <p>问题可以用强化学习建模：</p>
 <p>​    任务的目标可以等价的表示为在某个奖赏函数上的累积最大化</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">          ----观察o1----&gt;</div><div class="line"></div><div class="line">          &lt;----动作a1----  </div><div class="line"></div><div class="line">          ----奖赏r1,o2----&gt;</div><div class="line"></div><div class="line">环境      &lt;----动作a2----    智能体</div><div class="line"></div><div class="line">          ----奖赏r2,o3----&gt;</div><div class="line"></div><div class="line">          &lt;----动作a3----</div><div class="line"></div><div class="line">          ----奖赏r3,o4----&gt;</div></pre></td></tr></table></figure>
-<p>$\max\sum_{i=1}^{T}r_i$</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">----观察o1----&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;----动作a1----</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">----奖赏r1,o2----&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">环境      &lt;----动作a2----    智能体</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">----奖赏r2,o3----&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;----动作a3----</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">----奖赏r3,o4----&gt;</div></pre></td></tr></table></figure>
 <p><strong>目标：</strong></p>
 <ul>
 <li>通过选择动作最大化累计奖赏</li>
@@ -478,111 +433,95 @@ Atari游">
 <li>有时需要牺牲眼前的小利益获得长远的大利益</li>
 </ul>
 <h4 id="状态-state"><a href="#状态-state" class="headerlink" title="状态 state"></a>状态 state</h4><p>历史定义为，t时刻之前能观察到的所有信息：</p>
-<p>$$ a_1, r_1,…o_t$$</p>
 <p>状态是决定接下来会发生什么的关键信息</p>
 <ul>
-<li>环境状态 $S_t^e$<ul>
+<li>环境状态 <ul>
 <li>环境的私有表示信息</li>
 <li>决定了下一步环境反馈什么观察和奖赏给智能体</li>
 <li>通常对智能体不是完全可见的</li>
 <li>即使完全可见，对智能体来说含有大量的冗余信息</li>
 </ul>
 </li>
-<li>智能体状态$S_t^a$<ul>
+<li>智能体状态<ul>
 <li>智能体的内部表示</li>
 <li>决定了下一步智能体选择什么动作</li>
 <li>通常是强化学习算法的输入</li>
-<li>其可以表示为历史的一个函数，即$S_t^a = f(H_t)$</li>
+<li>其可以表示为历史的一个函数，即</li>
 </ul>
 </li>
 </ul>
 <h3 id="马尔科夫决策过程"><a href="#马尔科夫决策过程" class="headerlink" title="马尔科夫决策过程"></a>马尔科夫决策过程</h3><p>马尔科夫链：</p>
-<p><img src="https://image.jiqizhixin.com/uploads/editor/04de9a06-2330-4433-a858-3d72dcbeae9b/1522652096508.jpg" alt="Markov"></p>
+<p><img src="https://image.jiqizhixin.com/uploads/editor/04de9a06-2330-4433-a858-3d72dcbeae9b/1522652096508.jpg" alt="img"></p>
 <p>一个状态是马尔可夫的，当且仅当</p>
-<p>$$P(S_{t+1}|S_t) = P(S_{t+1}|S1, S2,…St)$$</p>
 <p>给定现在，未来与历史无关</p>
-<p>环境的状态$S_t^e, H_t$都是马尔可夫的</p>
+<p>环境的状态都是马尔可夫的</p>
 <p>全部可观察性：</p>
-<p>​    当$o_t=s_t^a=s_t^e$时，我们便得到了一个马尔科夫随机过程（MDP）</p>
+<p>​    当时，我们便得到了一个马尔科夫随机过程（MDP）</p>
 <h4 id="马尔科夫过程-MP"><a href="#马尔科夫过程-MP" class="headerlink" title="马尔科夫过程 MP"></a>马尔科夫过程 MP</h4><p>Definition: A Markov Process(or Markov Chain) is a tuple(S, P) 状态空间和概率转移矩阵</p>
 <ul>
 <li><p>S is a (finite) set of states</p>
 </li>
 <li><p>P is a state transition probability matrix</p>
-<p>$P_{ss’}=P{S_{t+1=s’}|S_t=s}$</p>
+<p>​</p>
 </li>
 </ul>
-<h4 id="马尔科夫奖赏过程-MRP"><a href="#马尔科夫奖赏过程-MRP" class="headerlink" title="马尔科夫奖赏过程 MRP"></a>马尔科夫奖赏过程 MRP</h4><p>A Markov Reward Process is a tuple $(S, P, R, r)$</p>
+<h4 id="马尔科夫奖赏过程-MRP"><a href="#马尔科夫奖赏过程-MRP" class="headerlink" title="马尔科夫奖赏过程 MRP"></a>马尔科夫奖赏过程 MRP</h4><p>A Markov Reward Process is a tuple </p>
 <ul>
 <li><p>S is a finite set of states</p>
 </li>
 <li><p>P is a state transition probability matrix</p>
-<p>$P_{ss’}=P{S_{t+1=s’}|S_t=s}$</p>
+<p>​</p>
 </li>
 <li><p>R is a reward function</p>
-<p>$R_s = E{R_{t+1}|S_t=s}$</p>
+<p>​</p>
 </li>
-<li><p>r is a discount factor, $r \in [0,1]$</p>
+<li><p>r is a discount factor, </p>
 </li>
 </ul>
-<h4 id="马尔科夫决策过程-MDP"><a href="#马尔科夫决策过程-MDP" class="headerlink" title="马尔科夫决策过程 MDP"></a>马尔科夫决策过程 MDP</h4><p><img src="https://image.jiqizhixin.com/uploads/editor/79655275-f0e8-410c-b5ed-b6a634266d71/1522652097371.jpg" alt=""></p>
-<p><img src="https://image.jiqizhixin.com/uploads/editor/a7ac93ad-71ae-4e93-b0c7-a0e17966c645/1522652097931.jpg" alt=""></p>
-<p>A Markov Decision Process is a tuple $(S, A,P, R, r)$</p>
+<h4 id="马尔科夫决策过程-MDP"><a href="#马尔科夫决策过程-MDP" class="headerlink" title="马尔科夫决策过程 MDP"></a>马尔科夫决策过程 MDP</h4><p><img src="https://image.jiqizhixin.com/uploads/editor/79655275-f0e8-410c-b5ed-b6a634266d71/1522652097371.jpg" alt="img"></p>
+<p><img src="https://image.jiqizhixin.com/uploads/editor/a7ac93ad-71ae-4e93-b0c7-a0e17966c645/1522652097931.jpg" alt="img"></p>
+<p>A Markov Decision Process is a tuple </p>
 <ul>
 <li><p>S is a finite set of states</p>
 </li>
 <li><p>A is a finite set of actions</p>
 </li>
 <li><p>P is a state transition probability matrix</p>
-<p>$P_{ss’}^a=P{S_{t+1=s’}|S_t=s, A_t=a}$</p>
+<p>​</p>
 </li>
 <li><p>R is a reward function</p>
-<p>$R_s^a = E{R_{t+1}|S_t=s, A_t=a}$</p>
+<p>​</p>
 </li>
-<li><p>r is a discount factor, $r \in [0,1]$</p>
+<li><p>r is a discount factor, </p>
 </li>
 </ul>
 <p>Example</p>
-<h4 id="马尔科夫随机过程-MDP"><a href="#马尔科夫随机过程-MDP" class="headerlink" title="马尔科夫随机过程 MDP"></a>马尔科夫随机过程 MDP</h4><p>$V(sunny) = E[\sum_{t=1}^Tr_t|S_0=sunny]$</p>
-<p>$V(sunny) = E[\sum_{t=1}^\infty \gamma^tr_t|S_0=sunny]$</p>
-<p>状态值函数</p>
+<h4 id="马尔科夫随机过程-MDP"><a href="#马尔科夫随机过程-MDP" class="headerlink" title="马尔科夫随机过程 MDP"></a>马尔科夫随机过程 MDP</h4><p>状态值函数</p>
 <h4 id="马尔科夫决策过程-1"><a href="#马尔科夫决策过程-1" class="headerlink" title="马尔科夫决策过程"></a>马尔科夫决策过程</h4><p><strong>策略(policy)</strong>的引入：状态到动作的映射</p>
-<p>随机策略 $\pi(a|s)=P(a|s)$</p>
-<p>确定性策略 $\pi(s)=argmax_aP(a|s)$</p>
+<p>随机策略 </p>
+<p>确定性策略 </p>
 <h4 id="MDP的策略评估"><a href="#MDP的策略评估" class="headerlink" title="MDP的策略评估"></a>MDP的策略评估</h4><h5 id="状态值函数-V"><a href="#状态值函数-V" class="headerlink" title="状态值函数 V"></a>状态值函数 V</h5><p>从状态s开始，使用当前策略进行后续动作选择，得到的期望奖赏</p>
-<p>$V^\pi(s)=E_\pi[\sum_{k=0}^\infty \gamma_k R_{t+k+1}|S_t=s]$</p>
-<p>$V^\pi(s)=E_\pi[R_{t+1}+\gamma V^\pi(S_{t+1})|S_t=s]$  (递归表示)</p>
+<p>  (递归表示)</p>
 <h5 id="状态-动作值函数-Q"><a href="#状态-动作值函数-Q" class="headerlink" title="状态-动作值函数 Q"></a>状态-动作值函数 Q</h5><p>从状态s开始，执行动作a，并使用当前策略进行后续选择</p>
-<p>$Q^\pi(s,a)=E_\pi[{\sum_{k=0}^\infty \gamma^k R_{t+k+1}|s_t=s,a_t=a}]$</p>
-<h5 id="值函数转换关系-Bellman-Expectation-Equation"><a href="#值函数转换关系-Bellman-Expectation-Equation" class="headerlink" title="值函数转换关系 Bellman Expectation Equation"></a>值函数转换关系 Bellman Expectation Equation</h5><p>$V^\pi(s)=\sum_a\pi(a|s)Q^\pi(s,a)$</p>
-<p>$Q^\pi(s,a)=R(s,a)+\gamma\sum_{s^{\prime}}P(s^{\prime}|s,a)V^\pi(s^{\prime})$</p>
-<p>=&gt;</p>
-<p>$V^\pi(s)=\sum_a\pi(a|s)(R(s,a)+\gamma\sum_{s^{\prime}}P(s^{\prime}|s,a)V^\pi(s^{\prime}))$</p>
-<p>$Q^\pi(s,a)=R(s,a)+\gamma\sum_{s^{\prime}}P(s^{\prime}|s,a)\sum_a\pi(a|s)Q^\pi(s^\prime,a^\prime)$</p>
-<h5 id="最优状态值函数"><a href="#最优状态值函数" class="headerlink" title="最优状态值函数"></a>最优状态值函数</h5><p>$$V^*(s)=\max_\pi V^\pi(s)$$</p>
-<h5 id="最优状态-动作函数"><a href="#最优状态-动作函数" class="headerlink" title="最优状态-动作函数"></a>最优状态-动作函数</h5><p>$$Q^*(s,a)=\max_\pi Q^\pi(s,a)$$$</p>
+<h5 id="值函数转换关系-Bellman-Expectation-Equation"><a href="#值函数转换关系-Bellman-Expectation-Equation" class="headerlink" title="值函数转换关系 Bellman Expectation Equation"></a>值函数转换关系 Bellman Expectation Equation</h5><p>=&gt;</p>
+<h5 id="最优状态值函数"><a href="#最优状态值函数" class="headerlink" title="最优状态值函数"></a>最优状态值函数</h5><h5 id="最优状态-动作函数"><a href="#最优状态-动作函数" class="headerlink" title="最优状态-动作函数"></a>最优状态-动作函数</h5><p>$</p>
 <ul>
 <li>最优函数值决定了MDP中可以达到的最优性能</li>
 <li>当最优函数值已知时，该MDP已解</li>
 </ul>
 <h5 id="定义策略上的偏序关系"><a href="#定义策略上的偏序关系" class="headerlink" title="定义策略上的偏序关系"></a>定义策略上的偏序关系</h5><p>定理：对任意的MDP有</p>
 <ul>
-<li>至少存在一个最优策略$\pi^<em>$优于或不差于所有其他策略，即$\pi^</em> \ge \pi, \forall \pi$</li>
-<li>所有的<strong>最优策略</strong>都可以取到最优状态值函数 $V^{\pi^<em>}=V^</em>(s)$</li>
-<li>所有的最优策略都可以取到最优状态-动作值函数 $Q^{\pi^<em>}(s,a) = Q^</em>(s,a)$</li>
+<li>至少存在一个最优策略优于或不差于所有其他策略，即</li>
+<li>所有的<strong>最优策略</strong>都可以取到最优状态值函数 </li>
+<li>所有的最优策略都可以取到最优状态-动作值函数 </li>
 </ul>
 <h5 id="最优策略"><a href="#最优策略" class="headerlink" title="最优策略"></a>最优策略</h5><p>最优策略可以通过最大化Q函数得到，即</p>
-<p>$\pi^<em>(s)=argmax_aQ^{\pi^</em>}(s,a)$</p>
 <ul>
 <li>对于任意MDP，总是存在一个确定性的最优策略</li>
 <li>如果最优Q函数已知，则最优策略已知</li>
 </ul>
 <h5 id="最优值函数"><a href="#最优值函数" class="headerlink" title="最优值函数"></a>最优值函数</h5><p><strong>Bellman</strong>最优方程</p>
-<p>$$V^<em>(s)=max_aQ^</em>(s,a)$$</p>
-<p>$$Q^<em>(s,a)=R(s,a)+\gamma\sum_{s^{\prime}}P(s^{\prime}|s,a)V^</em>(s^{\prime})$$</p>
 <p>=&gt;</p>
-<p>$V^\pi(s)=max_aR(s,a)+\gamma\sum_{s^{\prime}}P(s^{\prime}|s,a)V^*(s^{\prime})$</p>
-<p>$Q^<em>(s,a)=R(s,a)+\gamma\sum_{s^{\prime}}P(s^{\prime}|s,a)\max_a\pi(a|s)Q^</em>(s^\prime,a^\prime)$</p>
 <ul>
 <li>没有闭式解，没有一个式子可以直接解出来</li>
 <li>可以迭代求解：值迭代，策略迭代，Q-learning，SARSA</li>
@@ -630,48 +569,42 @@ Atari游">
 <p>​    A3C</p>
 <h5 id="样本复杂度"><a href="#样本复杂度" class="headerlink" title="样本复杂度"></a>样本复杂度</h5><p>model-based shallow RL -&gt; model-based deep RL -&gt; off policy Q-function learning -&gt; actor-critic style methods -&gt; on policy gradient algorithms -&gt; evolutionary or gradient-free algorithms</p>
 <p>more efficient (fewer samples) -&gt; less efficient (more samples)</p>
-<h3 id="基于值函数估计的强化学习算法"><a href="#基于值函数估计的强化学习算法" class="headerlink" title="基于值函数估计的强化学习算法"></a>基于值函数估计的强化学习算法</h3><h5 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h5><p><img src="https://image.jiqizhixin.com/uploads/editor/341b7df1-2943-4838-a1d6-39c3b971b709/1522652100958.jpg" alt=""></p>
+<h3 id="基于值函数估计的强化学习算法"><a href="#基于值函数估计的强化学习算法" class="headerlink" title="基于值函数估计的强化学习算法"></a>基于值函数估计的强化学习算法</h3><h5 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h5><p><img src="https://image.jiqizhixin.com/uploads/editor/341b7df1-2943-4838-a1d6-39c3b971b709/1522652100958.jpg" alt="img"></p>
 <p>初始的Q值 -&gt; 得到一个策略 -&gt; 从环境中采样 -&gt; Q值 -&gt;…</p>
-<p>fit $V(s)$ or $Q(s,a)$ -&gt; set $\pi^<em>(s)=argmax_aQ^{\pi^</em>}(s,a)$</p>
+<p>fit  or  -&gt; set </p>
 <p>核心在估计值函数的计算/估计，第二步set较为简单</p>
 <h5 id="蒙特卡洛采样"><a href="#蒙特卡洛采样" class="headerlink" title="蒙特卡洛采样"></a>蒙特卡洛采样</h5><p><strong>Monte-Carlo Method:</strong></p>
-<p>$$Q^\pi(s,a)=\frac{1}{m}\sum_{i=1}^mR(\tau_i)$$</p>
-<p>$\tau_i$ is sample by following $\tau$ after $s,a$, 采样的轨迹</p>
+<p> is sample by following  after , 采样的轨迹</p>
 <p><strong>多次采样，效率低，无法泛化</strong></p>
 <p><strong>Monte-Carlo update:</strong></p>
-<p>$$Q(s_t,a_t)=Q(s_t,a_t)+\alpha(R-Q(s_t,a_t))$$</p>
-<p>MC error: $\alpha(R-Q(s_t,a_t))$</p>
+<p>MC error: </p>
 <p>增量更新，R从t+1开始，是轨迹上的，需要环境中run很多步，得到一个轨迹，到达终止状态或人为设置的步数，所以代价也很大</p>
 <p><strong>Temporal difference Method:</strong> TDerror</p>
-<p>$$Q(s_t,a_t)=Q(s_t,a_t)+\alpha(r_{t+1}+\gamma Q(s_{t+1},a_{t+1})-Q(s_t,a_t))$$</p>
 <ul>
-<li><p>TD error: $r_{t+1}+\gamma Q(s_{t+1},a_{t+1})-Q(s_t,a_t)$</p>
-</li>
-<li><p>$R$ – $r_{t+1}+\gamma Q(s_{t+1},a_{t+1})$</p>
-<p>t+1之后的就不参加，用已有的Q估计代替，采样就只有一条</p>
-</li>
+<li>TD error: </li>
 </ul>
+<hr>
+<p>  t+1之后的就不参加，用已有的Q估计代替，采样就只有一条</p>
 <p><strong>采样代价小，可泛化，参数化</strong></p>
-<h5 id="Q-learning"><a href="#Q-learning" class="headerlink" title="Q-learning"></a>Q-learning</h5><p>$Q^\pi(s,a)$ based on $\pi$</p>
-<p>$Q(s,a)$ $-\max_aQ(s,a)$</p>
+<h5 id="Q-learning"><a href="#Q-learning" class="headerlink" title="Q-learning"></a>Q-learning</h5><p> based on </p>
 <p><strong>off-policy TD control</strong></p>
-<p>$Q_o=0$, initial state<br>for $i=0,1,..$</p>
-<p>​    $s’,r$ = do action from policy $\pi_\epsilon$</p>
-<p>​    $a’=\pi(s’)$</p>
-<p>​    $Q^\pi(s,a)+=\alpha(r+\gamma Q^\pi(s’,a’)-Q(s,a))$</p>
-<p>​    $\pi(s)=argmax_a Q(s,a)$</p>
-<p>​    $s=s’, a=a’$</p>
+<p>, initial statefor </p>
+<p>​     = do action from policy </p>
+<p>​    </p>
+<p>​    </p>
+<p>​    </p>
+<p>​    </p>
 <p>end for</p>
 <p>目前在模型中学习到的policy</p>
-<h5 id="on-policy-TD-control"><a href="#on-policy-TD-control" class="headerlink" title="on-policy TD control"></a>on-policy TD control</h5><p>$Q_0=0$, initial state</p>
-<p>for $i=0,1,…$</p>
-<p>​    $s’, r$=do action from policy $\pi_\epsilon$</p>
-<p>​    $a’=\pi_\epsilon(s’)$</p>
-<p>​    $Q^\pi(s,a)+=\alpha(r+\gamma Q^\pi(s’,a’)-Q(s,a))$</p>
-<p>​    $\pi(s)=argmax_a Q(s,a)$</p>
-<p>​    $s=s’, a=a’$</p>
+<h5 id="on-policy-TD-control"><a href="#on-policy-TD-control" class="headerlink" title="on-policy TD control"></a>on-policy TD control</h5><p>, initial state</p>
+<p>for </p>
+<p>​    =do action from policy </p>
+<p>​    </p>
+<p>​    </p>
+<p>​    </p>
+<p>​    </p>
 <p>end for    </p>
-<p>a是执行采样的policy得到的,$\pi_\epsilon$参数化的policy</p>
+<p>a是执行采样的policy得到的,参数化的policy</p>
 <ul>
 <li>off policy：able to improve the policy without generating new samples from that policy</li>
 <li>on policy: each time the policy is changed, even a little bit, we need to generate new samples</li>
@@ -679,27 +612,23 @@ Atari游">
 <p>如果空间连续，不能这样做</p>
 <h5 id="值函数估计"><a href="#值函数估计" class="headerlink" title="值函数估计"></a>值函数估计</h5><p>可以将Q用参数表示，w</p>
 <p>Q-learning with function approximation</p>
-<p>$w=0$, initial state</p>
-<p>for $i=0,1,…$</p>
-<p>​    $s’,r=$ do action from policy $\pi_\epsilon$</p>
-<p>​    $a’=\pi(s’)$</p>
-<p>​    $w+=$ $\theta(r+\gamma\hat Q(s,a)-\hat Q(s,a)) \nabla(s_t, a_t)$</p>
-<p>​    $\pi(s)=argmax_a Q(s,a)$</p>
-<p>​    $s=s’, a=a’$</p>
+<p>, initial state</p>
+<p>for </p>
+<p>​     do action from policy </p>
+<p>​    </p>
+<p>​     </p>
+<p>​    </p>
+<p>​    </p>
 <p>end for</p>
-<p>$J(w)=E_{s\sim\pi}[(Q^\pi(s,a)-\hat Q(s,a))^2]$</p>
-<p>$\hat Q(s,a)$– when using DNN model, it will be Deep Q-learning(DQN)</p>
-<h3 id="基于策略梯度的强化学习算法"><a href="#基于策略梯度的强化学习算法" class="headerlink" title="基于策略梯度的强化学习算法"></a>基于策略梯度的强化学习算法</h3><p><img src="https://pic4.zhimg.com/80/v2-8381e1ee9bdec6720629ce5e06c29baa_hd.jpg" alt=""></p>
-<p><img src="https://pic4.zhimg.com/80/v2-77f230260004d6935a8c7a0816d29db5_hd.jpg" alt=""></p>
-<p><img src="https://pic2.zhimg.com/80/v2-cadfd4a98f96e815214a0a431ca343a8_hd.jpg" alt=""></p>
+<p>– when using DNN model, it will be Deep Q-learning(DQN)</p>
+<h3 id="基于策略梯度的强化学习算法"><a href="#基于策略梯度的强化学习算法" class="headerlink" title="基于策略梯度的强化学习算法"></a>基于策略梯度的强化学习算法</h3><p><img src="https://pic4.zhimg.com/80/v2-8381e1ee9bdec6720629ce5e06c29baa_hd.jpg" alt="img"></p>
+<p><img src="https://pic4.zhimg.com/80/v2-77f230260004d6935a8c7a0816d29db5_hd.jpg" alt="img"></p>
+<p><img src="https://pic2.zhimg.com/80/v2-cadfd4a98f96e815214a0a431ca343a8_hd.jpg" alt="img"></p>
 <p>核心在梯度的计算</p>
 <p>目标函数-&gt;梯度-&gt;优化</p>
-<p>$$J(\theta)=\int_\tau {p_\theta(\tau)R(\tau)} \,{\rm d}\tau$$</p>
-<p>$\theta$ , policy的参数，$J$ 是策略在所有轨迹$\tau$的概率的期望</p>
-<p>$$P_\theta(\tau)=p(s_0)\prod_{i=0}^{T-1}p(s_{i+1}|a_i,s_i)\pi_\theta(a_i|s_i)$$</p>
-<p>$\nabla_\theta J=\int_\tau {p_\theta(\tau)\nabla_\theta p_\theta(\tau) \log R(\tau)} \,{\rm d}\tau$</p>
-<p>trick: $\nabla_\theta p_\theta(\tau) =p_\theta(\tau)\nabla_\theta\log p_\theta(\tau) $</p>
-<p>$p\nabla_\theta\log p_\theta(\tau)=$ …</p>
+<p> , policy的参数， 是策略在所有轨迹的概率的期望</p>
+<p>trick: </p>
+<p> …</p>
 <p>REINFORCE 算法</p>
 <p>…</p>
 <p>另一种表达（在稳定分布上积分）</p>
@@ -732,8 +661,8 @@ Atari游">
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/08/04/Introduction-to-Reinforcement-learning2/" rel="next" title="Introduction to Reinforcement learning">
-                <i class="fa fa-chevron-left"></i> Introduction to Reinforcement learning
+              <a href="/2018/07/28/Interview-Operating-System/" rel="next" title="Interview--Operating System">
+                <i class="fa fa-chevron-left"></i> Interview--Operating System
               </a>
             
           </div>
@@ -742,8 +671,8 @@ Atari游">
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/08/04/U-Net在CT图像分割的应用/" rel="prev" title="U-Net在CT图像分割的应用">
-                U-Net在CT图像分割的应用 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/08/04/Introduction-to-Reinforcement-learning/" rel="prev" title="Introduction to Reinforcement learning">
+                Introduction to Reinforcement learning <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
