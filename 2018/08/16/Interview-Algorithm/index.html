@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="LeetCode-LinkedList," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -79,19 +79,22 @@
 
 
 
-<meta name="description" content="Linked List, EasyQuestionGiven a linked list, return the node where the cycle begins. If there is no cycle, return null.
-Note: Do not modify the linked list.">
+<meta name="description" content="二叉排序树二叉排序树，二叉树的一个变种
+主要的特点在于，该树的值在分布的时候具有非常明显的特征，左子树的值小于根节点的值，而根节点的值小于右子树的值，这在进行搜索，查找的时候是非常有利的，因为它的平均操作时间接近O(h)，h为树的高度，而且，二叉排序树本身是具有动态性的，可以动态地进行节点的删除，插入等的操作，BST的中序遍历必定是严格递增的。
+比较相等equals() 比较的是所指向地址是否相等">
 <meta property="og:type" content="article">
-<meta property="og:title" content="142.Linked List Cycle II">
-<meta property="og:url" content="http://yoursite.com/2018/06/05/142-Linked-List-Cycle-II/index.html">
+<meta property="og:title" content="Interview--Algorithm">
+<meta property="og:url" content="http://yoursite.com/2018/08/16/Interview-Algorithm/index.html">
 <meta property="og:site_name" content="Ace">
-<meta property="og:description" content="Linked List, EasyQuestionGiven a linked list, return the node where the cycle begins. If there is no cycle, return null.
-Note: Do not modify the linked list.">
-<meta property="og:updated_time" content="2018-06-07T14:48:42.650Z">
+<meta property="og:description" content="二叉排序树二叉排序树，二叉树的一个变种
+主要的特点在于，该树的值在分布的时候具有非常明显的特征，左子树的值小于根节点的值，而根节点的值小于右子树的值，这在进行搜索，查找的时候是非常有利的，因为它的平均操作时间接近O(h)，h为树的高度，而且，二叉排序树本身是具有动态性的，可以动态地进行节点的删除，插入等的操作，BST的中序遍历必定是严格递增的。
+比较相等equals() 比较的是所指向地址是否相等">
+<meta property="og:updated_time" content="2018-08-16T12:14:17.151Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="142.Linked List Cycle II">
-<meta name="twitter:description" content="Linked List, EasyQuestionGiven a linked list, return the node where the cycle begins. If there is no cycle, return null.
-Note: Do not modify the linked list.">
+<meta name="twitter:title" content="Interview--Algorithm">
+<meta name="twitter:description" content="二叉排序树二叉排序树，二叉树的一个变种
+主要的特点在于，该树的值在分布的时候具有非常明显的特征，左子树的值小于根节点的值，而根节点的值小于右子树的值，这在进行搜索，查找的时候是非常有利的，因为它的平均操作时间接近O(h)，h为树的高度，而且，二叉排序树本身是具有动态性的，可以动态地进行节点的删除，插入等的操作，BST的中序遍历必定是严格递增的。
+比较相等equals() 比较的是所指向地址是否相等">
 
 
 
@@ -121,13 +124,13 @@ Note: Do not modify the linked list.">
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/06/05/142-Linked-List-Cycle-II/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/08/16/Interview-Algorithm/"/>
 
 
 
 
 
-  <title>142.Linked List Cycle II | Ace</title>
+  <title>Interview--Algorithm | Ace</title>
   
 
 
@@ -264,7 +267,7 @@ Note: Do not modify the linked list.">
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/05/142-Linked-List-Cycle-II/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/16/Interview-Algorithm/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Ace_ZAJ">
@@ -281,7 +284,7 @@ Note: Do not modify the linked list.">
 
         
         
-          <h1 class="post-title" itemprop="name headline">142.Linked List Cycle II</h1>
+          <h1 class="post-title" itemprop="name headline">Interview--Algorithm</h1>
         
 
         <div class="post-meta">
@@ -293,8 +296,8 @@ Note: Do not modify the linked list.">
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-06-05T22:18:59+08:00">
-                2018-06-05
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-16T16:23:14+08:00">
+                2018-08-16
               </time>
             
 
@@ -316,8 +319,8 @@ Note: Do not modify the linked list.">
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/LeetCode/" itemprop="url" rel="index">
-                    <span itemprop="name">LeetCode</span>
+                  <a href="/categories/Interview/" itemprop="url" rel="index">
+                    <span itemprop="name">Interview</span>
                   </a>
                 </span>
 
@@ -353,11 +356,12 @@ Note: Do not modify the linked list.">
       
 
       
-        <h4 id="Linked-List-Easy"><a href="#Linked-List-Easy" class="headerlink" title="Linked List, Easy"></a>Linked List, Easy</h4><h4 id="Question"><a href="#Question" class="headerlink" title="Question"></a>Question</h4><p>Given a linked list, return the node where the cycle begins. If there is no cycle, return <code>null</code>.</p>
-<p><strong>Note:</strong> Do not modify the linked list.</p>
-<a id="more"></a>
-<h4 id="Answer"><a href="#Answer" class="headerlink" title="Answer"></a>Answer</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * Definition for singly-linked list.</div><div class="line"> * class ListNode &#123;</div><div class="line"> *     int val;</div><div class="line"> *     ListNode next;</div><div class="line"> *     ListNode(int x) &#123;</div><div class="line"> *         val = x;</div><div class="line"> *         next = null;</div><div class="line"> *     &#125;</div><div class="line"> * &#125;</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> ListNode <span class="title">detectCycle</span><span class="params">(ListNode head)</span> </span>&#123;</div><div class="line">        ListNode fast = head;</div><div class="line">        ListNode slow = head;</div><div class="line">        <span class="keyword">while</span>(fast!=<span class="keyword">null</span> &amp;&amp; fast.next!=<span class="keyword">null</span>)&#123;</div><div class="line">            fast = fast.next.next;</div><div class="line">            slow = slow.next;</div><div class="line">            <span class="keyword">if</span>(fast==slow)&#123;</div><div class="line">                ListNode slow2 = head;</div><div class="line">                <span class="keyword">while</span>(slow2!=slow)&#123;</div><div class="line">                    slow2 = slow2.next;</div><div class="line">                    slow = slow.next;</div><div class="line">                &#125;</div><div class="line">                <span class="keyword">return</span> slow;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>Running time: O(n)</p>
+        <h3 id="二叉排序树"><a href="#二叉排序树" class="headerlink" title="二叉排序树"></a>二叉排序树</h3><p>二叉排序树，二叉树的一个变种</p>
+<p>主要的特点在于，该树的值在分布的时候具有非常明显的特征，<strong>左子树的值小于根节点的值，而根节点的值小于右子树的值</strong>，这在进行搜索，查找的时候是非常有利的，因为它的平均操作时间接近O(h)，h为树的高度，而且，二叉排序树本身是具有动态性的，可以动态地进行节点的删除，插入等的操作，<strong>BST的中序遍历必定是严格递增的</strong>。</p>
+<h3 id="比较相等"><a href="#比较相等" class="headerlink" title="比较相等"></a>比较相等</h3><p><code>equals()</code> 比较的是所指向地址是否相等</p>
+<p><code>String</code> 的 <code>equals</code> 可以判断两个字符串的内容是否相等，是因为 <code>String</code> 自己重写了从 <code>Object</code> 继承的 <code>equals</code></p>
+<p><code>StringBuffer</code> 的 <code>equals</code> 不能比较两个字符串的内容是否相等，因为并没有重写 <code>equals</code> 方法，而是继承了 <code>Object</code> 继承的 <code>equals</code>，如果想要比较内容是否相等，需要利用<code>String</code> 帮忙完成</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">buf1.toString().equals(buf2.toString())</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -373,12 +377,6 @@ Note: Do not modify the linked list.">
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/LeetCode-LinkedList/" rel="tag"># LeetCode-LinkedList</a>
-          
-        </div>
-      
 
       
       
@@ -388,8 +386,8 @@ Note: Do not modify the linked list.">
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/06/05/148-Sort-List/" rel="next" title="148.Sort List">
-                <i class="fa fa-chevron-left"></i> 148.Sort List
+              <a href="/2018/08/16/Jobdu-1009-Binary-Search-Tree/" rel="next" title="Jobdu-1009.Binary Search Tree">
+                <i class="fa fa-chevron-left"></i> Jobdu-1009.Binary Search Tree
               </a>
             
           </div>
@@ -397,10 +395,6 @@ Note: Do not modify the linked list.">
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/06/07/83-Remove-Duplicates-from-Sorted-List/" rel="prev" title="83.Remove Duplicates from Sorted List">
-                83.Remove Duplicates from Sorted List <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -538,7 +532,7 @@ Note: Do not modify the linked list.">
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Linked-List-Easy"><span class="nav-number">1.</span> <span class="nav-text">Linked List, Easy</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Question"><span class="nav-number">2.</span> <span class="nav-text">Question</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Answer"><span class="nav-number">3.</span> <span class="nav-text">Answer</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#二叉排序树"><span class="nav-number">1.</span> <span class="nav-text">二叉排序树</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#比较相等"><span class="nav-number">2.</span> <span class="nav-text">比较相等</span></a></li></ol></div>
             
 
           </div>
