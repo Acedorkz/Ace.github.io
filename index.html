@@ -353,17 +353,9 @@
 
       
         
-          
-          import nltk
-统计词频1freq = nltk.FreqDist(tokens)
-处理停用词12from nltk.corpus import stopwordsstopwords.words('english')
-使用NLTK Tokenize文本文本没有Tokenize之前是无法处理的，token化过程意味着将大的部件分割为小部件
-你可以将段落tokenize成句子，将句子tokenize成单个词，NLTK分别提供了句子tokenizer和单词tokenizer
-sentence_tokenizer
-12345from nltk.tokenize import sent_tokenizemytext = "Hello Adam, how are you? I hope everything is going well. Today is a good day, see you dude."print(sent_tokenize(mytext))['Hello Adam, how are you?', 'I hope everything is going well.', 'Today is a good day, see you dude.']
-word_tokenizer
-12345from nltk.tokenize import word_tokenize mytext = "Hello Mr. Adam, how are you? I hope everything is going well. Today is a good day, see you d
-          ...
+          <p><code>import nltk</code></p>
+<h4 id="统计词频"><a href="#统计词频" class="headerlink" title="统计词频"></a>统计词频</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">freq = nltk.FreqDist(tokens)</div></pre></td></tr></table></figure>
+<h4 id="处理停用词"><a href="#处理停用词" class="headerlink" title="处理停用词"></a>处理停用词</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> nltk.corpus <span class="keyword">import</span> stopwords</div><div class="line">stopwords.words(<span class="string">'english'</span>)</div></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/09/04/NLP-introduction-NLTK/#more" rel="contents">
