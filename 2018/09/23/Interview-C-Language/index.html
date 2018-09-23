@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="default">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="C Language," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="C Language汇编语言汇编语言是直接面向处理器的、面向机器的程序设计语言，属于低级语言
+不同的处理器有不同的汇编语言语法和编译器，编译的程序无法在不同的处理器上执行，缺乏可移植性
+C语言特点允许直接访问物理地址，能进行位操作，实现汇编语言的大部分功能，可直接对硬件进行操作，兼有高级和低级语言的特点
+目标代码质量高，程序执行率高，只比汇编程序生成的目标代码效率低10%-20%
+程序可移植性好，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Interview--C Language">
+<meta property="og:url" content="http://yoursite.com/2018/09/23/Interview-C-Language/index.html">
+<meta property="og:site_name" content="Ace">
+<meta property="og:description" content="C Language汇编语言汇编语言是直接面向处理器的、面向机器的程序设计语言，属于低级语言
+不同的处理器有不同的汇编语言语法和编译器，编译的程序无法在不同的处理器上执行，缺乏可移植性
+C语言特点允许直接访问物理地址，能进行位操作，实现汇编语言的大部分功能，可直接对硬件进行操作，兼有高级和低级语言的特点
+目标代码质量高，程序执行率高，只比汇编程序生成的目标代码效率低10%-20%
+程序可移植性好，">
+<meta property="og:updated_time" content="2018-09-23T07:10:59.146Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Interview--C Language">
+<meta name="twitter:description" content="C Language汇编语言汇编语言是直接面向处理器的、面向机器的程序设计语言，属于低级语言
+不同的处理器有不同的汇编语言语法和编译器，编译的程序无法在不同的处理器上执行，缺乏可移植性
+C语言特点允许直接访问物理地址，能进行位操作，实现汇编语言的大部分功能，可直接对硬件进行操作，兼有高级和低级语言的特点
+目标代码质量高，程序执行率高，只比汇编程序生成的目标代码效率低10%-20%
+程序可移植性好，">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/09/23/Interview-C-Language/"/>
+
+
+
+
+
+  <title>Interview--C Language | Ace</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Ace</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Ace.github.io</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-categories"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/23/Interview-C-Language/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ace_ZAJ">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/me.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ace">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Interview--C Language</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-23T15:05:26+08:00">
+                2018-09-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Interview/" itemprop="url" rel="index">
+                    <span itemprop="name">Interview</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="C-Language"><a href="#C-Language" class="headerlink" title="C Language"></a>C Language</h3><h4 id="汇编语言"><a href="#汇编语言" class="headerlink" title="汇编语言"></a>汇编语言</h4><p>汇编语言是直接面向<strong>处理器</strong>的、面向机器的程序设计语言，属于低级语言</p>
+<p>不同的处理器有不同的汇编语言语法和编译器，编译的程序无法在不同的处理器上执行，<strong>缺乏可移植性</strong></p>
+<h4 id="C语言特点"><a href="#C语言特点" class="headerlink" title="C语言特点"></a>C语言特点</h4><p>允许直接访问物理地址，能进行位操作，实现汇编语言的大部分功能，可直接对硬件进行操作，兼有高级和低级语言的特点</p>
+<p>目标代码质量高，程序执行率高，只比汇编程序生成的目标代码效率低10%-20%</p>
+<p>程序可移植性好，基本上不做修改就能用于各种型号的计算机和各种OS</p>
+<a id="more"></a>
+<h4 id="C语言结构"><a href="#C语言结构" class="headerlink" title="C语言结构"></a>C语言结构</h4><p>hello.c –&gt; 预处理器cpp –&gt; hello.i –&gt; 编译器ccl –&gt; hello.s(汇编程序 文本) –&gt; 汇编器AS –&gt; hello.o(可重定位目前程序 文本) –&gt; 链接器LD –&gt; 可执行位目标程序 文本</p>
+<p>预处理器执行以#开头的命令，类似于编辑器，可以给程序添加和修改内容</p>
+<h4 id="常量命名"><a href="#常量命名" class="headerlink" title="常量命名"></a>常量命名</h4><p>宏定义</p>
+<p>#define 后面无分号</p>
+<h4 id="标识符"><a href="#标识符" class="headerlink" title="标识符"></a>标识符</h4><ul>
+<li>区分大小写</li>
+<li>标识符可以含有字母、数字和下划线，但是必须以字母或者下划线开头</li>
+</ul>
+<h4 id="格式化的输入输出"><a href="#格式化的输入输出" class="headerlink" title="格式化的输入输出"></a>格式化的输入输出</h4><ul>
+<li><p>两个%输出一个% – <code>printf(&quot;%f%%&quot;, 1.)</code> 输出 1.00000%</p>
+</li>
+<li><p><code>%m.nf</code> m位，n位小数</p>
+</li>
+<li><p>在寻找数的初始位置时，<code>scanf</code> 函数会忽略空白字符（包括水平符、制表符、换页符和换行符）</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="meta"># <span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">    <span class="keyword">int</span> num1, num2;</div><div class="line">    <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;a, &amp;b);</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"%d\t%d\n"</span>, num1, num2);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">input:</div><div class="line"><span class="number">12</span> <span class="number">78</span></div><div class="line">output:</div><div class="line"><span class="number">12</span>        <span class="number">78</span></div><div class="line"></div><div class="line">input:</div><div class="line"><span class="number">12</span></div><div class="line"><span class="number">78</span></div><div class="line">output:</div><div class="line"><span class="number">12</span>        <span class="number">78</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="表达式"><a href="#表达式" class="headerlink" title="表达式"></a>表达式</h4><ul>
+<li><p>当操作数为整数和浮点数混合，结果为浮点数</p>
+</li>
+<li><p>赋值运算符，向左看齐</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> i;</div><div class="line">i = <span class="number">72.99f</span>; <span class="comment">/*i is now 72*/</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h4><p>优先次序：算术运算符 &gt; 关系运算符 &gt; 赋值运算符</p>
+<p>（由高到低 依次减小）</p>
+<p>自增自减 》+ - </p>
+<p>一元逻辑 !  </p>
+<p>乘法类 */%  </p>
+<p>加法类 + -  </p>
+<p>关系运算符 &gt; &lt; &gt;= &lt;=   </p>
+<p>判等运算符 == !=  </p>
+<p>二元逻辑 &amp;&amp; ||  </p>
+<p>赋值 = *= /= %= += -=</p>
+<ul>
+<li><p>C89没有定义布尔值类型</p>
+<p>为了程序便于理解，可以定义宏</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">define</span> TRUE 1</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> FALSE 0</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>C99提供了_Bool类型</p>
+<p><code>_Bool flag;</code></p>
+<p>C99提供了一个新的头文件 <code>&lt;stdbool.h&gt;</code>, 可以写 <code>bool flag;</code></p>
+</li>
+<li><p>控制表达式：switch后边的表达式要求是整型，不能用浮点数和字符串</p>
+<p>case 常量表达式</p>
+<pre><code>每个分支标号后可以跟任意数量的语句
+
+语句最后通常是break语句
+</code></pre></li>
+</ul>
+<h4 id="循环"><a href="#循环" class="headerlink" title="循环"></a>循环</h4><ul>
+<li>break &amp; continue<ul>
+<li>break 语句从循环体跳出，提前结束循环，可以用在switch和循环中</li>
+<li>continue 跳出本次循环，跳过循环体下面尚未执行的语句，进行下一次是否执行循环的判断，只能用在循环中</li>
+</ul>
+</li>
+</ul>
+<h4 id="基本类型"><a href="#基本类型" class="headerlink" title="基本类型"></a>基本类型</h4><ul>
+<li><p>int 32位，short int 16位, long int, long long int</p>
+</li>
+<li><p>浮点类型：float单精度浮点数 32位，double双精度浮点数 64位，long double扩展精度浮点数</p>
+</li>
+<li><p>字符型：’a’为97, ‘A’为65, ‘0’为48, ‘ ‘为32</p>
+</li>
+<li><p>char 8位</p>
+</li>
+<li><p>字符处理函数：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;ctype.h&gt;</span></span></div><div class="line">ch = <span class="built_in">toupper</span>(ch);</div><div class="line">ch = <span class="built_in">tolower</span>(ch);</div></pre></td></tr></table></figure>
+</li>
+<li><p>读写字符：</p>
+<p>scanf 函数不会跳过空白字符，为了强制scanf 函数在读入字符前跳过空白字符，需要加上一个空格</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">scanf</span>(<span class="string">" %c"</span>,ch);</div></pre></td></tr></table></figure>
+<p>对于单个字符的输入和输出，可以使用<code>getchar()</code> 和 <code>putchar()</code> 函数来代替</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">putchar(ch);</div><div class="line">ch = getchar();</div></pre></td></tr></table></figure>
+</li>
+<li><p>sizeof 运算符</p>
+<p>确定存储空间类型所需要的空间大小</p>
+<p>sizeof(char) = 1</p>
+</li>
+</ul>
+<h4 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h4><ul>
+<li>指定初始化 C99：</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> a[<span class="number">15</span>] = &#123;[<span class="number">14</span>] = <span class="number">48</span>, [<span class="number">9</span>] = <span class="number">7</span>, [<span class="number">2</span>] = <span class="number">29</span>&#125;;</div></pre></td></tr></table></figure>
+<ul>
+<li><p>运算符sizeof可以确定数组的大小（字节数）</p>
+<p>Eg: int a[10], sizeof(a) = 40</p>
+<p>可以用sizeof来计算数组元素的大小，比如a[0]</p>
+<p>可以得到数组的长度，sizeof(a)/sizeof(a[0])</p>
+</li>
+</ul>
+<h4 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h4><ul>
+<li><p>函数的定义，形式参数</p>
+</li>
+<li><p>函数的调用，实际参数，将值复制给形式参数</p>
+<p>在函数执行过程中，对形式参数的改变不会影响实际参数的值，因为形式参数中包含的是实际参数值的副本</p>
+</li>
+<li><p>可以在调用前先进行，函数声明</p>
+</li>
+</ul>
+<h4 id="指针"><a href="#指针" class="headerlink" title="指针"></a>指针</h4><p>指针 – 变量的地址，存放数据的内存地址</p>
+<p>指针变量是存放变量地址的变量，用来指向另一个变量，是一种变量，该变量存放的数据就是内存地址</p>
+<p>pointer -&gt; 010100011 address of variable i, p指向i, 指向就是将变量的地址存放到指针变量中</p>
+<p><code>*</code> 表示指向关系，称为指针运算符，运算对象为地址</p>
+<h5 id="指针变量的定义和初始化"><a href="#指针变量的定义和初始化" class="headerlink" title="指针变量的定义和初始化"></a>指针变量的定义和初始化</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">int a, *p1 = &amp;a;</div><div class="line">char s[10], *p2 = s; //指向数组首部</div><div class="line">char x[5], *p3 = &amp;x[2];</div></pre></td></tr></table></figure>
+<p>指针赋值，指针p与q指向相同的位置</p>
+<p>函数的参数，指针类型作为参数的作用是将一个变<strong>量的地址传递给函数</strong>进行处理，数组名作为函数参数，传递的是地址而不是数值。</p>
+<p>Eg:</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">swap(<span class="keyword">int</span> *q1, <span class="keyword">int</span> *q2)&#123;</div><div class="line">    <span class="keyword">int</span> temp;</div><div class="line">    temp = *q1;</div><div class="line">    *q1 = *q2;</div><div class="line">    *q2 = temp;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">    <span class="keyword">int</span> a, b, *p1, *p2;</div><div class="line">    <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;a, &amp;b);</div><div class="line">    p1 = &amp;a, p2 = &amp;b;</div><div class="line">    <span class="keyword">if</span>(a &lt; b)</div><div class="line">    	swap(p1, p2);</div><div class="line">    <span class="built_in">printf</span>(“\n%d,%d”,*p1,*p2);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="指针和数组"><a href="#指针和数组" class="headerlink" title="指针和数组"></a>指针和数组</h4><ul>
+<li><p>指针和加法</p>
+<p>p指向a[i]，则p+j指向元素a[i+j]</p>
+<p>两个指针相减时，结果为指针之间的距离，以数组元素的个数为度量</p>
+<p><em>p++ = </em>(p++)</p>
+</li>
+<li><p>用数组名作为指向数组的第一个元素的指针</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">*a = <span class="number">7</span>;</div><div class="line">*(a+<span class="number">1</span>) = <span class="number">12</span>;</div></pre></td></tr></table></figure>
+<p>a+1 和 &amp;a[i] 等同，均表示指向数组a中元素i的指针</p>
+<p>*(a+1) 和 a[i] 等同，均表示数组a中的元素i自身</p>
+<p>快速处理多维数组，将二维数组初始化0</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">for(p = &amp;a[0][0]; p &lt;= &amp;a[ROWS-1][COLS-1]; p++)</div><div class="line">	*p = 0;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h4><ul>
+<li><p>字面量的存储：当编译器遇到一个长度为n的字符串字面量时，给该字符串分配n+1个字节的内存空间，外加一个额外的空字符，用于标志字符串的结束，空字符是一个所有比特为0的字节，用转义序列<code>\0</code> 表示</p>
+<p>例如”abc” – “abc\0”</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">char</span> *p;</div><div class="line">p = <span class="string">"abc"</span>;</div></pre></td></tr></table></figure>
+</li>
+<li><p>字符串字面量 &amp; 字符常量</p>
+<p>“a”是以指针表示的，’a’是以整数表示的</p>
+<p>char date[] = “June 14” – date为数组，存储的字符可以修改</p>
+<p>char *date = “June 14” – date为指针，date所指向的字符串字面量不能修改的</p>
+<p>char *p; 没有为字符串分配空间</p>
+</li>
+<li><p>字符串输出：<code>printf()</code> ,<code>puts()</code>–会写一个额外的新行符</p>
+</li>
+<li><p>字符串读取：</p>
+<ul>
+<li><code>scanf(&quot;%s&quot;, str);</code> str是指针，不必在str前面放置&amp;运算符，当遇到<code>scanf()</code>时，该函数跳过空白，然后读入字符并存入str指向的空间，直至遇到一个空白字符</li>
+<li><code>scanf()</code>会存放一个空字符在字符串的后面</li>
+<li>新行符、空白和tab符，均导致<code>scanf()</code>停止读取</li>
+<li>要读取整行输入，可以使用<code>gets()</code>函数，特点：<ul>
+<li>读取输入不会跳过开始的空白</li>
+<li>直到找到新行符才停止读入</li>
+<li>不存储新行符，而用空字符代替</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>使用C字符串库</p>
+<p><code>#include&lt;string.h&gt;</code></p>
+<p><code>strcpy(char *s1, char *s2);</code>  copy</p>
+<p><code>size_t strlen(const char *s);</code></p>
+<p><code>strcat(char *s1, char *s2);</code> concatenation</p>
+<p><code>int strcmp(const char *s1, char *s2);</code> if (strcmp(str1, str2)&lt;0) means str1&lt;str2; (strcmp(str1, str2)&lt;=0) means str1&lt;=str2</p>
+</li>
+<li><p>复制字符串</p>
+</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">char</span> *<span class="title">strcat</span><span class="params">(<span class="keyword">char</span> *s1, <span class="keyword">const</span> <span class="keyword">char</span> *s2)</span></span>&#123;</div><div class="line">    <span class="keyword">char</span> *p = s1; </div><div class="line">    <span class="keyword">while</span>(*p != <span class="string">'\0'</span>)</div><div class="line">    	p++;</div><div class="line">    <span class="keyword">while</span>(*s2 != <span class="string">'\0'</span>)&#123;</div><div class="line">        *p = *s2;</div><div class="line">        p++;</div><div class="line">        s2++;</div><div class="line">    &#125;</div><div class="line">    *p = <span class="string">'\0'</span>;</div><div class="line">    <span class="keyword">return</span> s1;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li><p>字符串数组：</p>
+<p>参差不齐的数据（ragged array），可以有不同长度的行，以便节省空间</p>
+<p>char *planets[] = {“Mercury”, “Venus”, “Earth”, “Mars”, “Jupiter”, “Saturn”, “Uranus”, “Neptune”, “Pluto”}</p>
+</li>
+<li><p>命令行参数</p>
+<p>argc argument count</p>
+<p>argv argument vector</p>
+<p>argv[0] 指向程序名，argv[1]~argv[argc-1] 指向余下的命令行参数</p>
+</li>
+</ul>
+<h4 id="编写程序"><a href="#编写程序" class="headerlink" title="编写程序"></a>编写程序</h4><h4 id="include"><a href="#include" class="headerlink" title="#include"></a>#include</h4><p>#include  \<filename> 查找系统头文件所在的路径</filename></p>
+<p>#include “filename” 查找当前路径，然后查找系统头文件所在的路径</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/C-Language/" rel="tag"># C Language</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/09/17/NLP-Summary/" rel="next" title="NLP-Summary">
+                <i class="fa fa-chevron-left"></i> NLP-Summary
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/09/23/Interview-C-Basic-Problems/" rel="prev" title="Interview--C Basic Problems">
+                Interview--C Basic Problems <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/me.JPG"
+                alt="Ace_ZAJ" />
+            
+              <p class="site-author-name" itemprop="name">Ace_ZAJ</p>
+              <p class="site-description motion-element" itemprop="description">boom pow</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">114</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#C-Language"><span class="nav-number">1.</span> <span class="nav-text">C Language</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#汇编语言"><span class="nav-number">1.1.</span> <span class="nav-text">汇编语言</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#C语言特点"><span class="nav-number">1.2.</span> <span class="nav-text">C语言特点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#C语言结构"><span class="nav-number">1.3.</span> <span class="nav-text">C语言结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常量命名"><span class="nav-number">1.4.</span> <span class="nav-text">常量命名</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#标识符"><span class="nav-number">1.5.</span> <span class="nav-text">标识符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#格式化的输入输出"><span class="nav-number">1.6.</span> <span class="nav-text">格式化的输入输出</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#表达式"><span class="nav-number">1.7.</span> <span class="nav-text">表达式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#运算符"><span class="nav-number">1.8.</span> <span class="nav-text">运算符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#循环"><span class="nav-number">1.9.</span> <span class="nav-text">循环</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#基本类型"><span class="nav-number">1.10.</span> <span class="nav-text">基本类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数组"><span class="nav-number">1.11.</span> <span class="nav-text">数组</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#函数"><span class="nav-number">1.12.</span> <span class="nav-text">函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#指针"><span class="nav-number">1.13.</span> <span class="nav-text">指针</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#指针变量的定义和初始化"><span class="nav-number">1.13.1.</span> <span class="nav-text">指针变量的定义和初始化</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#指针和数组"><span class="nav-number">1.14.</span> <span class="nav-text">指针和数组</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#字符串"><span class="nav-number">1.15.</span> <span class="nav-text">字符串</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#编写程序"><span class="nav-number">1.16.</span> <span class="nav-text">编写程序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#include"><span class="nav-number">1.17.</span> <span class="nav-text">#include</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ace_ZAJ</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.3</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>
