@@ -79,31 +79,25 @@
 
 
 
-<meta name="description" content="Stack, EasyQuestion
-Implement the following operations of a queue using stacks.
+<meta name="description" content="Machine Learning as an Analytics Service SystemKey words: training, inference, latency, accuracy
+1. IntroductionApproaches to integrating the machine learning techniques into database applications:
 
-push(x) – Push element x to the back of queue.
-pop() – Removes the element from in front of queue.
-peek() – Get the fro">
+p">
 <meta property="og:type" content="article">
-<meta property="og:title" content="232.Implement Queue using Stacks">
-<meta property="og:url" content="http://yoursite.com/2018/05/13/232-Implement-Queue-using-Stacks/index.html">
+<meta property="og:title" content="Rakiki--Machine Learning as an Analytics Service System">
+<meta property="og:url" content="http://yoursite.com/2018/10/09/Rakiki-Machine-Learning-as-an-Analytics-Service-System/index.html">
 <meta property="og:site_name" content="Ace">
-<meta property="og:description" content="Stack, EasyQuestion
-Implement the following operations of a queue using stacks.
+<meta property="og:description" content="Machine Learning as an Analytics Service SystemKey words: training, inference, latency, accuracy
+1. IntroductionApproaches to integrating the machine learning techniques into database applications:
 
-push(x) – Push element x to the back of queue.
-pop() – Removes the element from in front of queue.
-peek() – Get the fro">
-<meta property="og:updated_time" content="2018-05-13T12:23:17.736Z">
+p">
+<meta property="og:updated_time" content="2018-10-15T09:01:24.388Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="232.Implement Queue using Stacks">
-<meta name="twitter:description" content="Stack, EasyQuestion
-Implement the following operations of a queue using stacks.
+<meta name="twitter:title" content="Rakiki--Machine Learning as an Analytics Service System">
+<meta name="twitter:description" content="Machine Learning as an Analytics Service SystemKey words: training, inference, latency, accuracy
+1. IntroductionApproaches to integrating the machine learning techniques into database applications:
 
-push(x) – Push element x to the back of queue.
-pop() – Removes the element from in front of queue.
-peek() – Get the fro">
+p">
 
 
 
@@ -133,13 +127,13 @@ peek() – Get the fro">
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/05/13/232-Implement-Queue-using-Stacks/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/10/09/Rakiki-Machine-Learning-as-an-Analytics-Service-System/"/>
 
 
 
 
 
-  <title>232.Implement Queue using Stacks | Ace</title>
+  <title>Rakiki--Machine Learning as an Analytics Service System | Ace</title>
   
 
 
@@ -276,7 +270,7 @@ peek() – Get the fro">
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/13/232-Implement-Queue-using-Stacks/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/09/Rakiki-Machine-Learning-as-an-Analytics-Service-System/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Ace_ZAJ">
@@ -293,7 +287,7 @@ peek() – Get the fro">
 
         
         
-          <h1 class="post-title" itemprop="name headline">232.Implement Queue using Stacks</h1>
+          <h1 class="post-title" itemprop="name headline">Rakiki--Machine Learning as an Analytics Service System</h1>
         
 
         <div class="post-meta">
@@ -305,8 +299,8 @@ peek() – Get the fro">
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-13T20:18:15+08:00">
-                2018-05-13
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-09T16:27:25+08:00">
+                2018-10-09
               </time>
             
 
@@ -328,8 +322,8 @@ peek() – Get the fro">
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/LeetCode/" itemprop="url" rel="index">
-                    <span itemprop="name">LeetCode</span>
+                  <a href="/categories/paper/" itemprop="url" rel="index">
+                    <span itemprop="name">paper</span>
                   </a>
                 </span>
 
@@ -365,27 +359,35 @@ peek() – Get the fro">
       
 
       
-        <h4 id="Stack-Easy"><a href="#Stack-Easy" class="headerlink" title="Stack, Easy"></a>Stack, Easy</h4><h4 id="Question"><a href="#Question" class="headerlink" title="Question"></a>Question</h4><hr>
-<p>Implement the following operations of a queue using stacks.</p>
+        <h3 id="Machine-Learning-as-an-Analytics-Service-System"><a href="#Machine-Learning-as-an-Analytics-Service-System" class="headerlink" title="Machine Learning as an Analytics Service System"></a>Machine Learning as an Analytics Service System</h3><p>Key words: training, inference, latency, accuracy</p>
+<h4 id="1-Introduction"><a href="#1-Introduction" class="headerlink" title="1. Introduction"></a>1. Introduction</h4><p><strong>Approaches</strong> to integrating the machine learning techniques into database applications:</p>
 <ul>
-<li>push(x) – Push element x to the back of queue.</li>
-<li>pop() – Removes the element from in front of queue.</li>
-<li>peek() – Get the front element.</li>
-<li>empty() – Return whether the queue is empty.</li>
+<li>preprocess the data off-line and add the predictions results into a new column</li>
+<li>carry out the prediction on-line as user-defined functions (UDFs) in the SQL query</li>
+<li>better solution is to call the corresponding cloud machine learning service, e.g. APIs, disadvantage:<ul>
+<li>the accuracy could be low since the models are trained by Amazon and Google with general data</li>
+<li>only a limited number of machine learning models are supported</li>
 </ul>
-<p>Notes:</p>
+</li>
+</ul>
+<p>&nbsp; </p>
+<p>Different models may result in different performance in terms of efficiency (<strong>latency</strong>) and efficiency (<strong>accuracy</strong>), the cloud service has to select the proper models for a given tasks. Most machine learning models and the training algorithms come with a set of <strong>hyper-parameters</strong> or <strong>knobs</strong> (parameters).</p>
 <ul>
-<li>You must use <em>only</em> standard operations of a stack – which means only <code>push to top</code>, <code>peek/pop from top</code>, <code>size</code>, and <code>is empty</code> operations are valid.</li>
-<li>Depending on your language, stack may not be supported natively. You may simulate a stack by using a list or deque (double-ended queue), as long as you use only standard operations of a stack.</li>
-<li>You may assume that all operations are valid (for example, no pop or peek operations will be called on an empty queue).</li>
+<li>Manual hyper-parameter tuning requires rich experience and is tedious. Random search and Bayesian optimization are two popular automatic tuning approaches</li>
+<li>apply ensemble modeling to improve the prediction performance, incurs a larger latency (i.e. response time)</li>
 </ul>
-<a id="more"></a>
-<h4 id="My-Answer"><a href="#My-Answer" class="headerlink" title="My Answer"></a>My Answer</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyQueue</span> </span>&#123;</div><div class="line">    Stack&lt;Integer&gt; queue = <span class="keyword">new</span> Stack&lt;&gt;();</div><div class="line"></div><div class="line">    <span class="comment">/** Initialize your data structure here. */</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MyQueue</span><span class="params">()</span> </span>&#123;</div><div class="line">        </div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="comment">/** Push element x to the back of queue. */</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">push</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</div><div class="line">        Stack&lt;Integer&gt; temp = <span class="keyword">new</span> Stack&lt;&gt;();</div><div class="line">        <span class="keyword">while</span>(!queue.isEmpty())</div><div class="line">            temp.push(queue.pop());</div><div class="line">        queue.push(x);</div><div class="line">        <span class="keyword">while</span>(!temp.isEmpty())</div><div class="line">            queue.push(temp.pop());</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="comment">/** Removes the element from in front of queue and returns that element. */</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">pop</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> queue.pop();</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="comment">/** Get the front element. */</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">peek</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> queue.peek();</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="comment">/** Returns whether the queue is empty. */</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">empty</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> queue.isEmpty();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>Running time: 98ms</p>
-<p>More quick one</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyQueue</span> </span>&#123;</div><div class="line">    Stack&lt;Integer&gt; s1 = <span class="keyword">new</span> Stack&lt;&gt;();</div><div class="line">    Stack&lt;Integer&gt; s2 = <span class="keyword">new</span> Stack&lt;&gt;();</div><div class="line"></div><div class="line">    <span class="comment">/** Initialize your data structure here. */</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MyQueue</span><span class="params">()</span> </span>&#123;</div><div class="line">        </div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="comment">/** Push element x to the back of queue. */</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">push</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</div><div class="line">        s1.push(x);</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="comment">/** Removes the element from in front of queue and returns that element. */</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">pop</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (s2.isEmpty()) &#123;</div><div class="line">          <span class="keyword">while</span> (!s1.isEmpty()) &#123;</div><div class="line">            s2.push(s1.pop());</div><div class="line">          &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> s2.pop();</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="comment">/** Get the front element. */</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">peek</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (s2.isEmpty()) &#123;</div><div class="line">          <span class="keyword">while</span> (!s1.isEmpty()) &#123;</div><div class="line">            s2.push(s1.pop());</div><div class="line">          &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> s2.peek();</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="comment">/** Returns whether the queue is empty. */</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">empty</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> s1.isEmpty()&amp;&amp;s2.isEmpty();</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * Your MyQueue object will be instantiated and called as such:</div><div class="line"> * MyQueue obj = new MyQueue();</div><div class="line"> * obj.push(x);</div><div class="line"> * int param_2 = obj.pop();</div><div class="line"> * int param_3 = obj.peek();</div><div class="line"> * boolean param_4 = obj.empty();</div><div class="line"> */</div></pre></td></tr></table></figure>
-<p>Running time: 100ms</p>
-
+<p>Therefore, there is a trade-off between accuracy and latency.</p>
+<p>&nbsp;</p>
+<p>Following contributions to make Rafiki:</p>
+<ul>
+<li>unified system for both training and inference</li>
+<li>training: general framework for hyper-parameter tuning, which is extensible for popular hyper-parameter tuning algorithms including random search and Bayesian optimization. In addition, a collaborative tuning scheme specifically for deep learning models</li>
+<li>a scheduling algorithm based on reinforcement learning to optimize the overall accuracy and reduce latency</li>
+</ul>
+<h4 id="2-Related-Work"><a href="#2-Related-Work" class="headerlink" title="2. Related Work"></a>2. Related Work</h4><h5 id="Saas"><a href="#Saas" class="headerlink" title="Saas"></a>Saas</h5><p>Iaas (Infrastructure as a service), use remote physical and virtue machines instead of establishing their own data center</p>
+<p>Paas (Platform as a service)</p>
+<p>Saas (Software as a service)</p>
+<h5 id="Hyper-parameter-Tuning"><a href="#Hyper-parameter-Tuning" class="headerlink" title="Hyper-parameter Tuning"></a>Hyper-parameter Tuning</h5>
       
     </div>
     
@@ -409,8 +411,8 @@ peek() – Get the fro">
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/05/13/682-Baseball-Game/" rel="next" title="682.Baseball Game">
-                <i class="fa fa-chevron-left"></i> 682.Baseball Game
+              <a href="/2018/09/23/Interview-C-Basic-Problems/" rel="next" title="Interview--C Basic Problems">
+                <i class="fa fa-chevron-left"></i> Interview--C Basic Problems
               </a>
             
           </div>
@@ -418,10 +420,6 @@ peek() – Get the fro">
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/05/13/225-Implement-Stack-using-Queues/" rel="prev" title="225.Implement Stack using Queues">
-                225.Implement Stack using Queues <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -559,7 +557,7 @@ peek() – Get the fro">
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Stack-Easy"><span class="nav-number">1.</span> <span class="nav-text">Stack, Easy</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Question"><span class="nav-number">2.</span> <span class="nav-text">Question</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#My-Answer"><span class="nav-number">3.</span> <span class="nav-text">My Answer</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Machine-Learning-as-an-Analytics-Service-System"><span class="nav-number">1.</span> <span class="nav-text">Machine Learning as an Analytics Service System</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-Introduction"><span class="nav-number">1.1.</span> <span class="nav-text">1. Introduction</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-Related-Work"><span class="nav-number">1.2.</span> <span class="nav-text">2. Related Work</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Saas"><span class="nav-number">1.2.1.</span> <span class="nav-text">Saas</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Hyper-parameter-Tuning"><span class="nav-number">1.2.2.</span> <span class="nav-text">Hyper-parameter Tuning</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
