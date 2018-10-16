@@ -91,7 +91,7 @@ p">
 1. IntroductionApproaches to integrating the machine learning techniques into database applications:
 
 p">
-<meta property="og:updated_time" content="2018-10-15T09:01:24.388Z">
+<meta property="og:updated_time" content="2018-10-16T07:55:05.935Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Rakiki--Machine Learning as an Analytics Service System">
 <meta name="twitter:description" content="Machine Learning as an Analytics Service SystemKey words: training, inference, latency, accuracy
@@ -362,7 +362,7 @@ p">
         <h3 id="Machine-Learning-as-an-Analytics-Service-System"><a href="#Machine-Learning-as-an-Analytics-Service-System" class="headerlink" title="Machine Learning as an Analytics Service System"></a>Machine Learning as an Analytics Service System</h3><p>Key words: training, inference, latency, accuracy</p>
 <h4 id="1-Introduction"><a href="#1-Introduction" class="headerlink" title="1. Introduction"></a>1. Introduction</h4><p><strong>Approaches</strong> to integrating the machine learning techniques into database applications:</p>
 <ul>
-<li>preprocess the data off-line and add the predictions results into a new column</li>
+<li>preprocess the data off-line and add the predictions results into a new columnyin</li>
 <li>carry out the prediction on-line as user-defined functions (UDFs) in the SQL query</li>
 <li>better solution is to call the corresponding cloud machine learning service, e.g. APIs, disadvantage:<ul>
 <li>the accuracy could be low since the models are trained by Amazon and Google with general data</li>
@@ -370,7 +370,8 @@ p">
 </ul>
 </li>
 </ul>
-<p>&nbsp; </p>
+<a id="more"></a>
+<p>&nbsp;</p>
 <p>Different models may result in different performance in terms of efficiency (<strong>latency</strong>) and efficiency (<strong>accuracy</strong>), the cloud service has to select the proper models for a given tasks. Most machine learning models and the training algorithms come with a set of <strong>hyper-parameters</strong> or <strong>knobs</strong> (parameters).</p>
 <ul>
 <li>Manual hyper-parameter tuning requires rich experience and is tedious. Random search and Bayesian optimization are two popular automatic tuning approaches</li>
