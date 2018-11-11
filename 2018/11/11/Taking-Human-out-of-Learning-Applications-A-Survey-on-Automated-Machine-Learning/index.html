@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="LeetCode-Dynamic Programming," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -79,21 +79,22 @@
 
 
 
-<meta name="description" content="Dynamic Programming, MediumQuestionA robot is located at the top-left corner of a m x n grid (marked ‘Start’ in the diagram below).
-The robot can only move either down or right at any point in time. T">
+<meta name="description" content="Automated Machine LearningKey words: automatic machine learning, neural architecture search, hyper-parameter optimization, meta-learning, transfer-learning
+IntroductionEvery aspect of machine learning">
 <meta property="og:type" content="article">
-<meta property="og:title" content="63.Unique Paths II">
-<meta property="og:url" content="http://yoursite.com/2018/06/22/63-Unique-Paths-II/index.html">
+<meta property="og:title" content="Taking Human out of Learning Applications: A Survey on Automated Machine Learning">
+<meta property="og:url" content="http://yoursite.com/2018/11/11/Taking-Human-out-of-Learning-Applications-A-Survey-on-Automated-Machine-Learning/index.html">
 <meta property="og:site_name" content="Ace">
-<meta property="og:description" content="Dynamic Programming, MediumQuestionA robot is located at the top-left corner of a m x n grid (marked ‘Start’ in the diagram below).
-The robot can only move either down or right at any point in time. T">
-<meta property="og:image" content="https://leetcode.com/static/images/problemset/robot_maze.png">
-<meta property="og:updated_time" content="2018-06-22T07:12:38.357Z">
+<meta property="og:description" content="Automated Machine LearningKey words: automatic machine learning, neural architecture search, hyper-parameter optimization, meta-learning, transfer-learning
+IntroductionEvery aspect of machine learning">
+<meta property="og:image" content="http://yoursite.com/img/AutoML-basic framework.png">
+<meta property="og:image" content="http://yoursite.com/img/AutoML-working flow if approaches.png">
+<meta property="og:updated_time" content="2018-11-11T09:33:41.991Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="63.Unique Paths II">
-<meta name="twitter:description" content="Dynamic Programming, MediumQuestionA robot is located at the top-left corner of a m x n grid (marked ‘Start’ in the diagram below).
-The robot can only move either down or right at any point in time. T">
-<meta name="twitter:image" content="https://leetcode.com/static/images/problemset/robot_maze.png">
+<meta name="twitter:title" content="Taking Human out of Learning Applications: A Survey on Automated Machine Learning">
+<meta name="twitter:description" content="Automated Machine LearningKey words: automatic machine learning, neural architecture search, hyper-parameter optimization, meta-learning, transfer-learning
+IntroductionEvery aspect of machine learning">
+<meta name="twitter:image" content="http://yoursite.com/img/AutoML-basic framework.png">
 
 
 
@@ -123,13 +124,13 @@ The robot can only move either down or right at any point in time. T">
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/06/22/63-Unique-Paths-II/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/11/11/Taking-Human-out-of-Learning-Applications-A-Survey-on-Automated-Machine-Learning/"/>
 
 
 
 
 
-  <title>63.Unique Paths II | Ace</title>
+  <title>Taking Human out of Learning Applications: A Survey on Automated Machine Learning | Ace</title>
   
 
 
@@ -266,7 +267,7 @@ The robot can only move either down or right at any point in time. T">
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/22/63-Unique-Paths-II/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/11/Taking-Human-out-of-Learning-Applications-A-Survey-on-Automated-Machine-Learning/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Ace_ZAJ">
@@ -283,7 +284,7 @@ The robot can only move either down or right at any point in time. T">
 
         
         
-          <h1 class="post-title" itemprop="name headline">63.Unique Paths II</h1>
+          <h1 class="post-title" itemprop="name headline">Taking Human out of Learning Applications: A Survey on Automated Machine Learning</h1>
         
 
         <div class="post-meta">
@@ -295,8 +296,8 @@ The robot can only move either down or right at any point in time. T">
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-06-22T11:31:56+08:00">
-                2018-06-22
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-11T11:29:15+08:00">
+                2018-11-11
               </time>
             
 
@@ -318,8 +319,8 @@ The robot can only move either down or right at any point in time. T">
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/LeetCode/" itemprop="url" rel="index">
-                    <span itemprop="name">LeetCode</span>
+                  <a href="/categories/paper/" itemprop="url" rel="index">
+                    <span itemprop="name">paper</span>
                   </a>
                 </span>
 
@@ -355,21 +356,103 @@ The robot can only move either down or right at any point in time. T">
       
 
       
-        <h4 id="Dynamic-Programming-Medium"><a href="#Dynamic-Programming-Medium" class="headerlink" title="Dynamic Programming, Medium"></a>Dynamic Programming, Medium</h4><h4 id="Question"><a href="#Question" class="headerlink" title="Question"></a>Question</h4><p>A robot is located at the top-left corner of a <em>m</em> x <em>n</em> grid (marked ‘Start’ in the diagram below).</p>
-<p>The robot can only move either down or right at any point in time. The robot is trying to reach the bottom-right corner of the grid (marked ‘Finish’ in the diagram below).</p>
-<p>Now consider if some obstacles are added to the grids. How many unique paths would there be?</p>
-<p><img src="https://leetcode.com/static/images/problemset/robot_maze.png" alt="img"></p>
-<p>An obstacle and empty space is marked as <code>1</code> and <code>0</code> respectively in the grid.</p>
-<p><strong>Note:</strong> <em>m</em> and <em>n</em> will be at most 100.</p>
-<p><strong>Example 1:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">Input:</div><div class="line">[</div><div class="line">  [0,0,0],</div><div class="line">  [0,1,0],</div><div class="line">  [0,0,0]</div><div class="line">]</div><div class="line">Output: 2</div><div class="line">Explanation:</div><div class="line">There is one obstacle in the middle of the 3x3 grid above.</div><div class="line">There are two ways to reach the bottom-right corner:</div><div class="line">1. Right -&gt; Right -&gt; Down -&gt; Down</div><div class="line">2. Down -&gt; Down -&gt; Right -&gt; Right</div></pre></td></tr></table></figure>
-<a id="more"></a>
-<h4 id="Answer"><a href="#Answer" class="headerlink" title="Answer"></a>Answer</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">uniquePathsWithObstacles</span><span class="params">(<span class="keyword">int</span>[][] obstacleGrid)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> row = obstacleGrid.length;</div><div class="line">        <span class="keyword">int</span> col = obstacleGrid[<span class="number">0</span>].length;</div><div class="line">        <span class="keyword">int</span>[][] res = <span class="keyword">new</span> <span class="keyword">int</span>[row][col];</div><div class="line">        </div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; row; i++)</div><div class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; col; j++)&#123;</div><div class="line">                <span class="keyword">if</span>(obstacleGrid[i][j] == <span class="number">1</span>)</div><div class="line">                    res[i][j] = <span class="number">0</span>;</div><div class="line">                <span class="keyword">else</span> <span class="keyword">if</span>(i == <span class="number">0</span> &amp;&amp; j == <span class="number">0</span>)</div><div class="line">                    res[i][j] = <span class="number">1</span>;</div><div class="line">                <span class="keyword">else</span> <span class="keyword">if</span>(i == <span class="number">0</span>)</div><div class="line">                    res[i][j] = res[i][j-<span class="number">1</span>];</div><div class="line">                <span class="keyword">else</span> <span class="keyword">if</span>(j == <span class="number">0</span>)</div><div class="line">                    res[i][j] = res[i-<span class="number">1</span>][j];</div><div class="line">                <span class="keyword">else</span></div><div class="line">                    res[i][j] = res[i][j-<span class="number">1</span>] + res[i-<span class="number">1</span>][j];</div><div class="line">            &#125;</div><div class="line">        <span class="keyword">return</span> res[row-<span class="number">1</span>][col-<span class="number">1</span>];        </div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>Time complexity: O(m*n)</p>
-<p>Space complexity: O(m*n)</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">uniquePathsWithObstacles</span><span class="params">(<span class="keyword">int</span>[][] obstacleGrid)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> row = obstacleGrid.length;</div><div class="line">        <span class="keyword">int</span> col = obstacleGrid[<span class="number">0</span>].length;</div><div class="line">        <span class="keyword">int</span>[] res = <span class="keyword">new</span> <span class="keyword">int</span>[col];</div><div class="line">        res[<span class="number">0</span>] = <span class="number">1</span>;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; row; i++)</div><div class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; col; j++)&#123;</div><div class="line">                <span class="keyword">if</span>(obstacleGrid[i][j] == <span class="number">1</span>)</div><div class="line">                    res[j] = <span class="number">0</span>;</div><div class="line">                <span class="keyword">else</span> <span class="keyword">if</span>(j &gt; <span class="number">0</span>)</div><div class="line">                    res[j] += res[j-<span class="number">1</span>];</div><div class="line">            &#125;</div><div class="line">        <span class="keyword">return</span> res[col-<span class="number">1</span>];        </div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>Time complexity: O(m*n)</p>
-<p>Space complexity: O(n)</p>
+        <h3 id="Automated-Machine-Learning"><a href="#Automated-Machine-Learning" class="headerlink" title="Automated Machine Learning"></a>Automated Machine Learning</h3><p>Key words: automatic machine learning, neural architecture search, hyper-parameter optimization, meta-learning, transfer-learning</p>
+<h3 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h3><p>Every aspect of machine learning applications, such as feature engineering, model selection, algorithm selection needs to be carefully configured, which is usually involved heavily with human experts.</p>
+<p>AutoML attempts to reduce human assistance in the design, selection and implementation of various machine learning tools used in applications’ pipeline.</p>
+<p>Examples:</p>
+<ul>
+<li>Auto-sklearn, try a collection of classifiers on a new problem, then get final predictions from an ensemble of them</li>
+<li>Neural architecture search NAS. Success of AlexNet, VGGNet, GoogleNet, ResNet and DenseNet. Can the neural architecture be automatically designed so that good learning performance can be obtained on the given tasks. <strong>Reinforcement Learning</strong> has been a powerful and promising tool for NAS.</li>
+<li>Automatic feature engineering, aims to construct a new features set, with which the performance of subsequent machine learning tools can be improved. Existing works on this topic include Data Science Machine(DSM), ExploreKit and FeatureHub.</li>
+</ul>
+<h4 id="Contributions"><a href="#Contributions" class="headerlink" title="Contributions"></a>Contributions</h4><ul>
+<li>Define the AutoML problem</li>
+<li>Propose a general framework for existing AutoML approaches<ul>
+<li>Setting up taxonomies of existing works</li>
+<li>Gives insights of the problem existing approaches want to solve</li>
+</ul>
+</li>
+<li>Categorize the existing AutoML works based on ‘what’ and ‘how’<ul>
+<li>Problem setup is from ‘what’ perspective, which justifies which learning tools we want to make automated</li>
+<li>Techniques are from ‘how’, they are methods to solve automl problems</li>
+</ul>
+</li>
+<li>A detailed analysis of approaches techniques</li>
+<li>Suggest four promising future  research directions: computational efficiency, problem settings, solution techniques and applications</li>
+</ul>
+<h3 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h3><h4 id="AutoML-from-two-perspectives"><a href="#AutoML-from-two-perspectives" class="headerlink" title="AutoML from two perspectives"></a>AutoML from two perspectives</h4><p>automation and machine learning</p>
+<ul>
+<li><p>ML</p>
+<p><strong>E</strong>xperience, <strong>T</strong>ask, <strong>P</strong>erformance</p>
+<p>AutoML emphasizes on how easy learning tools can be used</p>
+</li>
+<li><p>Automation</p>
+<p>construct high-level controlling approaches over underneath learning tools so that proper configurations can be found without human assistance</p>
+</li>
+</ul>
+<h4 id="Definition-of-AutoML"><a href="#Definition-of-AutoML" class="headerlink" title="Definition of AutoML"></a>Definition of AutoML</h4><p>$$ max_{configurations}$$performance of learning tools</p>
+<p>s.t. no human assistance and limited computational budget</p>
+<blockquote>
+<p>AutoML attempts to construct machine learning programs (specified by E, T and P in machine learning definition), without human assistance and within limited computational budgets</p>
+</blockquote>
+<h4 id="Goals-of-AutoML"><a href="#Goals-of-AutoML" class="headerlink" title="Goals of AutoML"></a>Goals of AutoML</h4><p>Three core goals:</p>
+<ul>
+<li>Better performance: good generalization across various input data and learning tasks</li>
+<li>No assistance from humans: configurations can be automatically done for machine learning tools</li>
+<li>Lower computational budgets: the program can return an output within a limited budget</li>
+</ul>
+<h4 id="Basic-framework"><a href="#Basic-framework" class="headerlink" title="Basic framework"></a>Basic framework</h4><p>Proposed AutoML framework:</p>
+<p><strong>Evaluator</strong>: The duty of the evaluator is to measure the performance of the learning tools with configurations provided by the optimizer. After that, it generates the feedback to the optimizer</p>
+<p><strong>Optimizer</strong>: Update or generate the configuration for learning tools. The search space of the optimizer is defined by learning tools</p>
+<p><img src="/img/AutoML-basic framework.png" alt="AutoML-basic framework"></p>
+<h4 id="Taxonomies-of-AutoML-Approaches"><a href="#Taxonomies-of-AutoML-Approaches" class="headerlink" title="Taxonomies of AutoML Approaches"></a>Taxonomies of AutoML Approaches</h4><p>Based on what and how to automate</p>
+<ol>
+<li><p>‘What to automate’: by Problem Setup</p>
+<ul>
+<li>general case<ul>
+<li>Feature Engineering </li>
+<li>Model selection</li>
+<li>Algorithm selection</li>
+</ul>
+</li>
+<li>Deep learning<ul>
+<li>Neural Architecture Search</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>‘How to automate’: by Techniques</p>
+<ul>
+<li><p>Basic</p>
+<ul>
+<li>Optimizer: Optimization &amp; Search<ul>
+<li>Simple search approaches: grid search, random search</li>
+<li>Optimization from samples</li>
+<li>Gradient descent</li>
+</ul>
+</li>
+<li>Evaluator: Performance Evaluation<ul>
+<li>Basic evaluation strategies</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Advanced</p>
+<p>They usually need to be combined with basic ones</p>
+<ul>
+<li>Meta Learning</li>
+<li>Transfer Learning</li>
+</ul>
+<p>They both try to make use of external knowledge to enhance basic ones for the optimizer and evaluator</p>
+</li>
+</ul>
+</li>
+</ol>
+<p>We focus on supervised AutoML approaches in this survey as all existing works for AutoML are supervised ones </p>
+<h4 id="Working-flow-based-on-Taxonomies"><a href="#Working-flow-based-on-Taxonomies" class="headerlink" title="Working flow based on Taxonomies"></a>Working flow based on Taxonomies</h4><p><img src="/img/AutoML-working flow if approaches.png" alt="AutoML-working flow if approaches.png"></p>
+<h3 id="Problem-setting-up"><a href="#Problem-setting-up" class="headerlink" title="Problem setting up"></a>Problem setting up</h3><p>What to be automated</p>
+<p>What learning tools can be designed and used? What are their corresponding configurations?</p>
+<p>Define the search space</p>
 
       
     </div>
@@ -385,12 +468,6 @@ The robot can only move either down or right at any point in time. T">
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/LeetCode-Dynamic-Programming/" rel="tag"># LeetCode-Dynamic Programming</a>
-          
-        </div>
-      
 
       
       
@@ -400,8 +477,8 @@ The robot can only move either down or right at any point in time. T">
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/06/22/62-Unique-Paths/" rel="next" title="62.Unique Paths">
-                <i class="fa fa-chevron-left"></i> 62.Unique Paths
+              <a href="/2018/10/09/Rakiki-Machine-Learning-as-an-Analytics-Service-System/" rel="next" title="Rakiki--Machine Learning as an Analytics Service System">
+                <i class="fa fa-chevron-left"></i> Rakiki--Machine Learning as an Analytics Service System
               </a>
             
           </div>
@@ -409,10 +486,6 @@ The robot can only move either down or right at any point in time. T">
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/06/22/279-Perfect-Squares/" rel="prev" title="279.Perfect Squares">
-                279.Perfect Squares <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -550,7 +623,7 @@ The robot can only move either down or right at any point in time. T">
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Dynamic-Programming-Medium"><span class="nav-number">1.</span> <span class="nav-text">Dynamic Programming, Medium</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Question"><span class="nav-number">2.</span> <span class="nav-text">Question</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Answer"><span class="nav-number">3.</span> <span class="nav-text">Answer</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Automated-Machine-Learning"><span class="nav-number">1.</span> <span class="nav-text">Automated Machine Learning</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Introduction"><span class="nav-number">2.</span> <span class="nav-text">Introduction</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Contributions"><span class="nav-number">2.1.</span> <span class="nav-text">Contributions</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Overview"><span class="nav-number">3.</span> <span class="nav-text">Overview</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#AutoML-from-two-perspectives"><span class="nav-number">3.1.</span> <span class="nav-text">AutoML from two perspectives</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Definition-of-AutoML"><span class="nav-number">3.2.</span> <span class="nav-text">Definition of AutoML</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Goals-of-AutoML"><span class="nav-number">3.3.</span> <span class="nav-text">Goals of AutoML</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Basic-framework"><span class="nav-number">3.4.</span> <span class="nav-text">Basic framework</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Taxonomies-of-AutoML-Approaches"><span class="nav-number">3.5.</span> <span class="nav-text">Taxonomies of AutoML Approaches</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Working-flow-based-on-Taxonomies"><span class="nav-number">3.6.</span> <span class="nav-text">Working flow based on Taxonomies</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Problem-setting-up"><span class="nav-number">4.</span> <span class="nav-text">Problem setting up</span></a></li></ol></div>
             
 
           </div>
