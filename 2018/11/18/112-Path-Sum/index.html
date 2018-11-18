@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Tree," />
 
 
 
@@ -79,31 +79,22 @@
 
 
 
-<meta name="description" content="Stack, EasyQuestionImplement the following operations of a stack using queues.
-
-push(x) – Push element x onto stack.
-pop() – Removes the element on top of the stack.
-top() – Get the top element.
-empty">
+<meta name="description" content="QuestionGiven a binary tree and a sum, determine if the tree has a root-to-leaf path such that adding up all the values along the path equals the given sum.
+Note: A leaf is a node with no children.
+Ex">
 <meta property="og:type" content="article">
-<meta property="og:title" content="225.Implement Stack using Queues">
-<meta property="og:url" content="http://yoursite.com/2018/05/13/225-Implement-Stack-using-Queues/index.html">
+<meta property="og:title" content="112.Path Sum">
+<meta property="og:url" content="http://yoursite.com/2018/11/18/112-Path-Sum/index.html">
 <meta property="og:site_name" content="Ace">
-<meta property="og:description" content="Stack, EasyQuestionImplement the following operations of a stack using queues.
-
-push(x) – Push element x onto stack.
-pop() – Removes the element on top of the stack.
-top() – Get the top element.
-empty">
-<meta property="og:updated_time" content="2018-05-13T12:27:00.511Z">
+<meta property="og:description" content="QuestionGiven a binary tree and a sum, determine if the tree has a root-to-leaf path such that adding up all the values along the path equals the given sum.
+Note: A leaf is a node with no children.
+Ex">
+<meta property="og:updated_time" content="2018-11-18T14:35:27.768Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="225.Implement Stack using Queues">
-<meta name="twitter:description" content="Stack, EasyQuestionImplement the following operations of a stack using queues.
-
-push(x) – Push element x onto stack.
-pop() – Removes the element on top of the stack.
-top() – Get the top element.
-empty">
+<meta name="twitter:title" content="112.Path Sum">
+<meta name="twitter:description" content="QuestionGiven a binary tree and a sum, determine if the tree has a root-to-leaf path such that adding up all the values along the path equals the given sum.
+Note: A leaf is a node with no children.
+Ex">
 
 
 
@@ -133,13 +124,13 @@ empty">
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/05/13/225-Implement-Stack-using-Queues/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/11/18/112-Path-Sum/"/>
 
 
 
 
 
-  <title>225.Implement Stack using Queues | Ace</title>
+  <title>112.Path Sum | Ace</title>
   
 
 
@@ -276,7 +267,7 @@ empty">
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/13/225-Implement-Stack-using-Queues/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/18/112-Path-Sum/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Ace_ZAJ">
@@ -293,7 +284,7 @@ empty">
 
         
         
-          <h1 class="post-title" itemprop="name headline">225.Implement Stack using Queues</h1>
+          <h1 class="post-title" itemprop="name headline">112.Path Sum</h1>
         
 
         <div class="post-meta">
@@ -305,8 +296,8 @@ empty">
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-13T20:23:49+08:00">
-                2018-05-13
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-18T20:27:48+08:00">
+                2018-11-18
               </time>
             
 
@@ -365,22 +356,16 @@ empty">
       
 
       
-        <h4 id="Stack-Easy"><a href="#Stack-Easy" class="headerlink" title="Stack, Easy"></a>Stack, Easy</h4><h4 id="Question"><a href="#Question" class="headerlink" title="Question"></a>Question</h4><p>Implement the following operations of a stack using queues.</p>
-<ul>
-<li>push(x) – Push element x onto stack.</li>
-<li>pop() – Removes the element on top of the stack.</li>
-<li>top() – Get the top element.</li>
-<li>empty() – Return whether the stack is empty.</li>
-</ul>
-<p>Notes:</p>
-<ul>
-<li>You must use <em>only</em> standard operations of a queue – which means only <code>push to back</code>, <code>peek/pop from front</code>, <code>size</code>, and <code>is empty</code> operations are valid.</li>
-<li>Depending on your language, queue may not be supported natively. You may simulate a queue by using a list or deque (double-ended queue), as long as you use only standard operations of a queue.</li>
-<li>You may assume that all operations are valid (for example, no pop or top operations will be called on an empty stack).</li>
-</ul>
-<a id="more"></a>
-<h4 id="My-Answer"><a href="#My-Answer" class="headerlink" title="My Answer"></a>My Answer</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyStack</span> </span>&#123;</div><div class="line">    Queue&lt;Integer&gt; stack = <span class="keyword">new</span> LinkedList&lt;&gt;();</div><div class="line">    <span class="comment">/** Initialize your data structure here. */</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MyStack</span><span class="params">()</span> </span>&#123;</div><div class="line">        </div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="comment">/** Push element x onto stack. */</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">push</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</div><div class="line">        stack.add(x);</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;stack.size();i++)</div><div class="line">            stack.add(stack.poll());</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="comment">/** Removes the element on top of the stack and returns that element. */</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">pop</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> stack.remove();</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="comment">/** Get the top element. */</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">top</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> stack.peek();</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="comment">/** Returns whether the stack is empty. */</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">empty</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> stack.isEmpty();</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * Your MyStack object will be instantiated and called as such:</div><div class="line"> * MyStack obj = new MyStack();</div><div class="line"> * obj.push(x);</div><div class="line"> * int param_2 = obj.pop();</div><div class="line"> * int param_3 = obj.top();</div><div class="line"> * boolean param_4 = obj.empty();</div><div class="line"> */</div></pre></td></tr></table></figure>
-<p>Running time: 98ms</p>
+        <h3 id="Question"><a href="#Question" class="headerlink" title="Question"></a>Question</h3><p>Given a binary tree and a sum, determine if the tree has a root-to-leaf path such that adding up all the values along the path equals the given sum.</p>
+<p><strong>Note:</strong> A leaf is a node with no children.</p>
+<p><strong>Example:</strong></p>
+<p>Given the below binary tree and <code>sum = 22</code>,</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">      5</div><div class="line">     / \</div><div class="line">    4   8</div><div class="line">   /   / \</div><div class="line">  11  13  4</div><div class="line"> /  \      \</div><div class="line">7    2      1</div></pre></td></tr></table></figure>
+<p>return true, as there exist a root-to-leaf path <code>5-&gt;4-&gt;11-&gt;2</code> which sum is 22.</p>
+<h3 id="Answer"><a href="#Answer" class="headerlink" title="Answer"></a>Answer</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * Definition for a binary tree node.</div><div class="line"> * public class TreeNode &#123;</div><div class="line"> *     int val;</div><div class="line"> *     TreeNode left;</div><div class="line"> *     TreeNode right;</div><div class="line"> *     TreeNode(int x) &#123; val = x; &#125;</div><div class="line"> * &#125;</div><div class="line"> */</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">hasPathSum</span><span class="params">(TreeNode root, <span class="keyword">int</span> sum)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span>(root == <span class="keyword">null</span>)</div><div class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">        <span class="keyword">if</span>(root.left == <span class="keyword">null</span> &amp;&amp; root.right == <span class="keyword">null</span>)</div><div class="line">            <span class="keyword">return</span> root.val == sum; <span class="comment">//leaf</span></div><div class="line">        </div><div class="line">        <span class="keyword">if</span>(root.left != <span class="keyword">null</span> &amp;&amp; hasPathSum(root.left, sum - root.val))</div><div class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(root.right != <span class="keyword">null</span> &amp;&amp; hasPathSum(root.right, sum - root.val))</div><div class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">        </div><div class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">        </div><div class="line">        </div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="Better-Answer"><a href="#Better-Answer" class="headerlink" title="Better Answer"></a>Better Answer</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * Definition for a binary tree node.</div><div class="line"> * public class TreeNode &#123;</div><div class="line"> *     int val;</div><div class="line"> *     TreeNode left;</div><div class="line"> *     TreeNode right;</div><div class="line"> *     TreeNode(int x) &#123; val = x; &#125;</div><div class="line"> * &#125;</div><div class="line"> */</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">hasPathSum</span><span class="params">(TreeNode root, <span class="keyword">int</span> sum)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span>(root == <span class="keyword">null</span>)</div><div class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">        <span class="keyword">if</span>(root.left == <span class="keyword">null</span> &amp;&amp; root.right == <span class="keyword">null</span>)</div><div class="line">            <span class="keyword">return</span> root.val == sum; <span class="comment">//leaf</span></div><div class="line">        <span class="keyword">return</span> hasPathSum(root.left, sum - root.val) || hasPathSum(root.right, sum - root.val);        </div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>Time complexity: $O(n)$</p>
+<p>Space complexity: $O(n)$</p>
 
       
     </div>
@@ -396,6 +381,12 @@ empty">
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/Tree/" rel="tag"># Tree</a>
+          
+        </div>
+      
 
       
       
@@ -405,8 +396,8 @@ empty">
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/05/13/232-Implement-Queue-using-Stacks/" rel="next" title="232.Implement Queue using Stacks">
-                <i class="fa fa-chevron-left"></i> 232.Implement Queue using Stacks
+              <a href="/2018/11/11/Taking-Human-out-of-Learning-Applications-A-Survey-on-Automated-Machine-Learning/" rel="next" title="Taking Human out of Learning Applications: A Survey on Automated Machine Learning">
+                <i class="fa fa-chevron-left"></i> Taking Human out of Learning Applications: A Survey on Automated Machine Learning
               </a>
             
           </div>
@@ -414,10 +405,6 @@ empty">
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/05/13/155-Min-Stack/" rel="prev" title="155.Min Stack">
-                155.Min Stack <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -555,7 +542,7 @@ empty">
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Stack-Easy"><span class="nav-number">1.</span> <span class="nav-text">Stack, Easy</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Question"><span class="nav-number">2.</span> <span class="nav-text">Question</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#My-Answer"><span class="nav-number">3.</span> <span class="nav-text">My Answer</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Question"><span class="nav-number">1.</span> <span class="nav-text">Question</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Answer"><span class="nav-number">2.</span> <span class="nav-text">Answer</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Better-Answer"><span class="nav-number">3.</span> <span class="nav-text">Better Answer</span></a></li></ol></div>
             
 
           </div>
