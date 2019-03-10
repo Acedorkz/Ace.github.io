@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="default">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Machine Learning Course in Spring 2019
+Text Book: Pattern Recognition and Machine Learning, Bishop
+Here are my learning notes, to be continued..😝
+Chapter One: IntroductionIntroductionSupervised Learn">
+<meta property="og:type" content="article">
+<meta property="og:title" content="BOOK--PRML">
+<meta property="og:url" content="http://yoursite.com/2019/03/10/PRML/index.html">
+<meta property="og:site_name" content="Ace">
+<meta property="og:description" content="Machine Learning Course in Spring 2019
+Text Book: Pattern Recognition and Machine Learning, Bishop
+Here are my learning notes, to be continued..😝
+Chapter One: IntroductionIntroductionSupervised Learn">
+<meta property="og:updated_time" content="2019-03-10T12:28:43.627Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="BOOK--PRML">
+<meta name="twitter:description" content="Machine Learning Course in Spring 2019
+Text Book: Pattern Recognition and Machine Learning, Bishop
+Here are my learning notes, to be continued..😝
+Chapter One: IntroductionIntroductionSupervised Learn">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/03/10/PRML/"/>
+
+
+
+
+
+  <title>BOOK--PRML | Ace</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Ace</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Ace.github.io</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-categories"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/10/PRML/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ace_ZAJ">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/me.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ace">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">BOOK--PRML</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-10T20:25:21+08:00">
+                2019-03-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Machine-Learning/" itemprop="url" rel="index">
+                    <span itemprop="name">Machine Learning</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>Machine Learning Course in Spring 2019</p>
+<p>Text Book: Pattern Recognition and Machine Learning, Bishop</p>
+<p>Here are my learning notes, to be continued..😝</p>
+<h2 id="Chapter-One-Introduction"><a href="#Chapter-One-Introduction" class="headerlink" title="Chapter One: Introduction"></a>Chapter One: Introduction</h2><h3 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h3><h4 id="Supervised-Learning"><a href="#Supervised-Learning" class="headerlink" title="Supervised Learning"></a>Supervised Learning</h4><ul>
+<li>regression: y is continuous</li>
+<li>classification: y is discrete</li>
+</ul>
+<p>supervised+X learning</p>
+<h4 id="Unsupervised-Learning"><a href="#Unsupervised-Learning" class="headerlink" title="Unsupervised Learning"></a>Unsupervised Learning</h4><ul>
+<li>Cluster: well-seperated</li>
+<li>Dimensionality reduction</li>
+</ul>
+<h4 id="Reinforcement-Learning"><a href="#Reinforcement-Learning" class="headerlink" title="Reinforcement Learning"></a>Reinforcement Learning</h4><h3 id="Basic-steps"><a href="#Basic-steps" class="headerlink" title="Basic steps"></a>Basic steps</h3><h4 id="generalization-error"><a href="#generalization-error" class="headerlink" title="generalization error"></a>generalization error</h4><p>Training error &amp; True(<strong>generalization error</strong>) – over the whole population</p>
+<p>generalization error is the true error of the population of examples, but it cannot be computed exactly, sample mean <strong>only approximates</strong> the true mean</p>
+<p>Optimize (mean) training error can lead to the <strong>overfit</strong></p>
+<p>2 ways to assess the generalization error is:</p>
+<ul>
+<li>Theoretical: Law of Large numbers</li>
+<li>Practical: Use a separate data set with m data samples to test the model</li>
+</ul>
+<h4 id="Test-sets"><a href="#Test-sets" class="headerlink" title="Test sets"></a>Test sets</h4><p>How can we get an unbiased estimate of the accuracy of a learned model?</p>
+<p>When learning a model, should pretend that you don’t have the test data yet</p>
+<p><strong>The empirical loss</strong></p>
+<h4 id="Overfitting"><a href="#Overfitting" class="headerlink" title="Overfitting"></a>Overfitting</h4><p>when the training error is low and the generalization error is high</p>
+<p>Causes of phenomenon:</p>
+<ul>
+<li>model with a large number of parameters (degrees of freedom)</li>
+<li>small data size</li>
+</ul>
+<h4 id="Feature-selection"><a href="#Feature-selection" class="headerlink" title="Feature selection"></a>Feature selection</h4><p>score each feature and select a subset</p>
+<h4 id="Model-selection"><a href="#Model-selection" class="headerlink" title="Model selection"></a>Model selection</h4><p>solution for overfitting:</p>
+<ul>
+<li>assure sufficient number of samples in the training set</li>
+<li>hold some data out of the training set = validation set</li>
+<li>regularization</li>
+</ul>
+<p>Validation set, Hold-out method &amp; its drawbacks</p>
+<p>Cross validation:</p>
+<ul>
+<li>K-fold cross validation</li>
+<li>Leave-out-out (LOO) cross validation, validate on only one sample per run for n runs</li>
+<li>Random subsampling: randomly subsample a fixed fraction an (0&lt;a&lt;1) of the dataset for validation</li>
+</ul>
+<h4 id="Regularization"><a href="#Regularization" class="headerlink" title="Regularization"></a>Regularization</h4><p>penalized loss function</p>
+<p>regularization parameter</p>
+<h3 id="1-Polynomial-Curve-Regression-–-Bishop-page10"><a href="#1-Polynomial-Curve-Regression-–-Bishop-page10" class="headerlink" title="1. Polynomial Curve Regression – Bishop page10"></a>1. Polynomial Curve Regression – Bishop page10</h3><p>y(x,w) is a nonlinear function of x，it is a <strong>linear function of the coefficients w</strong></p>
+<p>Error function E(<strong>w</strong>)，minimization of the error function has a unique solution，denoted by w*</p>
+<p>Dependence of the generalization performance on M, for each choice of M, it’s sometimes more convenient to use the root-mean-square(RMS) error, N - data size</p>
+<p>For a given model complexity, the <strong>over-fitting problem</strong> become less severe as the <strong>size of the data set increases</strong></p>
+<p>The <strong>least squares approach</strong> to finding the model parameters represents a <strong>specific case of maximum likelihood</strong>. The <strong>overfitting problem</strong> can be understood as a general property of maximum likelihood. By adopting a Bayesian approach, the overfitting problem can be avoided</p>
+<h4 id="Regularization-1"><a href="#Regularization-1" class="headerlink" title="Regularization"></a>Regularization</h4><p>lambda governs the relative importance of the regularization term compared with the sum-of-squares error term. Note that often the w0 is  omitted from the regularizer</p>
+<h3 id="2-Probability"><a href="#2-Probability" class="headerlink" title="2. Probability"></a>2. Probability</h3><p>sum rule:</p>
+<p>product rule:</p>
+<p>Bayes theorem:</p>
+<h4 id="Probability-densities"><a href="#Probability-densities" class="headerlink" title="Probability densities"></a>Probability densities</h4><h4 id="Expectation"><a href="#Expectation" class="headerlink" title="Expectation"></a>Expectation</h4><p>For a discrete distribution,</p>
+<p>For a continuous distribution,</p>
+<p>For a conditional expectation,</p>
+<h4 id="Variance"><a href="#Variance" class="headerlink" title="Variance"></a>Variance</h4><p>For f(x),</p>
+<p>covariance is,</p>
+<h3 id="3-Information-Theory"><a href="#3-Information-Theory" class="headerlink" title="3. Information Theory"></a>3. Information Theory</h3><p>The amount of information can be viewed as the ‘<strong>degree of surprise</strong>‘ on learning the value of x</p>
+<p>If we are told that a highly improbable event that has just occurred, we will have received more information than if we were told that some very likely event that has just occurred</p>
+<p>the negative sign ensures that information is positive or zero. <strong>Low probability events x correspond to high information content</strong></p>
+<p>The average amount of information that they transmit in the process is obtained by taking the expectation, the entropy of the random variable x</p>
+<p>This relation between entropy and shortest coding length is a general one. The noiseless coding theorem states that the entropy is a lower bound on the number of bits needed to transmit the state of a random variable</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/12/18/Some-points-in-ML/" rel="next" title="Some points in ML">
+                <i class="fa fa-chevron-left"></i> Some points in ML
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/me.JPG"
+                alt="Ace_ZAJ" />
+            
+              <p class="site-author-name" itemprop="name">Ace_ZAJ</p>
+              <p class="site-description motion-element" itemprop="description">boom pow</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">121</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-One-Introduction"><span class="nav-number">1.</span> <span class="nav-text">Chapter One: Introduction</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Introduction"><span class="nav-number">1.1.</span> <span class="nav-text">Introduction</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Supervised-Learning"><span class="nav-number">1.1.1.</span> <span class="nav-text">Supervised Learning</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Unsupervised-Learning"><span class="nav-number">1.1.2.</span> <span class="nav-text">Unsupervised Learning</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Reinforcement-Learning"><span class="nav-number">1.1.3.</span> <span class="nav-text">Reinforcement Learning</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Basic-steps"><span class="nav-number">1.2.</span> <span class="nav-text">Basic steps</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#generalization-error"><span class="nav-number">1.2.1.</span> <span class="nav-text">generalization error</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Test-sets"><span class="nav-number">1.2.2.</span> <span class="nav-text">Test sets</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Overfitting"><span class="nav-number">1.2.3.</span> <span class="nav-text">Overfitting</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Feature-selection"><span class="nav-number">1.2.4.</span> <span class="nav-text">Feature selection</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Model-selection"><span class="nav-number">1.2.5.</span> <span class="nav-text">Model selection</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Regularization"><span class="nav-number">1.2.6.</span> <span class="nav-text">Regularization</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Polynomial-Curve-Regression-–-Bishop-page10"><span class="nav-number">1.3.</span> <span class="nav-text">1. Polynomial Curve Regression – Bishop page10</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Regularization-1"><span class="nav-number">1.3.1.</span> <span class="nav-text">Regularization</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Probability"><span class="nav-number">1.4.</span> <span class="nav-text">2. Probability</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Probability-densities"><span class="nav-number">1.4.1.</span> <span class="nav-text">Probability densities</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Expectation"><span class="nav-number">1.4.2.</span> <span class="nav-text">Expectation</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Variance"><span class="nav-number">1.4.3.</span> <span class="nav-text">Variance</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-Information-Theory"><span class="nav-number">1.5.</span> <span class="nav-text">3. Information Theory</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ace_ZAJ</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.3</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>
