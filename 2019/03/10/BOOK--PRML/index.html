@@ -82,7 +82,7 @@
 <meta name="description" content="Machine Learning Course in Spring 2019
 Text Book: Pattern Recognition and Machine Learning, Bishop
 Here are my learning notes, to be continued..😝
-Chapter One: IntroductionIntroductionSupervised Learn">
+Chapter One: Introduction1.IntroductionSupervised Lea">
 <meta property="og:type" content="article">
 <meta property="og:title" content="BOOK--PRML">
 <meta property="og:url" content="http://yoursite.com/2019/03/10/BOOK--PRML/index.html">
@@ -90,14 +90,14 @@ Chapter One: IntroductionIntroductionSupervised Learn">
 <meta property="og:description" content="Machine Learning Course in Spring 2019
 Text Book: Pattern Recognition and Machine Learning, Bishop
 Here are my learning notes, to be continued..😝
-Chapter One: IntroductionIntroductionSupervised Learn">
-<meta property="og:updated_time" content="2019-03-10T13:21:45.378Z">
+Chapter One: Introduction1.IntroductionSupervised Lea">
+<meta property="og:updated_time" content="2019-03-10T13:36:31.404Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="BOOK--PRML">
 <meta name="twitter:description" content="Machine Learning Course in Spring 2019
 Text Book: Pattern Recognition and Machine Learning, Bishop
 Here are my learning notes, to be continued..😝
-Chapter One: IntroductionIntroductionSupervised Learn">
+Chapter One: Introduction1.IntroductionSupervised Lea">
 
 
 
@@ -362,7 +362,7 @@ Chapter One: IntroductionIntroductionSupervised Learn">
         <p>Machine Learning Course in Spring 2019</p>
 <p>Text Book: Pattern Recognition and Machine Learning, Bishop</p>
 <p>Here are my learning notes, to be continued..😝</p>
-<h2 id="Chapter-One-Introduction"><a href="#Chapter-One-Introduction" class="headerlink" title="Chapter One: Introduction"></a>Chapter One: Introduction</h2><h3 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h3><h4 id="Supervised-Learning"><a href="#Supervised-Learning" class="headerlink" title="Supervised Learning"></a>Supervised Learning</h4><ul>
+<h2 id="Chapter-One-Introduction"><a href="#Chapter-One-Introduction" class="headerlink" title="Chapter One: Introduction"></a>Chapter One: Introduction</h2><h3 id="1-Introduction"><a href="#1-Introduction" class="headerlink" title="1.Introduction"></a>1.Introduction</h3><h4 id="Supervised-Learning"><a href="#Supervised-Learning" class="headerlink" title="Supervised Learning"></a>Supervised Learning</h4><ul>
 <li>regression: y is continuous</li>
 <li>classification: y is discrete</li>
 </ul>
@@ -371,7 +371,8 @@ Chapter One: IntroductionIntroductionSupervised Learn">
 <li>Cluster: well-seperated</li>
 <li>Dimensionality reduction</li>
 </ul>
-<h4 id="Reinforcement-Learning"><a href="#Reinforcement-Learning" class="headerlink" title="Reinforcement Learning"></a>Reinforcement Learning</h4><h3 id="Basic-steps"><a href="#Basic-steps" class="headerlink" title="Basic steps"></a>Basic steps</h3><h4 id="generalization-error"><a href="#generalization-error" class="headerlink" title="generalization error"></a>generalization error</h4><p>Training error &amp; True(<strong>generalization error</strong>) – over the whole population</p>
+<h4 id="Reinforcement-Learning"><a href="#Reinforcement-Learning" class="headerlink" title="Reinforcement Learning"></a>Reinforcement Learning</h4><a id="more"></a>
+<h3 id="2-Basic-steps"><a href="#2-Basic-steps" class="headerlink" title="2.Basic steps"></a>2.Basic steps</h3><h4 id="generalization-error"><a href="#generalization-error" class="headerlink" title="generalization error"></a>generalization error</h4><p>Training error &amp; True(<strong>generalization error</strong>) – over the whole population</p>
 <p>generalization error is the true error of the population of examples, but it cannot be computed exactly, sample mean <strong>only approximates</strong> the true mean</p>
 <p>Optimize (mean) training error can lead to the <strong>overfit</strong></p>
 <p>2 ways to assess the generalization error is:</p>
@@ -404,14 +405,14 @@ Chapter One: IntroductionIntroductionSupervised Learn">
 </ul>
 <h4 id="Regularization"><a href="#Regularization" class="headerlink" title="Regularization"></a>Regularization</h4><p>penalized loss function</p>
 <p>regularization parameter</p>
-<h3 id="1-Polynomial-Curve-Regression-–-Bishop-page10"><a href="#1-Polynomial-Curve-Regression-–-Bishop-page10" class="headerlink" title="1. Polynomial Curve Regression – Bishop page10"></a>1. Polynomial Curve Regression – Bishop page10</h3><p>$$<br>y(x,w)=w_0+w_1x+w_2x^2+…+w_mx^M=\sum_{j=0}^Mw_jx^j<br>$$</p>
+<h3 id="3-Polynomial-Curve-Regression-–-Bishop-page10"><a href="#3-Polynomial-Curve-Regression-–-Bishop-page10" class="headerlink" title="3. Polynomial Curve Regression – Bishop page10"></a>3. Polynomial Curve Regression – Bishop page10</h3><p>$$<br>y(x,w)=w_0+w_1x+w_2x^2+…+w_mx^M=\sum_{j=0}^Mw_jx^j<br>$$</p>
 <p>y(x,w) is a nonlinear function of x，it is a <strong>linear function of the coefficients w</strong></p>
 <p>Error function E(<strong>w</strong>)，minimization of the error function has a unique solution，denoted by w<em><br>$$<br>E(w) = \frac{1}{2}\sum_{n=1}^N{y(x_n,w)-t_n}^2<br>$$<br>Dependence of the generalization performance on M, for each choice of M, it’s sometimes more convenient to use the root-mean-square(RMS) error, N - data size<br>$$<br>E_{RMS} = \sqrt{2E(w^</em>)/N}<br>$$<br>For a given model complexity, the <strong>over-fitting problem</strong> become less severe as the <strong>size of the data set increases</strong></p>
 <p>The <strong>least squares approach</strong> to finding the model parameters represents a <strong>specific case of maximum likelihood</strong>. The <strong>overfitting problem</strong> can be understood as a general property of maximum likelihood. By adopting a Bayesian approach, the overfitting problem can be avoided</p>
 <h4 id="Regularization-1"><a href="#Regularization-1" class="headerlink" title="Regularization"></a>Regularization</h4><p>$$<br>E(w) = \frac{1}{2}\sum_{n=1}^N{y(x_n,w)-t_n}^2+\frac{\lambda}{2}||w||^2<br>$$</p>
 <p>$$<br>||w||^2=w_0^2+w_1^2+w_2^2+…+w_M^2<br>$$</p>
 <p>lambda governs the relative importance of the regularization term compared with the sum-of-squares error term. Note that often the w0 is  omitted from the regularizer</p>
-<h3 id="2-Probability"><a href="#2-Probability" class="headerlink" title="2. Probability"></a>2. Probability</h3><p>sum rule:<br>$$<br>p(X)=\sum_Yp(X,Y)<br>$$<br>product rule:<br>$$<br>p(X,Y)=p(Y|X)P(X)<br>$$<br>Bayes theorem:<br>$$<br>p(Y|X)=\frac{P(X|Y)P(Y)}{p(X)}<br>$$</p>
+<h3 id="4-Probability"><a href="#4-Probability" class="headerlink" title="4. Probability"></a>4. Probability</h3><p>sum rule:<br>$$<br>p(X)=\sum_Yp(X,Y)<br>$$<br>product rule:<br>$$<br>p(X,Y)=p(Y|X)P(X)<br>$$<br>Bayes theorem:<br>$$<br>p(Y|X)=\frac{P(X|Y)P(Y)}{p(X)}<br>$$</p>
 <h4 id="Probability-densities"><a href="#Probability-densities" class="headerlink" title="Probability densities"></a>Probability densities</h4><p>$$<br>p(x)=\int p(x,y){\rm d}y<br>$$</p>
 <h4 id="Expectation"><a href="#Expectation" class="headerlink" title="Expectation"></a>Expectation</h4><p>For a discrete distribution,<br>$$<br>E[f]=\sum_xp(x)f(x)<br>$$<br>For a continuous distribution,<br>$$<br>E[f]=\int p(x)f(x){\rm d}x<br>$$</p>
 <p>$$<br>E[f]\approx\frac{1}{N}\sum_{n=1}^{N}f(x_n)<br>$$</p>
@@ -419,7 +420,7 @@ Chapter One: IntroductionIntroductionSupervised Learn">
 <h4 id="Variance"><a href="#Variance" class="headerlink" title="Variance"></a>Variance</h4><p>For f(x),<br>$$<br>var[f]=E[(f(x)-E[f(x)])^2]<br>$$</p>
 <p>$$<br>var[f]=E[(f(x)^2]-E[f(x)]^2<br>$$</p>
 <p>covariance is,<br>$$<br>\begin{align}<br>cov[x,y]<br>&amp;= E_{x,y}[(x-E[x])(y-E[y])]\\<br>&amp;= E_{x,y}[xy]-E[x]E[y]<br>\end{align}<br>$$</p>
-<h3 id="3-Information-Theory"><a href="#3-Information-Theory" class="headerlink" title="3. Information Theory"></a>3. Information Theory</h3><p>The amount of information can be viewed as the ‘<strong>degree of surprise</strong>‘ on learning the value of x</p>
+<h3 id="5-Information-Theory"><a href="#5-Information-Theory" class="headerlink" title="5. Information Theory"></a>5. Information Theory</h3><p>The amount of information can be viewed as the ‘<strong>degree of surprise</strong>‘ on learning the value of x</p>
 <p>If we are told that a highly improbable event that has just occurred, we will have received more information than if we were told that some very likely event that has just occurred<br>$$<br>h(x)=-log_2p(x)<br>$$<br>the negative sign ensures that information is positive or zero. <strong>Low probability events x correspond to high information content</strong></p>
 <p>The average amount of information that they transmit in the process is obtained by taking the expectation, the entropy of the random variable x<br>$$<br>H[x]=-\sum p(x)log_2p(x)<br>$$<br>This relation between entropy and shortest coding length is a general one. The noiseless coding theorem states that the entropy is a lower bound on the number of bits needed to transmit the state of a random variable</p>
 
@@ -592,7 +593,7 @@ Chapter One: IntroductionIntroductionSupervised Learn">
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-One-Introduction"><span class="nav-number">1.</span> <span class="nav-text">Chapter One: Introduction</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Introduction"><span class="nav-number">1.1.</span> <span class="nav-text">Introduction</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Supervised-Learning"><span class="nav-number">1.1.1.</span> <span class="nav-text">Supervised Learning</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Unsupervised-Learning"><span class="nav-number">1.1.2.</span> <span class="nav-text">Unsupervised Learning</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Reinforcement-Learning"><span class="nav-number">1.1.3.</span> <span class="nav-text">Reinforcement Learning</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Basic-steps"><span class="nav-number">1.2.</span> <span class="nav-text">Basic steps</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#generalization-error"><span class="nav-number">1.2.1.</span> <span class="nav-text">generalization error</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Test-sets"><span class="nav-number">1.2.2.</span> <span class="nav-text">Test sets</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Overfitting"><span class="nav-number">1.2.3.</span> <span class="nav-text">Overfitting</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Feature-selection"><span class="nav-number">1.2.4.</span> <span class="nav-text">Feature selection</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Model-selection"><span class="nav-number">1.2.5.</span> <span class="nav-text">Model selection</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Regularization"><span class="nav-number">1.2.6.</span> <span class="nav-text">Regularization</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Polynomial-Curve-Regression-–-Bishop-page10"><span class="nav-number">1.3.</span> <span class="nav-text">1. Polynomial Curve Regression – Bishop page10</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Regularization-1"><span class="nav-number">1.3.1.</span> <span class="nav-text">Regularization</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Probability"><span class="nav-number">1.4.</span> <span class="nav-text">2. Probability</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Probability-densities"><span class="nav-number">1.4.1.</span> <span class="nav-text">Probability densities</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Expectation"><span class="nav-number">1.4.2.</span> <span class="nav-text">Expectation</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Variance"><span class="nav-number">1.4.3.</span> <span class="nav-text">Variance</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-Information-Theory"><span class="nav-number">1.5.</span> <span class="nav-text">3. Information Theory</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-One-Introduction"><span class="nav-number">1.</span> <span class="nav-text">Chapter One: Introduction</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Introduction"><span class="nav-number">1.1.</span> <span class="nav-text">1.Introduction</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Supervised-Learning"><span class="nav-number">1.1.1.</span> <span class="nav-text">Supervised Learning</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Unsupervised-Learning"><span class="nav-number">1.1.2.</span> <span class="nav-text">Unsupervised Learning</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Reinforcement-Learning"><span class="nav-number">1.1.3.</span> <span class="nav-text">Reinforcement Learning</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Basic-steps"><span class="nav-number">1.2.</span> <span class="nav-text">2.Basic steps</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#generalization-error"><span class="nav-number">1.2.1.</span> <span class="nav-text">generalization error</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Test-sets"><span class="nav-number">1.2.2.</span> <span class="nav-text">Test sets</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Overfitting"><span class="nav-number">1.2.3.</span> <span class="nav-text">Overfitting</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Feature-selection"><span class="nav-number">1.2.4.</span> <span class="nav-text">Feature selection</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Model-selection"><span class="nav-number">1.2.5.</span> <span class="nav-text">Model selection</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Regularization"><span class="nav-number">1.2.6.</span> <span class="nav-text">Regularization</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-Polynomial-Curve-Regression-–-Bishop-page10"><span class="nav-number">1.3.</span> <span class="nav-text">3. Polynomial Curve Regression – Bishop page10</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Regularization-1"><span class="nav-number">1.3.1.</span> <span class="nav-text">Regularization</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-Probability"><span class="nav-number">1.4.</span> <span class="nav-text">4. Probability</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Probability-densities"><span class="nav-number">1.4.1.</span> <span class="nav-text">Probability densities</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Expectation"><span class="nav-number">1.4.2.</span> <span class="nav-text">Expectation</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Variance"><span class="nav-number">1.4.3.</span> <span class="nav-text">Variance</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-Information-Theory"><span class="nav-number">1.5.</span> <span class="nav-text">5. Information Theory</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -820,7 +821,7 @@ Chapter One: IntroductionIntroductionSupervised Learn">
         }
       });
     </script>
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="//cdn.staticfile.org/MathJax/MathJax-2.6-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 
