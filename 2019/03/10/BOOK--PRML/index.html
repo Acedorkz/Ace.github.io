@@ -79,22 +79,25 @@
 
 
 
-<meta name="description" content="Bit Manipulation, EasyQuestionWrite a function that takes an unsigned integer and returns the number of ‘1’ bits it has (also known as the Hamming weight).
-Example 1:
-123Input: 11Output: 3Explanation:">
+<meta name="description" content="Machine Learning Course in Spring 2019
+Text Book: Pattern Recognition and Machine Learning, Bishop
+Here are my learning notes, to be continued..😝
+Chapter One: IntroductionIntroductionSupervised Learn">
 <meta property="og:type" content="article">
-<meta property="og:title" content="191.Number of 1 Bits">
-<meta property="og:url" content="http://yoursite.com/2018/05/23/191-Number-of-1-Bits/index.html">
+<meta property="og:title" content="BOOK--PRML">
+<meta property="og:url" content="http://yoursite.com/2019/03/10/BOOK--PRML/index.html">
 <meta property="og:site_name" content="Ace">
-<meta property="og:description" content="Bit Manipulation, EasyQuestionWrite a function that takes an unsigned integer and returns the number of ‘1’ bits it has (also known as the Hamming weight).
-Example 1:
-123Input: 11Output: 3Explanation:">
-<meta property="og:updated_time" content="2018-05-23T15:54:58.708Z">
+<meta property="og:description" content="Machine Learning Course in Spring 2019
+Text Book: Pattern Recognition and Machine Learning, Bishop
+Here are my learning notes, to be continued..😝
+Chapter One: IntroductionIntroductionSupervised Learn">
+<meta property="og:updated_time" content="2019-03-10T13:21:45.378Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="191.Number of 1 Bits">
-<meta name="twitter:description" content="Bit Manipulation, EasyQuestionWrite a function that takes an unsigned integer and returns the number of ‘1’ bits it has (also known as the Hamming weight).
-Example 1:
-123Input: 11Output: 3Explanation:">
+<meta name="twitter:title" content="BOOK--PRML">
+<meta name="twitter:description" content="Machine Learning Course in Spring 2019
+Text Book: Pattern Recognition and Machine Learning, Bishop
+Here are my learning notes, to be continued..😝
+Chapter One: IntroductionIntroductionSupervised Learn">
 
 
 
@@ -124,13 +127,13 @@ Example 1:
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/05/23/191-Number-of-1-Bits/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/03/10/BOOK--PRML/"/>
 
 
 
 
 
-  <title>191.Number of 1 Bits | Ace</title>
+  <title>BOOK--PRML | Ace</title>
   
 
 
@@ -267,7 +270,7 @@ Example 1:
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/23/191-Number-of-1-Bits/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/10/BOOK--PRML/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Ace_ZAJ">
@@ -284,7 +287,7 @@ Example 1:
 
         
         
-          <h1 class="post-title" itemprop="name headline">191.Number of 1 Bits</h1>
+          <h1 class="post-title" itemprop="name headline">BOOK--PRML</h1>
         
 
         <div class="post-meta">
@@ -296,8 +299,8 @@ Example 1:
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-23T23:44:40+08:00">
-                2018-05-23
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-10T20:25:21+08:00">
+                2019-03-10
               </time>
             
 
@@ -319,8 +322,8 @@ Example 1:
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/LeetCode/" itemprop="url" rel="index">
-                    <span itemprop="name">LeetCode</span>
+                  <a href="/categories/Machine-Learning/" itemprop="url" rel="index">
+                    <span itemprop="name">Machine Learning</span>
                   </a>
                 </span>
 
@@ -356,16 +359,69 @@ Example 1:
       
 
       
-        <h4 id="Bit-Manipulation-Easy"><a href="#Bit-Manipulation-Easy" class="headerlink" title="Bit Manipulation, Easy"></a>Bit Manipulation, Easy</h4><h4 id="Question"><a href="#Question" class="headerlink" title="Question"></a>Question</h4><p>Write a function that takes an unsigned integer and returns the number of ‘1’ bits it has (also known as the <a href="http://en.wikipedia.org/wiki/Hamming_weight" target="_blank" rel="external">Hamming weight</a>).</p>
-<p><strong>Example 1:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Input: 11</div><div class="line">Output: 3</div><div class="line">Explanation: Integer 11 has binary representation 00000000000000000000000000001011</div></pre></td></tr></table></figure>
-<p><strong>Example 2:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Input: 128</div><div class="line">Output: 1</div><div class="line">Explanation: Integer 128 has binary representation 00000000000000000000000010000000</div></pre></td></tr></table></figure>
-<a id="more"></a>
-<h4 id="My-Answer"><a href="#My-Answer" class="headerlink" title="My Answer"></a>My Answer</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="comment">// you need to treat n as an unsigned value</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">hammingWeight</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> res=<span class="number">0</span>;</div><div class="line">        <span class="keyword">while</span>(n!=<span class="number">0</span>)&#123;</div><div class="line">            n = n &amp; (n-<span class="number">1</span>);</div><div class="line">            res++;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> res;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>Running time: O(n), n is the length of the given number, 3ms</p>
-<h4 id="Other-Answer"><a href="#Other-Answer" class="headerlink" title="Other Answer"></a>Other Answer</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="comment">// you need to treat n as an unsigned value</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">hammingWeight</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> res=<span class="number">0</span>;</div><div class="line">        <span class="keyword">while</span>(n!=<span class="number">0</span>)&#123;</div><div class="line">            res += n &amp; <span class="number">1</span>;</div><div class="line">            n = n &gt;&gt;&gt; <span class="number">1</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> res;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>Running time: O(n), n is the length of the given number, 3ms</p>
+        <p>Machine Learning Course in Spring 2019</p>
+<p>Text Book: Pattern Recognition and Machine Learning, Bishop</p>
+<p>Here are my learning notes, to be continued..😝</p>
+<h2 id="Chapter-One-Introduction"><a href="#Chapter-One-Introduction" class="headerlink" title="Chapter One: Introduction"></a>Chapter One: Introduction</h2><h3 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h3><h4 id="Supervised-Learning"><a href="#Supervised-Learning" class="headerlink" title="Supervised Learning"></a>Supervised Learning</h4><ul>
+<li>regression: y is continuous</li>
+<li>classification: y is discrete</li>
+</ul>
+<p>supervised+X learning</p>
+<h4 id="Unsupervised-Learning"><a href="#Unsupervised-Learning" class="headerlink" title="Unsupervised Learning"></a>Unsupervised Learning</h4><ul>
+<li>Cluster: well-seperated</li>
+<li>Dimensionality reduction</li>
+</ul>
+<h4 id="Reinforcement-Learning"><a href="#Reinforcement-Learning" class="headerlink" title="Reinforcement Learning"></a>Reinforcement Learning</h4><h3 id="Basic-steps"><a href="#Basic-steps" class="headerlink" title="Basic steps"></a>Basic steps</h3><h4 id="generalization-error"><a href="#generalization-error" class="headerlink" title="generalization error"></a>generalization error</h4><p>Training error &amp; True(<strong>generalization error</strong>) – over the whole population</p>
+<p>generalization error is the true error of the population of examples, but it cannot be computed exactly, sample mean <strong>only approximates</strong> the true mean</p>
+<p>Optimize (mean) training error can lead to the <strong>overfit</strong></p>
+<p>2 ways to assess the generalization error is:</p>
+<ul>
+<li>Theoretical: Law of Large numbers</li>
+<li>Practical: Use a separate data set with m data samples to test the model</li>
+</ul>
+<h4 id="Test-sets"><a href="#Test-sets" class="headerlink" title="Test sets"></a>Test sets</h4><p>How can we get an unbiased estimate of the accuracy of a learned model?</p>
+<p>When learning a model, should pretend that you don’t have the test data yet</p>
+<p><strong>The empirical loss</strong></p>
+<h4 id="Overfitting"><a href="#Overfitting" class="headerlink" title="Overfitting"></a>Overfitting</h4><p>when the training error is low and the generalization error is high</p>
+<p>Causes of phenomenon:</p>
+<ul>
+<li>model with a large number of parameters (degrees of freedom)</li>
+<li>small data size</li>
+</ul>
+<h4 id="Feature-selection"><a href="#Feature-selection" class="headerlink" title="Feature selection"></a>Feature selection</h4><p>score each feature and select a subset</p>
+<h4 id="Model-selection"><a href="#Model-selection" class="headerlink" title="Model selection"></a>Model selection</h4><p>solution for overfitting:</p>
+<ul>
+<li>assure sufficient number of samples in the training set</li>
+<li>hold some data out of the training set = validation set</li>
+<li>regularization</li>
+</ul>
+<p>Validation set, Hold-out method &amp; its drawbacks</p>
+<p>Cross validation:</p>
+<ul>
+<li>K-fold cross validation</li>
+<li>Leave-out-out (LOO) cross validation, validate on only one sample per run for n runs</li>
+<li>Random subsampling: randomly subsample a fixed fraction an (0&lt;a&lt;1) of the dataset for validation</li>
+</ul>
+<h4 id="Regularization"><a href="#Regularization" class="headerlink" title="Regularization"></a>Regularization</h4><p>penalized loss function</p>
+<p>regularization parameter</p>
+<h3 id="1-Polynomial-Curve-Regression-–-Bishop-page10"><a href="#1-Polynomial-Curve-Regression-–-Bishop-page10" class="headerlink" title="1. Polynomial Curve Regression – Bishop page10"></a>1. Polynomial Curve Regression – Bishop page10</h3><p>$$<br>y(x,w)=w_0+w_1x+w_2x^2+…+w_mx^M=\sum_{j=0}^Mw_jx^j<br>$$</p>
+<p>y(x,w) is a nonlinear function of x，it is a <strong>linear function of the coefficients w</strong></p>
+<p>Error function E(<strong>w</strong>)，minimization of the error function has a unique solution，denoted by w<em><br>$$<br>E(w) = \frac{1}{2}\sum_{n=1}^N{y(x_n,w)-t_n}^2<br>$$<br>Dependence of the generalization performance on M, for each choice of M, it’s sometimes more convenient to use the root-mean-square(RMS) error, N - data size<br>$$<br>E_{RMS} = \sqrt{2E(w^</em>)/N}<br>$$<br>For a given model complexity, the <strong>over-fitting problem</strong> become less severe as the <strong>size of the data set increases</strong></p>
+<p>The <strong>least squares approach</strong> to finding the model parameters represents a <strong>specific case of maximum likelihood</strong>. The <strong>overfitting problem</strong> can be understood as a general property of maximum likelihood. By adopting a Bayesian approach, the overfitting problem can be avoided</p>
+<h4 id="Regularization-1"><a href="#Regularization-1" class="headerlink" title="Regularization"></a>Regularization</h4><p>$$<br>E(w) = \frac{1}{2}\sum_{n=1}^N{y(x_n,w)-t_n}^2+\frac{\lambda}{2}||w||^2<br>$$</p>
+<p>$$<br>||w||^2=w_0^2+w_1^2+w_2^2+…+w_M^2<br>$$</p>
+<p>lambda governs the relative importance of the regularization term compared with the sum-of-squares error term. Note that often the w0 is  omitted from the regularizer</p>
+<h3 id="2-Probability"><a href="#2-Probability" class="headerlink" title="2. Probability"></a>2. Probability</h3><p>sum rule:<br>$$<br>p(X)=\sum_Yp(X,Y)<br>$$<br>product rule:<br>$$<br>p(X,Y)=p(Y|X)P(X)<br>$$<br>Bayes theorem:<br>$$<br>p(Y|X)=\frac{P(X|Y)P(Y)}{p(X)}<br>$$</p>
+<h4 id="Probability-densities"><a href="#Probability-densities" class="headerlink" title="Probability densities"></a>Probability densities</h4><p>$$<br>p(x)=\int p(x,y){\rm d}y<br>$$</p>
+<h4 id="Expectation"><a href="#Expectation" class="headerlink" title="Expectation"></a>Expectation</h4><p>For a discrete distribution,<br>$$<br>E[f]=\sum_xp(x)f(x)<br>$$<br>For a continuous distribution,<br>$$<br>E[f]=\int p(x)f(x){\rm d}x<br>$$</p>
+<p>$$<br>E[f]\approx\frac{1}{N}\sum_{n=1}^{N}f(x_n)<br>$$</p>
+<p>For a conditional expectation,<br>$$<br>E_x{f|y}=\sum_xp(x|y)f(x)<br>$$</p>
+<h4 id="Variance"><a href="#Variance" class="headerlink" title="Variance"></a>Variance</h4><p>For f(x),<br>$$<br>var[f]=E[(f(x)-E[f(x)])^2]<br>$$</p>
+<p>$$<br>var[f]=E[(f(x)^2]-E[f(x)]^2<br>$$</p>
+<p>covariance is,<br>$$<br>\begin{align}<br>cov[x,y]<br>&amp;= E_{x,y}[(x-E[x])(y-E[y])]\\<br>&amp;= E_{x,y}[xy]-E[x]E[y]<br>\end{align}<br>$$</p>
+<h3 id="3-Information-Theory"><a href="#3-Information-Theory" class="headerlink" title="3. Information Theory"></a>3. Information Theory</h3><p>The amount of information can be viewed as the ‘<strong>degree of surprise</strong>‘ on learning the value of x</p>
+<p>If we are told that a highly improbable event that has just occurred, we will have received more information than if we were told that some very likely event that has just occurred<br>$$<br>h(x)=-log_2p(x)<br>$$<br>the negative sign ensures that information is positive or zero. <strong>Low probability events x correspond to high information content</strong></p>
+<p>The average amount of information that they transmit in the process is obtained by taking the expectation, the entropy of the random variable x<br>$$<br>H[x]=-\sum p(x)log_2p(x)<br>$$<br>This relation between entropy and shortest coding length is a general one. The noiseless coding theorem states that the entropy is a lower bound on the number of bits needed to transmit the state of a random variable</p>
 
       
     </div>
@@ -390,8 +446,8 @@ Example 1:
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/05/23/136-Single-Number-1/" rel="next" title="136.Single Number">
-                <i class="fa fa-chevron-left"></i> 136.Single Number
+              <a href="/2018/12/18/Some-points-in-ML/" rel="next" title="Some points in ML">
+                <i class="fa fa-chevron-left"></i> Some points in ML
               </a>
             
           </div>
@@ -399,10 +455,6 @@ Example 1:
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/05/27/237-Delete-Node-in-a-Linked-List/" rel="prev" title="237.Delete Node in a Linked List">
-                237.Delete Node in a Linked List <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -540,7 +592,7 @@ Example 1:
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Bit-Manipulation-Easy"><span class="nav-number">1.</span> <span class="nav-text">Bit Manipulation, Easy</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Question"><span class="nav-number">2.</span> <span class="nav-text">Question</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#My-Answer"><span class="nav-number">3.</span> <span class="nav-text">My Answer</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Other-Answer"><span class="nav-number">4.</span> <span class="nav-text">Other Answer</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-One-Introduction"><span class="nav-number">1.</span> <span class="nav-text">Chapter One: Introduction</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Introduction"><span class="nav-number">1.1.</span> <span class="nav-text">Introduction</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Supervised-Learning"><span class="nav-number">1.1.1.</span> <span class="nav-text">Supervised Learning</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Unsupervised-Learning"><span class="nav-number">1.1.2.</span> <span class="nav-text">Unsupervised Learning</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Reinforcement-Learning"><span class="nav-number">1.1.3.</span> <span class="nav-text">Reinforcement Learning</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Basic-steps"><span class="nav-number">1.2.</span> <span class="nav-text">Basic steps</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#generalization-error"><span class="nav-number">1.2.1.</span> <span class="nav-text">generalization error</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Test-sets"><span class="nav-number">1.2.2.</span> <span class="nav-text">Test sets</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Overfitting"><span class="nav-number">1.2.3.</span> <span class="nav-text">Overfitting</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Feature-selection"><span class="nav-number">1.2.4.</span> <span class="nav-text">Feature selection</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Model-selection"><span class="nav-number">1.2.5.</span> <span class="nav-text">Model selection</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Regularization"><span class="nav-number">1.2.6.</span> <span class="nav-text">Regularization</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Polynomial-Curve-Regression-–-Bishop-page10"><span class="nav-number">1.3.</span> <span class="nav-text">1. Polynomial Curve Regression – Bishop page10</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Regularization-1"><span class="nav-number">1.3.1.</span> <span class="nav-text">Regularization</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Probability"><span class="nav-number">1.4.</span> <span class="nav-text">2. Probability</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Probability-densities"><span class="nav-number">1.4.1.</span> <span class="nav-text">Probability densities</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Expectation"><span class="nav-number">1.4.2.</span> <span class="nav-text">Expectation</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Variance"><span class="nav-number">1.4.3.</span> <span class="nav-text">Variance</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-Information-Theory"><span class="nav-number">1.5.</span> <span class="nav-text">3. Information Theory</span></a></li></ol></li></ol></div>
             
 
           </div>
