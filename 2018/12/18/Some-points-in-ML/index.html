@@ -91,7 +91,7 @@ Translation: https://zhuanlan.zhi">
 
 English: http://www.thushv.com/machine-learning/light-on-math-machine-learning-intuitive-guide-to-understanding-kl-divergence/
 Translation: https://zhuanlan.zhi">
-<meta property="og:updated_time" content="2019-03-10T12:18:45.307Z">
+<meta property="og:updated_time" content="2019-03-14T10:04:21.552Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Some points in ML">
 <meta name="twitter:description" content="KL divergence (KL 散度)good explanation:
@@ -365,6 +365,34 @@ Translation: https://zhuanlan.zhi">
 <li>Translation: <a href="https://zhuanlan.zhihu.com/p/37452654" target="_blank" rel="external">https://zhuanlan.zhihu.com/p/37452654</a></li>
 </ul>
 <a id="more"></a>
+<h3 id="tf-summary"><a href="#tf-summary" class="headerlink" title="tf.summary"></a>tf.summary</h3><p><a href="https://medium.com/@lisulimowicz/tensorflow-summary-d4160304a6f1" target="_blank" rel="external">https://medium.com/@lisulimowicz/tensorflow-summary-d4160304a6f1</a></p>
+<h3 id="tf-pad"><a href="#tf-pad" class="headerlink" title="tf.pad"></a>tf.pad</h3><p><a href="https://blog.csdn.net/zhang_bei_qing/article/details/75090203" target="_blank" rel="external">https://blog.csdn.net/zhang_bei_qing/article/details/75090203</a></p>
+<h3 id="padding"><a href="#padding" class="headerlink" title="padding"></a>padding</h3><p>‘same’ and ‘valid’: <a href="https://stackoverflow.com/questions/37674306/what-is-the-difference-between-same-and-valid-padding-in-tf-nn-max-pool-of-t" target="_blank" rel="external">https://stackoverflow.com/questions/37674306/what-is-the-difference-between-same-and-valid-padding-in-tf-nn-max-pool-of-t</a></p>
+<p>If you like ascii art:</p>
+<ul>
+<li><p><code>&quot;VALID&quot;</code> = without padding:</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">inputs:         <span class="number">1</span>  <span class="number">2</span>  <span class="number">3</span>  <span class="number">4</span>  <span class="number">5</span>  <span class="number">6</span>  <span class="number">7</span>  <span class="number">8</span>  <span class="number">9</span>  <span class="number">10</span> <span class="number">11</span> (<span class="number">12</span> <span class="number">13</span>)</div><div class="line">               |________________|                dropped</div><div class="line">                              |_________________|</div></pre></td></tr></table></figure>
+</li>
+<li><p><code>&quot;SAME&quot;</code> = with zero padding:</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">            pad|                                      |pad</div><div class="line">inputs:      <span class="number">0</span> |<span class="number">1</span>  <span class="number">2</span>  <span class="number">3</span>  <span class="number">4</span>  <span class="number">5</span>  <span class="number">6</span>  <span class="number">7</span>  <span class="number">8</span>  <span class="number">9</span>  <span class="number">10</span> <span class="number">11</span> <span class="number">12</span> <span class="number">13</span>|<span class="number">0</span>  <span class="number">0</span></div><div class="line">            |________________|</div><div class="line">                           |_________________|</div><div class="line">                                          |________________|</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>In this example:</p>
+<ul>
+<li>Input width = 13</li>
+<li>Filter width = 6</li>
+<li>Stride = 5</li>
+</ul>
+<p>Notes:</p>
+<ul>
+<li><code>&quot;VALID&quot;</code> only ever drops the right-most columns (or bottom-most rows).</li>
+<li><code>&quot;SAME&quot;</code> tries to pad evenly left and right, but if the amount of columns to be added is odd, it will add the extra column to the right, as is the case in this example (the same logic applies vertically: there may be an extra row of zeros at the bottom).</li>
+</ul>
+<h3 id="Posterior-amp-prior-amp-likelihood"><a href="#Posterior-amp-prior-amp-likelihood" class="headerlink" title="Posterior&amp;prior&amp;likelihood"></a>Posterior&amp;prior&amp;likelihood</h3><p>Posterior:<br>$$<br>p(\theta|x)<br>$$<br>Prior:<br>$$<br>p(\theta)<br>$$<br>likelihood:<br>$$<br>p(x|\theta)<br>$$<br>evidence:<br>$$<br>p(x)<br>$$<br>Bayes:<br>$$<br>p(\theta|x)=\frac{p(x|\theta)p(\theta)}{p(x)}<br>$$<br>Naive Bayes:</p>
+<p><a href="http://www.ruanyifeng.com/blog/2013/12/naive_bayes_classifier.html" target="_blank" rel="external">http://www.ruanyifeng.com/blog/2013/12/naive_bayes_classifier.html</a></p>
+<p>假设某个体有n项特征（Feature），分别为F1、F2、…、Fn。现有m个类别（Category），分别为C1、C2、…、Cm。贝叶斯分类器就是计算出概率最大的那个分类，也就是求下面这个算式的最大值<br>$$<br>P(C|F1F2…Fn)=\frac{P(F1F2…Fn|C)P(C)}{P(F1F2…Fn)}<br>$$<br>由于 P(F1F2…Fn) 对于所有的类别都是相同的，可以省略，问题就变成了求<br>$$<br>P(F1F2…Fn|C)P(C)<br>$$<br>的最大值。</p>
+<p><strong>朴素贝叶斯分类器则是更进一步</strong>，<strong>假设所有特征都彼此独立</strong>，因此<br>$$<br>P(F1F2…Fn|C)P(C)=P(F1|C)P(F2|C)..P(Fn|C)P(C)<br>$$<br>虽然”所有特征彼此独立”这个假设，在现实中不太可能成立，但是它可以大大简化计算，而且有研究表明对分类结果的准确性影响不大。<br>$$<br>\begin{align}<br>P(C|F1F2…Fn)&amp;=\frac{P(F1F2…Fn|C)P(C)}{P(F1F2…Fn)}\\<br>&amp;=\frac{P(F1|C)P(F2|C)..P(Fn|C)P(C)}{P(F1)P(F2)..P(Fn)}<br>\end{align}<br>$$</p>
+
       
     </div>
     
@@ -544,7 +572,7 @@ Translation: https://zhuanlan.zhi">
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#KL-divergence-KL-散度"><span class="nav-number">1.</span> <span class="nav-text">KL divergence (KL 散度)</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#KL-divergence-KL-散度"><span class="nav-number">1.</span> <span class="nav-text">KL divergence (KL 散度)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#tf-summary"><span class="nav-number">2.</span> <span class="nav-text">tf.summary</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#tf-pad"><span class="nav-number">3.</span> <span class="nav-text">tf.pad</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#padding"><span class="nav-number">4.</span> <span class="nav-text">padding</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Posterior-amp-prior-amp-likelihood"><span class="nav-number">5.</span> <span class="nav-text">Posterior&prior&likelihood</span></a></li></ol></div>
             
 
           </div>
