@@ -261,6 +261,156 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/29/Tensorflow-save-checkpoint-issue/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ace_ZAJ">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/me.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ace">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/05/29/Tensorflow-save-checkpoint-issue/" itemprop="url">Tensorflow save checkpoint issue</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-05-29T16:04:29+08:00">
+                2019-05-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Coding/" itemprop="url" rel="index">
+                    <span itemprop="name">Coding</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>Same issue as following:</p>
+<p><a href="https://github.com/una-dinosauria/human-motion-prediction/issues/10">https://github.com/una-dinosauria/human-motion-prediction/issues/10</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">NotFoundError (see above for traceback): Failed to create a NewWriteableFile: XX\checkpoint-10.data-00000-of-00001.tempstate3138973305096497355</div></pre></td></tr></table></figure>
+<p>The problem turned out to be the <a href="https://stackoverflow.com/questions/1857335/is-there-any-length-limits-of-file-path-in-ntfs">maximum path length supported by the Windows shell</a> (255 UTF-16 code words), not an NTFS problem. </p>
+<p>So I shorten the folder name, then the issue problem…🙃</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/05/29/Tensorflow-save-checkpoint-issue/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/02/Anaconda-tensorflow-issue/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -315,8 +465,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/za/" itemprop="url" rel="index">
-                    <span itemprop="name">za</span>
+                  <a href="/categories/Coding/" itemprop="url" rel="index">
+                    <span itemprop="name">Coding</span>
                   </a>
                 </span>
 
@@ -1633,162 +1783,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/09/Rakiki-Machine-Learning-as-an-Analytics-Service-System/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Ace_ZAJ">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/me.JPG">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ace">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/10/09/Rakiki-Machine-Learning-as-an-Analytics-Service-System/" itemprop="url">Rakiki--Machine Learning as an Analytics Service System</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-09T16:27:25+08:00">
-                2018-10-09
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/paper/" itemprop="url" rel="index">
-                    <span itemprop="name">paper</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h3 id="Machine-Learning-as-an-Analytics-Service-System"><a href="#Machine-Learning-as-an-Analytics-Service-System" class="headerlink" title="Machine Learning as an Analytics Service System"></a>Machine Learning as an Analytics Service System</h3><p>Key words: training, inference, latency, accuracy</p>
-<h4 id="1-Introduction"><a href="#1-Introduction" class="headerlink" title="1. Introduction"></a>1. Introduction</h4><p><strong>Approaches</strong> to integrating the machine learning techniques into database applications:</p>
-<ul>
-<li>preprocess the data off-line and add the predictions results into a new columnyin</li>
-<li>carry out the prediction on-line as user-defined functions (UDFs) in the SQL query</li>
-<li>better solution is to call the corresponding cloud machine learning service, e.g. APIs, disadvantage:<ul>
-<li>the accuracy could be low since the models are trained by Amazon and Google with general data</li>
-<li>only a limited number of machine learning models are supported</li>
-</ul>
-</li>
-</ul>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/10/09/Rakiki-Machine-Learning-as-an-Analytics-Service-System/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1843,7 +1837,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">123</span>
+                  <span class="site-state-item-count">124</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1854,7 +1848,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
