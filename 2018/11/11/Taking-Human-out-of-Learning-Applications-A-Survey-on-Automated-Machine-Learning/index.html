@@ -79,21 +79,30 @@
 
 
 
-<meta name="description" content="Automated Machine LearningKey words: automatic machine learning, neural architecture search, hyper-parameter optimization, meta-learning, transfer-learning
-IntroductionEvery aspect of machine learning">
+<meta name="description" content="[TOC]
+Automated Machine LearningKey words: automatic machine learning, neural architecture search, hyper-parameter optimization, meta-learning, transfer-learning
+1. IntroductionEvery aspect of machine">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Taking Human out of Learning Applications: A Survey on Automated Machine Learning">
 <meta property="og:url" content="http://yoursite.com/2018/11/11/Taking-Human-out-of-Learning-Applications-A-Survey-on-Automated-Machine-Learning/index.html">
 <meta property="og:site_name" content="Ace">
-<meta property="og:description" content="Automated Machine LearningKey words: automatic machine learning, neural architecture search, hyper-parameter optimization, meta-learning, transfer-learning
-IntroductionEvery aspect of machine learning">
+<meta property="og:description" content="[TOC]
+Automated Machine LearningKey words: automatic machine learning, neural architecture search, hyper-parameter optimization, meta-learning, transfer-learning
+1. IntroductionEvery aspect of machine">
 <meta property="og:image" content="http://yoursite.com/img/AutoML-basic framework.png">
 <meta property="og:image" content="http://yoursite.com/img/AutoML-working flow if approaches.png">
-<meta property="og:updated_time" content="2018-11-11T13:47:44.637Z">
+<meta property="og:image" content="http://yoursite.com/img/AutoML-Heuristic search.png">
+<meta property="og:image" content="http://yoursite.com/img/AutoML-model based derivative free optimization.png">
+<meta property="og:image" content="http://yoursite.com/img/AutoML-RL.png">
+<meta property="og:image" content="http://yoursite.com/img/AutoML-Greedy search.png">
+<meta property="og:image" content="http://yoursite.com/img/AutoML-Meta learning.png">
+<meta property="og:image" content="http://yoursite.com/img/AutoML-transfer learning.png">
+<meta property="og:updated_time" content="2019-06-11T04:24:32.120Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Taking Human out of Learning Applications: A Survey on Automated Machine Learning">
-<meta name="twitter:description" content="Automated Machine LearningKey words: automatic machine learning, neural architecture search, hyper-parameter optimization, meta-learning, transfer-learning
-IntroductionEvery aspect of machine learning">
+<meta name="twitter:description" content="[TOC]
+Automated Machine LearningKey words: automatic machine learning, neural architecture search, hyper-parameter optimization, meta-learning, transfer-learning
+1. IntroductionEvery aspect of machine">
 <meta name="twitter:image" content="http://yoursite.com/img/AutoML-basic framework.png">
 
 
@@ -356,8 +365,9 @@ IntroductionEvery aspect of machine learning">
       
 
       
-        <h3 id="Automated-Machine-Learning"><a href="#Automated-Machine-Learning" class="headerlink" title="Automated Machine Learning"></a>Automated Machine Learning</h3><p>Key words: automatic machine learning, neural architecture search, hyper-parameter optimization, meta-learning, transfer-learning</p>
-<h3 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h3><p>Every aspect of machine learning applications, such as feature engineering, model selection, algorithm selection needs to be carefully configured, which is usually involved heavily with human experts.</p>
+        <p>[TOC]</p>
+<h3 id="Automated-Machine-Learning"><a href="#Automated-Machine-Learning" class="headerlink" title="Automated Machine Learning"></a>Automated Machine Learning</h3><p>Key words: automatic machine learning, neural architecture search, hyper-parameter optimization, meta-learning, transfer-learning</p>
+<h3 id="1-Introduction"><a href="#1-Introduction" class="headerlink" title="1. Introduction"></a>1. Introduction</h3><p>Every aspect of machine learning applications, such as feature engineering, model selection, algorithm selection needs to be carefully configured, which is usually involved heavily with human experts.</p>
 <p>AutoML attempts to reduce human assistance in the design, selection and implementation of various machine learning tools used in applications’ pipeline.</p>
 <p>Examples:</p>
 <ul>
@@ -381,7 +391,7 @@ IntroductionEvery aspect of machine learning">
 <li>A detailed analysis of approaches techniques</li>
 <li>Suggest four promising future  research directions: computational efficiency, problem settings, solution techniques and applications</li>
 </ul>
-<h3 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h3><h4 id="AutoML-from-two-perspectives"><a href="#AutoML-from-two-perspectives" class="headerlink" title="AutoML from two perspectives"></a>AutoML from two perspectives</h4><p>automation and machine learning</p>
+<h3 id="2-Overview"><a href="#2-Overview" class="headerlink" title="2. Overview"></a>2. Overview</h3><h4 id="AutoML-from-two-perspectives"><a href="#AutoML-from-two-perspectives" class="headerlink" title="AutoML from two perspectives"></a>AutoML from two perspectives</h4><p>automation and machine learning</p>
 <ul>
 <li><p>ML</p>
 <p><strong>E</strong>xperience, <strong>T</strong>ask, <strong>P</strong>erformance</p>
@@ -430,6 +440,7 @@ IntroductionEvery aspect of machine learning">
 <li>Simple search approaches: grid search, random search</li>
 <li>Optimization from samples</li>
 <li>Gradient descent</li>
+<li>More complex ones: reinforcement learning and automatic differentiation</li>
 </ul>
 </li>
 <li>Evaluator: Performance Evaluation<ul>
@@ -439,7 +450,7 @@ IntroductionEvery aspect of machine learning">
 </ul>
 </li>
 <li><p>Advanced</p>
-<p>They usually need to be combined with basic ones</p>
+<p>Experienced techniques learn and accumulate knowledge from past searches or external data. They usually need to be combined with basic ones</p>
 <ul>
 <li>Meta Learning</li>
 <li>Transfer Learning</li>
@@ -451,9 +462,370 @@ IntroductionEvery aspect of machine learning">
 </ol>
 <p>We focus on supervised AutoML approaches in this survey as all existing works for AutoML are supervised ones </p>
 <h4 id="Working-flow-based-on-Taxonomies"><a href="#Working-flow-based-on-Taxonomies" class="headerlink" title="Working flow based on Taxonomies"></a>Working flow based on Taxonomies</h4><p><img src="/img/AutoML-working flow if approaches.png" alt="AutoML-working flow if approaches.png"></p>
-<h3 id="Problem-setting-up"><a href="#Problem-setting-up" class="headerlink" title="Problem setting up"></a>Problem setting up</h3><p>What to be automated</p>
-<p>What learning tools can be designed and used? What are their corresponding configurations?</p>
-<p>Define the search space</p>
+<h3 id="3-Problem-settings"><a href="#3-Problem-settings" class="headerlink" title="3. Problem settings"></a>3. Problem settings</h3><ul>
+<li>What learning process we want to focus on?</li>
+<li>What learning tools can be designed and used?</li>
+<li>What are resultant corresponding configurations?</li>
+</ul>
+<p>By answering the questions we can define the search space  for an AutoML approach</p>
+<h4 id="3-1-Feature-Engineering"><a href="#3-1-Feature-Engineering" class="headerlink" title="3.1 Feature Engineering"></a>3.1 Feature Engineering</h4><p>Automatically construct features from the data so that subsequent learning tools can have good performance</p>
+<p>The above goal can be further divided into two sub-problems: </p>
+<ul>
+<li>creating features from the data</li>
+<li>enhance features’ discriminative ability (For now, we focus on this)</li>
+</ul>
+<h5 id="Feature-Enhancing-Methods"><a href="#Feature-Enhancing-Methods" class="headerlink" title="Feature Enhancing Methods"></a>Feature Enhancing Methods</h5><ul>
+<li><p><strong>Dimension reduction</strong></p>
+<p>select a subset of features from the original ones, popular methods are greed search and lasso</p>
+<p>Feature projection transforms original features to a new low-dimensional space, e.g., PCA, LDA, autoencoders</p>
+</li>
+<li><p><strong>Feature generation</strong></p>
+<p>construct new features from the original ones based on some pre-defined operations.</p>
+<p>e.g., multiplication of two features and standard normalization</p>
+</li>
+<li><p><strong>Feature encoding</strong></p>
+<p>re-interprets original features based on some dictionaries learned from the data. Training samples that are not discriminable in the original space become separable in the new space.</p>
+<p>e.g. sparse coding, local-linear coding, kernel methods(used with SVM)</p>
+</li>
+</ul>
+<h5 id="Search-space"><a href="#Search-space" class="headerlink" title="Search space"></a>Search space</h5><ul>
+<li><p><strong>hyper-parameters</strong> of tools, and configuration exactly refers to these hyper-parameters</p>
+<p>e.g., determine the dimension of features when employing PCA, and the level of sparsity if sparse coding is used</p>
+</li>
+<li><p>contains <strong>features</strong> to be generated and selected, commonly considered in feature generation. Basically, the search space if spanned by operations on original features, from plus, minus and times operation</p>
+</li>
+</ul>
+<h4 id="3-2-Model-selection"><a href="#3-2-Model-selection" class="headerlink" title="3.2 Model selection"></a>3.2 Model selection</h4><ul>
+<li>pick up some classifiers</li>
+<li>set their corresponding hyper-parameters</li>
+</ul>
+<h5 id="Classification-Tools"><a href="#Classification-Tools" class="headerlink" title="Classification Tools"></a>Classification Tools</h5><p>e.g.,</p>
+<ul>
+<li>tree classifiers</li>
+<li>linear classifiers</li>
+<li>kernel machines</li>
+<li>deep networks</li>
+</ul>
+<h5 id="Search-space-1"><a href="#Search-space-1" class="headerlink" title="Search space"></a>Search space</h5><p>The candidate classifiers and their corresponding hyper-parameters make up the search space</p>
+<h4 id="3-3-Optimization-Algorithm-Selection"><a href="#3-3-Optimization-Algorithm-Selection" class="headerlink" title="3.3 Optimization Algorithm Selection"></a>3.3 Optimization Algorithm Selection</h4><p>Automatically find an optimization algorithm so that <strong>efficiency</strong> and <strong>performance</strong> can be balanced</p>
+<h5 id="Optimization-algorithms"><a href="#Optimization-algorithms" class="headerlink" title="Optimization algorithms"></a>Optimization algorithms</h5><ul>
+<li>Gradient descent(GD), suffers from convergence and expensive per-iteration complexity.</li>
+<li>L-BFGS, Limited memory-BFGS, more expensive but converges faster</li>
+<li>SGD, stochastic gradient descent, each iteration is very cheap but many iterations are need before convergence</li>
+</ul>
+<h5 id="Search-space-2"><a href="#Search-space-2" class="headerlink" title="Search space"></a>Search space</h5><p>determined by configurations of optimization algorithms, contains the choice of optimization algorithms and the values of their hyper-parameters</p>
+<h4 id="3-4-Full-scope"><a href="#3-4-Full-scope" class="headerlink" title="3.4 Full scope"></a>3.4 Full scope</h4><p>Two classes of full-scope AutoML approaches</p>
+<ul>
+<li><p>general case</p>
+<p>combination of feature engineering, model selection and algorithm selection</p>
+</li>
+<li><p>NAS</p>
+<p>target at searching good deep network architectures that suit learning problem</p>
+<p>Three reasons why discuss it in parallel with the full scope</p>
+<ul>
+<li>hot research topic</li>
+<li>application domain for deep networks is relative clear</li>
+<li>domain specific network architectures can fulfill the learning purpose, where feature engineering and model selection are both done by NAS</li>
+</ul>
+</li>
+</ul>
+<h5 id="Network-Architecture-Search-NAS"><a href="#Network-Architecture-Search-NAS" class="headerlink" title="Network Architecture Search(NAS)"></a>Network Architecture Search(NAS)</h5><p>e.g. CNN</p>
+<ul>
+<li>number of filters </li>
+<li>filter height</li>
+<li>stride height</li>
+<li>filter width</li>
+<li>stride width</li>
+<li>skip connections</li>
+</ul>
+<h3 id="4-Basic-techniques-for-optimizer"><a href="#4-Basic-techniques-for-optimizer" class="headerlink" title="4. Basic techniques for optimizer"></a>4. Basic techniques for optimizer</h3><p>After the search space is defined, we need to find an optimizer to guide the search in the space</p>
+<p>Three important questions:</p>
+<ul>
+<li>What kind of <strong>search space</strong> can the optimizer operate on?</li>
+<li>What kind of <strong>feedbacks</strong> it needs?</li>
+<li>How many <strong>configurations</strong> it needs to generate/update before a good one can be found? – efficiency</li>
+</ul>
+<p>Divide techniques into three categories:</p>
+<ul>
+<li>simple search approaches</li>
+<li>optimization from samples</li>
+<li>gradient descent</li>
+</ul>
+<h4 id="4-1-Simple-search-approaches"><a href="#4-1-Simple-search-approaches" class="headerlink" title="4.1 Simple search approaches"></a>4.1 Simple search approaches</h4><p>make no assumptions about the search space</p>
+<p>each configuration in the search space can be evaluated independently</p>
+<ul>
+<li><p><strong>Grid search(brute force)</strong></p>
+<p>Enumerate every possible configurations in the search space</p>
+<p>Discretization is necessary when the search space is continuous</p>
+</li>
+<li><p><strong>Random search</strong></p>
+<p>Randomly samples configurations in the search space</p>
+<p>Random search can explore more on important dimensions than grid search</p>
+</li>
+</ul>
+<p>Simple search does not exploit the knowledge gained from the past evaluations, it is usually inefficient. </p>
+<h4 id="4-2-Optimization-from-samples"><a href="#4-2-Optimization-from-samples" class="headerlink" title="4.2 Optimization from samples"></a>4.2 Optimization from samples</h4><p>iteratively generates new configurations based on previously samples</p>
+<p>more efficient than simple search methods</p>
+<p>does not make specific assumptions about the objective</p>
+<p>divide into 3 categories:</p>
+<ul>
+<li>heuristic search</li>
+<li>model-based derivative-free optimization</li>
+<li>reinforcement learning</li>
+</ul>
+<h5 id="Heuristic-search-启发式搜索"><a href="#Heuristic-search-启发式搜索" class="headerlink" title="Heuristic search 启发式搜索"></a>Heuristic search 启发式搜索</h5><p>often inspired by biologic behaviors and phenomenon</p>
+<p>widely used to solve optimization problems that are non-convex, non-smooth, or even non-continuous</p>
+<p>population-based optimization methods</p>
+<p><img src="/img/AutoML-Heuristic search.png" alt="AutoML-working flow if approaches.png"></p>
+<p>popular heuristic search methods:</p>
+<ul>
+<li><p><strong>Popular swarm optimization(PSO)</strong> 粒子群优化</p>
+<p>inspired by the behavior of biological communities that exhibit both individual and social behavior</p>
+<p>the population is updated by moving towards the best individuals </p>
+<p>PSO optimizes by searching the neighborhoods of the best samples</p>
+<p>PSO has been used for model selection, feature selection for support vector machine (SVM), and hyper-parameter tuning for deep networks</p>
+</li>
+<li><p><strong>Evolutionary algorithms</strong></p>
+<p>inspired by biological evolution</p>
+<p>generation step contains crossover and mutation</p>
+<ul>
+<li><p><strong>crossover</strong> 交叉</p>
+<p>involve two different individuals, combine them in some way to generate an new individual</p>
+</li>
+<li><p><strong>mutation</strong> 变异</p>
+<p>slightly changes an individual to generate a new one</p>
+</li>
+</ul>
+<p>With crossover mainly to exploit and mutation mainly to explore, the population is expected to evolve towards better performance.</p>
+<p>Has been applied in feature selection and generation and model selection</p>
+</li>
+</ul>
+<h5 id="Model-based-Derivative-Free-Optimization"><a href="#Model-based-Derivative-Free-Optimization" class="headerlink" title="Model-based Derivative-Free Optimization"></a>Model-based Derivative-Free Optimization</h5><p>Model-based optimization builds a model based on visited samples</p>
+<p>Full utilization of feedbacks from the evaluator helps it <strong>generate more promising new samples</strong></p>
+<p><img src="/img/AutoML-model based derivative free optimization.png" alt="AutoML-working flow if approaches.png"></p>
+<p>Popular methods: </p>
+<ul>
+<li><p><strong>Bayesian optimization</strong></p>
+<p>builds a probabilistic model</p>
+<p>define an acquisition function based on the probabilistic model</p>
+<p>a new sample is generated by optimizing the acquisition function and used to update the probabilistic model once its evaluated</p>
+</li>
+<li><p><strong>classification-based optimization(CBO)</strong></p>
+<p>classification-based optimization learns a classifier that divides the search space into positive and negative areas. </p>
+<p>Then, new samples are randomly generated in the positive area where it is more likely to get better configurations</p>
+<p>efficient</p>
+</li>
+<li><p><strong>Simultaneous optimistic optimization(SOO)</strong></p>
+<p>branch-and-bound optimization algorithm</p>
+<p>tree structure is built on the search place</p>
+<p>SOO deeply explores the search space by expanding leaf nodes</p>
+<p>Through the tree model, SOO can balance exploration and exploitation to find the global optimum then the objective function is Local-Lipschitz continuous</p>
+<p>suffer from curse of dimensionality</p>
+</li>
+</ul>
+<h5 id="Reinforcement-learning"><a href="#Reinforcement-learning" class="headerlink" title="Reinforcement learning"></a>Reinforcement learning</h5><p>can solve problems with delayed feedbacks</p>
+<p><img src="/img/AutoML-RL.png" alt="AutoML-working flow if approaches.png"></p>
+<p>The feedbacks(reward and state) do not need to be immediately returned once an action is taken. They can be returned after performing a sequence of actions</p>
+<p>RL is recently used in NAS. Design of one layer can be seen as one action given by the optimizer. Due to the delayed feedbacks, AutoML with reinforcement learning is highly source-consuming.</p>
+<p>Some current endeavors addressing this problems are <strong>learning transferable architectures from smaller data sets,</strong> and <strong>cutting the search space by sharing parameter</strong> </p>
+<p>RL has also been used for optimization algorithms search, automated feature selection  and training data selection in active learning</p>
+<h4 id="4-3-Gradient-descent"><a href="#4-3-Gradient-descent" class="headerlink" title="4.3 Gradient descent"></a>4.3 Gradient descent</h4><p>Optimization problems of AutoML is very complex, and the objective is usually not differentiable or even not continuous.</p>
+<p>In AutoML problem, the gradients need to be numerically computed</p>
+<ol>
+<li><p>This can be done with finite differentiation methods but at high costs</p>
+<p>The computation of exact gradients relies on the convergence of model training</p>
+<p>Through inexact gradient, hyper-parameters can be updated before the model training converges, which makes gradient descent method more efficient</p>
+</li>
+<li><p>Another way to compute gradients is through reversible learning (automatic differentiation)</p>
+<p>compute gradients with chain rule</p>
+<p>backpropagation process of network training</p>
+</li>
+</ol>
+<h4 id="4-4-Greedy-search"><a href="#4-4-Greedy-search" class="headerlink" title="4.4 Greedy search"></a>4.4 Greedy search</h4><p>natural strategy to solve multi-step decision making problem</p>
+<p>follows a heuristic that makes locally optimal decision at each step with the intent of finding a global optimum</p>
+<p>applied in feature selection and submodular optimization</p>
+<p>E.g., in NAS problem, greedy search is applied for multi-attribute learning problems</p>
+<p>greedy search is also employed to search block structures within a cell, which is later used to construct a full CNN</p>
+<p><img src="/img/AutoML-Greedy search.png" alt="AutoML-working flow if approaches.png"></p>
+<h4 id="4-5-Other-techniques"><a href="#4-5-Other-techniques" class="headerlink" title="4.5 Other techniques"></a>4.5 Other techniques</h4><p>popular one is to change the landscape of the search space so that more powerful optimization techniques can be used</p>
+<p>E.g., discrete search space to continuous, then use gd instead of RL. or encoder-decoder framework</p>
+<h3 id="5-Basic-techniques-for-evaluator"><a href="#5-Basic-techniques-for-evaluator" class="headerlink" title="5. Basic techniques for evaluator"></a>5. Basic techniques for evaluator</h3><p>Very time-consuming as it involves model training for most of the times</p>
+<p>Three important questions:</p>
+<ul>
+<li>Can the technique provide <strong>fast</strong> evaluation?</li>
+<li>Can the technique provide <strong>accurate</strong> evaluation?</li>
+<li>What <strong>feedbacks</strong> need to be provided by the evaluator?</li>
+</ul>
+<p>Tradeoff between the first and second question</p>
+<p>Lower accuracy but larger variance</p>
+<h4 id="5-1-Techniques"><a href="#5-1-Techniques" class="headerlink" title="5.1 Techniques"></a>5.1 Techniques</h4><ul>
+<li><p><strong>Direct evaluation</strong></p>
+<p>simplest method</p>
+<p>the model parameters are learned on the training set, and the performance is measured on the validation set afterwards</p>
+<p>accurate but expensive</p>
+</li>
+<li><p><strong>Sub-sampling</strong></p>
+<p>training time depends heavily on the amount of training data</p>
+<p>train parameters with a subset of the training data</p>
+<p>either using a subset of samples, a subset of features or multi-fidelity(多高保真) evaluations</p>
+</li>
+<li><p><strong>Early stop</strong></p>
+<p>it is usually used to cut down the training time for unpromising configurations</p>
+<p>If a poor early-stage performance is observed, the evaluator can terminate the training and report a low performance to indicate that the candidate is unpromising</p>
+<p>introduces noise and bias to the estimation, maybe some features eventually turn out to be good after sufficient training</p>
+</li>
+<li><p><strong>Parameter reusing</strong></p>
+<p>use parameters of the trained models in previous evaluation</p>
+<p>to warm-start the model training for the current evaluation</p>
+<p>parameters learned with similar configurations can be close with each other</p>
+<p>as different start point may lead convergence to different local optima, it sometimes brings bias in the evaluation</p>
+<p>one of the most straightforward applications of transfer learning</p>
+</li>
+<li><p><strong>Surrogate evaluator</strong></p>
+<p>cut down the evaluation cost is to build a model that predicts the performance of given configurations, with experience of past evaluations</p>
+<p>serving as surrogate evaluators, sparse the computationally expensive model training, significantly accelerate AutoML</p>
+<p>the application scope is limited to hyper-parameter optimization since other kinds of configurations are often hard to quantize, meta-learning are promising to address this problem</p>
+</li>
+</ul>
+<h3 id="6-Experienced-Techniques"><a href="#6-Experienced-Techniques" class="headerlink" title="6. Experienced Techniques"></a>6. Experienced Techniques</h3><p>experienced techniques that can improve the efficiency and performance of AutoML</p>
+<ul>
+<li><p>meta-learning</p>
+<p>meta-knowledge about learning is extracted</p>
+<p>meta-learner is trained to guide learning</p>
+</li>
+<li><p>transfer learning</p>
+<p>transferable knowledge is brought from past experiences to help upcoming learning</p>
+</li>
+</ul>
+<p>They all aim to exploit experience gained from past learning practices</p>
+<p>Some researchers also take transfer learning as a special case of meta-learning</p>
+<h4 id="6-1-Meta-learning"><a href="#6-1-Meta-learning" class="headerlink" title="6.1 Meta-learning"></a>6.1 Meta-learning</h4><p>Categorizing them into three general classes:</p>
+<ul>
+<li>for the evaluator</li>
+<li>for the optimizer</li>
+<li>for dynamic configuration adaptation</li>
+</ul>
+<h5 id="General-Meta-Learning-Framework"><a href="#General-Meta-Learning-Framework" class="headerlink" title="General Meta-Learning Framework"></a>General Meta-Learning Framework</h5><p><img src="/img/AutoML-Meta learning.png" alt="AutoML-working flow if approaches.png"></p>
+<h5 id="Configuration-Evaluation"><a href="#Configuration-Evaluation" class="headerlink" title="Configuration Evaluation"></a>Configuration Evaluation</h5><p>Most computation-intensive step: configuration evaluation, due to cost of model training and validation</p>
+<p>Categorize：</p>
+<ul>
+<li><p><strong>Model evaluation</strong></p>
+<p>meta knowledge: meta features of learning problems and the empirical performance of different models</p>
+<p>meta learner: map the meta-features to the performance, applicability, ranking of models</p>
+</li>
+<li><p><strong>General configuration evaluation</strong></p>
+<p>E.g., in ExploreKit, ranking classifiers are trained to candidate features</p>
+</li>
+</ul>
+<p>Meta-learners are trained to predict the performance or suitability of configurations</p>
+<p>where all possible choices have been enumerated, best configurations can be directly selected according to the scores and rankings predicted by the meta-learner</p>
+<h5 id="Configuration-Generation"><a href="#Configuration-Generation" class="headerlink" title="Configuration Generation"></a>Configuration Generation</h5><p>Meta-Learning can also facilitate configuration generation by learning</p>
+<ul>
+<li><p>Promising configuration generation</p>
+<p>meta-knowledge indicate the empirically good configurations are extracted</p>
+<p>meta-learner, take learning problem as input and predict promising configurations</p>
+<p>it is also possible to learn promising configuration generation strategies(e.g., feature transformations)</p>
+</li>
+<li><p>Warm-starting configuration generation</p>
+<p>better initialize configuration search</p>
+<p>given a new learning task, to identify the past tasks that are closest to it in the meta- feature space, and use their best-performing configurations to initialize search</p>
+</li>
+<li><p>Search space refining</p>
+<p>make effort to evaluate the importance of configurations, or identify promising regions in the search space</p>
+</li>
+</ul>
+<h5 id="Dynamic-Configuration-Adaptation"><a href="#Dynamic-Configuration-Adaptation" class="headerlink" title="Dynamic Configuration Adaptation"></a>Dynamic Configuration Adaptation</h5><p>the data distribution varies even in a single data set, especially in data streams</p>
+<p><strong>concept drift</strong>: such change in data distribution</p>
+<p>Classical ml, concept drift is often priorly assumed or posteriorly detected</p>
+<p>Meta-learning can help to automate this procedure by detecting concept drift and dynamically adapting learning tools</p>
+<ul>
+<li><p>Concept drift detection</p>
+<p>some papers…</p>
+</li>
+<li><p>Dynamic configuration adaptation</p>
+<p>Once the concept drift is detected, configuration adaptation can be carried out </p>
+<p>similar in promising configuration generation</p>
+</li>
+</ul>
+<h4 id="6-2-Transfer-learning"><a href="#6-2-Transfer-learning" class="headerlink" title="6.2 Transfer learning"></a>6.2 Transfer learning</h4><p>By using the knowledge from the source domain and learning task</p>
+<p><img src="/img/AutoML-transfer learning.png" alt="AutoML-working flow if approaches.png"></p>
+<ul>
+<li>configuration generation(for the optimizer)</li>
+<li>configuration evaluation(for the evaluator)</li>
+</ul>
+<h5 id="Configuration-Generation-1"><a href="#Configuration-Generation-1" class="headerlink" title="Configuration Generation"></a>Configuration Generation</h5><p>reuse trained surrogate models or promising search strategies from past AutoML search(source) and improve the efficiency in current AutoML task(target)</p>
+<ul>
+<li><p>surrogate model transfer</p>
+<p>transfer the surrogate model, or its components such as kernel function</p>
+<p>general case is hyper-parameter optimization machine</p>
+</li>
+<li><p>network cell transfer</p>
+</li>
+</ul>
+<p>Multi-task learning, is also employed to help configuration generation</p>
+<h5 id="Configuration-Evaluation-1"><a href="#Configuration-Evaluation-1" class="headerlink" title="Configuration Evaluation"></a>Configuration Evaluation</h5><p>transfer knowledge from previous configuration evaluations</p>
+<p>widely employed in NAS approaches to accelerate  the evaluation of candidate architectures</p>
+<ul>
+<li><p>Model parameter transfer</p>
+<p>initialize network with transferred feature layers, followed by fine-tuning</p>
+</li>
+<li><p>Function preserving transformation</p>
+<p>first proposed in Net2Net, where new networks are initialized to represent the same functionality of a given trained model</p>
+<p>also inspires new strategies to explore the network architecture space</p>
+</li>
+</ul>
+<h3 id="7-Representative-examples"><a href="#7-Representative-examples" class="headerlink" title="7. Representative examples"></a>7. Representative examples</h3><h4 id="7-1-Model-selection-using-Auto-sklearn"><a href="#7-1-Model-selection-using-Auto-sklearn" class="headerlink" title="7.1 Model selection using Auto-sklearn"></a>7.1 Model selection using Auto-sklearn</h4><p>CASH problem</p>
+<p>aim to minimize the validation loss with respect to the model as well as its hyper-parameters and parameters</p>
+<h4 id="7-2-Reinforcement-learning-for-NAS-NASNet"><a href="#7-2-Reinforcement-learning-for-NAS-NASNet" class="headerlink" title="7.2 Reinforcement learning for NAS(NASNet)"></a>7.2 Reinforcement learning for NAS(NASNet)</h4><p>RL</p>
+<p>transfer learning </p>
+<p>parameter sharing</p>
+<p>greedy search</p>
+<p>CNN with less depth and fewer parameters with comparable performance to that of state- of-art CNN designed by humans.</p>
+<h4 id="7-3-Feature-Construction-using-ExploreKit"><a href="#7-3-Feature-Construction-using-ExploreKit" class="headerlink" title="7.3 Feature Construction using ExploreKit"></a>7.3 Feature Construction using ExploreKit</h4><ul>
+<li><p>candidate feature generation</p>
+</li>
+<li><p>candidate feature ranking</p>
+<p>meta learning employed to accelerate</p>
+<p>with historical knowledge on feature engineering     </p>
+</li>
+<li><p>candidate feature evaluation and selection</p>
+</li>
+</ul>
+<h3 id="8-Summary"><a href="#8-Summary" class="headerlink" title="8. Summary"></a>8. Summary</h3><h4 id="8-1-A-brief-history"><a href="#8-1-A-brief-history" class="headerlink" title="8.1 A brief history"></a>8.1 A brief history</h4><h4 id="8-2-Current-status-in-the-academy-and-industry"><a href="#8-2-Current-status-in-the-academy-and-industry" class="headerlink" title="8.2 Current status in the academy and industry"></a>8.2 Current status in the academy and industry</h4><p>ICML NIPS KDD AAAI IJCAI JMLR</p>
+<h4 id="8-3-Future-works"><a href="#8-3-Future-works" class="headerlink" title="8.3 Future works"></a>8.3 Future works</h4><h5 id="Problem-setup"><a href="#Problem-setup" class="headerlink" title="Problem setup"></a>Problem setup</h5><p>automatically creating features from the data</p>
+<h5 id="Techniques"><a href="#Techniques" class="headerlink" title="Techniques"></a>Techniques</h5><ul>
+<li><p>Basic techniques</p>
+<p>higher efficiency</p>
+<p>simultaneously optimize configurations and parameters</p>
+</li>
+<li><p>Experienced techniques</p>
+<ul>
+<li><p>meta learning</p>
+<p>how to automate meta-learning..</p>
+</li>
+<li><p>transfer learning</p>
+<p>automatically determine when and how to transfer what knowledge</p>
+</li>
+</ul>
+</li>
+<li><p>Applications</p>
+<ul>
+<li>active learning</li>
+<li>neural network compression</li>
+<li>semi-supervised learning</li>
+</ul>
+</li>
+</ul>
+<h5 id="Theory"><a href="#Theory" class="headerlink" title="Theory"></a>Theory</h5><ul>
+<li><p>Optimization theory</p>
+<p>convergence speed</p>
+</li>
+<li><p>Learning theory</p>
+<p>which type of problems can or cannot be addressed by an AutoML approach</p>
+</li>
+</ul>
+<p>Clarify AutoML approach generalization ability</p>
+<p>AdaNet</p>
 
       
     </div>
@@ -634,7 +1006,7 @@ IntroductionEvery aspect of machine learning">
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Automated-Machine-Learning"><span class="nav-number">1.</span> <span class="nav-text">Automated Machine Learning</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Introduction"><span class="nav-number">2.</span> <span class="nav-text">Introduction</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Contributions"><span class="nav-number">2.1.</span> <span class="nav-text">Contributions</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Overview"><span class="nav-number">3.</span> <span class="nav-text">Overview</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#AutoML-from-two-perspectives"><span class="nav-number">3.1.</span> <span class="nav-text">AutoML from two perspectives</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Definition-of-AutoML"><span class="nav-number">3.2.</span> <span class="nav-text">Definition of AutoML</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Goals-of-AutoML"><span class="nav-number">3.3.</span> <span class="nav-text">Goals of AutoML</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Basic-framework"><span class="nav-number">3.4.</span> <span class="nav-text">Basic framework</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Taxonomies-of-AutoML-Approaches"><span class="nav-number">3.5.</span> <span class="nav-text">Taxonomies of AutoML Approaches</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Working-flow-based-on-Taxonomies"><span class="nav-number">3.6.</span> <span class="nav-text">Working flow based on Taxonomies</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Problem-setting-up"><span class="nav-number">4.</span> <span class="nav-text">Problem setting up</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Automated-Machine-Learning"><span class="nav-number">1.</span> <span class="nav-text">Automated Machine Learning</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Introduction"><span class="nav-number">2.</span> <span class="nav-text">1. Introduction</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Contributions"><span class="nav-number">2.1.</span> <span class="nav-text">Contributions</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Overview"><span class="nav-number">3.</span> <span class="nav-text">2. Overview</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#AutoML-from-two-perspectives"><span class="nav-number">3.1.</span> <span class="nav-text">AutoML from two perspectives</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Definition-of-AutoML"><span class="nav-number">3.2.</span> <span class="nav-text">Definition of AutoML</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Goals-of-AutoML"><span class="nav-number">3.3.</span> <span class="nav-text">Goals of AutoML</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Basic-framework"><span class="nav-number">3.4.</span> <span class="nav-text">Basic framework</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Taxonomies-of-AutoML-Approaches"><span class="nav-number">3.5.</span> <span class="nav-text">Taxonomies of AutoML Approaches</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Working-flow-based-on-Taxonomies"><span class="nav-number">3.6.</span> <span class="nav-text">Working flow based on Taxonomies</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-Problem-settings"><span class="nav-number">4.</span> <span class="nav-text">3. Problem settings</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1-Feature-Engineering"><span class="nav-number">4.1.</span> <span class="nav-text">3.1 Feature Engineering</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Feature-Enhancing-Methods"><span class="nav-number">4.1.1.</span> <span class="nav-text">Feature Enhancing Methods</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Search-space"><span class="nav-number">4.1.2.</span> <span class="nav-text">Search space</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-Model-selection"><span class="nav-number">4.2.</span> <span class="nav-text">3.2 Model selection</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Classification-Tools"><span class="nav-number">4.2.1.</span> <span class="nav-text">Classification Tools</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Search-space-1"><span class="nav-number">4.2.2.</span> <span class="nav-text">Search space</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-3-Optimization-Algorithm-Selection"><span class="nav-number">4.3.</span> <span class="nav-text">3.3 Optimization Algorithm Selection</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Optimization-algorithms"><span class="nav-number">4.3.1.</span> <span class="nav-text">Optimization algorithms</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Search-space-2"><span class="nav-number">4.3.2.</span> <span class="nav-text">Search space</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-4-Full-scope"><span class="nav-number">4.4.</span> <span class="nav-text">3.4 Full scope</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Network-Architecture-Search-NAS"><span class="nav-number">4.4.1.</span> <span class="nav-text">Network Architecture Search(NAS)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-Basic-techniques-for-optimizer"><span class="nav-number">5.</span> <span class="nav-text">4. Basic techniques for optimizer</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-1-Simple-search-approaches"><span class="nav-number">5.1.</span> <span class="nav-text">4.1 Simple search approaches</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2-Optimization-from-samples"><span class="nav-number">5.2.</span> <span class="nav-text">4.2 Optimization from samples</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Heuristic-search-启发式搜索"><span class="nav-number">5.2.1.</span> <span class="nav-text">Heuristic search 启发式搜索</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Model-based-Derivative-Free-Optimization"><span class="nav-number">5.2.2.</span> <span class="nav-text">Model-based Derivative-Free Optimization</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Reinforcement-learning"><span class="nav-number">5.2.3.</span> <span class="nav-text">Reinforcement learning</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-3-Gradient-descent"><span class="nav-number">5.3.</span> <span class="nav-text">4.3 Gradient descent</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-4-Greedy-search"><span class="nav-number">5.4.</span> <span class="nav-text">4.4 Greedy search</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-5-Other-techniques"><span class="nav-number">5.5.</span> <span class="nav-text">4.5 Other techniques</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-Basic-techniques-for-evaluator"><span class="nav-number">6.</span> <span class="nav-text">5. Basic techniques for evaluator</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#5-1-Techniques"><span class="nav-number">6.1.</span> <span class="nav-text">5.1 Techniques</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-Experienced-Techniques"><span class="nav-number">7.</span> <span class="nav-text">6. Experienced Techniques</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#6-1-Meta-learning"><span class="nav-number">7.1.</span> <span class="nav-text">6.1 Meta-learning</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#General-Meta-Learning-Framework"><span class="nav-number">7.1.1.</span> <span class="nav-text">General Meta-Learning Framework</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Configuration-Evaluation"><span class="nav-number">7.1.2.</span> <span class="nav-text">Configuration Evaluation</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Configuration-Generation"><span class="nav-number">7.1.3.</span> <span class="nav-text">Configuration Generation</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Dynamic-Configuration-Adaptation"><span class="nav-number">7.1.4.</span> <span class="nav-text">Dynamic Configuration Adaptation</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-2-Transfer-learning"><span class="nav-number">7.2.</span> <span class="nav-text">6.2 Transfer learning</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Configuration-Generation-1"><span class="nav-number">7.2.1.</span> <span class="nav-text">Configuration Generation</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Configuration-Evaluation-1"><span class="nav-number">7.2.2.</span> <span class="nav-text">Configuration Evaluation</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-Representative-examples"><span class="nav-number">8.</span> <span class="nav-text">7. Representative examples</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#7-1-Model-selection-using-Auto-sklearn"><span class="nav-number">8.1.</span> <span class="nav-text">7.1 Model selection using Auto-sklearn</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-2-Reinforcement-learning-for-NAS-NASNet"><span class="nav-number">8.2.</span> <span class="nav-text">7.2 Reinforcement learning for NAS(NASNet)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-3-Feature-Construction-using-ExploreKit"><span class="nav-number">8.3.</span> <span class="nav-text">7.3 Feature Construction using ExploreKit</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-Summary"><span class="nav-number">9.</span> <span class="nav-text">8. Summary</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#8-1-A-brief-history"><span class="nav-number">9.1.</span> <span class="nav-text">8.1 A brief history</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-2-Current-status-in-the-academy-and-industry"><span class="nav-number">9.2.</span> <span class="nav-text">8.2 Current status in the academy and industry</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-3-Future-works"><span class="nav-number">9.3.</span> <span class="nav-text">8.3 Future works</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Problem-setup"><span class="nav-number">9.3.1.</span> <span class="nav-text">Problem setup</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Techniques"><span class="nav-number">9.3.2.</span> <span class="nav-text">Techniques</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Theory"><span class="nav-number">9.3.3.</span> <span class="nav-text">Theory</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
