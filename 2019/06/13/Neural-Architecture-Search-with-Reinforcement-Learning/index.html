@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="default">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="[TOC]
+Neural Architecture Search with Reinforcement Learning
+AbstractUse a recurrent network to generate the model descriptions of neural networks and train this RNN with reinforcement learning to max">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Neural Architecture Search with Reinforcement Learning">
+<meta property="og:url" content="http://yoursite.com/2019/06/13/Neural-Architecture-Search-with-Reinforcement-Learning/index.html">
+<meta property="og:site_name" content="Ace">
+<meta property="og:description" content="[TOC]
+Neural Architecture Search with Reinforcement Learning
+AbstractUse a recurrent network to generate the model descriptions of neural networks and train this RNN with reinforcement learning to max">
+<meta property="og:image" content="http://yoursite.com/img/NAS-RNN.png">
+<meta property="og:image" content="http://yoursite.com/img/NAS-parameter server.png">
+<meta property="og:image" content="http://yoursite.com/img/NAS-skip connection.png">
+<meta property="og:image" content="http://yoursite.com/img/NAS-generate RNN cell.png">
+<meta property="og:updated_time" content="2019-06-13T11:52:07.593Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Neural Architecture Search with Reinforcement Learning">
+<meta name="twitter:description" content="[TOC]
+Neural Architecture Search with Reinforcement Learning
+AbstractUse a recurrent network to generate the model descriptions of neural networks and train this RNN with reinforcement learning to max">
+<meta name="twitter:image" content="http://yoursite.com/img/NAS-RNN.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/06/13/Neural-Architecture-Search-with-Reinforcement-Learning/"/>
+
+
+
+
+
+  <title>Neural Architecture Search with Reinforcement Learning | Ace</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Ace</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Ace.github.io</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-categories"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/13/Neural-Architecture-Search-with-Reinforcement-Learning/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ace_ZAJ">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/me.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ace">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Neural Architecture Search with Reinforcement Learning</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-06-13T10:28:27+08:00">
+                2019-06-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/paper/" itemprop="url" rel="index">
+                    <span itemprop="name">paper</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>[TOC]</p>
+<p><strong>Neural Architecture Search with Reinforcement Learning</strong></p>
+<h3 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h3><p>Use a recurrent network to generate the model descriptions of neural networks and train this RNN with reinforcement learning to maximize the expected accuracy of the generated architectures on a validation set</p>
+<h3 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h3><p>A gradient-based method for finding architecture</p>
+<p>Work is based on the observation that the <strong>structure and connectivity of a neural network</strong> can be typically specified by <strong>a variable-length string</strong>. Use a recurrent network, the controller, to generate such string</p>
+<p><strong>Reward</strong>: result in an accuracy on a validation set</p>
+<p>Controller will give higher probabilities to architectures that receive high accuracies</p>
+<h3 id="Related-work"><a href="#Related-work" class="headerlink" title="Related work"></a>Related work</h3><p>Hyperparameter optimization</p>
+<p>Existed work only search models from a fixed-length space. They often work better if they are supplied with a good initial model. </p>
+<ul>
+<li><p>Bayesian optimization models could search non fixed length architectures, but less general and less flexible than this one</p>
+</li>
+<li><p>Modern neuro-evolution algorithm</p>
+<p>less practical at a large scale</p>
+<p>slow or require many heuristics to work well</p>
+</li>
+</ul>
+<p>The controller in NAS is auto-regressive, which means it predicts hyperparameters one a time, conditioned on previous predictions</p>
+<p>Method learns directly from the reward signal without any supervised bootstrapping</p>
+<p>The idea of learning to learn or meta-learning</p>
+<h3 id="Methods"><a href="#Methods" class="headerlink" title="Methods"></a>Methods</h3><h4 id="Generate-model-description-with-a-controller-recurrent-neural-network"><a href="#Generate-model-description-with-a-controller-recurrent-neural-network" class="headerlink" title="Generate model description with a controller recurrent neural network"></a>Generate model description with a controller recurrent neural network</h4><p>Controller to generate architectural hyperparameters of neural networks: RNN</p>
+<p>Use their controller to generate their <strong>parameters</strong> as a <strong>sequence of tokens</strong></p>
+<p><img src="/img/NAS-RNN.png" alt="AutoML-basic framework"></p>
+<p>Every prediction is carried out by a <strong>softmax classifier</strong> and then fed into the next time step as input</p>
+<p>Generating an architecture stops if the number of layers exceeds a certain value</p>
+<p>At convergence, the accuracy of the network on a held-out validation set is recorded</p>
+<p>The parameters of controller RNN: $\theta_c$</p>
+<h4 id="Training-with-Reinforce"><a href="#Training-with-Reinforce" class="headerlink" title="Training with Reinforce"></a>Training with Reinforce</h4><p>The list of tokens: a list of action $a_{1:T}$</p>
+<p>$R$: reward signal, accuracy on a hold-out dataset</p>
+<p>PG in RL:<br>$$<br>J(\theta)=E_{p(a_{1:T};\theta_c)}[R]<br>$$</p>
+<p>$$<br>\nabla_{\theta_c} J(\theta_c)=\sum_{t=1}^TE_{p(a_{1:T};\theta_c)}[\nabla_{\theta_c}logP(a_t|a_{(t-1):1};\theta_c)R]<br>$$</p>
+<p>$$<br>\frac{1}{m}\sum_{k=1}^m\sum_{t=1}^T\nabla_{\theta_c}logP(a_t|a_{(t-1):1};\theta_c)R_k<br>$$</p>
+<p>m: number of different architectures</p>
+<p>T: number of hyperparameters controller has to predict to design a nn architecture</p>
+<p>Baseline function, address unbiased estimate<br>$$<br>\frac{1}{m}\sum_{k=1}^m\sum_{t=1}^T\nabla_{\theta_c}logP(a_t|a_{(t-1):1};\theta_c)(R_k-b)<br>$$<br>baseline b is an exponential moving average of the previous architecture accuracies</p>
+<h4 id="Accelerate-training-with-parallelism-and-Asynchronous-updates"><a href="#Accelerate-training-with-parallelism-and-Asynchronous-updates" class="headerlink" title="Accelerate training with parallelism and Asynchronous updates"></a>Accelerate training with parallelism and Asynchronous updates</h4><p>Distributed training and asynchronous parameters updates to speed up the learning process of the controller</p>
+<p>Each controller replica samples m different child architectures that are trained in parallel</p>
+<p>Each controller replica then samples m architectures and run the multiple child models in parallel</p>
+<p>The controller then collects gradients according to the results of that minibatch of m architectures at convergence and sends them to the parameter server in order to update the weights across all controller replicas</p>
+<p>Convergence of each child network is reached when its training exceeds a certain number of epochs</p>
+<p><img src="/img/NAS-parameter server.png" alt="NAS-parameter server"></p>
+<h4 id="Increase-architecture-complexity-with-skip-connections-and-other-layer-types"><a href="#Increase-architecture-complexity-with-skip-connections-and-other-layer-types" class="headerlink" title="Increase architecture complexity with skip connections and other layer types"></a>Increase architecture complexity with skip connections and other layer types</h4><p>Widen the search space, using skip  connections or branch layers</p>
+<p>built upon the attention mechanism</p>
+<p>At each layer, an <strong>anchor pointer</strong> which has N-1 content-based sigmoids to indicate the previous layers that need to be connected</p>
+<p>Each sigmoid is a function of the current hiddenstate of the controller and the previous hiddenstates of the previous N-1 anchor points<br>$$<br>P(\text{layer j is an input to layer i})=sigmoid(v^T tanh(W_{prev}<em>h_j+W_{curr}</em>h_i))<br>$$<br>Then sample from these sigmoids to decide what previous layers to be used as inputs to the current layer</p>
+<p>$W_{prev}, W_{curr}, v$ are trainable parameters</p>
+<p><img src="/img/NAS-skip connection.png" alt="NAS-parameter server"></p>
+<p>If one layer has many input layers then all input layers are concatenated in the depth dimension. Skip connections can cause “compilation failures” where one layer is not compatible with another layer, or one may not have any input or output. Employ three simple techniques</p>
+<h4 id="Generate-recurrent-cell-architectures"><a href="#Generate-recurrent-cell-architectures" class="headerlink" title="Generate recurrent cell architectures"></a>Generate recurrent cell architectures</h4><p>The computation for basic RNN and LSTM cells can be generalized as a tree of steps and take $x_t$ and $h_{t-1}$ as inputs and produce $h_t$ as final output</p>
+<p>Index the node in the tree in an order so that the controller RNN can visit each node one by one and label the needed hyperparameters</p>
+<p><img src="/img/NAS-generate RNN cell.png" alt="NAS-parameter server"> </p>
+<h3 id="Experiments-and-results"><a href="#Experiments-and-results" class="headerlink" title="Experiments and results"></a>Experiments and results</h3><h4 id="Learning-convolution-architecture-for-CIFAR-10"><a href="#Learning-convolution-architecture-for-CIFAR-10" class="headerlink" title="Learning convolution architecture for CIFAR-10"></a>Learning convolution architecture for CIFAR-10</h4><h5 id="Dataset"><a href="#Dataset" class="headerlink" title="Dataset"></a>Dataset</h5><h5 id="Search-space"><a href="#Search-space" class="headerlink" title="Search space"></a>Search space</h5><p>convolution layers, rectified linear units, non-linearities, batch normalization, skip connection between layers</p>
+<h5 id="Training-details"><a href="#Training-details" class="headerlink" title="Training details"></a>Training details</h5><p>Controller: 2 layer LSTM with 35 hidden units</p>
+<p>Adam, lr = 0.0006</p>
+<p>server shard S: 20, controller replicas K:100, chlid replicas: 8</p>
+<p>800 networks being trained on 800 GPUs concurrently at any time</p>
+<p>Once the controller RNN samples an architecture, a child model is constructed and trained for 50 epochs. The reward used for updating the controller is the  maximum validation accuracy of the last 5 epochs cubed</p>
+<p> During training, use a schedule of increasing number of layers in the child networks as training progresses</p>
+<p>After finding the architecture that achieves the best validation accuracy, run a small grid search over learning rate, weight decay, batch norm epsilon, and what epoch to decay the learning rate</p>
+<h4 id="Learning-recurrent-cells-for-Penn-TreeBank"><a href="#Learning-recurrent-cells-for-Penn-TreeBank" class="headerlink" title="Learning recurrent cells for Penn TreeBank"></a>Learning recurrent cells for Penn TreeBank</h4><p>Control Experiment1: Adding more functions in the search space</p>
+<p>E.g., add max function to combination functions; add sin to activation functions</p>
+<p>Control Experiment1: Comparsion against Random Search</p>
+<h3 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h3><p>Code for running the models found by the controller will be released at <a href="https://github.com/tensorflow/models" target="_blank" rel="external">https://github.com/tensorflow/models</a> </p>
+<p>the RNN cell found using our method under the name <strong>NASCell</strong> into TensorFlow</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/05/29/Tensorflow-save-checkpoint-issue/" rel="next" title="Tensorflow save checkpoint issue">
+                <i class="fa fa-chevron-left"></i> Tensorflow save checkpoint issue
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/me.JPG"
+                alt="Ace_ZAJ" />
+            
+              <p class="site-author-name" itemprop="name">Ace_ZAJ</p>
+              <p class="site-description motion-element" itemprop="description">boom pow</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">125</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Abstract"><span class="nav-number">1.</span> <span class="nav-text">Abstract</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Introduction"><span class="nav-number">2.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Related-work"><span class="nav-number">3.</span> <span class="nav-text">Related work</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Methods"><span class="nav-number">4.</span> <span class="nav-text">Methods</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Generate-model-description-with-a-controller-recurrent-neural-network"><span class="nav-number">4.1.</span> <span class="nav-text">Generate model description with a controller recurrent neural network</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Training-with-Reinforce"><span class="nav-number">4.2.</span> <span class="nav-text">Training with Reinforce</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Accelerate-training-with-parallelism-and-Asynchronous-updates"><span class="nav-number">4.3.</span> <span class="nav-text">Accelerate training with parallelism and Asynchronous updates</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Increase-architecture-complexity-with-skip-connections-and-other-layer-types"><span class="nav-number">4.4.</span> <span class="nav-text">Increase architecture complexity with skip connections and other layer types</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Generate-recurrent-cell-architectures"><span class="nav-number">4.5.</span> <span class="nav-text">Generate recurrent cell architectures</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Experiments-and-results"><span class="nav-number">5.</span> <span class="nav-text">Experiments and results</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Learning-convolution-architecture-for-CIFAR-10"><span class="nav-number">5.1.</span> <span class="nav-text">Learning convolution architecture for CIFAR-10</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Dataset"><span class="nav-number">5.1.1.</span> <span class="nav-text">Dataset</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Search-space"><span class="nav-number">5.1.2.</span> <span class="nav-text">Search space</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Training-details"><span class="nav-number">5.1.3.</span> <span class="nav-text">Training details</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Learning-recurrent-cells-for-Penn-TreeBank"><span class="nav-number">5.2.</span> <span class="nav-text">Learning recurrent cells for Penn TreeBank</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Conclusion"><span class="nav-number">6.</span> <span class="nav-text">Conclusion</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ace_ZAJ</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.3</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.staticfile.org/MathJax/MathJax-2.6-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>
