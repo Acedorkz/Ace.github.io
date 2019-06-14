@@ -79,25 +79,16 @@
 
 
 
-<meta name="description" content="TensorA tensor consists of a set of primitive values shaped into array of any number of dimensions.
-Tensorflow Core WalkThrough
-Building the computational graph – tf.Graph
-Running the computational gr">
+<meta name="description" content="boom pow">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Some points in Tensorflow">
+<meta property="og:title" content="Ace">
 <meta property="og:url" content="http://yoursite.com/2019/06/14/Some-points-in-Tensorflow/index.html">
 <meta property="og:site_name" content="Ace">
-<meta property="og:description" content="TensorA tensor consists of a set of primitive values shaped into array of any number of dimensions.
-Tensorflow Core WalkThrough
-Building the computational graph – tf.Graph
-Running the computational gr">
-<meta property="og:updated_time" content="2019-06-14T08:14:37.231Z">
+<meta property="og:description" content="boom pow">
+<meta property="og:updated_time" content="2019-06-14T08:26:03.473Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Some points in Tensorflow">
-<meta name="twitter:description" content="TensorA tensor consists of a set of primitive values shaped into array of any number of dimensions.
-Tensorflow Core WalkThrough
-Building the computational graph – tf.Graph
-Running the computational gr">
+<meta name="twitter:title" content="Ace">
+<meta name="twitter:description" content="boom pow">
 
 
 
@@ -133,7 +124,7 @@ Running the computational gr">
 
 
 
-  <title>Some points in Tensorflow | Ace</title>
+  <title> | Ace</title>
   
 
 
@@ -287,7 +278,7 @@ Running the computational gr">
 
         
         
-          <h1 class="post-title" itemprop="name headline">Some points in Tensorflow</h1>
+          <h1 class="post-title" itemprop="name headline"></h1>
         
 
         <div class="post-meta">
@@ -309,28 +300,6 @@ Running the computational gr">
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Coding/" itemprop="url" rel="index">
-                    <span itemprop="name">Coding</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -359,78 +328,7 @@ Running the computational gr">
       
 
       
-        <h3 id="Tensor"><a href="#Tensor" class="headerlink" title="Tensor"></a>Tensor</h3><p>A tensor consists of a set of primitive values shaped into array of any number of dimensions.</p>
-<h3 id="Tensorflow-Core-WalkThrough"><a href="#Tensorflow-Core-WalkThrough" class="headerlink" title="Tensorflow Core WalkThrough"></a>Tensorflow Core WalkThrough</h3><ol>
-<li>Building the computational graph – <code>tf.Graph</code></li>
-<li>Running the computational graph – <code>tf.Session</code></li>
-</ol>
-<h3 id="Graph"><a href="#Graph" class="headerlink" title="Graph"></a>Graph</h3><p>contains two types of objects</p>
-<ul>
-<li>Operations: the node of the graph</li>
-<li>Tensors: the edges in the graph</li>
-</ul>
-<h3 id="Session"><a href="#Session" class="headerlink" title="Session"></a>Session</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sess = tf.Session()</div><div class="line">sess.run()</div></pre></td></tr></table></figure>
-<h3 id="Feeding"><a href="#Feeding" class="headerlink" title="Feeding"></a>Feeding</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">x = tf.placeholder(tf.float32)</div><div class="line">y = tf.placeholder(tf.float32)</div><div class="line">z = x + y</div><div class="line">print(sess.run(z, feed_dict=&#123;x: 3, y: 4.5&#125;))</div><div class="line">print(sess.run(z, feed_dict=&#123;x: [1, 3], y: [2, 4]&#125;))</div></pre></td></tr></table></figure>
-<h3 id="Layers"><a href="#Layers" class="headerlink" title="Layers"></a>Layers</h3><h4 id="Creating-layers"><a href="#Creating-layers" class="headerlink" title="Creating layers"></a>Creating layers</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">x = tf.placeholder(tf.float32, shape=[None, 3])</div><div class="line">linear_model = tf.layers.Dense(units=1)</div><div class="line">y = linear_model(x)</div></pre></td></tr></table></figure>
-<h4 id="initialing-layers"><a href="#initialing-layers" class="headerlink" title="initialing layers"></a>initialing layers</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">init = tf.global_variables_initializer()</div><div class="line">sess.run(init)</div></pre></td></tr></table></figure>
-<h4 id="Layer-Function-shortcuts"><a href="#Layer-Function-shortcuts" class="headerlink" title="Layer Function shortcuts"></a>Layer Function shortcuts</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">x = tf.placeholder(tf.float32, shape=[None, 3])</div><div class="line">y = tf.layers.dense(x, units=1)</div><div class="line"></div><div class="line">init = tf.global_variables_initializer()</div><div class="line">sess.run(init)</div><div class="line"></div><div class="line">print(sess.run(y, &#123;x: [[1, 2, 3], [4, 5, 6]]&#125;))</div></pre></td></tr></table></figure>
-<h3 id="Training"><a href="#Training" class="headerlink" title="Training"></a>Training</h3><h4 id="Define-the-data"><a href="#Define-the-data" class="headerlink" title="Define the data"></a>Define the data</h4><h4 id="Define-the-model"><a href="#Define-the-model" class="headerlink" title="Define the model"></a>Define the model</h4><h5 id="fully-connected-layer"><a href="#fully-connected-layer" class="headerlink" title="fully_connected layer"></a>fully_connected layer</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">tf.contrib.layers.fully_connected(</div><div class="line">    inputs,</div><div class="line">    num_outputs,</div><div class="line">    activation_fn=tf.nn.relu</div><div class="line">)</div></pre></td></tr></table></figure>
-<h4 id="loss"><a href="#loss" class="headerlink" title="loss"></a>loss</h4><h5 id="mean-squared-error"><a href="#mean-squared-error" class="headerlink" title="mean_squared_error"></a>mean_squared_error</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">loss = tf.losses.mean_squared_error(labels=y_true, predictions=y_pred)</div><div class="line"></div><div class="line">print(sess.run(loss))</div></pre></td></tr></table></figure>
-<h4 id="Optimize"><a href="#Optimize" class="headerlink" title="Optimize"></a>Optimize</h4><p><code>Optimizers</code> – <code>tf.train.Optimizer</code></p>
-<h5 id="GradientDescent"><a href="#GradientDescent" class="headerlink" title="GradientDescent"></a>GradientDescent</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">optimizer = tf.train.GradientDescentOptimizer(0.01)</div><div class="line">train = optimizer.minimize(loss)</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">for i in range(100):</div><div class="line">  _, loss_value = sess.run((train, loss))</div><div class="line">  print(loss_value)</div></pre></td></tr></table></figure>
-<h5 id="Adam"><a href="#Adam" class="headerlink" title="Adam"></a>Adam</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">train = tf.train.AdamOptimizer.minimize(loss)</div></pre></td></tr></table></figure>
-<h3 id="Complete-Program"><a href="#Complete-Program" class="headerlink" title="Complete Program"></a>Complete Program</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">x = tf.constant([[1], [2], [3], [4]], dtype=tf.float32)</div><div class="line">y_true = tf.constant([[0], [-1], [-2], [-3]], dtype=tf.float32)</div><div class="line"></div><div class="line">linear_model = tf.layers.Dense(units=1)</div><div class="line"></div><div class="line">y_pred = linear_model(x)</div><div class="line">loss = tf.losses.mean_squared_error(labels=y_true, predictions=y_pred)</div><div class="line"></div><div class="line">optimizer = tf.train.GradientDescentOptimizer(0.01)</div><div class="line">train = optimizer.minimize(loss)</div><div class="line"></div><div class="line">init = tf.global_variables_initializer()</div><div class="line"></div><div class="line">sess = tf.Session()</div><div class="line">sess.run(init)</div><div class="line">for i in range(100):</div><div class="line">  _, loss_value = sess.run((train, loss))</div><div class="line">  print(loss_value)</div><div class="line"></div><div class="line">print(sess.run(y_pred))</div><div class="line"></div><div class="line">sess.close()</div></pre></td></tr></table></figure>
-<p>also could use <code>with</code>, don’t need to close</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">with tf.Session() as sess:</div><div class="line">    with tf.device(&quot;/gpu:1&quot;): #could set the device</div><div class="line">        result = sess.run([product])</div><div class="line">        print result</div></pre></td></tr></table></figure>
-<h3 id="Batch"><a href="#Batch" class="headerlink" title="Batch"></a>Batch</h3><p>get_batch():</p>
-<ul>
-<li>get_batch(): by self</li>
-<li>sklearn: gen_batches()</li>
-<li>shuffle_batch_x, shuffle_batch_y = tf.train.shuffle_batch([X_train, y_train], batch_size=Config.batch_size, capacity=10000,min_after_dequeue=5000, enqueue_many=True)</li>
-</ul>
-<h3 id="Variable"><a href="#Variable" class="headerlink" title="Variable"></a>Variable</h3><h4 id="tf-Variable-amp-tf-get-variable"><a href="#tf-Variable-amp-tf-get-variable" class="headerlink" title="tf.Variable() &amp; tf.get_variable()"></a>tf.Variable() &amp; tf.get_variable()</h4><p>使用<code>tf.Variable()</code>时，如果检测到命名冲突，系统会自己处理。使用<code>tf.get_variable()</code>时，系统不会处理冲突，而会报错</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</div><div class="line">w_1 = tf.Variable(<span class="number">3</span>,name=<span class="string">"w_1"</span>)</div><div class="line">w_2 = tf.Variable(<span class="number">1</span>,name=<span class="string">"w_1"</span>)</div><div class="line"><span class="keyword">print</span> w_1.name</div><div class="line"><span class="keyword">print</span> w_2.name</div><div class="line"><span class="comment">#输出</span></div><div class="line"><span class="comment">#w_1:0</span></div><div class="line"><span class="comment">#w_1_1:0</span></div></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</div><div class="line"></div><div class="line">w_1 = tf.get_variable(name=<span class="string">"w_1"</span>,initializer=<span class="number">1</span>)</div><div class="line">w_2 = tf.get_variable(name=<span class="string">"w_1"</span>,initializer=<span class="number">2</span>)</div><div class="line"><span class="comment">#错误信息</span></div><div class="line"><span class="comment">#ValueError: Variable w_1 already exists, disallowed. Did</span></div><div class="line"><span class="comment">#you mean to set reuse=True in VarScope?</span></div></pre></td></tr></table></figure>
-<p>当我们需要共享变量的时候，需要使用<code>tf.get_variable()</code>。在其他情况下，这两个的用法是一样的</p>
-<h4 id="variable-scope-amp-name-scop"><a href="#variable-scope-amp-name-scop" class="headerlink" title="variable_scope &amp; name_scop"></a>variable_scope &amp; name_scop</h4><p><code>tf.variable_scope</code>可以让变量有相同的命名，包括<code>tf.get_variable</code>得到的变量，还有<code>tf.Variable</code>的变量</p>
-<p><code>tf.name_scope</code>可以让变量有相同的命名，只是限于<code>tf.Variable</code>的变量</p>
-<p>如果已经存在的变量没有设置为共享变量，TensorFlow 运行到第二个拥有相同名字的变量的时候，就会报错。为了解决这个问题，TensorFlow 提出了 <code>tf.variable_scope</code> 函数：它的主要作用是，在一个作用域 scope 内共享一些变量，简单来说就是给变量名前再加了个变量空间名</p>
-<h3 id="tf-multinomial"><a href="#tf-multinomial" class="headerlink" title="tf.multinomial"></a>tf.multinomial</h3><p><code>tf.multinomial(logits, num_samples, seed=None, name=None)</code><br>从multinomial分布中采样，样本个数是num_samples，每个样本被采样的概率由logits给出</p>
-<p>参数：<br><strong>logits</strong>: 2-D Tensor with shape [batch_size, num_classes]. Each slice [i, :] represents the unnormalized log probabilities for all classes.2维量，shape是 [batch_size, num_classes]，每一行都是关于种类的未归一化的对数概率<br><strong>num_samples</strong>: 0-D. Number of independent samples to draw for each row slice.标量，表示采样的个数，<strong>更重要的是，它限制了返回张量中元素的范围{：0，1，2，…，num_samples-1 }</strong></p>
-<p>返回值：<br>The drawn samples of shape [batch_size, num_samples]，注意元素的取值范围取决于num_samples</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</div><div class="line">samples = tf.multinomial(tf.log([[<span class="number">10.</span>, <span class="number">10.</span>, <span class="number">10.</span>]]), <span class="number">5</span>)</div><div class="line"><span class="keyword">with</span> tf.Session() <span class="keyword">as</span> sess:</div><div class="line">	sess.run(samples)</div><div class="line"></div><div class="line"><span class="comment"># 运行结果：array([[2, 1, 2, 2, 0]])</span></div></pre></td></tr></table></figure>
-<h3 id="tf-reshape-tf-shape"><a href="#tf-reshape-tf-shape" class="headerlink" title="tf.reshape tf.shape"></a>tf.reshape tf.shape</h3><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line"># tensor 't' is [1, 2, 3, 4, 5, 6, 7, 8, 9]</div><div class="line"># tensor 't' has shape [9]</div><div class="line">reshape(t, [3, 3]) ==&gt; [[1, 2, 3],</div><div class="line">                        [4, 5, 6],</div><div class="line">                        [7, 8, 9]]</div><div class="line"></div><div class="line"># tensor 't' is [[[1, 1], [2, 2]],</div><div class="line">#                [[3, 3], [4, 4]]]</div><div class="line"># tensor 't' has shape [2, 2, 2]</div><div class="line">reshape(t, [2, 4]) ==&gt; [[1, 1, 2, 2],</div><div class="line">                        [3, 3, 4, 4]]</div><div class="line"></div><div class="line"># tensor 't' is [[[1, 1, 1],</div><div class="line">#                 [2, 2, 2]],</div><div class="line">#                [[3, 3, 3],</div><div class="line">#                 [4, 4, 4]],</div><div class="line">#                [[5, 5, 5],</div><div class="line">#                 [6, 6, 6]]]</div><div class="line"># tensor 't' has shape [3, 2, 3]</div><div class="line"># pass '[-1]' to flatten 't'</div><div class="line">reshape(t, [-1]) ==&gt; [1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6]</div><div class="line"></div><div class="line"># -1 can also be used to infer the shape</div><div class="line"></div><div class="line"># -1 is inferred to be 9:</div><div class="line">reshape(t, [2, -1]) ==&gt; [[1, 1, 1, 2, 2, 2, 3, 3, 3],</div><div class="line">                         [4, 4, 4, 5, 5, 5, 6, 6, 6]]</div><div class="line"># -1 is inferred to be 2:</div><div class="line">reshape(t, [-1, 9]) ==&gt; [[1, 1, 1, 2, 2, 2, 3, 3, 3],</div><div class="line">                         [4, 4, 4, 5, 5, 5, 6, 6, 6]]</div><div class="line"># -1 is inferred to be 3:</div><div class="line">reshape(t, [ 2, -1, 3]) ==&gt; [[[1, 1, 1],</div><div class="line">                              [2, 2, 2],</div><div class="line">                              [3, 3, 3]],</div><div class="line">                             [[4, 4, 4],</div><div class="line">                              [5, 5, 5],</div><div class="line">                              [6, 6, 6]]]</div><div class="line"></div><div class="line"># tensor 't' is [7]</div><div class="line"># shape `[]` reshapes to a scalar</div><div class="line">reshape(t, []) ==&gt; 7</div></pre></td></tr></table></figure>
-<h3 id="tf-nn-softmax-cross-entropy-with-logits-amp-tf-nn-sparse-softmax-cross-entropy-with-logits"><a href="#tf-nn-softmax-cross-entropy-with-logits-amp-tf-nn-sparse-softmax-cross-entropy-with-logits" class="headerlink" title="tf.nn.softmax_cross_entropy_with_logits() &amp; tf.nn.sparse.softmax_cross_entropy_with_logits()"></a>tf.nn.softmax_cross_entropy_with_logits() &amp; tf.nn.sparse.softmax_cross_entropy_with_logits()</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">tf.nn.sparse_softmax_cross_entropy_with_logits(</div><div class="line">    _sentinel=<span class="keyword">None</span>,</div><div class="line">    labels=<span class="keyword">None</span>,</div><div class="line">    logits=<span class="keyword">None</span>,</div><div class="line">    name=<span class="keyword">None</span></div><div class="line">)</div></pre></td></tr></table></figure>
-<p>Having two different functions is a <strong>convenience</strong>, as they produce the same result.</p>
-<p>The difference is simple:</p>
-<ul>
-<li>For <code>sparse_softmax_cross_entropy_with_logits</code>, labels must have the shape [batch_size] and the dtype int32 or int64. Each label is an int in range <code>[0, num_classes-1]</code>.</li>
-<li>For <code>softmax_cross_entropy_with_logits</code>, labels must have the shape [batch_size, num_classes] and dtype float32 or float64.</li>
-</ul>
-<p>Labels used in <code>softmax_cross_entropy_with_logits</code> are the <strong>one hot version</strong> of labels used in <code>sparse_softmax_cross_entropy_with_logits</code>.</p>
-<p>Another tiny difference is that with <code>sparse_softmax_cross_entropy_with_logits</code>, you can give -1 as a label to have loss <code>0</code> on this label.</p>
-<p>不错的整理from某乎：<a href="https://zhuanlan.zhihu.com/p/33560183" target="_blank" rel="external">https://zhuanlan.zhihu.com/p/33560183</a></p>
-<p>损失函数：<a href="https://sthsf.github.io/wiki/Algorithm/DeepLearning/Tensorflow%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Tensorflow%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86---%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0%E8%AF%A6%E8%A7%A3.html#tfnnlog_softmaxlogits-namenone" target="_blank" rel="external">https://sthsf.github.io/wiki/Algorithm/DeepLearning/Tensorflow%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Tensorflow%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86---%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0%E8%AF%A6%E8%A7%A3.html#tfnnlog_softmaxlogits-namenone</a></p>
-<h3 id="cross-entropy-交叉熵"><a href="#cross-entropy-交叉熵" class="headerlink" title="cross_entropy 交叉熵"></a>cross_entropy 交叉熵</h3><h3 id="softmax"><a href="#softmax" class="headerlink" title="softmax()"></a>softmax()</h3><h3 id="sigmoid"><a href="#sigmoid" class="headerlink" title="sigmoid()"></a>sigmoid()</h3><h3 id="tf-reduce-max"><a href="#tf-reduce-max" class="headerlink" title="tf.reduce_max()"></a>tf.reduce_max()</h3><p>see in <a href="https://medium.com/@aerinykim/tensorflow-101-what-does-it-mean-to-reduce-axis-9f39e5c6dea2" target="_blank" rel="external">https://medium.com/@aerinykim/tensorflow-101-what-does-it-mean-to-reduce-axis-9f39e5c6dea2</a></p>
-<p>tf.reduce_max(x, <strong>0</strong>) kills the 0-th dimension. So ‘<strong>3</strong>’ in (<strong>3</strong>,2,5) will be gone.</p>
-<h3 id="tf-get-collection"><a href="#tf-get-collection" class="headerlink" title="tf.get_collection()"></a>tf.get_collection()</h3><p>A collection is nothing but a named set of values.</p>
-<p>Every value is a node of the computational graph.</p>
-<p>Every node has its name and the name is composed by the concatenation of scopes, <code>/</code> and values, like: <code>preceding/scopes/in/that/way/value</code></p>
-<p><code>get_collection</code>, without <code>scope</code> allow fetching every value in the collection without applying any filter operation.</p>
-<p>When the <code>scope</code> parameter is present, every element of the collection is filtered and its returned only if the name of the node starts with the specified <code>scope</code>.</p>
-<p>see in <a href="https://stackoverflow.com/questions/44691406/how-to-understand-tf-get-collection-in-tensorflow" target="_blank" rel="external">https://stackoverflow.com/questions/44691406/how-to-understand-tf-get-collection-in-tensorflow</a></p>
-<p>Return: The list of values in the collection with the given <code>name</code>, or an empty list if no value has been added to that collection. The list contains the values in the order under which they were collected.</p>
-<h3 id="Gradients-Computation"><a href="#Gradients-Computation" class="headerlink" title="Gradients Computation"></a>Gradients Computation</h3><p>Processing gradients before applying them.</p>
-<p>Calling <code>minimize()</code> takes care of both computing the gradients and applying them to the variables. If you want to process the gradients before applying them you can instead use the optimizer in three steps:</p>
-<ol>
-<li>Compute the gradients with <code>compute_gradients()</code>.</li>
-<li>Process the gradients as you wish.</li>
-<li>Apply the processed gradients with <code>apply_gradients()</code>.</li>
-</ol>
-<p>Example:</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Create an optimizer.</span></div><div class="line">opt = GradientDescentOptimizer(learning_rate=<span class="number">0.1</span>)</div><div class="line"></div><div class="line"><span class="comment"># Compute the gradients for a list of variables.</span></div><div class="line">grads_and_vars = opt.compute_gradients(loss, &lt;list of variables&gt;)</div><div class="line"></div><div class="line"><span class="comment"># grads_and_vars is a list of tuples (gradient, variable).  Do whatever you</span></div><div class="line"><span class="comment"># need to the 'gradient' part, for example cap them, etc.</span></div><div class="line">capped_grads_and_vars = [(MyCapper(gv[<span class="number">0</span>]), gv[<span class="number">1</span>]) <span class="keyword">for</span> gv <span class="keyword">in</span> grads_and_vars]</div><div class="line"></div><div class="line"><span class="comment"># Ask the optimizer to apply the capped gradients.</span></div><div class="line">opt.apply_gradients(capped_grads_and_vars)</div></pre></td></tr></table></figure>
-
+        
       
     </div>
     
@@ -514,17 +412,8 @@ Running the computational gr">
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -590,22 +479,6 @@ Running the computational gr">
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Tensor"><span class="nav-number">1.</span> <span class="nav-text">Tensor</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Tensorflow-Core-WalkThrough"><span class="nav-number">2.</span> <span class="nav-text">Tensorflow Core WalkThrough</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Graph"><span class="nav-number">3.</span> <span class="nav-text">Graph</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Session"><span class="nav-number">4.</span> <span class="nav-text">Session</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Feeding"><span class="nav-number">5.</span> <span class="nav-text">Feeding</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Layers"><span class="nav-number">6.</span> <span class="nav-text">Layers</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Creating-layers"><span class="nav-number">6.1.</span> <span class="nav-text">Creating layers</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#initialing-layers"><span class="nav-number">6.2.</span> <span class="nav-text">initialing layers</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Layer-Function-shortcuts"><span class="nav-number">6.3.</span> <span class="nav-text">Layer Function shortcuts</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Training"><span class="nav-number">7.</span> <span class="nav-text">Training</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Define-the-data"><span class="nav-number">7.1.</span> <span class="nav-text">Define the data</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Define-the-model"><span class="nav-number">7.2.</span> <span class="nav-text">Define the model</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#fully-connected-layer"><span class="nav-number">7.2.1.</span> <span class="nav-text">fully_connected layer</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#loss"><span class="nav-number">7.3.</span> <span class="nav-text">loss</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#mean-squared-error"><span class="nav-number">7.3.1.</span> <span class="nav-text">mean_squared_error</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Optimize"><span class="nav-number">7.4.</span> <span class="nav-text">Optimize</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#GradientDescent"><span class="nav-number">7.4.1.</span> <span class="nav-text">GradientDescent</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Adam"><span class="nav-number">7.4.2.</span> <span class="nav-text">Adam</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Complete-Program"><span class="nav-number">8.</span> <span class="nav-text">Complete Program</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Batch"><span class="nav-number">9.</span> <span class="nav-text">Batch</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Variable"><span class="nav-number">10.</span> <span class="nav-text">Variable</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#tf-Variable-amp-tf-get-variable"><span class="nav-number">10.1.</span> <span class="nav-text">tf.Variable() & tf.get_variable()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#variable-scope-amp-name-scop"><span class="nav-number">10.2.</span> <span class="nav-text">variable_scope & name_scop</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#tf-multinomial"><span class="nav-number">11.</span> <span class="nav-text">tf.multinomial</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#tf-reshape-tf-shape"><span class="nav-number">12.</span> <span class="nav-text">tf.reshape tf.shape</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#tf-nn-softmax-cross-entropy-with-logits-amp-tf-nn-sparse-softmax-cross-entropy-with-logits"><span class="nav-number">13.</span> <span class="nav-text">tf.nn.softmax_cross_entropy_with_logits() & tf.nn.sparse.softmax_cross_entropy_with_logits()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cross-entropy-交叉熵"><span class="nav-number">14.</span> <span class="nav-text">cross_entropy 交叉熵</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#softmax"><span class="nav-number">15.</span> <span class="nav-text">softmax()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sigmoid"><span class="nav-number">16.</span> <span class="nav-text">sigmoid()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#tf-reduce-max"><span class="nav-number">17.</span> <span class="nav-text">tf.reduce_max()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#tf-get-collection"><span class="nav-number">18.</span> <span class="nav-text">tf.get_collection()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Gradients-Computation"><span class="nav-number">19.</span> <span class="nav-text">Gradients Computation</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
