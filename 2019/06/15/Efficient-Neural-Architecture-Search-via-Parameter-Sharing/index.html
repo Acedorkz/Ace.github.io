@@ -79,22 +79,25 @@
 
 
 
-<meta name="description" content="U-Net：Convolutional Networks for Biomedical Image SegmentationAbstract ：
-The architecture consists of a contracting path to capture context and a symmetric expanding path  that enables precise localiz">
+<meta name="description" content="Efficient Neural Architecture Search via Parameter Sharing
+AbstractENAS, a controller discovers neural network architectures by searching for an optimal subgraph within a large computation graph
+PG
+sh">
 <meta property="og:type" content="article">
-<meta property="og:title" content="U-net:Convolutional Networks for Biomedical Image Segmentation">
-<meta property="og:url" content="http://yoursite.com/2017/10/30/U-net-Convolutional-Networks-for-Biomedical-Image-Segmentation/index.html">
+<meta property="og:title" content="Efficient Neural Architecture Search via Parameter Sharing">
+<meta property="og:url" content="http://yoursite.com/2019/06/15/Efficient-Neural-Architecture-Search-via-Parameter-Sharing/index.html">
 <meta property="og:site_name" content="Ace">
-<meta property="og:description" content="U-Net：Convolutional Networks for Biomedical Image SegmentationAbstract ：
-The architecture consists of a contracting path to capture context and a symmetric expanding path  that enables precise localiz">
-<meta property="og:image" content="http://yoursite.com/img/u_net_overlap.png">
-<meta property="og:image" content="http://yoursite.com/img/u-net.png">
-<meta property="og:updated_time" content="2018-05-01T09:02:38.226Z">
+<meta property="og:description" content="Efficient Neural Architecture Search via Parameter Sharing
+AbstractENAS, a controller discovers neural network architectures by searching for an optimal subgraph within a large computation graph
+PG
+sh">
+<meta property="og:updated_time" content="2019-06-15T13:18:52.738Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="U-net:Convolutional Networks for Biomedical Image Segmentation">
-<meta name="twitter:description" content="U-Net：Convolutional Networks for Biomedical Image SegmentationAbstract ：
-The architecture consists of a contracting path to capture context and a symmetric expanding path  that enables precise localiz">
-<meta name="twitter:image" content="http://yoursite.com/img/u_net_overlap.png">
+<meta name="twitter:title" content="Efficient Neural Architecture Search via Parameter Sharing">
+<meta name="twitter:description" content="Efficient Neural Architecture Search via Parameter Sharing
+AbstractENAS, a controller discovers neural network architectures by searching for an optimal subgraph within a large computation graph
+PG
+sh">
 
 
 
@@ -124,13 +127,13 @@ The architecture consists of a contracting path to capture context and a symmetr
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/10/30/U-net-Convolutional-Networks-for-Biomedical-Image-Segmentation/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/06/15/Efficient-Neural-Architecture-Search-via-Parameter-Sharing/"/>
 
 
 
 
 
-  <title>U-net:Convolutional Networks for Biomedical Image Segmentation | Ace</title>
+  <title>Efficient Neural Architecture Search via Parameter Sharing | Ace</title>
   
 
 
@@ -267,7 +270,7 @@ The architecture consists of a contracting path to capture context and a symmetr
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/30/U-net-Convolutional-Networks-for-Biomedical-Image-Segmentation/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/15/Efficient-Neural-Architecture-Search-via-Parameter-Sharing/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Ace_ZAJ">
@@ -284,7 +287,7 @@ The architecture consists of a contracting path to capture context and a symmetr
 
         
         
-          <h1 class="post-title" itemprop="name headline">U-net:Convolutional Networks for Biomedical Image Segmentation</h1>
+          <h1 class="post-title" itemprop="name headline">Efficient Neural Architecture Search via Parameter Sharing</h1>
         
 
         <div class="post-meta">
@@ -296,8 +299,8 @@ The architecture consists of a contracting path to capture context and a symmetr
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-30T00:00:00+08:00">
-                2017-10-30
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-06-15T11:47:19+08:00">
+                2019-06-15
               </time>
             
 
@@ -356,78 +359,77 @@ The architecture consists of a contracting path to capture context and a symmetr
       
 
       
-        <h4 id="U-Net：Convolutional-Networks-for-Biomedical-Image-Segmentation"><a href="#U-Net：Convolutional-Networks-for-Biomedical-Image-Segmentation" class="headerlink" title="U-Net：Convolutional Networks for Biomedical Image Segmentation"></a>U-Net：Convolutional Networks for Biomedical Image Segmentation</h4><p><em>Abstract</em> ：</p>
-<p>The architecture consists of <strong>a contracting path to capture context and a symmetric expanding path</strong>  that enables precise localization</p>
+        <p><strong>Efficient Neural Architecture Search via Parameter Sharing</strong></p>
+<h3 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h3><p>ENAS, a controller discovers neural network architectures by searching for an optimal subgraph within a large computation graph</p>
+<p>PG</p>
+<p>sharing parameters among child models</p>
+<p>much fewer GPU-hours</p>
 <a id="more"></a>
-<p><em>Introduction</em> ：</p>
+<h3 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h3><p>In NAS, an RNN controller is trained in a loop, the controller first samples a candidate architecture, i.e. a child model, and then trains it to convergence to measure its performance on the task of desire. The controller then uses the performances as a guiding signal to find more promising architectures</p>
+<p>NAS use 450 GPUs for 3-4 days</p>
+<hr>
+<p>In ENAS, forcing <strong>all child models to share weights</strong> to eschew training each child model from scratch to convergence</p>
+<p>a single Nvidia GTX 1080Ti GPU, less than 16 hours</p>
+<h3 id="Method"><a href="#Method" class="headerlink" title="Method"></a>Method</h3><p>NAS ends up iterating over can be viewed as sub-graphs of a larger graph</p>
+<p>Representing NAS’s search space using a single DAG</p>
+<p>An architecture can be realized by taking a subgraph of the DAG</p>
 <ul>
-<li><p>The convolutional network，their success was limited due to the size of the available training sets and the size of the considered networks. </p>
-</li>
-<li><p>In many visual tasks，especially in biomedical image processing，the desired output should include localization，i.e.，<strong>a class label is supposed to be assigned to each pixel</strong> . </p>
-</li>
-<li><p>Ciresan et al：trained a network in a <strong>sliding-window</strong> setup to predict the class label of each pixel by providing a local region (patch) around that pixel as input .</p>
+<li>nodes represent the local computations</li>
+<li>edges represent the flow of information</li>
+</ul>
+<h4 id="Designing-Recurrent-Cells"><a href="#Designing-Recurrent-Cells" class="headerlink" title="Designing Recurrent Cells"></a>Designing Recurrent Cells</h4><p>the discussion of ENAS with an example that illustrates how to design a cell for rnn from a specified DAG and a controller</p>
+<p>ENAS’s controller is an RNN that decides:</p>
+<ol>
+<li>which edges are activated</li>
+<li>which computations are performed at each node in the DAG</li>
+</ol>
+<p>NAS fix the topology of their architectures as a binary tree and only learn the operations at each node of the tree</p>
+<p>ENAS design both the topology and the operation in the RNN cells</p>
+<p>==pic==</p>
+<p>independent parameter matrix $W_{l,j}^{(h)}$</p>
+<p>all current cells in a search space share the same set of parameters</p>
+<p>Search space includes an exponential number of configurations. N nodes and 4 activation functions (tanh, ReLU, identity, sigmoid), the search space has $4^N * N!$</p>
+<p>(每一个节点有4种激活方式，N个节点相互独立，生成4N种激活方式，第一个节点只能和输入进行连接，第二个节点可以和输入和第一个节点2个里面选一个连接，第三个节点可以和输入和第1,2共3个节点里面选一个连接，依次类推，最终产生N!种连接方式。所以最终生成4N × N!种有向图DAG。)</p>
+<h4 id="Training-ENAS-and-Deriving-Architecture"><a href="#Training-ENAS-and-Deriving-Architecture" class="headerlink" title="Training ENAS and Deriving Architecture"></a>Training ENAS and Deriving Architecture</h4><p>Controller network is LSTM with 100 hidden units</p>
+<p>Trainable parameter, two interleaving phases:</p>
 <ul>
-<li>advantages：<ul>
-<li>this network can localize </li>
-<li>the training data in terms of patches is much larger than the number of training images</li>
+<li>First phase: shared parameters of the child models, $\omega$</li>
+<li>Second phase: parameters of controller LSTM, denoted by $\theta$</li>
 </ul>
-</li>
-<li>disadvantages：<ul>
-<li>it is quite slow because the network must be run separately for each patch , and there is a lot of redundancy due to <strong>overlapping patches</strong>.</li>
-<li>there is a trade-off between localization accuracy and the use of context.</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>More recent approaches proposed a classifier output that takes into account the features from multiple layers.</p>
-<p>多尺度融合的深度网络，把某一个像素为中心的不同大小的patch作为多个通道输入到深度网络中学习</p>
-</li>
-<li><p>In this paper , “fully convolutional network” , the main idea is  to supplement a usual contracting network by successive layers , where pooling operators are replaced by upsampling operators .</p>
-</li>
-<li><p>In the <strong>upsampling part</strong> we have alse a large number of feature channels , which allow the network to <strong>propagate context information to higher resolution layers</strong>  . The segmentation map only contains the pixels , for which the full context is available in the input image . To predict the pixels in the border region of the image , the missing context is extrapolated by mirroring the input image . </p>
-</li>
-</ul>
-<p>  This strategy allows the seamless segmentation of arbitrarily        large images by an overlap-tile strategy.</p>
-<p><img src="/img/u_net_overlap.png" alt="u_net_overlap"></p>
-<p>​    </p>
+<h5 id="Training-the-shared-parameters-omega-of-the-child-models"><a href="#Training-the-shared-parameters-omega-of-the-child-models" class="headerlink" title="Training the shared parameters $\omega$ of the child models"></a>Training the shared parameters $\omega$ of the child models</h5><p>controller’s policy $\pi(m;\theta)$ </p>
+<p>SGD on $\omega$ to minimize on loss function</p>
+<p>==pic==</p>
+<p>M=1 works fine, i.e. we can update $\omega$ using the gradients from any single model m sampled from  $\pi(m;\theta)$ </p>
+<p>Train $\omega$ during a entire pass through the training data</p>
+<h5 id="Training-the-controller-parameters-theta"><a href="#Training-the-controller-parameters-theta" class="headerlink" title="Training the controller parameters $\theta$"></a>Training the controller parameters $\theta$</h5><p>Fix $\omega$, update $\theta$</p>
+<p>==pic==</p>
+<h5 id="Deriving-Architecture"><a href="#Deriving-Architecture" class="headerlink" title="Deriving Architecture"></a>Deriving Architecture</h5><p>We first sample several models from the trained policy $\pi(m, \theta)$. For each sampled model, we compute its reward on a single minibatch sampled from the validation set. We then take only the model with the highest reward to re-train from scratch. It</p>
+<h4 id="Designing-Convolution-Network"><a href="#Designing-Convolution-Network" class="headerlink" title="Designing Convolution Network"></a>Designing Convolution Network</h4><p>At each decision block:</p>
 <ul>
-<li>There is very little training data available , we use <strong>excessive data augmentation by applying elastic deformations</strong> to the available training  images . </li>
-<li>Another challenge is <strong>the separation of touching objects of the same class</strong>  . We propose the use of a weighted loss , where the separating background labels between touching cells <strong>obtain a larger weight in the loss function</strong></li>
+<li>what previous nodes to connect to</li>
+<li>what computation operation to use</li>
 </ul>
-<p><em>Network Architecture</em></p>
-<p><img src="/img/u-net.png" alt="u-net"></p>
-<p><em>Training</em></p>
+<p>6 operations available for controller:</p>
 <ul>
-<li><p>SGD</p>
-</li>
-<li><p>unpadded</p>
-</li>
-<li><p>larger input tiles over a large batch size </p>
-</li>
-<li><p>softmax</p>
-</li>
-<li><p>The separation border computed using morphological operations </p>
-<p>中间项链的部分像素，人为的提高权重，让network可以重点学习这些特征，以便于分割</p>
-</li>
-<li><p>draw the initial weights from a Gaussian distribution</p>
-</li>
+<li>convolution filter 3*3, 5*5</li>
+<li>depthwise-seperable convolution: 3*3, 5*5</li>
+<li>max_pooling and average pooling: 3*3</li>
 </ul>
-<p><em>Data Augmentation</em></p>
-<p>Data Augmentation is essential to <strong>teach the network the desired invariance and robustness properties</strong>  , when only few training samples are available .</p>
-<ul>
-<li>Need <strong>shift and rotation invariance</strong>  as well as robustness to deformations and gray value variations</li>
-<li>Generate smooth deformations using random displacement vectors on a coarse 3 by 3 grid .</li>
-</ul>
-<p><em>Experiments</em></p>
-<ul>
-<li>30 images(512*512 pixels)</li>
-<li>ground truth</li>
-<li>membranes</li>
-<li>The u-net (averaged over 7 rotated version of the input data)</li>
-</ul>
-<p><em>Conclusion</em></p>
-<p>​     The u-net architecture achieves very good performance on very different biomedical segmentation applications . Thanks to data augmentation with elastic deformations , it only needs very few annotated images and has a very reasonable training time . </p>
-
+<p>(每一个节点有4种激活方式，N个节点相互独立，生成4N种激活方式，第一个节点只能和输入进行连接，第二个节点可以和输入和第一个节点2个里面选一个连接，第三个节点可以和输入和第1,2共3个节点里面选一个连接，依次类推，最终产生N!种连接方式。所以最终生成4N × N!种有向图DAG。)</p>
+<p>Sample a network of L layers, there are $6^L * 2^{L(L-1)/2}$ networks in search space</p>
+<h4 id="Designing-Convolution-Cells"><a href="#Designing-Convolution-Cells" class="headerlink" title="Designing Convolution Cells"></a>Designing Convolution Cells</h4><p>Rather than designing the entire convolutional network, one can design smaller modules and then connect them together to form a network </p>
+<p>==pic==</p>
+<p>Reduction cell:</p>
+<ol>
+<li>sample a computational graph from the search space</li>
+<li>applying all operations with a stride of 2</li>
+</ol>
+<p>A reduction cell thus reduces the spatial dimensions of its input by a factor of 2</p>
+<p>其中，5表示5中操作（identity，3 × 3 depthwise-separable卷积，5 × 5depthwise-separable卷积，3 × 3 max pooling，average pooling）。类似前面的思路，2个输入节点确定，B-2个节点有(B - 2)!种连接方式，这样就会产生5 × (B - 2)!种网络，而该BLOCK的每个节点都包含2个输入，每个输入相互独立，就会产生(5 × (B - 2)!)2种网络结构。也就是说，普通卷积就会产生(5 × (B - 2)!)2种网络结构，而该模块BLOCK还使用了stride=2的卷积，该卷积也会产生(5 × (B - 2)!)2种网络结构。最终就会产生(5 × (B - 2)!)4种网络结构。</p>
+<p>See in: <a href="https://blog.csdn.net/qq_14845119/article/details/84070640" target="_blank" rel="external">https://blog.csdn.net/qq_14845119/article/details/84070640</a></p>
+<h3 id="Experiments"><a href="#Experiments" class="headerlink" title="Experiments"></a>Experiments</h3><h4 id="Training-details-for-Penn-Treebank"><a href="#Training-details-for-Penn-Treebank" class="headerlink" title="Training details for Penn Treebank"></a>Training details for Penn Treebank</h4><p>Augment the simple transformations between nodes in the constructed recurrent cell with highway connections. e.g. elementwise multiplication</p>
+<p>Using a large lr whilst clipping the gradient norm at a small threshold makes the updates on $\omega$ more stable</p>
+<h4 id="Training-details-for-CIFAR-10"><a href="#Training-details-for-CIFAR-10" class="headerlink" title="Training details for CIFAR-10"></a>Training details for CIFAR-10</h4><h4 id="The-importance-of-ENAS"><a href="#The-importance-of-ENAS" class="headerlink" title="The importance of ENAS"></a>The importance of ENAS</h4><h3 id="Related-work-and-discussion"><a href="#Related-work-and-discussion" class="headerlink" title="Related work and discussion"></a>Related work and discussion</h3><h3 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h3>
       
     </div>
     
@@ -451,8 +453,8 @@ The architecture consists of a contracting path to capture context and a symmetr
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/10/27/ROC-curve-AUC-Recall/" rel="next" title="ROC curve,AUC&Recall">
-                <i class="fa fa-chevron-left"></i> ROC curve,AUC&Recall
+              <a href="/2019/06/14/Some-points-in-Tensorflow/" rel="next" title="Some points in Tensorflow">
+                <i class="fa fa-chevron-left"></i> Some points in Tensorflow
               </a>
             
           </div>
@@ -460,10 +462,6 @@ The architecture consists of a contracting path to capture context and a symmetr
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/11/02/Deep-Residual-Learning-for-Image-Recognition/" rel="prev" title="Deep Residual Learning for Image Recognition">
-                Deep Residual Learning for Image Recognition <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -601,7 +599,7 @@ The architecture consists of a contracting path to capture context and a symmetr
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#U-Net：Convolutional-Networks-for-Biomedical-Image-Segmentation"><span class="nav-number">1.</span> <span class="nav-text">U-Net：Convolutional Networks for Biomedical Image Segmentation</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Abstract"><span class="nav-number">1.</span> <span class="nav-text">Abstract</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Introduction"><span class="nav-number">2.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Method"><span class="nav-number">3.</span> <span class="nav-text">Method</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Designing-Recurrent-Cells"><span class="nav-number">3.1.</span> <span class="nav-text">Designing Recurrent Cells</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Training-ENAS-and-Deriving-Architecture"><span class="nav-number">3.2.</span> <span class="nav-text">Training ENAS and Deriving Architecture</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Training-the-shared-parameters-omega-of-the-child-models"><span class="nav-number">3.2.1.</span> <span class="nav-text">Training the shared parameters $\omega$ of the child models</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Training-the-controller-parameters-theta"><span class="nav-number">3.2.2.</span> <span class="nav-text">Training the controller parameters $\theta$</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Deriving-Architecture"><span class="nav-number">3.2.3.</span> <span class="nav-text">Deriving Architecture</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Designing-Convolution-Network"><span class="nav-number">3.3.</span> <span class="nav-text">Designing Convolution Network</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Designing-Convolution-Cells"><span class="nav-number">3.4.</span> <span class="nav-text">Designing Convolution Cells</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Experiments"><span class="nav-number">4.</span> <span class="nav-text">Experiments</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Training-details-for-Penn-Treebank"><span class="nav-number">4.1.</span> <span class="nav-text">Training details for Penn Treebank</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Training-details-for-CIFAR-10"><span class="nav-number">4.2.</span> <span class="nav-text">Training details for CIFAR-10</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#The-importance-of-ENAS"><span class="nav-number">4.3.</span> <span class="nav-text">The importance of ENAS</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Related-work-and-discussion"><span class="nav-number">5.</span> <span class="nav-text">Related work and discussion</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Conclusion"><span class="nav-number">6.</span> <span class="nav-text">Conclusion</span></a></li></ol></div>
             
 
           </div>
