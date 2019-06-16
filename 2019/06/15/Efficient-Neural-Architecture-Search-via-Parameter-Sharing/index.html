@@ -91,13 +91,18 @@ sh">
 AbstractENAS, a controller discovers neural network architectures by searching for an optimal subgraph within a large computation graph
 PG
 sh">
-<meta property="og:updated_time" content="2019-06-15T13:24:49.257Z">
+<meta property="og:image" content="http://yoursite.com/img/ENAS-1.png">
+<meta property="og:image" content="http://yoursite.com/img/ENAS-2.png">
+<meta property="og:image" content="http://yoursite.com/img/ENAS-3.png">
+<meta property="og:image" content="http://yoursite.com/img/ENAS-4.png">
+<meta property="og:updated_time" content="2019-06-16T14:12:30.247Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Efficient Neural Architecture Search via Parameter Sharing">
 <meta name="twitter:description" content="Efficient Neural Architecture Search via Parameter Sharing
 AbstractENAS, a controller discovers neural network architectures by searching for an optimal subgraph within a large computation graph
 PG
 sh">
+<meta name="twitter:image" content="http://yoursite.com/img/ENAS-1.png">
 
 
 
@@ -385,7 +390,7 @@ sh">
 </ol>
 <p>NAS fix the topology of their architectures as a binary tree and only learn the operations at each node of the tree</p>
 <p>ENAS design both the topology and the operation in the RNN cells</p>
-<p>==pic==</p>
+<p><img src="/img/ENAS-1.png" alt="AutoML-basic framework"></p>
 <p>independent parameter matrix $W_{l,j}^{(h)}$</p>
 <p>all current cells in a search space share the same set of parameters</p>
 <p>Search space includes an exponential number of configurations. N nodes and 4 activation functions (tanh, ReLU, identity, sigmoid), the search space has $4^N * N!$</p>
@@ -398,11 +403,10 @@ sh">
 </ul>
 <h5 id="Training-the-shared-parameters-omega-of-the-child-models"><a href="#Training-the-shared-parameters-omega-of-the-child-models" class="headerlink" title="Training the shared parameters $\omega$ of the child models"></a>Training the shared parameters $\omega$ of the child models</h5><p>controller’s policy $\pi(m;\theta)$ </p>
 <p>SGD on $\omega$ to minimize on loss function</p>
-<p>==pic==</p>
 <p>M=1 works fine, i.e. we can update $\omega$ using the gradients from any single model m sampled from  $\pi(m;\theta)$ </p>
 <p>Train $\omega$ during a entire pass through the training data</p>
 <h5 id="Training-the-controller-parameters-theta"><a href="#Training-the-controller-parameters-theta" class="headerlink" title="Training the controller parameters $\theta$"></a>Training the controller parameters $\theta$</h5><p>Fix $\omega$, update $\theta$</p>
-<p>==pic==</p>
+<p><img src="/img/ENAS-2.png" alt="AutoML-basic framework"></p>
 <h5 id="Deriving-Architecture"><a href="#Deriving-Architecture" class="headerlink" title="Deriving Architecture"></a>Deriving Architecture</h5><p>We first sample several models from the trained policy $\pi(m, \theta)$. For each sampled model, we compute its reward on a single minibatch sampled from the validation set. We then take only the model with the highest reward to re-train from scratch. It</p>
 <h4 id="Designing-Convolution-Network"><a href="#Designing-Convolution-Network" class="headerlink" title="Designing Convolution Network"></a>Designing Convolution Network</h4><p>At each decision block:</p>
 <ul>
@@ -418,7 +422,8 @@ sh">
 <p>(每一个节点有4种激活方式，N个节点相互独立，生成4N种激活方式，第一个节点只能和输入进行连接，第二个节点可以和输入和第一个节点2个里面选一个连接，第三个节点可以和输入和第1,2共3个节点里面选一个连接，依次类推，最终产生N!种连接方式。所以最终生成4N × N!种有向图DAG。)</p>
 <p>Sample a network of L layers, there are $6^L * 2^{L(L-1)/2}$ networks in search space</p>
 <h4 id="Designing-Convolution-Cells"><a href="#Designing-Convolution-Cells" class="headerlink" title="Designing Convolution Cells"></a>Designing Convolution Cells</h4><p>Rather than designing the entire convolutional network, one can design smaller modules and then connect them together to form a network </p>
-<p>==pic==</p>
+<p><img src="/img/ENAS-3.png" alt="AutoML-basic framework"></p>
+<p><img src="/img/ENAS-4.png" alt="AutoML-basic framework"></p>
 <p>Reduction cell:</p>
 <ol>
 <li>sample a computational graph from the search space</li>
@@ -466,6 +471,10 @@ sh">
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/06/16/AutoML-NAS/" rel="prev" title="AutoML-NAS">
+                AutoML-NAS <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -546,7 +555,7 @@ sh">
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">127</span>
+                  <span class="site-state-item-count">129</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -557,7 +566,7 @@ sh">
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>

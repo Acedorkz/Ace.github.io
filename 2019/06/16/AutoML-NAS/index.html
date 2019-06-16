@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="default">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="AutoMLpaper：AutoML综述
+Taking Human out of learning application: a survey on automated machine learning
+
+Feature engineering
+model selection
+optimization algorithm selection
+
+Optimizer &amp;amp; Controller">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AutoML-NAS">
+<meta property="og:url" content="http://yoursite.com/2019/06/16/AutoML-NAS/index.html">
+<meta property="og:site_name" content="Ace">
+<meta property="og:description" content="AutoMLpaper：AutoML综述
+Taking Human out of learning application: a survey on automated machine learning
+
+Feature engineering
+model selection
+optimization algorithm selection
+
+Optimizer &amp;amp; Controller">
+<meta property="og:image" content="http://yoursite.com/img/NAS-RNN.png">
+<meta property="og:image" content="http://yoursite.com/img/NAS-1.png">
+<meta property="og:image" content="http://yoursite.com/img/NAS.png">
+<meta property="og:image" content="http://yoursite.com/img/ENAS-1.png">
+<meta property="og:image" content="http://yoursite.com/img/ENAS-2.png">
+<meta property="og:image" content="http://yoursite.com/img/ENAS-3.png">
+<meta property="og:image" content="http://yoursite.com/img/ENAS-4.png">
+<meta property="og:image" content="http://yoursite.com/img/ENAS .png">
+<meta property="og:updated_time" content="2019-06-16T14:40:46.748Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AutoML-NAS">
+<meta name="twitter:description" content="AutoMLpaper：AutoML综述
+Taking Human out of learning application: a survey on automated machine learning
+
+Feature engineering
+model selection
+optimization algorithm selection
+
+Optimizer &amp;amp; Controller">
+<meta name="twitter:image" content="http://yoursite.com/img/NAS-RNN.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/06/16/AutoML-NAS/"/>
+
+
+
+
+
+  <title>AutoML-NAS | Ace</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Ace</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Ace.github.io</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-categories"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/16/AutoML-NAS/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ace_ZAJ">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/me.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ace">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">AutoML-NAS</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-06-16T22:22:32+08:00">
+                2019-06-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/AutoML/" itemprop="url" rel="index">
+                    <span itemprop="name">AutoML</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="AutoML"><a href="#AutoML" class="headerlink" title="AutoML"></a>AutoML</h3><p>paper：AutoML综述</p>
+<p>Taking Human out of learning application: a survey on automated machine learning</p>
+<ul>
+<li>Feature engineering</li>
+<li>model selection</li>
+<li>optimization algorithm selection</li>
+</ul>
+<p>Optimizer &amp; Controller</p>
+<ul>
+<li>For Optimizer：<ul>
+<li>Simple search approaches: Greedy search, random search</li>
+<li>Optimization from samples<ul>
+<li>Heuristic search</li>
+<li>Model based Derivative-Free Optimization</li>
+<li>RL</li>
+</ul>
+</li>
+<li>Gradient descent</li>
+<li>Greedy search</li>
+</ul>
+</li>
+<li>For evaluator<ul>
+<li>Direct evaluator</li>
+<li>sub-sampling</li>
+<li>early stop</li>
+<li>parameter reusing</li>
+<li>surrogate evaluator</li>
+</ul>
+</li>
+<li>Experienced techniques<ul>
+<li>Meta Learning</li>
+<li>Transfer Learning</li>
+</ul>
+</li>
+</ul>
+<a id="more"></a>
+<hr>
+<h3 id="NAS"><a href="#NAS" class="headerlink" title="NAS"></a>NAS</h3><p>paper: Neural Architecture Search with Reinforcement learning</p>
+<ul>
+<li><p>搜索空间</p>
+<p>网络结构和超参数</p>
+</li>
+<li><p>搜索策略</p>
+<p>使用怎样的算法可以快速、准确找到最优的网络结构参数配置</p>
+<ul>
+<li>RL：controller为RNN，PG</li>
+<li>进化算法</li>
+<li>贝叶斯优化</li>
+</ul>
+</li>
+<li><p>评价预估</p>
+</li>
+</ul>
+<p><strong>利用controller生成rnn</strong></p>
+<p><img src="/img/NAS-RNN.png" alt="NAS-RNN"></p>
+<p>如果层数超过特定值，则controller生成model将停止</p>
+<p>在收敛时，记录validation accuracy</p>
+<p><strong>并行训练 加速更新</strong></p>
+<p>一共有S个 Parameter Server用于存储 K个 Controller Replica的共享参数。然后每个 Controller Replica 生成m个并行训练的自网络。controller会根据m个子网络结构在收敛时得到的结果收集得到梯度值，然后为了更新所有 Controller Replica，会把梯度值传递给 Parameter Server。</p>
+<p><strong>Skip connection</strong></p>
+<p>使用基于attention的skip connections或branch layers来扩大搜索空间<br>在每一层，anchor point有N-1个sigmoids，以指示需要连接的previous layer</p>
+<p><strong>生成RNN cell:</strong></p>
+<p><img src="/img/NAS-1.png" alt="AutoML-basic framework"></p>
+<p>代码分析：</p>
+<p><img src="/img/NAS.png" alt="AutoML-basic framework"></p>
+<p><strong>NAS局限性：</strong></p>
+<p>NAS的搜索空间有很大的局限性，目前NAS算法仍然使用手工设计的结构和block，NAS仅仅是将这些block堆叠</p>
+<p><strong>NAS关键点：</strong></p>
+<p>如何能在更广的搜索空间中找到新的架构？</p>
+<hr>
+<h3 id="ENAS"><a href="#ENAS" class="headerlink" title="ENAS"></a>ENAS</h3><p>paper：Efficient Neural Architecture Search via Parameter Sharing</p>
+<p>权值共享，不同模型共享权重</p>
+<p>引入Node，相较于layer，其有pre-node index属性，节点数固定</p>
+<p>巧妙的node结点设置，学习和挑选node之间的连线关系，不同的连线方案会产生大量的神经网络模型结构，从中选择最优的连线方案</p>
+<p><strong>搜索策略</strong></p>
+<ul>
+<li><p>controller如何做出决策</p>
+<p>LSTM网络</p>
+</li>
+<li><p>什么样的搜索策略</p>
+<ul>
+<li><p>Marco search 宏搜索</p>
+<ul>
+<li>决定对前面的网络层该执行什么样的操作</li>
+<li>考虑用于跳跃连接的前面的网络层是哪个</li>
+</ul>
+</li>
+<li><p>Micro search 微搜索</p>
+<p>设计模块或者构建组件，模块或者组建联合构建最终的网络</p>
+</li>
+<li><p>Child model包含多个组件，每个组件包含N个conv cell和1个reduction cell，每个卷积或者下采样cell包含B个node，每个node由标准卷积操作组成</p>
+<ul>
+<li>Block</li>
+<li>Conv cell and reduction cell</li>
+<li>Node</li>
+</ul>
+</li>
+<li><p>后面的node需要decide：</p>
+<ul>
+<li>需要连接的两个node</li>
+<li>对需要连接的两个node各自执行的两个操作</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>ENAS 两种神经网络：</strong></p>
+<ul>
+<li>controller：RNN</li>
+<li>Child model：任务所需网络，CNN</li>
+</ul>
+<ol>
+<li>controller构建child model</li>
+<li>使用gd训练child model until convergence</li>
+<li>PG update parameter of controller</li>
+</ol>
+<p><strong>RL elements:</strong></p>
+<p>Agent: controller</p>
+<p>Action: policy for generate child model</p>
+<p>Reward: val_acc for child model</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">For i in CONTROLLER_EPOCHS:</div><div class="line">  1. Generate a child model</div><div class="line">  2. Train this child model for CHILD_EPOCHS</div><div class="line">  3. Obtain val_acc</div><div class="line">  4. Update controller parameters</div><div class="line">Get child model with the highest val_acc</div><div class="line">Train this child model for CHILD_EPOCHS</div></pre></td></tr></table></figure>
+<p><strong>DAG 数据结构：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&quot;-1&quot;: [</div><div class="line">  [</div><div class="line">    0,</div><div class="line">    &quot;tanh&quot;</div><div class="line">  ]</div></pre></td></tr></table></figure>
+<p>node -1: pre-index为node 0, activation为tanh</p>
+<p><img src="/img/ENAS-1.png" alt="AutoML-basic framework"></p>
+<p><img src="/img/ENAS-2.png" alt="AutoML-basic framework"></p>
+<p><img src="/img/ENAS-3.png" alt="AutoML-basic framework"></p>
+<p><img src="/img/ENAS-4.png" alt="AutoML-basic framework"></p>
+<p><img src="/img/ENAS .png" alt="AutoML-basic framework"></p>
+<p><strong>ENAS的高效在于:</strong></p>
+<p>迁移学习</p>
+<p>如果两个节点之间的计算过程之前已经完成训练，那么卷积核的权重与1*1的卷积（用来保持channel）就会被复用</p>
+<p><strong>局限性or改进的方案：</strong></p>
+<p>node结点数目一致时，可能限制模型的多样性</p>
+<p>pre-node index，连接多个node，连接的方法</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/06/15/Efficient-Neural-Architecture-Search-via-Parameter-Sharing/" rel="next" title="Efficient Neural Architecture Search via Parameter Sharing">
+                <i class="fa fa-chevron-left"></i> Efficient Neural Architecture Search via Parameter Sharing
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/06/16/AutoML-NAS-1/" rel="prev" title="AutoML-NAS">
+                AutoML-NAS <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/me.JPG"
+                alt="Ace_ZAJ" />
+            
+              <p class="site-author-name" itemprop="name">Ace_ZAJ</p>
+              <p class="site-description motion-element" itemprop="description">boom pow</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">129</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#AutoML"><span class="nav-number">1.</span> <span class="nav-text">AutoML</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NAS"><span class="nav-number">2.</span> <span class="nav-text">NAS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ENAS"><span class="nav-number">3.</span> <span class="nav-text">ENAS</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ace_ZAJ</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.3</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.staticfile.org/MathJax/MathJax-2.6-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>
