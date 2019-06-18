@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="default">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Random Search and Reproducibility for Neural Architecture Search
+AbstractTwo points:
+
+Evaluate both random search with early-stopping and a novel random search with weight-shared algorithm. Results sh">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Random Search and Reproducibility for Neural Architecture Search">
+<meta property="og:url" content="http://yoursite.com/2019/06/17/Random-Search-and-Reproducibility-for-Neural-Architecture-Search/index.html">
+<meta property="og:site_name" content="Ace">
+<meta property="og:description" content="Random Search and Reproducibility for Neural Architecture Search
+AbstractTwo points:
+
+Evaluate both random search with early-stopping and a novel random search with weight-shared algorithm. Results sh">
+<meta property="og:image" content="http://yoursite.com/\img\Random search-component of ho.png">
+<meta property="og:updated_time" content="2019-06-18T16:47:59.549Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Random Search and Reproducibility for Neural Architecture Search">
+<meta name="twitter:description" content="Random Search and Reproducibility for Neural Architecture Search
+AbstractTwo points:
+
+Evaluate both random search with early-stopping and a novel random search with weight-shared algorithm. Results sh">
+<meta name="twitter:image" content="http://yoursite.com/\img\Random search-component of ho.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/06/17/Random-Search-and-Reproducibility-for-Neural-Architecture-Search/"/>
+
+
+
+
+
+  <title>Random Search and Reproducibility for Neural Architecture Search | Ace</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Ace</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Ace.github.io</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-categories"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/17/Random-Search-and-Reproducibility-for-Neural-Architecture-Search/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ace_ZAJ">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/me.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ace">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Random Search and Reproducibility for Neural Architecture Search</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-06-17T21:15:10+08:00">
+                2019-06-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/paper/" itemprop="url" rel="index">
+                    <span itemprop="name">paper</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><strong>Random Search and Reproducibility for Neural Architecture Search</strong></p>
+<h3 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h3><p>Two points:</p>
+<ol>
+<li>Evaluate both random search with early-stopping and a novel random search with weight-shared algorithm. Results show that random search with early-stopping is a competitive NAS baseline.</li>
+<li>Explore the existing reproducibility  issues of published NAS results. </li>
+</ol>
+<a id="more"></a>
+<h3 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h3><p>3 fundamental issues with the current states of NAS research:</p>
+<ul>
+<li>Inadequate baselines</li>
+<li>Complex methods</li>
+<li>Lack of reproducibility</li>
+</ul>
+<h4 id="Inadequate-baselines"><a href="#Inadequate-baselines" class="headerlink" title="Inadequate baselines"></a>Inadequate baselines</h4><p>Existing comparisons between novel NAS methods and standard hyperparameters optimization methods are inadequate</p>
+<p><strong>Without benchmarking against leading hyperparameter optimization baselines, it difficult to quantify the performance gains provided by specialized NAS methods</strong></p>
+<h4 id="Complex-Methods"><a href="#Complex-Methods" class="headerlink" title="Complex Methods"></a>Complex Methods</h4><p>Novel NAS methods progress in many different methods, including complicated training studies, architecture transformations, model assumptions</p>
+<p><strong>It’s unclear what NAS components are necessary to achieve a competitive empirical result</strong></p>
+<p><img src="\img\Random search-component of ho.png" alt="Random search-component of ho"></p>
+<h4 id="Lack-of-reproducibility"><a href="#Lack-of-reproducibility" class="headerlink" title="Lack of reproducibility"></a>Lack of reproducibility</h4><ul>
+<li>“exact reproducibility”, whether it is possible to reproduce explicitly reported experimental results</li>
+<li>“broad reproducibility”, the degree to which the reported experimental results are themselves robust and generalizable</li>
+</ul>
+<p>Each fails on account of some combination of missing model evaluation code, architecture search code, random seeds used for search and evaluation, and/or undocumented hyperparameter tuning</p>
+<h4 id="Contributions"><a href="#Contributions" class="headerlink" title="Contributions"></a>Contributions</h4><ol>
+<li><p>new perspective on the gap between traditional hyperparameter optimization and leading NAS methods</p>
+<p>Evaluate a general hyperparameter optimization method combining random search with early-stopping</p>
+</li>
+<li><p>Identify a small subset of NAS components that are sufficient for achieving good empirical results</p>
+<p><strong>Construct a simple algorithm from the ground up starting from vanilla random search</strong>, properly <strong>tuned random search with weight-sharing</strong> is competitive with much more complicated methods when using similar computational methods</p>
+<p><strong>Meta-hyperparameter</strong>: batch size, number of epochs, network size and number of evaluated architectures</p>
+</li>
+<li><p>Open-source all of the necessary code, random seeds, and documentation necessary to reproduce our experiments</p>
+</li>
+</ol>
+<h4 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h4><p>Overview of the components of hyperparameter optimization has three components, each of which can have NAS-specific approaches</p>
+<ol>
+<li><p>Search space</p>
+<p>include continuous or discrete hyperparameters in a structured or unstructured fashion</p>
+<p>DAG</p>
+<p><strong>cell blocks,</strong> that are repeated in some way via a preset or learned meta-architecture to form a larger architecture</p>
+<p>Design random search NAS algorithm for such a cell block search space</p>
+</li>
+<li><p>Search Method</p>
+<p><strong>Random search</strong>, the most basic approach</p>
+<p><strong>Bayesian</strong> approaches based on Gaussian process</p>
+<p><strong>Gradient-based</strong> approaches are generally only applicable to continuous search spaces</p>
+<p><strong>Tree-based</strong> Bayesian, <strong>evolutionary</strong> strategies, and random search are more flexible and can be applies to any search space</p>
+</li>
+<li><p>Evolution method</p>
+<p>e.g., its predictive accuracy on a validation set</p>
+<p>partial training methods exploit early-stopping to speed up the evaluation process at the cost of noisy estimations of configuration quality</p>
+<p>Many of these methods center around sharing and reuse:</p>
+<ul>
+<li>network morphisms build upon previously  trained architecture</li>
+<li>hypernetworks and performance prediction encode information from previously seen architectures</li>
+<li>weight-sharing methods use a single set of weights for all possible architectures</li>
+</ul>
+</li>
+</ol>
+<h3 id="Related-work"><a href="#Related-work" class="headerlink" title="Related work"></a>Related work</h3><p>Additional context for the current states of NAS research</p>
+<h4 id="Inadequate-baselines-1"><a href="#Inadequate-baselines-1" class="headerlink" title="Inadequate baselines"></a>Inadequate baselines</h4><p>We choose to use a simple method combining random search with early-stopping called <strong>ASHA</strong> to provide a competitive baseline for standard hyperparameter optimization</p>
+<h4 id="Complex-Methods-1"><a href="#Complex-Methods-1" class="headerlink" title="Complex Methods"></a>Complex Methods</h4><ul>
+<li>evolutionary approaches need to define a set of possible mutations to apply to different architectures</li>
+<li>Bayesian optimization approaches rely on specially designed kernels</li>
+<li>Gradient-based methods transform the discrete architecture search problem into a continuous problem </li>
+<li>Reinforcement learning to train a rnn controller to generate good architectures</li>
+</ul>
+<p>Since methods some times use different search spaces and evolution methods</p>
+<p>To simplify the search process and help isolate important components of NAS, we use random search to sample architecture from the search space</p>
+<p>Considering training time and performance, we use random search with weight-sharing as our starting point for a simple and efficient NAS method</p>
+<p>Work inspired by which showed that <strong>random search, combined with a well-trained set of shared weights</strong> can successfully differentiate good architecture from poor performing ones. This work required <strong>several modifications to stabilize training</strong>(e.g., a tunable path dropout schedule over edges of the search DAG and a specialized ghost batch normalization scheme)</p>
+<h4 id="Lack-of-reproducibility-1"><a href="#Lack-of-reproducibility-1" class="headerlink" title="Lack of reproducibility"></a>Lack of reproducibility</h4><ul>
+<li>Architecture search code</li>
+<li>Model evaluation code</li>
+<li>Hyperparameter tuning documentation</li>
+<li>Random seeds</li>
+</ul>
+<p>DARTS is particularly commendable in acknowledging its dependence on random initialization, prompting the use multiple runs to select the best architecture </p>
+<p>Our work go one step further and evaluate the broad reproducibility of our results with <strong>another set of random sets</strong></p>
+<h3 id="Methodology"><a href="#Methodology" class="headerlink" title="Methodology"></a>Methodology</h3><p>Our algorithm is designed for an <strong>arbitrary search space with a DAG representation</strong></p>
+<p>Use the same search spaces as that considered by DARTS, recurrent cell has N=8 nodes, 4 operations: tanh, relu, sigmoid, identity</p>
+<p>Apply random search in the following manner:</p>
+<ol>
+<li>For each node in the DAG, determine what decisions must be made</li>
+<li>For each decision, identify the possible choices for the given node</li>
+<li>Finally, moving from node to node, we sample uniformly from the set of possible choices for each decision that needs to be made</li>
+</ol>
+<p><strong>Shared weights are updated by</strong> selecting a single architecture for a given minibatch and updating the shared weights by back-propagating through the network with only the edges and operations as indicated by the architecture activated</p>
+<p><strong>After training</strong>, we use these trained shared weights to <strong>evaluate</strong> the performance of a number of <strong>randomly sampled architectures on a separate held out dataset</strong></p>
+<h4 id="Relevant-Meta-Hyperparameters"><a href="#Relevant-Meta-Hyperparameters" class="headerlink" title="Relevant Meta-Hyperparameters"></a>Relevant Meta-Hyperparameters</h4><p>That impact the behavior of our search algorithm, both in terms of search quality and computational costs</p>
+<ol>
+<li><p>Training epochs</p>
+<p><strong>Training with more architectures</strong> should help the shared weights generalize better to what are likely unseen architecture in the evolution step</p>
+<p>More epochs increase the computational time required for architecture search</p>
+</li>
+<li><p>Batch size</p>
+<p><strong>Decreasing the batch size</strong> increases the number of minibatch updates but at  the <strong>cost of noisier gradient update</strong></p>
+<p>May necessitate adjusting other meta-hyperparameters to account for the noisier gradient noiser</p>
+</li>
+<li><p>Network size</p>
+<p>Increasing the search network size <strong>increases the dimension of the shared weights</strong></p>
+<p>This should boost <strong>performance</strong> since a larger search network can store <strong>more information</strong> about different architectures</p>
+<p>require more GPU memory</p>
+</li>
+<li><p>Number of evaluated architectures</p>
+<p>Increasing the number of architectures that we evaluate using the shared weights allows for more exploration in the architecture search space</p>
+</li>
+<li><p>gradient clipping</p>
+</li>
+</ol>
+<h4 id="Memory-footprint"><a href="#Memory-footprint" class="headerlink" title="Memory footprint"></a>Memory footprint</h4><p>Train the shared weights using a single architecture at a time, only loading the weights associated with the operations and edges that are activated into GPU memory</p>
+<p>The memory footprint of our random search with weight-sharing <strong>can be reduced to that of a single model</strong></p>
+<p>===Larger <strong>“proxyless” models ??</strong> ===usually used in the <strong>final architecture evaluations</strong> step instead of the smaller proxy models that are used in the search step</p>
+<h3 id="Experiments"><a href="#Experiments" class="headerlink" title="Experiments"></a>Experiments</h3><h4 id="Three-stages"><a href="#Three-stages" class="headerlink" title="Three stages"></a>Three stages</h4><ol>
+<li>Perform architecture search for <strong>a cell block</strong> on a cheaper search task</li>
+<li><strong>Evaluate the best architecture</strong> from the first stage by <strong>retraining a larger, network formed from multiple cell blocks</strong> of  the best found architecture from scratch</li>
+<li><strong>Perform</strong> the full evaluation of the best found architecture from the second stage by training more epochs or with more seeds</li>
+</ol>
+<p>Perform architecture searching using partial training of the stage2, and  then select the best architecture for stage3 evaluation</p>
+<h4 id="PTB-benchmark"><a href="#PTB-benchmark" class="headerlink" title="PTB benchmark"></a>PTB benchmark</h4><p>first stage as the proxy network</p>
+<p>the network in the later stages as the proxyless network</p>
+<h5 id="Final-Search-Results"><a href="#Final-Search-Results" class="headerlink" title="Final Search Results"></a>Final Search Results</h5><ol>
+<li><p>Evaluate the ASHA baseline</p>
+<p>ASHA evaluated over 300 architectures </p>
+<p>Result demonstrates that the <strong>gap between SOTA NAS methods and standard hyperparameter optimization approaches</strong> on the PTB benchmark is <strong>significantly smaller</strong> than that suggested by existing comparisons to random search</p>
+</li>
+<li><p>Evaluate random search with weight-sharing with tuned meta-typerparameters</p>
+<p>achieving SOTA perplexity compared to previous NAS approaches</p>
+<p>Manually designed architectures are competitive with RNN cells designed by NAS methods on this benchmark</p>
+<p>The work using LSTM with mixture of experts in the softmax layer(MoS) outperforms automatically designed cells</p>
+</li>
+<li><p>examine the reproducibility of the NAS methods</p>
+</li>
+</ol>
+<h5 id="Impact-of-meta-hyperparameters"><a href="#Impact-of-meta-hyperparameters" class="headerlink" title="Impact of meta-hyperparameters"></a>Impact of meta-hyperparameters</h5><p>Perform 4 separate trials of each version of random search with weight-sharing</p>
+<p><strong>Stage1, train the shared weights</strong> and then use them to <strong>evaluate 2000 randomly sampled architectures</strong></p>
+<p><strong>Stage2, select the best architecture out of 2000</strong>, according to the shared weights, to train from scratch using the proxyless network for 300 epochs</p>
+<p>Adjusting the following meta-hyperparameters:</p>
+<ul>
+<li>In stage1:<ul>
+<li>gradient clipping</li>
+<li>batch size</li>
+<li>network size</li>
+</ul>
+</li>
+</ul>
+<p>4 Random:</p>
+<ul>
+<li><p>Random 1: using the same setup as DARTS</p>
+</li>
+<li><p>Random 2: decrease the maximum gradient norm to account for discrete architecture</p>
+<p>gradient updates are not as large in each direction</p>
+</li>
+<li><p>Random 3: decrease batch size from 256 to 64 in order to increase the number of architectures used to train the shared weights</p>
+</li>
+<li><p>Random 4: train the larger proxyless network architecture with shared weights, increasing the number of parameters in the model</p>
+</li>
+</ul>
+<p>=== <strong>what about stage2</strong>===</p>
+<p>stems from the fact that we did not perform any additional hyperparameter tuning in stage3</p>
+<h5 id="Investigating-Reproducibility"><a href="#Investigating-Reproducibility" class="headerlink" title="Investigating Reproducibility"></a>Investigating Reproducibility</h5><p>Examine the stage2 intermediate results</p>
+<p>Even partial training for 300 epochs does not recover the correct ranking, training using shared weights further obscures the signal</p>
+<p>Overall, demonstrate a high variance in the stage2 intermediate results across trials, along with issues related to differing convergence rates for different architectures</p>
+<h4 id="CIFAR-10-Benchmark"><a href="#CIFAR-10-Benchmark" class="headerlink" title="CIFAR-10 Benchmark"></a>CIFAR-10 Benchmark</h4><h5 id="Final-Search-Results-1"><a href="#Final-Search-Results-1" class="headerlink" title="Final Search Results"></a>Final Search Results</h5><p>These results suggest that the gap between SOTA NAS methods and standard hyperparameter optimization is much smaller than previously reported</p>
+<p>Evaluate random search with weight-sharing with tuned meta-hyperparameters</p>
+<p>Random search with weight-sharing can also directly search over larger proxyless networks since it trains using discrete architectures</p>
+<p>We hypothesize that using a proxyless network and applying random search with weight-sharing to the same search space as ProxylessNAS would further improve our results–future work</p>
+<p>The final results are quite similar across independents run for both DARTS and random search with weight-sharing</p>
+<h5 id="Impact-of-meta-hyperparameters-1"><a href="#Impact-of-meta-hyperparameters-1" class="headerlink" title="Impact of meta-hyperparameters"></a>Impact of meta-hyperparameters</h5><p><strong>Both</strong> the <strong>training of shared weights and the evaluation of architectures</strong> using these trained weights:</p>
+<ul>
+<li>number of training epochs</li>
+<li>gradient clipping</li>
+<li>number of architectures evaluating shared weights</li>
+<li>network size</li>
+</ul>
+<p>5 Randoms:</p>
+<ol>
+<li>start by training the shared weights with the proxy network used by DARTS and default values</li>
+<li>increase the number of training epochs from 50 to 150, increase the number of architectures used to update the shared weights</li>
+<li>reduce the maximum gradient norm from 5 to 1 to adjust for discrete architectures instead</li>
+<li>increase the number of epochs for training the proxy network with shared weights to 300 and increase the number of architectures evaluated using the shared weights to 11k</li>
+<li>increase the proxy network size to be as large as possible given</li>
+</ol>
+<p>Similar to the PTB benchmark, the best setting for random search was Random (5), which has a larger network size</p>
+<h5 id="Investigating-Reproducibility-1"><a href="#Investigating-Reproducibility-1" class="headerlink" title="Investigating Reproducibility"></a>Investigating Reproducibility</h5><p><strong>Both</strong> DARTS and Random(5) are <strong>broadly reproducible</strong> on this benchmark</p>
+<p><strong>Ranking is unstable</strong> between 100 and 600 epochs in two significant cases(reproduced DARTS and Random(5) Run 2), which motivated our strategy of training the final architectures across trials to 600 epochs in order to select the best architecture for final evaluation across 10 seeds</p>
+<h4 id="Computational-Cost"><a href="#Computational-Cost" class="headerlink" title="Computational Cost"></a>Computational Cost</h4><p>There is a trade off between <strong>computational cost</strong> and the <strong>quality</strong> of this signal that we get per architecture that we evaluate</p>
+<ol>
+<li><p>Full training</p>
+</li>
+<li><p>Partial training:</p>
+<p>9 minutes per architecture for PTB benchmark and 19 minutes for CIFAR-10 benchmark</p>
+</li>
+<li><p>Weight-sharing</p>
+<p>It’s <strong>difficult to quantify</strong> the equivalent number of architecture evaluated by DARTS and random search with weight-sharing</p>
+<p>For random search with weight sharing, this is a tunable meta-hyperparameter and the quality of the performance estimates we receive can be noisy</p>
+<p>Rough estimate, 0.2 minutes per architecture for PTB benchmark and 0.8 minutes for CIFAR-10 benchmark</p>
+</li>
+</ol>
+<p>In contrast, we were able to achieve nearly competitive performance with the default settings of ASHA using roughly the same total computation as that needed by DARTS and random search with weight-sharing</p>
+<h4 id="Available-Code"><a href="#Available-Code" class="headerlink" title="Available Code"></a>Available Code</h4><p>deterministic conditioned on a fixed random seed</p>
+<h3 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h3><ol>
+<li><p>Better baselines are accurately quantify the performance gains of NAS methods</p>
+</li>
+<li><p>Ablation studies that isolate the impact of individual NAS components</p>
+</li>
+<li><p>Reproducible results that engender confidence and foster scientific progress</p>
+<p>Consequently, we conclude that either significantly more computational resources need to be devoted to evaluating NAS methods and/or more computationally tractable benchmarks need to be developed to lower the barrier for performing adequate empirical evaluations</p>
+</li>
+</ol>
+<hr>
+<p>Key point:</p>
+<p>In stage (1), we train the shared weights and use them to evaluate a given number of randomly sampled architectures on the test set. In stage (2), we select the best architecture, according to the shared weights, to train from scratch using the proxyless network</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/06/16/AutoML-NAS/" rel="next" title="AutoML-NAS">
+                <i class="fa fa-chevron-left"></i> AutoML-NAS
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/me.JPG"
+                alt="Ace_ZAJ" />
+            
+              <p class="site-author-name" itemprop="name">Ace_ZAJ</p>
+              <p class="site-description motion-element" itemprop="description">boom pow</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">129</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Abstract"><span class="nav-number">1.</span> <span class="nav-text">Abstract</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Introduction"><span class="nav-number">2.</span> <span class="nav-text">Introduction</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Inadequate-baselines"><span class="nav-number">2.1.</span> <span class="nav-text">Inadequate baselines</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Complex-Methods"><span class="nav-number">2.2.</span> <span class="nav-text">Complex Methods</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Lack-of-reproducibility"><span class="nav-number">2.3.</span> <span class="nav-text">Lack of reproducibility</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Contributions"><span class="nav-number">2.4.</span> <span class="nav-text">Contributions</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Background"><span class="nav-number">2.5.</span> <span class="nav-text">Background</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Related-work"><span class="nav-number">3.</span> <span class="nav-text">Related work</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Inadequate-baselines-1"><span class="nav-number">3.1.</span> <span class="nav-text">Inadequate baselines</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Complex-Methods-1"><span class="nav-number">3.2.</span> <span class="nav-text">Complex Methods</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Lack-of-reproducibility-1"><span class="nav-number">3.3.</span> <span class="nav-text">Lack of reproducibility</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Methodology"><span class="nav-number">4.</span> <span class="nav-text">Methodology</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Relevant-Meta-Hyperparameters"><span class="nav-number">4.1.</span> <span class="nav-text">Relevant Meta-Hyperparameters</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Memory-footprint"><span class="nav-number">4.2.</span> <span class="nav-text">Memory footprint</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Experiments"><span class="nav-number">5.</span> <span class="nav-text">Experiments</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Three-stages"><span class="nav-number">5.1.</span> <span class="nav-text">Three stages</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#PTB-benchmark"><span class="nav-number">5.2.</span> <span class="nav-text">PTB benchmark</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Final-Search-Results"><span class="nav-number">5.2.1.</span> <span class="nav-text">Final Search Results</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Impact-of-meta-hyperparameters"><span class="nav-number">5.2.2.</span> <span class="nav-text">Impact of meta-hyperparameters</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Investigating-Reproducibility"><span class="nav-number">5.2.3.</span> <span class="nav-text">Investigating Reproducibility</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#CIFAR-10-Benchmark"><span class="nav-number">5.3.</span> <span class="nav-text">CIFAR-10 Benchmark</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Final-Search-Results-1"><span class="nav-number">5.3.1.</span> <span class="nav-text">Final Search Results</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Impact-of-meta-hyperparameters-1"><span class="nav-number">5.3.2.</span> <span class="nav-text">Impact of meta-hyperparameters</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Investigating-Reproducibility-1"><span class="nav-number">5.3.3.</span> <span class="nav-text">Investigating Reproducibility</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Computational-Cost"><span class="nav-number">5.4.</span> <span class="nav-text">Computational Cost</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Available-Code"><span class="nav-number">5.5.</span> <span class="nav-text">Available Code</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Conclusion"><span class="nav-number">6.</span> <span class="nav-text">Conclusion</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ace_ZAJ</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.3</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.staticfile.org/MathJax/MathJax-2.6-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>
