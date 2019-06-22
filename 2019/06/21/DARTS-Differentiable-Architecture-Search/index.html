@@ -93,7 +93,7 @@ Based on the continuous relaxation of the architecture representation, allowing 
 Being orders of ma">
 <meta property="og:image" content="http://yoursite.com/\img\DARTS.png">
 <meta property="og:image" content="http://yoursite.com/\img\DARTS-Algorithm.png">
-<meta property="og:updated_time" content="2019-06-22T09:56:05.092Z">
+<meta property="og:updated_time" content="2019-06-22T13:52:11.552Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="DARTS: Differentiable Architecture Search">
 <meta name="twitter:description" content="ICLR 2019
@@ -332,6 +332,17 @@ Being orders of ma">
 
                 
                 
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/paper/AutoML/" itemprop="url" rel="index">
+                    <span itemprop="name">AutoML</span>
+                  </a>
+                </span>
+
+                
+                
               
             </span>
           
@@ -403,7 +414,7 @@ Being orders of ma">
 <p>Learning a set of continuous variables  $\alpha = \alpha^{(i,j)}$<br>$$<br>o^{(i, j)}=\operatorname{argmax}_{o \in \mathcal{O}} \alpha_{o}^{(i, j)}<br>$$<br>Jointly learn the architecture $\alpha$ and the weights $w$ within all the mixed operations</p>
 <p>Optimize the <strong>validation loss</strong>, but using gradient descent</p>
 <p>Find $\alpha^<em>$ minimize the validation loss $\mathcal{L}_{val}\left(w^{</em>}, \alpha^{<em>}\right)$, where the weights $w^</em>$ minimize the training loss $w^{<em>}=\operatorname{argmin}_{w} \mathcal{L}_{t r a i n}\left(w, \alpha^{</em>}\right)$</p>
-<p><strong>Bilevel optimization</strong> problem:<br>$$<br>\begin{array}{cl}{\min _{\alpha}} &amp; {\mathcal{L}_{v a l}\left(w^{<em>}(\alpha), \alpha\right)} \ {\text { s.t. }} &amp; {w^{</em>}(\alpha)=\operatorname{argmin}_{w} \mathcal{L}_{\text {train}}(w, \alpha)}\end{array}<br>$$<br>Architecture $\alpha$ could be viewed as a special type of hyperparamter</p>
+<p><strong>Bilevel optimization</strong> problem:<br>$$<br>\begin{array}{cl}{\min _{\alpha}} &amp; {\mathcal{L}_{v a l}\left(w^{<em>}(\alpha), \alpha\right)} \ <br>{\text { s.t. }} &amp; {w^{</em>}(\alpha)=\operatorname{argmin}_{w} \mathcal{L}_{\text {train}}(w, \alpha)}<br>\end{array}<br>$$<br>Architecture $\alpha$ could be viewed as a special type of hyperparamter</p>
 <h4 id="Approximate-architecture-gradient"><a href="#Approximate-architecture-gradient" class="headerlink" title="Approximate architecture gradient"></a>Approximate architecture gradient</h4><p><strong>Summary:</strong></p>
 <p>Approximation technique to make the algorithm computationally feasible and efficient</p>
 <p>Simple approximation scheme:<br>$$<br>\begin{aligned} &amp; \nabla_{\alpha} \mathcal{L}_{v a l}\left(w^{*}(\alpha), \alpha\right) \ \approx &amp; \nabla_{\alpha} \mathcal{L}_{v a l}\left(w-\xi \nabla_{w} \mathcal{L}_{t r a i n}(w, \alpha), \alpha\right) \end{aligned}<br>$$</p>
@@ -413,7 +424,7 @@ Being orders of ma">
 <p>Convergence problem: it is able to reach a fixed point with a suitable choice of $\xi$</p>
 <p>Apply <strong>chain rule</strong> to the approximate architecture gradient:<br>$$<br>\nabla_{\alpha} \mathcal{L}_{v a l}\left(w^{\prime}, \alpha\right)-\xi \nabla_{\alpha, w}^{2} \mathcal{L}_{t r a i n}(w, \alpha) \nabla_{w^{\prime}} \mathcal{L}_{v a l}\left(w^{\prime}, \alpha\right)<br>$$<br>where: $w^{\prime}=w-\xi \nabla_{w} \mathcal{L}_{t r a i n}(w, \alpha)$, denotes the weights for a one-step forward model</p>
 <p>The second part of the expression above contains an expensive matrix-vector product in its second term</p>
-<p>Using the <strong>finite difference approximation</strong>:<br>$$<br>\begin{array}{l}{w^{ \pm}=w \pm \epsilon \nabla_{w^{\prime}} \mathcal{L}_{v a l}\left(w^{\prime}, \alpha\right) . \text { Then: }} \ {\qquad \nabla_{\alpha, w}^{2} \mathcal{L}_{\text {train}}(w, \alpha) \nabla_{w^{\prime}} \mathcal{L}_{v a l}\left(w^{\prime}, \alpha\right) \approx \frac{\nabla_{\alpha} \mathcal{L}_{\text {train}}\left(w^{+}, \alpha\right)-\nabla_{\alpha} \mathcal{L}_{\text {train}}\left(w^{-}, \alpha\right)}{2 \epsilon}}\end{array}<br>$$</p>
+<p>Using the <strong>finite difference approximation</strong>:<br>$$<br>\begin{array}{l}{w^{ \pm}=w \pm \epsilon \nabla_{w^{\prime}} \mathcal{L}_{v a l}\left(w^{\prime}, \alpha\right) . \text { Then: }} \\<br>{\qquad \nabla_{\alpha, w}^{2} \mathcal{L}_{\text {train}}(w, \alpha) \nabla_{w^{\prime}} \mathcal{L}_{v a l}\left(w^{\prime}, \alpha\right) \approx \frac{\nabla_{\alpha} \mathcal{L}_{\text {train}}\left(w^{+}, \alpha\right)-\nabla_{\alpha} \mathcal{L}_{\text {train}}\left(w^{-}, \alpha\right)}{2 \epsilon}}<br>\end{array}<br>$$</p>
 <p><strong>First order approximation</strong>:</p>
 <p>When $\xi=0$ , the architecture gradient is given by $\nabla_{\alpha} \mathcal{L}_{v a l}(w, \alpha)$ , corresponding to the simple heuristic of optimizing the validation loss by assuming the current w is the same as $w^*(α)$</p>
 <p>This lead to speed up but empirically worse performance</p>
@@ -478,6 +489,10 @@ Being orders of ma">
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/06/22/Large-Scale-Evolution-of-Image-Classifiers/" rel="prev" title="Large-Scale Evolution of Image Classifiers">
+                Large-Scale Evolution of Image Classifiers <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -558,7 +573,7 @@ Being orders of ma">
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">130</span>
+                  <span class="site-state-item-count">131</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -569,7 +584,7 @@ Being orders of ma">
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
