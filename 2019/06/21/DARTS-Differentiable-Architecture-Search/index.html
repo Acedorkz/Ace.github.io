@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="default">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="ICLR 2019
+AbstractIn a differential manner
+Based on the continuous relaxation of the architecture representation, allowing efficient search of the architecture using gradient search
+Being orders of ma">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DARTS: Differentiable Architecture Search">
+<meta property="og:url" content="http://yoursite.com/2019/06/21/DARTS-Differentiable-Architecture-Search/index.html">
+<meta property="og:site_name" content="Ace">
+<meta property="og:description" content="ICLR 2019
+AbstractIn a differential manner
+Based on the continuous relaxation of the architecture representation, allowing efficient search of the architecture using gradient search
+Being orders of ma">
+<meta property="og:image" content="http://yoursite.com/\img\DARTS.png">
+<meta property="og:image" content="http://yoursite.com/\img\DARTS-Algorithm.png">
+<meta property="og:updated_time" content="2019-06-22T09:56:05.092Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="DARTS: Differentiable Architecture Search">
+<meta name="twitter:description" content="ICLR 2019
+AbstractIn a differential manner
+Based on the continuous relaxation of the architecture representation, allowing efficient search of the architecture using gradient search
+Being orders of ma">
+<meta name="twitter:image" content="http://yoursite.com/\img\DARTS.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/06/21/DARTS-Differentiable-Architecture-Search/"/>
+
+
+
+
+
+  <title>DARTS: Differentiable Architecture Search | Ace</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Ace</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Ace.github.io</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-categories"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/21/DARTS-Differentiable-Architecture-Search/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ace_ZAJ">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/me.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ace">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">DARTS: Differentiable Architecture Search</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-06-21T17:08:59+08:00">
+                2019-06-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/paper/" itemprop="url" rel="index">
+                    <span itemprop="name">paper</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>ICLR 2019</p>
+<h3 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h3><p>In a differential manner</p>
+<p>Based on the continuous relaxation of the architecture representation, allowing efficient search of the architecture using gradient search</p>
+<p>Being orders of magnitude faster than state-of-the-art non-differentiable techniques</p>
+<p>Implement publicly available</p>
+<a id="more"></a>
+<h3 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h3><p>Existing architecture search algorithms computationally demanding:</p>
+<ul>
+<li>2000 GPU days of RL</li>
+<li>3150 GPU days of evolution</li>
+</ul>
+<p>Several approaches for speeding up have been proposed:</p>
+<ul>
+<li>imposing a particular structure of the search space</li>
+<li>weights or performance prediction for each individual architecture</li>
+<li>weight sharing/inheritance across multiple architectures</li>
+</ul>
+<p>But the fundamental challenge of scalability remains, the fact that architecture search is treated as a <strong>black-box optimization problem over a discrete domain</strong>, which leads to a <strong>large number of architecture evaluations required</strong></p>
+<p>Instead of searching over a discrete set of candidate architectures, we relax the search space to be continuous, then using gradient descent</p>
+<p>Yet it is generic enough handle both convolution and recurrent architectures</p>
+<p>While prior works seek to fine-tune a specific aspect of an architecture, such as filter shapes or branching patterns in a convolutional network, DARTS is able to learn <strong>high-performance</strong> architecture building blocks with <strong>complex graph topologies within a rich search space</strong></p>
+<p><strong>Contributions</strong></p>
+<ul>
+<li>novel algorithm for differentiable network architecture search based on bilevel algorithm, both convolution and recurrent arichitectures</li>
+<li>highly competitive results on CIFAR-10 and PTB</li>
+<li>remarkable efficiency improvement</li>
+<li>architectures learned by DARTS on CIFAR-10  and PTB are transferable to ImageNet and WikiText-2</li>
+</ul>
+<h4 id="Search-space"><a href="#Search-space" class="headerlink" title="Search space"></a>Search space</h4><p>computation cell</p>
+<p>The learned cell could either be stacked to form a convolutional network or recursively connected to form a recurrent network</p>
+<p>A cell is a directed acyclic graph consisting of an ordered sequence of N nodes. Node $x^{(i)}$ is a latent representation. Directed edge $(i,j)$ operation $o^{(i,j)}$ that transforms $x^{(i)}$</p>
+<p>Cell have two input nodes and a single output node<br>$$<br>x^{(j)}=\sum_{i&lt;j}o^{(i,j)}（x^{(i)}）<br>$$<br><img src="\img\DARTS.png" alt="DARTS"></p>
+<p>The task of learning the cell therefore reduces to learning the operation on its edges</p>
+<h4 id="Continuous-Relaxation-and-Optimization"><a href="#Continuous-Relaxation-and-Optimization" class="headerlink" title="Continuous Relaxation and Optimization"></a>Continuous Relaxation and Optimization</h4><p><strong>Summary:</strong></p>
+<p>​    <strong>Continuous relaxation</strong> scheme for our search space which leads to a differentiable learning objective for the <strong>jointly optimization of the architecture and its weights</strong></p>
+<p>$\mathcal{O}$ be a set of candidate operations(e.g., convolution, max pooling, zero)</p>
+<p><strong>Relax the categorical choice</strong> of a particular operation to a <strong>softmax</strong> over all possible operations<br>$$<br>\overline{o}^{(i, j)}(x)=\sum_{o \in \mathcal{O}} \frac{\exp \left(\alpha_{o}^{(i, j)}\right)}{\sum_{o^{\prime} \in \mathcal{O}} \exp \left(\alpha_{o^{\prime}}^{(i, j)}\right)} o(x)<br>$$</p>
+<p>vector $\alpha^{(i,j)}$ operation mixing weights for a pair of nodes $(i,j)$ </p>
+<p>Learning a set of continuous variables  $\alpha = \alpha^{(i,j)}$<br>$$<br>o^{(i, j)}=\operatorname{argmax}_{o \in \mathcal{O}} \alpha_{o}^{(i, j)}<br>$$<br>Jointly learn the architecture $\alpha$ and the weights $w$ within all the mixed operations</p>
+<p>Optimize the <strong>validation loss</strong>, but using gradient descent</p>
+<p>Find $\alpha^<em>$ minimize the validation loss $\mathcal{L}_{val}\left(w^{</em>}, \alpha^{<em>}\right)$, where the weights $w^</em>$ minimize the training loss $w^{<em>}=\operatorname{argmin}_{w} \mathcal{L}_{t r a i n}\left(w, \alpha^{</em>}\right)$</p>
+<p><strong>Bilevel optimization</strong> problem:<br>$$<br>\begin{array}{cl}{\min _{\alpha}} &amp; {\mathcal{L}_{v a l}\left(w^{<em>}(\alpha), \alpha\right)} \ {\text { s.t. }} &amp; {w^{</em>}(\alpha)=\operatorname{argmin}_{w} \mathcal{L}_{\text {train}}(w, \alpha)}\end{array}<br>$$<br>Architecture $\alpha$ could be viewed as a special type of hyperparamter</p>
+<h4 id="Approximate-architecture-gradient"><a href="#Approximate-architecture-gradient" class="headerlink" title="Approximate architecture gradient"></a>Approximate architecture gradient</h4><p><strong>Summary:</strong></p>
+<p>Approximation technique to make the algorithm computationally feasible and efficient</p>
+<p>Simple approximation scheme:<br>$$<br>\begin{aligned} &amp; \nabla_{\alpha} \mathcal{L}_{v a l}\left(w^{*}(\alpha), \alpha\right) \ \approx &amp; \nabla_{\alpha} \mathcal{L}_{v a l}\left(w-\xi \nabla_{w} \mathcal{L}_{t r a i n}(w, \alpha), \alpha\right) \end{aligned}<br>$$</p>
+<p>$\xi$ is the learning rate for a step of inner optimization, approximate $w^{*}(\alpha)$ by adapting $w$ using only a single training step</p>
+<p>Related techniques have been used in meta-learning for model transfer, gradient based hyperparameter tuning, unrolled GAN</p>
+<p><img src="\img\DARTS-Algorithm.png" alt="DARTS-Algorithm.png"></p>
+<p>Convergence problem: it is able to reach a fixed point with a suitable choice of $\xi$</p>
+<p>Apply <strong>chain rule</strong> to the approximate architecture gradient:<br>$$<br>\nabla_{\alpha} \mathcal{L}_{v a l}\left(w^{\prime}, \alpha\right)-\xi \nabla_{\alpha, w}^{2} \mathcal{L}_{t r a i n}(w, \alpha) \nabla_{w^{\prime}} \mathcal{L}_{v a l}\left(w^{\prime}, \alpha\right)<br>$$<br>where: $w^{\prime}=w-\xi \nabla_{w} \mathcal{L}_{t r a i n}(w, \alpha)$, denotes the weights for a one-step forward model</p>
+<p>The second part of the expression above contains an expensive matrix-vector product in its second term</p>
+<p>Using the <strong>finite difference approximation</strong>:<br>$$<br>\begin{array}{l}{w^{ \pm}=w \pm \epsilon \nabla_{w^{\prime}} \mathcal{L}_{v a l}\left(w^{\prime}, \alpha\right) . \text { Then: }} \ {\qquad \nabla_{\alpha, w}^{2} \mathcal{L}_{\text {train}}(w, \alpha) \nabla_{w^{\prime}} \mathcal{L}_{v a l}\left(w^{\prime}, \alpha\right) \approx \frac{\nabla_{\alpha} \mathcal{L}_{\text {train}}\left(w^{+}, \alpha\right)-\nabla_{\alpha} \mathcal{L}_{\text {train}}\left(w^{-}, \alpha\right)}{2 \epsilon}}\end{array}<br>$$</p>
+<p><strong>First order approximation</strong>:</p>
+<p>When $\xi=0$ , the architecture gradient is given by $\nabla_{\alpha} \mathcal{L}_{v a l}(w, \alpha)$ , corresponding to the simple heuristic of optimizing the validation loss by assuming the current w is the same as $w^*(α)$</p>
+<p>This lead to speed up but empirically worse performance</p>
+<h4 id="Deriving-discrete-architectures"><a href="#Deriving-discrete-architectures" class="headerlink" title="Deriving discrete architectures"></a>Deriving discrete architectures</h4><p>To form each node in the discrete architecture, we retain the top-k strongest operations among all non-zero candidate operations collected from all the previous nodes</p>
+<h3 id="Experiments-and-results"><a href="#Experiments-and-results" class="headerlink" title="Experiments and results"></a>Experiments and results</h3><p>Consist of two stages: </p>
+<ul>
+<li>architecture search: search for the cell architectures using DARTS, and determine the best cells based on their validation performance</li>
+<li>architecture evaluation: use these cells to construct larger architectures, which we train from scratch and report their performance on the test set</li>
+</ul>
+<p>Investigate the transferability of the best cells</p>
+<h4 id="Architecture-search"><a href="#Architecture-search" class="headerlink" title="Architecture search"></a>Architecture search</h4><h5 id="on-CIFAR-10"><a href="#on-CIFAR-10" class="headerlink" title="on CIFAR-10"></a>on CIFAR-10</h5><p>$\mathcal{O}$: 3*3, 5*5 separable conv, 3*3, 5*5 dilated separable conv, 3*3 max pooling, 3*3 average pooling, identify, zero</p>
+<p>ReLU-conv-BN order for conv operation, earch separable conv is always applied twice</p>
+<p>Conv cell consists of N=7 nodes. Network is then formed by stacking multiple cell together. Cells located at the 1/3 and 2/3 of the total depth of the network are reduction cells</p>
+<p>Architecture encoding therefore is $(\alpha_{normal}, \alpha_{reduce})$</p>
+<h5 id="on-PENN-TREEBANK"><a href="#on-PENN-TREEBANK" class="headerlink" title="on PENN TREEBANK"></a>on PENN TREEBANK</h5><p>linear transformations: tanh, relu, sigmoid activations</p>
+<p>recurrent cell consists of N=12 nodes</p>
+<p>Enable batch normalization in each node to prevent gradient explosion during architecture search, and disable it during architecture evaluation</p>
+<p>Recurrent network consists of only a single cell</p>
+<h4 id="Architecture-evaluation"><a href="#Architecture-evaluation" class="headerlink" title="Architecture evaluation"></a>Architecture evaluation</h4><p>Run DARTS four times with different random seeds and pick the best cell based on its validation performance</p>
+<p>To <strong>evaluate the selected architecture</strong>, we <strong>randomly initialize its weights</strong>(weights learned during search process are discarded), train if from scratch, and report its performance on the test set</p>
+<h4 id="Results-analysis"><a href="#Results-analysis" class="headerlink" title="Results analysis"></a>Results analysis</h4><p>DARTS achieving comparable results with the state of the art using three orders of magnitude less computation resources</p>
+<p>Slightly longer search time</p>
+<h5 id="Alternative-Optimization-Strategies"><a href="#Alternative-Optimization-Strategies" class="headerlink" title="Alternative Optimization Strategies"></a>Alternative Optimization Strategies</h5><p>Two alternative trying, but worse performance:</p>
+<ul>
+<li>$\alpha$ and $w$ are jointly optimized over the union of training and validation sets using coordinate descent</li>
+<li>optimize $\alpha$ simultaneously with $w$ (without alteration) using SGD, again over all the data available(training + validation)</li>
+</ul>
+<p>In DARTS, $\alpha$ is not directly optimized on the training set</p>
+<h3 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h3><p>There are many <strong>interesting directions to improve DARTS further</strong>. </p>
+<p>For example, the current method may suffer from <strong>discrepancies between the continuous architecture encoding and the derived discrete architecture</strong>. This could be alleviated, e.g., by annealing the softmax temperature (with a suitable schedule) to enforce one-hot selection. </p>
+<p>It would also be interesting to <strong>investigate performance-aware architecture derivation</strong> schemes based on the shared parameters learned during the search process.</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/06/17/Random-Search-and-Reproducibility-for-Neural-Architecture-Search/" rel="next" title="Random Search and Reproducibility for Neural Architecture Search">
+                <i class="fa fa-chevron-left"></i> Random Search and Reproducibility for Neural Architecture Search
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/me.JPG"
+                alt="Ace_ZAJ" />
+            
+              <p class="site-author-name" itemprop="name">Ace_ZAJ</p>
+              <p class="site-description motion-element" itemprop="description">boom pow</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">130</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Abstract"><span class="nav-number">1.</span> <span class="nav-text">Abstract</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Introduction"><span class="nav-number">2.</span> <span class="nav-text">Introduction</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Search-space"><span class="nav-number">2.1.</span> <span class="nav-text">Search space</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Continuous-Relaxation-and-Optimization"><span class="nav-number">2.2.</span> <span class="nav-text">Continuous Relaxation and Optimization</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Approximate-architecture-gradient"><span class="nav-number">2.3.</span> <span class="nav-text">Approximate architecture gradient</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Deriving-discrete-architectures"><span class="nav-number">2.4.</span> <span class="nav-text">Deriving discrete architectures</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Experiments-and-results"><span class="nav-number">3.</span> <span class="nav-text">Experiments and results</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Architecture-search"><span class="nav-number">3.1.</span> <span class="nav-text">Architecture search</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#on-CIFAR-10"><span class="nav-number">3.1.1.</span> <span class="nav-text">on CIFAR-10</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#on-PENN-TREEBANK"><span class="nav-number">3.1.2.</span> <span class="nav-text">on PENN TREEBANK</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Architecture-evaluation"><span class="nav-number">3.2.</span> <span class="nav-text">Architecture evaluation</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Results-analysis"><span class="nav-number">3.3.</span> <span class="nav-text">Results analysis</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Alternative-Optimization-Strategies"><span class="nav-number">3.3.1.</span> <span class="nav-text">Alternative Optimization Strategies</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Conclusion"><span class="nav-number">4.</span> <span class="nav-text">Conclusion</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ace_ZAJ</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.3</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.staticfile.org/MathJax/MathJax-2.6-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>
