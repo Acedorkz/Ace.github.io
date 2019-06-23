@@ -79,16 +79,24 @@
 
 
 
-<meta name="description" content="Large-Scale Evolution of Image Classifiers">
+<meta name="description" content="Large-Scale Evolution of Image Classifiers
+AbstractUse novel and intuitive mutation operators that navigate large search spaces
+Stress that no human participation is required once evolution starts and">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Large-Scale Evolution of Image Classifiers">
 <meta property="og:url" content="http://yoursite.com/2019/06/22/Large-Scale-Evolution-of-Image-Classifiers/index.html">
 <meta property="og:site_name" content="Anne">
-<meta property="og:description" content="Large-Scale Evolution of Image Classifiers">
-<meta property="og:updated_time" content="2019-06-22T13:52:27.276Z">
+<meta property="og:description" content="Large-Scale Evolution of Image Classifiers
+AbstractUse novel and intuitive mutation operators that navigate large search spaces
+Stress that no human participation is required once evolution starts and">
+<meta property="og:image" content="http://yoursite.com/\img\Evolution-meta parameters.png">
+<meta property="og:updated_time" content="2019-06-23T09:41:32.255Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Large-Scale Evolution of Image Classifiers">
-<meta name="twitter:description" content="Large-Scale Evolution of Image Classifiers">
+<meta name="twitter:description" content="Large-Scale Evolution of Image Classifiers
+AbstractUse novel and intuitive mutation operators that navigate large search spaces
+Stress that no human participation is required once evolution starts and">
+<meta name="twitter:image" content="http://yoursite.com/\img\Evolution-meta parameters.png">
 
 
 
@@ -362,6 +370,147 @@
 
       
         <p><strong>Large-Scale Evolution of Image Classifiers</strong></p>
+<h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h2><p>Use novel and intuitive <strong>mutation operators</strong> that navigate large search spaces</p>
+<p>Stress that no human participation is required once evolution starts and that the output is a fully-trained model</p>
+<p>Repeatability of results, variability in the outcomes, computational requirements</p>
+<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>Generally perceives evolutionary algorithms to be incapable of matching the accuracies of hand-designed models</p>
+<p>It is possible to evolve such competitive models today, given enough computational power</p>
+<p>Special emphasis on the simplicity of the algorithm, “one-shot” technique</p>
+<p>Fully trained neural network requiring no post-processing, has few impactful meta-parameters</p>
+<p>Starting out with poor-performing models with no conv, the algorithm must evolve complex conv neural networks while navigating a fairly unrestricted search space</p>
+<p>Study the dependence on the meta-parameters</p>
+<h2 id="Related-work"><a href="#Related-work" class="headerlink" title="Related work"></a>Related work</h2><p>Neuro-evolution</p>
+<ul>
+<li>NEAT algorithm</li>
+<li>Fitness sharing: recombining two models into one and a strategy to promote diversity</li>
+</ul>
+<ul>
+<li>direct encoding: NEAT every node and every connection is stored in the DNA</li>
+<li>indirect encoding: CPPN, evolution of repeating features at different scales</li>
+</ul>
+<ul>
+<li>back-propagation for optimizing neural network weights</li>
+</ul>
+<p>Above studies create neural networks that are <strong>small</strong> in comparison to the typical modern architectures used for image classification. These datasets(CIFAR) <strong>require large models</strong> to achieve accuracy</p>
+<ul>
+<li>Reinforcement learning, q-learning</li>
+<li>grid search, random search</li>
+</ul>
+<p><strong>Our approach:</strong></p>
+<ul>
+<li>Explore large model-architecture search spaces <strong>starting with basic initial conditions</strong> to avoid priming the system with information about known good strategies for  the specific dataset at hand </li>
+<li>a simplified graph as our DNA, transformed to a full neural network graph for training and evolution</li>
+<li>mutations acting, single nodes-one mutation can insert whole layers, also allow for these layers to be removed</li>
+<li>Layers parameters are also mutable, without a set of possible values to choose from</li>
+<li>use back-propagation to optimize the weights, which can be inherited across mutations</li>
+</ul>
+<h2 id="Methods"><a href="#Methods" class="headerlink" title="Methods"></a>Methods</h2><h3 id="Evolutionary-Algorithm"><a href="#Evolutionary-Algorithm" class="headerlink" title="Evolutionary Algorithm"></a>Evolutionary Algorithm</h3><p>Evolve a population of models</p>
+<ul>
+<li>Each model or <strong>individual</strong> – trained architecture</li>
+<li>Model’s accuracy on validation set –individual’s <strong>quality or fitness</strong></li>
+<li>(each evolutionary step) a computer, a worker, <strong>choose</strong> two individual at random from this population and compares their fitnesses</li>
+<li>Worst of the pair, killed; best of the pair, <strong>parent</strong>; <strong>reproduction</strong></li>
+<li>The worker creates a copy of the parent and modifies this copy – <strong>child</strong>, by applying a <strong>mutation</strong></li>
+<li>After creating the child, it trains the child, evaluate it on the validation set, then put it back into the population, become <strong>alive</strong></li>
+<li>Using repeated pairwise competitions of random individuals</li>
+</ul>
+<p>Require considerable computation</p>
+<p>Develop a massively-parallel, lock-free insfrastructure</p>
+<ul>
+<li>Many worker operate asynchronously  on different computers, do not communicate directly with each other</li>
+<li>Shared file-system, the population is stored, contain directories that represent individual</li>
+<li>Operations on the individuals are represented as the atomic renames on the directory</li>
+<li>Works may conflict, the affected worker simply gives up and tries again</li>
+<li>1000 individuals, 1/4 workers</li>
+<li>dead individuals’ directories are frequently garbage-collected</li>
+</ul>
+<h3 id="Encoding-and-mutations"><a href="#Encoding-and-mutations" class="headerlink" title="Encoding and mutations"></a>Encoding and mutations</h3><p>Individual architectures are encoded as a graph that refer as the DNA</p>
+<p><strong>vertices</strong> represent rank-3 tensors or activations</p>
+<p><strong>graph’s edges</strong> represent <strong>identity connections or conv</strong> and contain the mutable numerical parameters defining the conv’s properties</p>
+<p>When <strong>multiple edges</strong> are incident <strong>on a vertex</strong>, resolution is done by choosing one of the incoming edges as the primary one</p>
+<p>The <strong>activations coming from the non-primary edges</strong> are <strong>reshaped</strong> through zeroth-order interpolation in the case of the size and through truncation/padding in the case of the number of channels</p>
+<p><strong>Mutations</strong> predetermined set:</p>
+<ul>
+<li>alter learning rate</li>
+<li>identity, keep training</li>
+<li>reset weights</li>
+<li>insert conv (at a random location, may apply bn and relu activation or none at random)</li>
+<li>remove conv</li>
+<li>alter stride</li>
+<li>alter number of channels (of random conv)</li>
+<li>filter size (horizontal or vertical at random, on random conv, odd values only)</li>
+<li>insert one to one (inserts a one-to-one/identity connection)</li>
+<li>add skip (identity between random layers)</li>
+<li>remove random skip</li>
+</ul>
+<p>A mutation that acts on a numerical parameter chooses the new value at <strong>random around the existing value</strong>. All sampling is from <strong>uniform</strong> distributions. E.g., half to twice the original value</p>
+<p>The dense and unbounded nature of the parameters result in the exploration of a truly large set of possible architectures</p>
+<h3 id="Initial-conditions"><a href="#Initial-conditions" class="headerlink" title="Initial conditions"></a>Initial conditions</h3><p>Each initial individual constitutes just a single layer model with no conv</p>
+<p>The experimenter contributes mostly through the choice of mutations that demarcate a search space</p>
+<p>The use of <strong>poor initial conditions and a large search space</strong> limits the experiment’s impact</p>
+<h3 id="Training-and-validation"><a href="#Training-and-validation" class="headerlink" title="Training and validation"></a>Training and validation</h3><p>CIFATR-10, 100</p>
+<h3 id="Computation-cost"><a href="#Computation-cost" class="headerlink" title="Computation cost"></a>Computation cost</h3><p>identity the basic Tensorflow operations used by out model training and validation</p>
+<p>Estimate the theoretical number of <strong>floating-point operations (FLOPs)</strong> required</p>
+<p>Map from <strong>TF operation</strong> to FLOPs</p>
+<p>For each individual, TF operations in its architecture over one batch, during training $F_t $FLOPSs, validation  $F_v $ FLOPSs, $N_t$, $N_v$ are the number of training and validation batches. $F_tN_t+F_vN_v$. The cost of experiment is then the sum of the costs of all its individuals</p>
+<p>We intend out FLOPs measurement as a coarse estimate only</p>
+<h3 id="Weight-inheritance"><a href="#Weight-inheritance" class="headerlink" title="Weight inheritance"></a>Weight inheritance</h3><p>Architectures are  trained to completion within an evolution experiment, if not happen, we are forced to <strong>retrain the best model at the end</strong>, possibly having to explore its hyper-parameters</p>
+<p>Training a <strong>large model</strong> to completion is <strong>prohibitively slow</strong> for evolution</p>
+<p>To resolve the dilemma, allow the children to inherit the parameters’ weights whenever possible</p>
+<h3 id="Reporting-Methodology"><a href="#Reporting-Methodology" class="headerlink" title="Reporting Methodology"></a>Reporting Methodology</h3><p>To avoid overfitting, neither evolutionary nor neural network training ever see test set</p>
+<p>“The best model” mean the model with the highest validation accuracy</p>
+<p>Test accuracy</p>
+<p>Not only to the choice of the best individual within an experiment, but also to the choice the best  experiment </p>
+<h2 id="Experiments-and-results"><a href="#Experiments-and-results" class="headerlink" title="Experiments and results"></a>Experiments and results</h2><p>Following questions:</p>
+<ul>
+<li>Can a simple one-shot evolutionary process start from trivial initial conditions and yield fully trained models that rival hand-designed architectures?</li>
+<li>What are the variability in outcomes, the parallelizability, and the computation cost of the method?</li>
+<li>Can an algorithm designed iterating on CIFAR-10 be applied, without any changes at all, to CIFAR-100 and still produce competitive models?</li>
+</ul>
+<p>Q1: yes. </p>
+<p>Architecture  discovered turn out to be surprisingly simple</p>
+<p>Q2: over 250 worker <strong>parallel</strong></p>
+<p><strong>Computation cost</strong> issue: attempt to minimize the overhead by avoiding unnecessary disk access operations, to no avail, too much overhead remains spent on a combination of neural network setup, data augmentation, and training step initialization</p>
+<p><strong>Weight inheritance</strong> is important in the process</p>
+<p>Q3: yes, both are competitive with modern hand-designed network</p>
+<h2 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h2><h3 id="Meta-parameters"><a href="#Meta-parameters" class="headerlink" title="Meta-parameters"></a>Meta-parameters</h3><p>Not all experiments reach the highest possible value, some populations are getting “<strong>trapped</strong>“ at inferior <strong>local optima</strong></p>
+<p>This entrapment is affected by two important meta-parameters (parameters that are not optimized by the algorithm): <strong>population size</strong> and <strong>the number of training steps per individual</strong></p>
+<h3 id="Effect-of-population-size"><a href="#Effect-of-population-size" class="headerlink" title="Effect of population size"></a>Effect of population size</h3><p>Larger populations explore the space of models more thoroughly</p>
+<p><strong>Population of size 2</strong> can get trapped at very low fitness values</p>
+<p><strong>Super-fit individua</strong>l (an individual such that any one architecture mutation reduces its fitness)</p>
+<p>If the super-fit individual wins once, it will win every time. the super-fit individual competes against its child and wins again</p>
+<p><strong>Cycle repeats forever</strong> and the population trapped</p>
+<p>often larger populations are better at handling local optima, at least beyond a size threshold</p>
+<h3 id="Effect-of-number-of-training-steps"><a href="#Effect-of-number-of-training-steps" class="headerlink" title="Effect of number of training steps"></a>Effect of number of training steps</h3><p>Accuracy increases with number of training steps T for each individual</p>
+<p>Larger T means an individual needs to undergo fewer identity mutations to reach a given level of training</p>
+<p><img src="\img\Evolution-meta parameters.png" alt="meta parameters"></p>
+<h3 id="Escaping-local-optima"><a href="#Escaping-local-optima" class="headerlink" title="Escaping local optima"></a>Escaping local optima</h3><p>While increase population size or number of steps to prevent a trapped population from forming, we can also free an already trapped population</p>
+<p>Increasing the mutation rate or resetting all the weights of a population work well but quite costly</p>
+<h3 id="Recombination"><a href="#Recombination" class="headerlink" title="Recombination"></a>Recombination</h3><ul>
+<li><p>A child could inherit structure from one parent and mutation probabilities from another</p>
+<p>The goal was to allow individuals that progressed well due to good mutation choices to quickly propagate such choices to others</p>
+</li>
+<li><p>Recombing the train weights from two parents</p>
+</li>
+<li><p>Recombining the structure so that the child fused the architectures of both parents side-by-side, generating wide models fast</p>
+</li>
+</ul>
+<p>While none of these approaches improved our recombination-free results, <strong>further study seems warranted</strong></p>
+<h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><p>In this paper:</p>
+<ul>
+<li>neuro-evolution is capable of constructing large, accurate network</li>
+<li>neuro-evolution can do this starting from trivial initial conditions</li>
+<li>process once started, needs  no experimenter participation</li>
+<li>process yield fully trained models</li>
+<li>did not focus on reducing computation costs</li>
+</ul>
+<hr>
+<p>Further may improve:</p>
+<ul>
+<li>combination</li>
+<li>reducing computation costs</li>
+<li>combine neuro-evolution with other automatic architecture discovery methods</li>
+</ul>
 
       
     </div>
@@ -446,8 +595,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -513,6 +671,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Abstract"><span class="nav-number">1.</span> <span class="nav-text">Abstract</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction"><span class="nav-number">2.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Related-work"><span class="nav-number">3.</span> <span class="nav-text">Related work</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Methods"><span class="nav-number">4.</span> <span class="nav-text">Methods</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Evolutionary-Algorithm"><span class="nav-number">4.1.</span> <span class="nav-text">Evolutionary Algorithm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Encoding-and-mutations"><span class="nav-number">4.2.</span> <span class="nav-text">Encoding and mutations</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Initial-conditions"><span class="nav-number">4.3.</span> <span class="nav-text">Initial conditions</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Training-and-validation"><span class="nav-number">4.4.</span> <span class="nav-text">Training and validation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Computation-cost"><span class="nav-number">4.5.</span> <span class="nav-text">Computation cost</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Weight-inheritance"><span class="nav-number">4.6.</span> <span class="nav-text">Weight inheritance</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reporting-Methodology"><span class="nav-number">4.7.</span> <span class="nav-text">Reporting Methodology</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Experiments-and-results"><span class="nav-number">5.</span> <span class="nav-text">Experiments and results</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Analysis"><span class="nav-number">6.</span> <span class="nav-text">Analysis</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Meta-parameters"><span class="nav-number">6.1.</span> <span class="nav-text">Meta-parameters</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Effect-of-population-size"><span class="nav-number">6.2.</span> <span class="nav-text">Effect of population size</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Effect-of-number-of-training-steps"><span class="nav-number">6.3.</span> <span class="nav-text">Effect of number of training steps</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Escaping-local-optima"><span class="nav-number">6.4.</span> <span class="nav-text">Escaping local optima</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Recombination"><span class="nav-number">6.5.</span> <span class="nav-text">Recombination</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Conclusion"><span class="nav-number">7.</span> <span class="nav-text">Conclusion</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
