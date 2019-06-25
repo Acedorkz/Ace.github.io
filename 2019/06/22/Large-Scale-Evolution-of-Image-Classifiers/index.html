@@ -90,7 +90,7 @@ Stress that no human participation is required once evolution starts and">
 AbstractUse novel and intuitive mutation operators that navigate large search spaces
 Stress that no human participation is required once evolution starts and">
 <meta property="og:image" content="http://yoursite.com/\img\Evolution-meta parameters.png">
-<meta property="og:updated_time" content="2019-06-23T09:41:32.255Z">
+<meta property="og:updated_time" content="2019-06-25T03:24:10.834Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Large-Scale Evolution of Image Classifiers">
 <meta name="twitter:description" content="Large-Scale Evolution of Image Classifiers
@@ -373,6 +373,7 @@ Stress that no human participation is required once evolution starts and">
 <h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h2><p>Use novel and intuitive <strong>mutation operators</strong> that navigate large search spaces</p>
 <p>Stress that no human participation is required once evolution starts and that the output is a fully-trained model</p>
 <p>Repeatability of results, variability in the outcomes, computational requirements</p>
+<a id="more"></a>
 <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>Generally perceives evolutionary algorithms to be incapable of matching the accuracies of hand-designed models</p>
 <p>It is possible to evolve such competitive models today, given enough computational power</p>
 <p>Special emphasis on the simplicity of the algorithm, “one-shot” technique</p>
@@ -504,6 +505,91 @@ Stress that no human participation is required once evolution starts and">
 <li>process yield fully trained models</li>
 <li>did not focus on reducing computation costs</li>
 </ul>
+<h2 id="Supplementary-Materials"><a href="#Supplementary-Materials" class="headerlink" title="Supplementary Materials"></a>Supplementary Materials</h2><h3 id="Methods-details"><a href="#Methods-details" class="headerlink" title="Methods details"></a>Methods details</h3><p>each worker runs an outer loop that is responsible for selectin a pair of random individuals from the population</p>
+<p>Becoming a parent or the lower fitness killed are not carried out in order to keep the population size close to a set-point</p>
+<p>Code analysis:</p>
+<ol>
+<li>Evolve population:</li>
+</ol>
+<ul>
+<li>Select two random individuals from the population <code>random.sample()</code></li>
+<li>enumerate individual pair, sync changes from other worker from file-system, load everything else; Ensure the individual fully trained</li>
+<li>select by fitness (accuracy) <code>sort()</code></li>
+<li>If the population is not too small, kill the worst of the pair</li>
+<li>If the population if not too large, reproduce the best of the pair</li>
+</ul>
+<ol>
+<li>DNA</li>
+</ol>
+<p>The <strong>encoding</strong> for an <strong>individual</strong> is represented by a <strong>serializable DNA class</strong> instance containing all information except for the trained weights</p>
+<p>this encoding is <strong>directed</strong>, acyclic graph where <strong>edges represent conv</strong> and <strong>vertices represent nonlinearities</strong></p>
+<p><code>dna_proto</code> is a protocol buffer used to restore the DNA state from diskws</p>
+<ul>
+<li><p>DNA class</p>
+<ul>
+<li><code>to_proto()</code>, return in protocol buffer form</li>
+<li><code>add_edge(dna, from_vertex_id, to_vertex_id, edge_type, edge_id)</code>, add an edge to the DNA graph, ensuring internal consistency</li>
+</ul>
+</li>
+<li><p>Vertex class</p>
+<ul>
+<li>edges_in, edges_out</li>
+<li>type of activations: linear, bn_relu</li>
+<li>some parts of the graph can be prevented from being acted by mutations, using boolean flags</li>
+</ul>
+</li>
+<li>Edge class<ul>
+<li>from_vertex, to_vertex</li>
+<li>type: conv</li>
+<li>control the depth</li>
+<li>control the shape  of conv filters</li>
+<li>control the strides of the conv</li>
+<li>if conflicts in inputs, determine which of the inputs takes precedence in deciding the resolved depth or scale</li>
+</ul>
+</li>
+</ul>
+<p>Mutation act on DNA instance. E.g.:</p>
+<ul>
+<li>AlterLearningRateMutation<ul>
+<li>copy</li>
+<li>random uniform</li>
+</ul>
+</li>
+</ul>
+<p>Many mutations modify the structure. Mutations to <strong>insert and excise vertex-edge pairs</strong> build up a main conv, while mutations to add and remove edges can handle the skip connections</p>
+<p>E.g., AddEdgeMutation can add a skip connection between random vertices</p>
+<p>To evaluate an individual’s fitness, its DNA is unfolded into a TF model by the Model class</p>
+<ul>
+<li>compute vertex nonliearity</li>
+<li>compute edge connection</li>
+</ul>
+<h3 id="FLOPs-estimation"><a href="#FLOPs-estimation" class="headerlink" title="FLOPs estimation"></a>FLOPs estimation</h3><ul>
+<li><p>Run one iteration of training and collect run metadata. This metadata will be used to determine the nodes which were actually executed as well as their argument shapes</p>
+</li>
+<li><p>compute analytical FLOPs for all nodes in the graph <code>tfprof_logger._get_logged_ops</code></p>
+</li>
+<li><p>Determine which nodes were executed during one training step by looking at elapsed execution time of each node</p>
+<p><code>run_metadata.step_stats.dev_stats</code></p>
+</li>
+<li><p>compute FLOPs of executed nodes, sum</p>
+</li>
+</ul>
+<p>Declare how to compute FLOPs for each operation type present</p>
+<ul>
+<li>unary math operations: square, square root, log, negation, element-wise inverse, softmax, l2 norm</li>
+<li>binary element wise operations: addition, subtraction, multiplication, division, minimum, maximum, power, squared difference, comparison operations </li>
+<li>reduction operations: mean, sum, argmax, argmin</li>
+<li>conv, average pooling, max pooling</li>
+<li>matrix multiplication</li>
+</ul>
+<p>E.g., for element-wise addition operation type:</p>
+<p><code>tensorflow.python.framework import graph_util, ops</code></p>
+<h3 id="Local-optima-and-weight-resetting"><a href="#Local-optima-and-weight-resetting" class="headerlink" title="Local optima and weight resetting"></a>Local optima and weight resetting</h3><p>The identity mutation offers a mechanism for populations to get trapped in local optima</p>
+<p>Simultaneously reset all the weights in a population that had plateaued</p>
+<p>The simultaneously reset should put all the individuals on the same footing, so individuals that had accidentally trained more no longer have the unfair advantage</p>
+<p>The results: the population suffer a temporary degradation in fitness immediately after the reset, as the individuals need to train. Later, the populations end up reaching higher optima</p>
+<p>Across 10 experiments, find that three successive resets tend to cause improvement</p>
+<p><strong>Drawback of weight inheritance</strong></p>
 <hr>
 <p>Further may improve:</p>
 <ul>
@@ -511,6 +597,8 @@ Stress that no human participation is required once evolution starts and">
 <li>reducing computation costs</li>
 <li>combine neuro-evolution with other automatic architecture discovery methods</li>
 </ul>
+<hr>
+<p>Notes on: <a href="http://aixpaper.com/view/largescale_evolution_of_image_classifiers" target="_blank" rel="external">http://aixpaper.com/view/largescale_evolution_of_image_classifiers</a></p>
 
       
     </div>
@@ -544,6 +632,10 @@ Stress that no human participation is required once evolution starts and">
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/06/25/Neural-Architecture-Search-with-Bayesian-Optimisation-and-Optimal-Transport/" rel="prev" title="Neural Architecture Search with Bayesian Optimisation and Optimal Transport">
+                Neural Architecture Search with Bayesian Optimisation and Optimal Transport <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -624,7 +716,7 @@ Stress that no human participation is required once evolution starts and">
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">131</span>
+                  <span class="site-state-item-count">132</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -681,7 +773,7 @@ Stress that no human participation is required once evolution starts and">
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Abstract"><span class="nav-number">1.</span> <span class="nav-text">Abstract</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction"><span class="nav-number">2.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Related-work"><span class="nav-number">3.</span> <span class="nav-text">Related work</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Methods"><span class="nav-number">4.</span> <span class="nav-text">Methods</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Evolutionary-Algorithm"><span class="nav-number">4.1.</span> <span class="nav-text">Evolutionary Algorithm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Encoding-and-mutations"><span class="nav-number">4.2.</span> <span class="nav-text">Encoding and mutations</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Initial-conditions"><span class="nav-number">4.3.</span> <span class="nav-text">Initial conditions</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Training-and-validation"><span class="nav-number">4.4.</span> <span class="nav-text">Training and validation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Computation-cost"><span class="nav-number">4.5.</span> <span class="nav-text">Computation cost</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Weight-inheritance"><span class="nav-number">4.6.</span> <span class="nav-text">Weight inheritance</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reporting-Methodology"><span class="nav-number">4.7.</span> <span class="nav-text">Reporting Methodology</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Experiments-and-results"><span class="nav-number">5.</span> <span class="nav-text">Experiments and results</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Analysis"><span class="nav-number">6.</span> <span class="nav-text">Analysis</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Meta-parameters"><span class="nav-number">6.1.</span> <span class="nav-text">Meta-parameters</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Effect-of-population-size"><span class="nav-number">6.2.</span> <span class="nav-text">Effect of population size</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Effect-of-number-of-training-steps"><span class="nav-number">6.3.</span> <span class="nav-text">Effect of number of training steps</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Escaping-local-optima"><span class="nav-number">6.4.</span> <span class="nav-text">Escaping local optima</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Recombination"><span class="nav-number">6.5.</span> <span class="nav-text">Recombination</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Conclusion"><span class="nav-number">7.</span> <span class="nav-text">Conclusion</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Abstract"><span class="nav-number">1.</span> <span class="nav-text">Abstract</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction"><span class="nav-number">2.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Related-work"><span class="nav-number">3.</span> <span class="nav-text">Related work</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Methods"><span class="nav-number">4.</span> <span class="nav-text">Methods</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Evolutionary-Algorithm"><span class="nav-number">4.1.</span> <span class="nav-text">Evolutionary Algorithm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Encoding-and-mutations"><span class="nav-number">4.2.</span> <span class="nav-text">Encoding and mutations</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Initial-conditions"><span class="nav-number">4.3.</span> <span class="nav-text">Initial conditions</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Training-and-validation"><span class="nav-number">4.4.</span> <span class="nav-text">Training and validation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Computation-cost"><span class="nav-number">4.5.</span> <span class="nav-text">Computation cost</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Weight-inheritance"><span class="nav-number">4.6.</span> <span class="nav-text">Weight inheritance</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reporting-Methodology"><span class="nav-number">4.7.</span> <span class="nav-text">Reporting Methodology</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Experiments-and-results"><span class="nav-number">5.</span> <span class="nav-text">Experiments and results</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Analysis"><span class="nav-number">6.</span> <span class="nav-text">Analysis</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Meta-parameters"><span class="nav-number">6.1.</span> <span class="nav-text">Meta-parameters</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Effect-of-population-size"><span class="nav-number">6.2.</span> <span class="nav-text">Effect of population size</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Effect-of-number-of-training-steps"><span class="nav-number">6.3.</span> <span class="nav-text">Effect of number of training steps</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Escaping-local-optima"><span class="nav-number">6.4.</span> <span class="nav-text">Escaping local optima</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Recombination"><span class="nav-number">6.5.</span> <span class="nav-text">Recombination</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Conclusion"><span class="nav-number">7.</span> <span class="nav-text">Conclusion</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Supplementary-Materials"><span class="nav-number">8.</span> <span class="nav-text">Supplementary Materials</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Methods-details"><span class="nav-number">8.1.</span> <span class="nav-text">Methods details</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#FLOPs-estimation"><span class="nav-number">8.2.</span> <span class="nav-text">FLOPs estimation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Local-optima-and-weight-resetting"><span class="nav-number">8.3.</span> <span class="nav-text">Local optima and weight resetting</span></a></li></ol></li></ol></div>
             
 
           </div>
