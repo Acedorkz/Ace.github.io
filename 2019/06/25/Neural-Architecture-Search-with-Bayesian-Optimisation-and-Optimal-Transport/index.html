@@ -87,7 +87,7 @@ AbstractBayesian Optimisation refers to a class of methods for global optimisati
 <meta property="og:site_name" content="Anne">
 <meta property="og:description" content="Neural Architecture Search with Bayesian Optimisation and Optimal Transport
 AbstractBayesian Optimisation refers to a class of methods for global optimisation of a function $f$ which is only accessibl">
-<meta property="og:updated_time" content="2019-06-25T14:11:55.120Z">
+<meta property="og:updated_time" content="2019-06-26T10:01:48.449Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Neural Architecture Search with Bayesian Optimisation and Optimal Transport">
 <meta name="twitter:description" content="Neural Architecture Search with Bayesian Optimisation and Optimal Transport
@@ -376,6 +376,107 @@ AbstractBayesian Optimisation refers to a class of methods for global optimisati
 <p>BO uses Bayesian model for $f$ to <strong>infer function values at unexplored regions</strong> and <strong>guide the selection of points for future evaluations</strong></p>
 <p>Quintessential use case for BO in ml is model selection. E.g., select the regularisation parameter $\lambda$ and kernel width $h$ for SVM. We can set this up as a zeroth order optimisation problem where our domain is a two dimensional space of $(\lambda, h)$ values, and each function evaluation trains the SVM on a training set, and computes the accuracy on a validation set.</p>
 <p><strong>A most unadorned form</strong>:</p>
+<ul>
+<li>starting at time 0 with a GP prior for $f$</li>
+<li>at time $t$, it incorporates results of evaluations from $1,…t-1$ in the form of a posterior for $f$</li>
+<li>Then uses this posterior to construct an acquisition function\kappa\left(x, x^{\prime}\right), where $\varphi_t$ is a measure of the value of evaluating $f$ at $x$ at time $t$ if our goal is to maximize $f$</li>
+</ul>
+<p>It chooses to evaluate $f$ at the maximiser of the acquisition, $x_{t}=\operatorname{argmax}_{x \in \mathcal{X}} \varphi_{t}(x)$</p>
+<p><strong>Two key ingredients:</strong></p>
+<ul>
+<li><p>quantify the similarity between two points $x, x’$ in the domain in the form of a kernel $\kappa\left(x, x^{\prime}\right)$ , allow us to reason about an unevaluated values $（x’)$ when we have already evaluated $f(x)$</p>
+<p>in Euclidean spaces, we can use: Gaussian, Laplacian, Matern</p>
+</li>
+<li><p>a  method to maximize $\varphi_t(x)$</p>
+<p>via off shelf branch-and-bound or gradient based methods</p>
+</li>
+</ul>
+<p>$x$ is a neural network is not the case</p>
+<ul>
+<li>Quantify (dis)similarity between two networks</li>
+<li>Traverse the space of such networks to optimise the acquisition function</li>
+</ul>
+<p><strong>Contributions:</strong></p>
+<ul>
+<li>Develop a (pseudo-)distance for neural network architectures called <strong>OTMANN</strong>(Optimal Transport Metrics for Architectures of Neural Networks) that can be computed efficiently via an <strong>optimal transport program</strong></li>
+<li>BO framework for <strong>optimising functions on neural network</strong> architectures called <strong>NASBOT</strong>(Neural Architecture Search with Bayesian Optimisation and Optimal Transport). Include an <strong>evolutionary algorithm to optimise the acquisition</strong></li>
+<li>NASBOT outperforms other baselines on model selection tasks for MLP and conv </li>
+</ul>
+<p><strong>Related Work:</strong></p>
+<ul>
+<li><p>evolutionary algorithm</p>
+<ul>
+<li><p>provide a simple mechanism to explore the space of architectures by making a sequence of changes to networks that have already been evaluated</p>
+</li>
+<li><p>not ideally suited for optimising functions that are expensive to evaluate</p>
+</li>
+</ul>
+</li>
+<li><p>rl</p>
+<ul>
+<li>no explicit need to maintain a notion of state and solve credit assignment</li>
+<li>fundamentally more difficult problem than optimisation</li>
+</ul>
+</li>
+</ul>
+<h2 id="Set-up"><a href="#Set-up" class="headerlink" title="Set up"></a>Set up</h2><p>$f$ is the performance on a validation set after $x$ is trained on the training set. If $x_{\star}=\operatorname{argmax}_{\mathcal{X}} f(x)$, $x_t$ is the architecture evaluated at time $t$, we want $f\left(x_{\star}\right)-\max _{t \leq n} f\left(x_{t}\right)$ to vanish fast as the number of evaluations $n \rightarrow \infty$</p>
+<h3 id="A-brief-review-of-Gaussian-Process-based-on-Bayesian-Optimisation"><a href="#A-brief-review-of-Gaussian-Process-based-on-Bayesian-Optimisation" class="headerlink" title="A brief review of Gaussian Process based on Bayesian Optimisation"></a>A brief review of Gaussian Process based on Bayesian Optimisation</h3><p>GP: </p>
+<ul>
+<li>mean function $\mu : \mathcal{X} \rightarrow \mathbb{R}$ </li>
+<li>(covariance) kernel function: $\kappa : \mathcal{X}^{2} \rightarrow \mathbb{R}$</li>
+</ul>
+<p>Given $n$ observations $\mathcal{D}_{n}=\left{\left(x_{i}, y_{i}\right)\right}_{i=1}^{n}$, where $x_{i} \in \mathcal{X}, y_{i}=f\left(x_{i}\right)+\epsilon_{i} \in \mathbb{R}$, and $\epsilon_{i} \sim \mathcal{N}\left(0, \eta^{2}\right)$, the posterior process $f|D_n$ is also a GP with mean $\mu_n$, covariance $\kappa_n$<br>$$<br>k_{i}=\kappa\left(x, x_{i}\right), k_{i}^{\prime}=\kappa\left(x^{\prime}, x_{i}\right)<br>$$</p>
+<p>$$<br>K_{i, j}=\kappa\left(x_{i}, x_{j}\right)<br>$$</p>
+<p>Then, $\mu_{n}, \kappa_{n}$ can be computed via:<br>$$<br>\mu_{n}(x)=k^{\top}\left(K+\eta^{2} I\right)^{-1} Y\\<br>\quad \kappa_{n}\left(x, x^{\prime}\right)=\kappa\left(x, x^{\prime}\right)-k^{\top}\left(K+\eta^{2} I\right)^{-1} k^{\prime}<br>$$</p>
+<p>At time $t$, we have already evaluated $f$ at points $\left{x_{i}\right}_{i=1}^{t-1}$ and obtained observations $\left{y_{i}\right}_{i=1}^{t-1}$  </p>
+<p>To determine  the next point for evaluation $x_t$, we first use the posterior GP to define an acquisition function $\varphi_t$, which measure the utility of evaluating $f$ at any $x$ according to the posterior</p>
+<p>Then maximize the acquisition function: $x_{t}=\operatorname{argmax}_{\mathcal{X}} \varphi_{t}(x)$, and evaluate $f$ at $x_t$</p>
+<p><strong>Expected improvement acquisition</strong>:<br>$$<br>\varphi_{t}(x)=\mathbb{E}\left[\max \left{0, f(x)-\tau_{t-1}\right} |\left{\left(x_{i}, y_{i}\right)\right}_{i=1}^{t-1}\right]<br>$$<br>measures the expected improvement over the current maximum value  according to the posterior GP<br>$$<br>\tau_{t-1}=\operatorname{argmax}_{i&lt;t-1} f\left(x_{i}\right)<br>$$<br>$\tau_{t-1}$ denote the current best value</p>
+<p><strong>GP/BO in the context of architecture search</strong></p>
+<p>$\kappa\left(x, x^{\prime}\right)$ is a measure of similarity between $x$ and $x’$</p>
+<p>If $\kappa\left(x, x^{\prime}\right)$ is large, then $f(x)$ and $f(x’)$ are highly corrlated</p>
+<p>In BO, we select the next point, balance between <strong>exploitation</strong>, choosing points that we believe will have high $f$ value, and <strong>exploration</strong>, choosing points that we do not know much about so that we do not get such at a bad optimum</p>
+<h3 id="A-mathematical-Formalism-for-Neural-networks"><a href="#A-mathematical-Formalism-for-Neural-networks" class="headerlink" title="A mathematical Formalism for Neural networks"></a>A mathematical Formalism for Neural networks</h3><p>View a neural network as a graph whose <strong>vertices</strong> are the <strong>layers</strong> of the network</p>
+<p>$\mathcal{G}=(\mathcal{L}, \mathcal{E})$, a set of layers $\mathcal{L}$ and directed edges $\mathcal{E}$</p>
+<p>An edge $(u, v) \in \mathcal{E}$ is a ordered pair of layers</p>
+<p>A <strong>layer label $\ell \ell(u)$</strong> denotes the <strong>type of operations</strong> performed at the layer. $\ell_u()$ denotes the number of computational units in a layer</p>
+<p>Each network has <strong>decision layers</strong> which are used to obtain the predictions of the network</p>
+<ul>
+<li>input layer  $\ell \ell(u_{ip})=ip$</li>
+<li>output layer $\ell \ell(u_{op})=op$</li>
+<li>processing layers</li>
+<li>decision layer</li>
+</ul>
+<p>The output of each layer if fed to each of its children. When a layer has multiple parents, the inputs are concatenated</p>
+<p>The neural network are also characterized by the values of the weights/parameters between layers. In AS, do not consider these weights ===?===</p>
+<p> <strong>Distance</strong>:</p>
+<p>Our eventual goal is a kernel for GP</p>
+<p>A distance $d$, we will aim for $\kappa\left(x, x^{\prime}\right)=e^{-\beta d\left(x, x^{\prime}\right)^{p}}$</p>
+<p>E.g.,$d$ is the L2 norm, p=1,2 correspond to the Laplacian and Gaussian kernels respectively</p>
+<h2 id="The-OTMANN-distance"><a href="#The-OTMANN-distance" class="headerlink" title="The OTMANN distance"></a>The OTMANN distance</h2><p>OTAMNN is defined as the minimum of a matching scheme which attempts to <strong>match the computation at the layers of one network to the layers of the other</strong></p>
+<p><strong>Penalties</strong> for matching layers with different types of operations or those at structurally different positions. Will find a <strong>matching that minimizes these penalties</strong></p>
+<p>First two concepts: layer masses, path length</p>
+<ul>
+<li>layer masses</li>
+<li>path length</li>
+</ul>
+<h3 id="layer-masses"><a href="#layer-masses" class="headerlink" title="layer masses"></a>layer masses</h3><p>$\ell m$, the quantity that match between the layers of two networks when comparing them</p>
+<p>$\ell m(u)$, quantify the significance of layer $u$ </p>
+<ul>
+<li>For processing layer, computed via the product of $\ell u(u)$ and the number of incoming units</li>
+<li>For input and output layer, use $\ell m\left(u_{\mathrm{ip}}\right)=\ell m\left(u_{\mathrm{op}}\right)=\zeta \sum_{u \in \mathcal{P} \mathcal{L}} \ell m(u)$where $\mathcal{P} \mathcal{L}$ denotes the set of processing layers, $\zeta$ is a parameter to be determined</li>
+<li>For decision layer, assign an amount of mass proportional to the mass in the processing layers. Since, the outputs of the decision layers are averaged, we distribute the mass among all the decision layers $\forall u \in \mathcal{D} \mathcal{L}, \ell m(u)=\frac{\zeta}{|\mathcal{D} \mathcal{L}|} \sum_{u \in \mathcal{P} \mathcal{L}} \ell m(u)$, $\zeta=0.1$ </li>
+</ul>
+<h3 id="Path-lengths-from-to-u-ip-u-op"><a href="#Path-lengths-from-to-u-ip-u-op" class="headerlink" title="Path lengths from/to $u_{ip}, u_{op}$"></a>Path lengths from/to $u_{ip}, u_{op}$</h3><ul>
+<li>shortest path length from $u$ to $v$</li>
+<li>longest path length from $u$ to $v$</li>
+<li>random walk path length, choose uniformly at random</li>
+</ul>
+<p>$\delta_{\mathrm{ip}}^{\mathrm{sp}}(u), \delta_{\mathrm{ip}}^{\operatorname{lp}}(u), \delta_{\mathrm{ip}}^{\mathrm{rw}}(u)$, walks from the input $u_{ip}$ to $u$</p>
+<p>$Z(i, j)$ denotes the amount of mass matched between layer $i \in \mathcal{G}_{1}$ and $j \in \mathcal{G}_{2}$</p>
+<ul>
+<li>Label mismatch penalty $\phi_{lmm}$</li>
+</ul>
 
       
     </div>
@@ -546,7 +647,7 @@ AbstractBayesian Optimisation refers to a class of methods for global optimisati
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Abstract"><span class="nav-number">1.</span> <span class="nav-text">Abstract</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction"><span class="nav-number">2.</span> <span class="nav-text">Introduction</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Abstract"><span class="nav-number">1.</span> <span class="nav-text">Abstract</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction"><span class="nav-number">2.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Set-up"><span class="nav-number">3.</span> <span class="nav-text">Set up</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#A-brief-review-of-Gaussian-Process-based-on-Bayesian-Optimisation"><span class="nav-number">3.1.</span> <span class="nav-text">A brief review of Gaussian Process based on Bayesian Optimisation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#A-mathematical-Formalism-for-Neural-networks"><span class="nav-number">3.2.</span> <span class="nav-text">A mathematical Formalism for Neural networks</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#The-OTMANN-distance"><span class="nav-number">4.</span> <span class="nav-text">The OTMANN distance</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#layer-masses"><span class="nav-number">4.1.</span> <span class="nav-text">layer masses</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Path-lengths-from-to-u-ip-u-op"><span class="nav-number">4.2.</span> <span class="nav-text">Path lengths from/to $u_{ip}, u_{op}$</span></a></li></ol></li></ol></div>
             
 
           </div>
