@@ -79,27 +79,22 @@
 
 
 
-<meta name="description" content="QuestionGiven a non-negative integer numRows, generate the first numRows of Pascal’s triangle.
-In Pascal’s triangle, each number is the sum of the two numbers directly above it.
-Example:
-123456789Inpu">
+<meta name="description" content="Designing neural network architectures using Reinforcement 
+AbstractMetaQNN, a meta-modeling algorithm based on reinforcement learning 
+Learning agent is trained to sequentially choose CNN layers usin">
 <meta property="og:type" content="article">
-<meta property="og:title" content="118.Pascal's Triangle">
-<meta property="og:url" content="http://yoursite.com/2018/06/15/118-Pascal-s-Triangle/index.html">
+<meta property="og:title" content="Designing neural network architectures using Reinforcement learning">
+<meta property="og:url" content="http://yoursite.com/2019/06/27/Designing-neural-network-architectures-using-Reinforcement-learning/index.html">
 <meta property="og:site_name" content="Anne">
-<meta property="og:description" content="QuestionGiven a non-negative integer numRows, generate the first numRows of Pascal’s triangle.
-In Pascal’s triangle, each number is the sum of the two numbers directly above it.
-Example:
-123456789Inpu">
-<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/0/0d/PascalTriangleAnimated2.gif">
-<meta property="og:updated_time" content="2018-06-17T03:36:43.862Z">
+<meta property="og:description" content="Designing neural network architectures using Reinforcement 
+AbstractMetaQNN, a meta-modeling algorithm based on reinforcement learning 
+Learning agent is trained to sequentially choose CNN layers usin">
+<meta property="og:updated_time" content="2019-06-28T01:50:14.116Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="118.Pascal's Triangle">
-<meta name="twitter:description" content="QuestionGiven a non-negative integer numRows, generate the first numRows of Pascal’s triangle.
-In Pascal’s triangle, each number is the sum of the two numbers directly above it.
-Example:
-123456789Inpu">
-<meta name="twitter:image" content="https://upload.wikimedia.org/wikipedia/commons/0/0d/PascalTriangleAnimated2.gif">
+<meta name="twitter:title" content="Designing neural network architectures using Reinforcement learning">
+<meta name="twitter:description" content="Designing neural network architectures using Reinforcement 
+AbstractMetaQNN, a meta-modeling algorithm based on reinforcement learning 
+Learning agent is trained to sequentially choose CNN layers usin">
 
 
 
@@ -129,13 +124,13 @@ Example:
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/06/15/118-Pascal-s-Triangle/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/06/27/Designing-neural-network-architectures-using-Reinforcement-learning/"/>
 
 
 
 
 
-  <title>118.Pascal's Triangle | Anne</title>
+  <title>Designing neural network architectures using Reinforcement learning | Anne</title>
   
 
 
@@ -272,7 +267,7 @@ Example:
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/15/118-Pascal-s-Triangle/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/27/Designing-neural-network-architectures-using-Reinforcement-learning/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Anne_ZAJ">
@@ -289,7 +284,7 @@ Example:
 
         
         
-          <h1 class="post-title" itemprop="name headline">118.Pascal's Triangle</h1>
+          <h1 class="post-title" itemprop="name headline">Designing neural network architectures using Reinforcement learning</h1>
         
 
         <div class="post-meta">
@@ -301,8 +296,8 @@ Example:
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-06-15T21:26:54+08:00">
-                2018-06-15
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-06-27T12:09:57+08:00">
+                2019-06-27
               </time>
             
 
@@ -324,8 +319,19 @@ Example:
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/LeetCode/" itemprop="url" rel="index">
-                    <span itemprop="name">LeetCode</span>
+                  <a href="/categories/paper/" itemprop="url" rel="index">
+                    <span itemprop="name">paper</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/paper/AutoML/" itemprop="url" rel="index">
+                    <span itemprop="name">AutoML</span>
                   </a>
                 </span>
 
@@ -361,14 +367,32 @@ Example:
       
 
       
-        <h4 id="Question"><a href="#Question" class="headerlink" title="Question"></a>Question</h4><p>Given a non-negative integer <em>numRows</em>, generate the first <em>numRows</em> of Pascal’s triangle.</p>
-<p><img src="https://upload.wikimedia.org/wikipedia/commons/0/0d/PascalTriangleAnimated2.gif" alt="img"><br>In Pascal’s triangle, each number is the sum of the two numbers directly above it.</p>
-<p><strong>Example:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">Input: 5</div><div class="line">Output:</div><div class="line">[</div><div class="line">     [1],</div><div class="line">    [1,1],</div><div class="line">   [1,2,1],</div><div class="line">  [1,3,3,1],</div><div class="line"> [1,4,6,4,1]</div><div class="line">]</div></pre></td></tr></table></figure>
-<a id="more"></a>
-<h4 id="Answer"><a href="#Answer" class="headerlink" title="Answer"></a>Answer</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="keyword">public</span> List&lt;List&lt;Integer&gt;&gt; generate(<span class="keyword">int</span> numRows) &#123;</div><div class="line">        List&lt;List&lt;Integer&gt;&gt; res = <span class="keyword">new</span> ArrayList&lt;List&lt;Integer&gt;&gt;();</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;numRows;i++)&#123;</div><div class="line">            List&lt;Integer&gt; temp = <span class="keyword">new</span> ArrayList&lt;&gt;();</div><div class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;i+<span class="number">1</span>;j++)&#123;</div><div class="line">                <span class="keyword">if</span>(j==<span class="number">0</span> || j==i)</div><div class="line">                    temp.add(<span class="number">1</span>);</div><div class="line">                <span class="keyword">else</span></div><div class="line">                    temp.add(res.get(i-<span class="number">1</span>).get(j-<span class="number">1</span>)+res.get(i-<span class="number">1</span>).get(j));</div><div class="line">            &#125;</div><div class="line">            res.add(temp);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> res;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>Running time：O(n^2)</p>
-<p>Space：O(n^2)</p>
+        <p><strong>Designing neural network architectures using Reinforcement</strong> </p>
+<h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h2><p><strong>MetaQNN</strong>, a meta-modeling algorithm based on reinforcement learning </p>
+<p>Learning agent is trained to sequentially choose CNN layers using <strong>Q-learning</strong> with an $\epsilon$-greedy exploration strategy and experience replay</p>
+<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><ul>
+<li>sequentially picking layers of a CNN model</li>
+<li>random exploration and slowly begins to exploit its findings to select higher performing models using the $\epsilon$-greedy </li>
+<li>reward: validation accuracy</li>
+<li>experience replay</li>
+<li>suited for transfer learning tasks</li>
+</ul>
+<h2 id="Related-work"><a href="#Related-work" class="headerlink" title="Related work"></a>Related work</h2><h3 id="Designing-neural-network-architectures"><a href="#Designing-neural-network-architectures" class="headerlink" title="Designing neural network architectures"></a>Designing neural network architectures</h3><ul>
+<li>NEAT algorithm: Evolving neural networks through augmenting topologies</li>
+<li>screening methods in genetic: A high-throughput screening approach to discovering good forms of biologically inspired visual representation</li>
+<li>sidestep the architecture selection process: Convolutional neural fabrics</li>
+<li>Bayesian optimization: <ul>
+<li>Speeding up automatic hyperparameter optimization of deep neural networks by extrapolation of learning curves</li>
+<li>Algorithms for hyper-parameter</li>
+</ul>
+</li>
+</ul>
+<h3 id="Reinforcement-learning"><a href="#Reinforcement-learning" class="headerlink" title="Reinforcement learning"></a>Reinforcement learning</h3><ul>
+<li>game-playing agents</li>
+<li>robotic control</li>
+<li>over-exploration can lead to slow convergence times</li>
+<li>over-exploitation can lead to convergence to local optima</li>
+</ul>
 
       
     </div>
@@ -393,8 +417,8 @@ Example:
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/06/13/160-Intersection-of-Two-Linked-Lists/" rel="next" title="160.Intersection of Two Linked Lists">
-                <i class="fa fa-chevron-left"></i> 160.Intersection of Two Linked Lists
+              <a href="/2019/06/25/Neural-Architecture-Search-with-Bayesian-Optimisation-and-Optimal-Transport/" rel="next" title="Neural Architecture Search with Bayesian Optimisation and Optimal Transport">
+                <i class="fa fa-chevron-left"></i> Neural Architecture Search with Bayesian Optimisation and Optimal Transport
               </a>
             
           </div>
@@ -402,10 +426,6 @@ Example:
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/06/17/LeetCode-Java-Summary/" rel="prev" title="LeetCode-Java-Summary">
-                LeetCode-Java-Summary <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -543,7 +563,7 @@ Example:
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Question"><span class="nav-number">1.</span> <span class="nav-text">Question</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Answer"><span class="nav-number">2.</span> <span class="nav-text">Answer</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Abstract"><span class="nav-number">1.</span> <span class="nav-text">Abstract</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction"><span class="nav-number">2.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Related-work"><span class="nav-number">3.</span> <span class="nav-text">Related work</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Designing-neural-network-architectures"><span class="nav-number">3.1.</span> <span class="nav-text">Designing neural network architectures</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reinforcement-learning"><span class="nav-number">3.2.</span> <span class="nav-text">Reinforcement learning</span></a></li></ol></li></ol></div>
             
 
           </div>
