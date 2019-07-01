@@ -79,22 +79,24 @@
 
 
 
-<meta name="description" content="Designing neural network architectures using Reinforcement 
+<meta name="description" content="Designing neural network architectures using Reinforcement, ICLR 2017
 AbstractMetaQNN, a meta-modeling algorithm based on reinforcement learning 
-Learning agent is trained to sequentially choose CNN layers usin">
+Learning agent is trained to sequentially choose CNN l">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Designing neural network architectures using Reinforcement learning">
 <meta property="og:url" content="http://yoursite.com/2019/06/27/Designing-neural-network-architectures-using-Reinforcement-learning/index.html">
 <meta property="og:site_name" content="Anne">
-<meta property="og:description" content="Designing neural network architectures using Reinforcement 
+<meta property="og:description" content="Designing neural network architectures using Reinforcement, ICLR 2017
 AbstractMetaQNN, a meta-modeling algorithm based on reinforcement learning 
-Learning agent is trained to sequentially choose CNN layers usin">
-<meta property="og:updated_time" content="2019-06-30T02:26:40.361Z">
+Learning agent is trained to sequentially choose CNN l">
+<meta property="og:image" content="http://yoursite.com/\img\NAS-Qlearning.png">
+<meta property="og:updated_time" content="2019-07-01T09:50:15.047Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Designing neural network architectures using Reinforcement learning">
-<meta name="twitter:description" content="Designing neural network architectures using Reinforcement 
+<meta name="twitter:description" content="Designing neural network architectures using Reinforcement, ICLR 2017
 AbstractMetaQNN, a meta-modeling algorithm based on reinforcement learning 
-Learning agent is trained to sequentially choose CNN layers usin">
+Learning agent is trained to sequentially choose CNN l">
+<meta name="twitter:image" content="http://yoursite.com/\img\NAS-Qlearning.png">
 
 
 
@@ -367,7 +369,7 @@ Learning agent is trained to sequentially choose CNN layers usin">
       
 
       
-        <p><strong>Designing neural network architectures using Reinforcement</strong> </p>
+        <p><strong>Designing neural network architectures using Reinforcement, ICLR 2017</strong></p>
 <h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h2><p><strong>MetaQNN</strong>, a meta-modeling algorithm based on reinforcement learning </p>
 <p>Learning agent is trained to sequentially choose CNN layers using <strong>Q-learning</strong> with an $\epsilon$-greedy exploration strategy and experience replay</p>
 <a id="more"></a>
@@ -394,6 +396,82 @@ Learning agent is trained to sequentially choose CNN layers usin">
 <li>over-exploration can lead to slow convergence times</li>
 <li>over-exploitation can lead to convergence to local optima</li>
 </ul>
+<h2 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h2><p>Q-learning</p>
+<p>MDP in a finite-horizon environment</p>
+<p>constrain the environment to be finite-horizon ensures that the agent will deterministically terminate in a finite number of time steps</p>
+<ul>
+<li><p>Discrete and finite state space: $S$, action space: $U$</p>
+</li>
+<li><p>stochastic transitions: $p(s_j|s_i, u)$</p>
+</li>
+<li><p>$r_t(s,u,s’)$</p>
+</li>
+</ul>
+<p>Maximize the total expected reward over all possible trajectories<br>$$<br>R_{\mathcal{T}_{i}}=\sum_{\left(s, u, s^{\prime}\right) \in \mathcal{T}_{i}} \mathbb{E}_{r | s, u, s^{\prime}}\left[r | s, u, s^{\prime}\right]<br>$$<br>maximum total expected reward to be $Q^*(s_i,u)$, action-value function </p>
+<p><strong>Bellman equation</strong>:<br>$$<br>Q^{<em>}\left(s_{i}, u\right)=\mathbb{E}_{s_{j} | s_{i}, u}\left[\mathbb{E}_{r | s_{i}, u, s_{j}}\left[r | s_{i}, u, s_{j}\right]+\gamma \max _{u^{\prime} \in \mathcal{U}\left(s_{j}\right)} Q^{</em>}\left(s_{j}, u^{\prime}\right)\right]<br>$$<br>an iterative update:<br>$$<br>Q_{t+1}\left(s_{i}, u\right)=(1-\alpha) Q_{t}\left(s_{i}, u\right)+\alpha\left[r_{t}+\gamma \max _{u^{\prime} \in \mathcal{U}\left(s_{j}\right)} Q_{t}\left(s_{j}, u^{\prime}\right)\right]<br>$$</p>
+<ul>
+<li>$\alpha$， Q-learning rate，determines the weight given to new information over old information</li>
+<li>$\gamma$，discount factor，determines the weight given to short-term rewards over future rewards</li>
+</ul>
+<ul>
+<li>model-free, without ever explicitly constructing an estimate of environmental dynamics</li>
+<li>off policy</li>
+</ul>
+<p>probability $\epsilon$, random action is taken</p>
+<p>probability $1-\epsilon$, action: $\max _{u \in \mathcal{U}\left(s_{i}\right)} Q_{t}\left(s_{i}, u\right)$</p>
+<p>$\epsilon = 1$, exploration; $\epsilon = 0$, exploitation</p>
+<p>When the exploration cost is large, beneficial to use the experience replay</p>
+<h2 id="Designing-Neural-Network-Architectures-with-Q-learning"><a href="#Designing-Neural-Network-Architectures-with-Q-learning" class="headerlink" title="Designing Neural Network Architectures with Q-learning"></a>Designing Neural Network Architectures with Q-learning</h2><p>the task of training a learning agent to sequentially choose neural network layers</p>
+<p>model the layer selectin progress as a MDP with the assumption that a well-performing layer in the network should also perform well in another network</p>
+<p>The CNN architecture defined by the agent’s path is trained on the chosen learning problem, the agent is given a reward equal to the validation accuracy</p>
+<h3 id="The-state-space"><a href="#The-state-space" class="headerlink" title="The state space"></a>The state space</h3><p>Each state is defined as a tuple of all relevant layer parameter</p>
+<p>5 different types of layers:</p>
+<ul>
+<li>convolution (C)</li>
+<li>pooling (P)</li>
+<li>fully connected (FC)</li>
+<li>global average pooling (GAP)</li>
+<li>softmax (SM)</li>
+</ul>
+<p>the relevant parameters for each layer and also discrete them</p>
+<p>Also, layer depth, specify a maximum number of layers the agent may select before terminating</p>
+<p>Parameter: <strong>Representation size</strong>    </p>
+<p>Pooling and convolution, these layers may lead the agent on a trajectory where the intermediate signal representation gets reduced to a size that is too small for further processing</p>
+<p>Add Representation size(R-size) n that have a receptive field size less than or equal n</p>
+<p>Constrict action from states with R-size n to those that have a receptive field sizes into three discrete buckets</p>
+<p>However, binning adds uncertainty to the state transitions</p>
+<p>E.g.: bin1:$[8,\infty], (0,7]$</p>
+<p>R-size: 18, R-size bin: 1 –P(2,2)–&gt; R-size: 9, R-size bin: 1</p>
+<p>R-size: 14, R-size bin: 1 –P(2,2)–&gt; R-size: 7, R-size bin: 2</p>
+<h3 id="The-action-space"><a href="#The-action-space" class="headerlink" title="The action space"></a>The action space</h3><p>Allow:</p>
+<ul>
+<li>agent to terminate a path at any point</li>
+<li>transitions for a state with layer depth i to a state with layer depth i+1</li>
+</ul>
+<p>Limit the number of fully connected layers to be maximum two, in case two many learnable parameters</p>
+<p>convolution may transition to a state with any other layer type</p>
+<p>pooling may transition to a state with any other layer type other than pooling, because consecutive pooling layers are equivalent to a single, larger pooling layer</p>
+<p>only states with representation size in bins $(8,4],(4,1]$ may transition to an FC layers</p>
+<p>A majority of these constraints are in place to enable faster convergence</p>
+<h3 id="Q-learning-training-procedure"><a href="#Q-learning-training-procedure" class="headerlink" title="Q-learning training procedure"></a>Q-learning training procedure</h3><ul>
+<li>Q lr $(\alpha)$ to 0.01</li>
+<li>discount factor $(\gamma)$ to 1</li>
+<li>decrease $\epsilon$ from 1 to 0.1 steps</li>
+</ul>
+<p>maintain a replay dictionary: </p>
+<ul>
+<li>the network topology</li>
+<li>prediction performance on a validation set</li>
+</ul>
+<p>After each model is sampled and trained, the agent randomly samples 100 models from the replay dictionary and applies the Q-value</p>
+<h2 id="Experiment-details"><a href="#Experiment-details" class="headerlink" title="Experiment details"></a>Experiment details</h2><h2 id="Result"><a href="#Result" class="headerlink" title="Result"></a>Result</h2><ul>
+<li>model-selection analysis</li>
+<li>prediction performance</li>
+<li>transfer learning ability</li>
+</ul>
+<p><img src="\img\NAS-Qlearning.png" alt="NAS-Qlearning result"></p>
+<h2 id="Concluding-remarks"><a href="#Concluding-remarks" class="headerlink" title="Concluding remarks"></a>Concluding remarks</h2><p>Future:</p>
+<p>In our current implementation, we use the same set of hyperparameters to train all network topologies during the Q-learning phase and further finetune the hyperparameters for top models selected by the MetaQNN agent. However, our approach could be combined with hyperparameter optimization methods to further automate the network design process. Moreover, we constrict the state-action space using coarse, discrete bins to accelerate convergence. It would be possible to move to larger state-action spaces using methods for Q-function approximation (Bertsekas, 2015; Mnih et al., 2015)</p>
 
       
     </div>
@@ -564,7 +642,7 @@ Learning agent is trained to sequentially choose CNN layers usin">
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Abstract"><span class="nav-number">1.</span> <span class="nav-text">Abstract</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction"><span class="nav-number">2.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Related-work"><span class="nav-number">3.</span> <span class="nav-text">Related work</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Designing-neural-network-architectures"><span class="nav-number">3.1.</span> <span class="nav-text">Designing neural network architectures</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reinforcement-learning"><span class="nav-number">3.2.</span> <span class="nav-text">Reinforcement learning</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Abstract"><span class="nav-number">1.</span> <span class="nav-text">Abstract</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction"><span class="nav-number">2.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Related-work"><span class="nav-number">3.</span> <span class="nav-text">Related work</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Designing-neural-network-architectures"><span class="nav-number">3.1.</span> <span class="nav-text">Designing neural network architectures</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reinforcement-learning"><span class="nav-number">3.2.</span> <span class="nav-text">Reinforcement learning</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Background"><span class="nav-number">4.</span> <span class="nav-text">Background</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Designing-Neural-Network-Architectures-with-Q-learning"><span class="nav-number">5.</span> <span class="nav-text">Designing Neural Network Architectures with Q-learning</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#The-state-space"><span class="nav-number">5.1.</span> <span class="nav-text">The state space</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#The-action-space"><span class="nav-number">5.2.</span> <span class="nav-text">The action space</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Q-learning-training-procedure"><span class="nav-number">5.3.</span> <span class="nav-text">Q-learning training procedure</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Experiment-details"><span class="nav-number">6.</span> <span class="nav-text">Experiment details</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Result"><span class="nav-number">7.</span> <span class="nav-text">Result</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Concluding-remarks"><span class="nav-number">8.</span> <span class="nav-text">Concluding remarks</span></a></li></ol></div>
             
 
           </div>
