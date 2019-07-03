@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="default">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Neural Architecture Optimization, NIPS
+AbstractPropose a simple and efficient method to automatic neural architecture design based on continuous optimization
+3 components:
+
+an encoder embeds/maps neur">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Neural Architecture Optimization">
+<meta property="og:url" content="http://yoursite.com/2019/07/03/Neural-Architecture-Optimization/index.html">
+<meta property="og:site_name" content="Anne">
+<meta property="og:description" content="Neural Architecture Optimization, NIPS
+AbstractPropose a simple and efficient method to automatic neural architecture design based on continuous optimization
+3 components:
+
+an encoder embeds/maps neur">
+<meta property="og:image" content="http://yoursite.com/\img\NAO.png">
+<meta property="og:image" content="http://yoursite.com/\img\NAO-flow.png">
+<meta property="og:image" content="http://yoursite.com/\img\NAO-result.png">
+<meta property="og:updated_time" content="2019-07-03T13:22:37.035Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Neural Architecture Optimization">
+<meta name="twitter:description" content="Neural Architecture Optimization, NIPS
+AbstractPropose a simple and efficient method to automatic neural architecture design based on continuous optimization
+3 components:
+
+an encoder embeds/maps neur">
+<meta name="twitter:image" content="http://yoursite.com/\img\NAO.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/07/03/Neural-Architecture-Optimization/"/>
+
+
+
+
+
+  <title>Neural Architecture Optimization | Anne</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Anne</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Anne.github.io</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-categories"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/03/Neural-Architecture-Optimization/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Anne_ZAJ">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/me.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Anne">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Neural Architecture Optimization</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-07-03T21:16:56+08:00">
+                2019-07-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/paper/" itemprop="url" rel="index">
+                    <span itemprop="name">paper</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/paper/AutoML/" itemprop="url" rel="index">
+                    <span itemprop="name">AutoML</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><strong>Neural Architecture Optimization, NIPS</strong></p>
+<h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h2><p>Propose a simple and efficient method to automatic neural architecture design based on continuous optimization</p>
+<p>3 components:</p>
+<ul>
+<li>an <strong>encoder</strong> embeds/maps neural network architectures into a continuous space</li>
+<li>a predictor takes the <strong>continuous</strong> representation of a network as input and predicts its accuracy</li>
+<li>a <strong>decoder</strong> maps a continuous representation of a network back to its architecture</li>
+</ul>
+<p>competitive for CIFAR-10 and PTB</p>
+<p>successfully transfered</p>
+<p>limited computational resources, less than 10 GPU hours</p>
+<a id="more"></a>
+<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p><strong>RL:</strong></p>
+<p>the choice of a component of the architecture is regarded as an action</p>
+<p>a sequence of actions defines an architecture of a neural network, whose dev set accuracy is used as the reward</p>
+<p><strong>EA:</strong></p>
+<p>search is performed through mutations and re-combinations of architectural components, where those architectures with better performances will be picked to continue evolution</p>
+<p>essentially perform search within the <strong>discrete architecture space</strong></p>
+<p>However, directly searching the best architecture within discrete space is inefficient given the exponentially growing search space with the number of choices increasing</p>
+<p>Optimize network architecture by mapping architectures into a continuous vector space, <strong>network embeddings</strong>, and conducting optimization in this continuous space via <strong>gradient based</strong> method</p>
+<p><img src="\img\NAO.png" alt="NAO"></p>
+<ul>
+<li><p>Core of NAO is an <strong>encoder</strong> model responsible to map a neural network into a continuous representation, <strong>build a regression model</strong> to approximate the final <strong>performance</strong> </p>
+<p>similar to the performance predictor</p>
+</li>
+<li><p><strong>decoder</strong> is an LSTM model equipped with an attention mechanism that makes the exact recovery easy</p>
+</li>
+</ul>
+<p>weight sharing mechanism in ENAS, reduce the large complexity in the parameter space of child models</p>
+<h2 id="Related-work"><a href="#Related-work" class="headerlink" title="Related work"></a>Related work</h2><p>Most recent work parallel to this is <strong>DARTS</strong>:</p>
+<ul>
+<li>Both NAO and DARTS conducts continuous optimization via gradient based method</li>
+<li>Different, the continuous space:<ul>
+<li>DARTS, mixture weights</li>
+<li>NAO, embedding of neural architectures</li>
+</ul>
+</li>
+<li>Different, how to derive the best architecture from continuous space:<ul>
+<li>DARTS, argmax of mixture weights</li>
+<li>NAO, decoder to exactly recover the discrete architecture</li>
+</ul>
+</li>
+</ul>
+<p><strong>BO</strong>:</p>
+<p>the effectiveness of GP heavily relies on the choice of covariance function $K(x,x’)$ which essentially models the similarity between two architectures $x$ and $x’$ </p>
+<p>One need to pay more efforts in setting good  $K(x,x’)$ in the context of architecture design, bringing additional manual efforts whereas the performance might still be unsatisfactory</p>
+<p>As a comparison, do not build method on GP setup and empirically find that our model is simpler and more intuitive works much better in practice</p>
+<h2 id="Approach"><a href="#Approach" class="headerlink" title="Approach"></a>Approach</h2><h3 id="Architecture-space"><a href="#Architecture-space" class="headerlink" title="Architecture space"></a>Architecture space</h3><h3 id="For-searching-CNN-architecture"><a href="#For-searching-CNN-architecture" class="headerlink" title="For searching CNN architecture"></a>For searching CNN architecture</h3><p>CNN architecture is hierarchical in that a cell is stacked for a certain number of times (denoted as N) to form the final CNN architecture</p>
+<p>Goal is to design a <strong>cell</strong> </p>
+<p>A cell is a convolutional neural network containing <strong>B nodes</strong></p>
+<p>Each of the nodes contains <strong>two branches</strong>, 11 operations</p>
+<ul>
+<li>decide which two previous nodes are used as the inputs to its two branches</li>
+<li>decide the operation to apply to its two branches</li>
+</ul>
+<h3 id="For-searching-RNN-architectures"><a href="#For-searching-RNN-architectures" class="headerlink" title="For searching RNN architectures"></a>For searching RNN architectures</h3><ul>
+<li>a previous node as its input</li>
+<li>the activation function to apply</li>
+</ul>
+<p>Use a <strong>sequence</strong> consisting of <strong>discrete string tokens</strong> to describe a CNN or RNN architecture</p>
+<p>E.g., CNN cell: node-2 conv 3<em>3 node1 max-pooling 3\</em>3 </p>
+<h3 id="Components-of-Neural-Architecture-Optimization"><a href="#Components-of-Neural-Architecture-Optimization" class="headerlink" title="Components of Neural Architecture Optimization"></a>Components of Neural Architecture Optimization</h3><ul>
+<li>encoder</li>
+<li>performance predictor</li>
+<li>decoder</li>
+</ul>
+<h4 id="Encoder"><a href="#Encoder" class="headerlink" title="Encoder"></a>Encoder</h4><p>takes the string sequence describing an architecture as input, maps it into a continuous space $\mathcal{E}$ </p>
+<p>encoder:<br>$$<br>E : \mathcal{X} \rightarrow \mathcal{E}\\<br>e_{x}=E(x)<br>$$<br>use a single layer <strong>LSTM</strong> as the basic model of encoder</p>
+<p><strong>hidden</strong> state of the LSTM are used as the <strong>continuous representation</strong> of $x$<br>$$<br>e_{x}=\left{h_{1}, h_{2}, \cdots, h_{T}\right} \in \mathcal{R}^{T \times d}<br>$$</p>
+<h4 id="Performance-predictor"><a href="#Performance-predictor" class="headerlink" title="Performance predictor"></a>Performance predictor</h4><p>$$<br>f : \mathcal{E} \rightarrow \mathcal{R}^{+}<br>$$</p>
+<p>map the continuous representation $e_x$ of an architecture $x$ into its performance $s_x$ measured by dev set accuracy<br>$$<br>e_{x}=\left{h_{1}, \cdots, h_{T}\right} \text { to obtain } \overline{e}_{x}=\frac{1}{T} \sum_{t}^{T} h_{t}<br>$$<br>then maps $\overline{e}_{x}$ to a scalar value using a feed-forward network as the predicted performance</p>
+<p>training data: $x,s_x$ </p>
+<p>minimize the least square regression loss: $\left(s_{x}-f(E(x))\right)^{2}$</p>
+<p>guarantee the <strong>permutation invariance</strong> of architecture embedding: if $x_1$ and $x_2$ are <strong>symmetric</strong> ( $x_2$ is formed via swapping two branches with a node in $x_1$), their embeddings should be <strong>close</strong> to produce the same performance prediction scores</p>
+<p>to achieve that, adopt a simple data augmentation approach inspired from the data augmentation method in cv</p>
+<p>for each $(x_1, s_x)$ add additional pair  $(x_2, s_x)$ where  $x_1$ and $x_2$ are <strong>symmetric</strong>, use both pairs to train the encoder and performance predictor</p>
+<p>found that acting in this way brings non-trivial gain</p>
+<h4 id="Decoder"><a href="#Decoder" class="headerlink" title="Decoder"></a>Decoder</h4><p>$$<br>D : \mathcal{E} \rightarrow x\\<br>x=D\left(e_{x}\right)<br>$$</p>
+<p>D: an LSTM model </p>
+<p><strong>attention mechanism</strong> is leveraged to make decoding easier, output a context vector $ctx_r$ combining all encoder outputs ${h_t}^T_{t=1}$ at timestep $r$<br>$$<br>P_{D}\left(x | e_{x}\right)=\prod_{r=1}^{T} P_{D}\left(x_{r} | e_{x}, x_{&lt;r}\right) \text { on } x<br>$$</p>
+<p>$$<br>P_{D}\left(x_{r} | e_{x}, x_{&lt;r}\right)=\frac{\exp \left(W_{x_{r}}\left[s_{r}, c t x_{r}\right]\right)}{\sum_{x^{\prime} \in V_{r}} \exp \left(W_{x^{\prime}}\left[s_{r}, c t x_{r}\right]\right)}<br>$$</p>
+<p>==need to check attention again==<br>$$<br>\text{maximize }\log P_{D}(x | E(x))=\sum_{r=1}^{T} \log P_{D}\left(x_{r} | E(x), x_{&lt;r}\right)<br>$$</p>
+<h3 id="Training-and-inference"><a href="#Training-and-inference" class="headerlink" title="Training and inference"></a>Training and inference</h3><p>Jointly train the encoder $E$, performance predictor $f$ and decoder $D$ by minimizing the combination of performance prediction loss $L_{pp}$ and structure reconstruction loss $L_{rec}$<br>$$<br>L=\lambda L_{p p}+(1-\lambda) L_{r e c}=\lambda \sum_{x \in X}(s_{x}-f(E(x))^{2}-(1-\lambda) \sum_{x \in X} \log P_{D}(x | E(x))<br>$$<br>==why do not have encoder loss==</p>
+<p><strong>performance prediction</strong> loss acts as a <strong>regularizer</strong> that forces the encoder not optimized into a trivial state to simply copy tokens in the decoder side, which is typically eschewed by <strong>adding noise</strong> in encoding $x$ by previous work</p>
+<p>Both the encoder and decoder are optimized to convergence, the inference process for better architectures is performed in the continuous space $\mathcal{E}$</p>
+<p>a better continuous representation $e_{x’}$ along the <strong>gradient</strong> direction of $f$:<br>$$<br>h_{t}^{\prime}=h_{t}+\eta \frac{\partial f}{\partial h_{t}}, \quad e_{x^{\prime}}=\left{h_{1}^{\prime}, \cdots, h_{T}^{\prime}\right}<br>$$<br>Afterwards, we feed $e_{x’}$ into  decoder to obtain a new architecture $x’$ assumed to have better performance</p>
+<p>call the original architecture $x$ as <strong>‘seed’ architecture</strong> and iterate such process for several rounds</p>
+<p><img src="\img\NAO-flow.png" alt=""></p>
+<h3 id="Combination-with-weight-sharing"><a href="#Combination-with-weight-sharing" class="headerlink" title="Combination with weight sharing"></a>Combination with weight sharing</h3><p>Different with NAO that tries to reduce the huge computational cost brought by the search algorithm, weight sharing aims to ease the huge complexity brought by massive child models via the one-shot model setup</p>
+<h2 id="Experiments"><a href="#Experiments" class="headerlink" title="Experiments"></a>Experiments</h2><h3 id="Results-on-CIFAR-10-classification"><a href="#Results-on-CIFAR-10-classification" class="headerlink" title="Results on CIFAR-10 classification"></a>Results on CIFAR-10 classification</h3><p>After the best cell architecture is found, we build a larger network by stacking such cells 6 times, and enlarging the filter size, and train it on the whole training datasets</p>
+<p>among 600 randomly sampled architectures, randomly choose 50 of them as $X_{test}$</p>
+<p>To <strong>evaluate $f$</strong>:</p>
+<p>$acc_f  = \frac{\sum_{x_{1} \in X_{\text {test}}, x_{2} \in X_{\text {test}}} \mathbb{1}_{f\left(E\left(x_{1}\right)\right) \geq f\left(E\left(x_{2}\right)\right)} \mathbb{1}_{s_{x_{1}} \geq s_{x_{2}}}}{\sum_{x_{1} \in X_{\text {test}}, x_{2} \in X_{\text {test}}} 1}$</p>
+<p>To <strong>evaluator decode $D$</strong>: compute Hamming distance, denoted  as Dist<br>$$<br>_{D}=\frac{1}{ | X_{\text {test}}|} \sum_{x \in X_{\text {test}}} \operatorname{Dist}(D(E(x)), x)<br>$$<br>Hamming distance: number of 1 in a XOR b</p>
+<p>Result:</p>
+<p>the decoder D is powerful in that it can almost exactly recover the network architecture less than 0.5, on average the difference between the decoded sequence and the original one is less than 0.5 tokens</p>
+<p>Inspect whether the <strong>gradient update</strong> really helps to generate better architecture representations that are further decoded to architectures via $D$</p>
+<p>compare:</p>
+<ul>
+<li>the mean of <strong>real performance values</strong>: $\frac{1}{\left|X_{\text {eval}}\right|} \sum_{x \in X_{\text {eval}}} s_{x}$</li>
+<li>the mean of <strong>predicted value</strong>: $\frac{1}{\left|X_{e v a l}\right|} \sum_{x \in X_{e v a l}} f(E(x))$ </li>
+</ul>
+<p>Turns out small gap</p>
+<h3 id="Transferring-the-discovered-architecture-to-CIFAR-10"><a href="#Transferring-the-discovered-architecture-to-CIFAR-10" class="headerlink" title="Transferring the discovered architecture to CIFAR-10"></a>Transferring the discovered architecture to CIFAR-10</h3><p><img src="\img\NAO-result.png" alt="NAO-result.ong"></p>
+<h3 id="Results-of-Language-Modeling-on-PTB"><a href="#Results-of-Language-Modeling-on-PTB" class="headerlink" title="Results of Language Modeling on PTB"></a>Results of Language Modeling on PTB</h3><h3 id="Transferring-the-discovered-architecture-to-WikiText-2"><a href="#Transferring-the-discovered-architecture-to-WikiText-2" class="headerlink" title="Transferring the discovered architecture to WikiText-2"></a>Transferring the discovered architecture to WikiText-2</h3><h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><h3 id="Future-work"><a href="#Future-work" class="headerlink" title="Future work"></a>Future work</h3><ul>
+<li>try other methods to further improve the performance of the discovered architecture, e.g., mixture of softmax for language modeling</li>
+<li>apply NAO to discover better architectures for more applications such as Neural Machine Translation</li>
+<li>design better neural models from the view of teaching and <strong>learning to learn</strong></li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/06/27/Designing-neural-network-architectures-using-Reinforcement-learning/" rel="next" title="Designing neural network architectures using Reinforcement learning">
+                <i class="fa fa-chevron-left"></i> Designing neural network architectures using Reinforcement learning
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/me.JPG"
+                alt="Anne_ZAJ" />
+            
+              <p class="site-author-name" itemprop="name">Anne_ZAJ</p>
+              <p class="site-description motion-element" itemprop="description">boom pow</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">134</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Abstract"><span class="nav-number">1.</span> <span class="nav-text">Abstract</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction"><span class="nav-number">2.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Related-work"><span class="nav-number">3.</span> <span class="nav-text">Related work</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Approach"><span class="nav-number">4.</span> <span class="nav-text">Approach</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Architecture-space"><span class="nav-number">4.1.</span> <span class="nav-text">Architecture space</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#For-searching-CNN-architecture"><span class="nav-number">4.2.</span> <span class="nav-text">For searching CNN architecture</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#For-searching-RNN-architectures"><span class="nav-number">4.3.</span> <span class="nav-text">For searching RNN architectures</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Components-of-Neural-Architecture-Optimization"><span class="nav-number">4.4.</span> <span class="nav-text">Components of Neural Architecture Optimization</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Encoder"><span class="nav-number">4.4.1.</span> <span class="nav-text">Encoder</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Performance-predictor"><span class="nav-number">4.4.2.</span> <span class="nav-text">Performance predictor</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Decoder"><span class="nav-number">4.4.3.</span> <span class="nav-text">Decoder</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Training-and-inference"><span class="nav-number">4.5.</span> <span class="nav-text">Training and inference</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Combination-with-weight-sharing"><span class="nav-number">4.6.</span> <span class="nav-text">Combination with weight sharing</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Experiments"><span class="nav-number">5.</span> <span class="nav-text">Experiments</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Results-on-CIFAR-10-classification"><span class="nav-number">5.1.</span> <span class="nav-text">Results on CIFAR-10 classification</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Transferring-the-discovered-architecture-to-CIFAR-10"><span class="nav-number">5.2.</span> <span class="nav-text">Transferring the discovered architecture to CIFAR-10</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Results-of-Language-Modeling-on-PTB"><span class="nav-number">5.3.</span> <span class="nav-text">Results of Language Modeling on PTB</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Transferring-the-discovered-architecture-to-WikiText-2"><span class="nav-number">5.4.</span> <span class="nav-text">Transferring the discovered architecture to WikiText-2</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Conclusion"><span class="nav-number">6.</span> <span class="nav-text">Conclusion</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Future-work"><span class="nav-number">6.1.</span> <span class="nav-text">Future work</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Anne_ZAJ</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.3</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.staticfile.org/MathJax/MathJax-2.6-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>
